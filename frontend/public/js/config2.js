@@ -22,7 +22,7 @@ config.preDrawJs = function () {};
 config.patterns = {};
 config.patternArray = [
   {
-    stringId: "stack",
+    stringId: "stack1",
     name: "Stack",
     id: 1,
     brand: null,
@@ -44,7 +44,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "stretcher",
+    stringId: "stretcher2",
     name: "Stretcher",
     id: 2,
     brand: null,
@@ -66,7 +66,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "herringbone",
+    stringId: "herringbone3",
     name: "Herringbone",
     id: 3,
     brand: null,
@@ -88,7 +88,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "flemish",
+    stringId: "flemish4",
     name: "Flemish",
     id: 4,
     brand: null,
@@ -110,7 +110,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "common",
+    stringId: "common5",
     name: "Common",
     id: 5,
     brand: null,
@@ -132,7 +132,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "chevron",
+    stringId: "chevron6",
     name: "Chevron",
     id: 6,
     brand: null,
@@ -154,7 +154,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "staggered",
+    stringId: "staggered7",
     name: "Staggered",
     id: 7,
     brand: null,
@@ -176,7 +176,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "ashlar",
+    stringId: "ashlar8",
     name: "Ashlar",
     id: 8,
     brand: null,
@@ -193,12 +193,12 @@ config.patternArray = [
     hatchJoints: "fromImage",
     hatchMinGrid: 0,
     uiHide: null,
-    uiShow: '["#min-width-input-group", "#min-height-input-group"]',
+    uiShow: '["#min-width-input-group","#min-height-input-group"]',
     widthLabel: null,
     defaultParams: null,
   },
   {
-    stringId: "cubic",
+    stringId: "cubic9",
     name: "Cubic",
     id: 9,
     brand: null,
@@ -220,7 +220,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "hexagonal",
+    stringId: "hexagonal10",
     name: "Hexagonal",
     id: 10,
     brand: null,
@@ -242,7 +242,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "basketweave",
+    stringId: "basketweave11",
     name: "Basketweave",
     id: 11,
     brand: null,
@@ -264,7 +264,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "hopscotch",
+    stringId: "hopscotch12",
     name: "Hopscotch",
     id: 12,
     brand: null,
@@ -286,7 +286,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "diamond",
+    stringId: "diamond13",
     name: "Diamond",
     id: 13,
     brand: null,
@@ -308,7 +308,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "circular",
+    stringId: "circular14",
     name: "Circular",
     id: 14,
     brand: null,
@@ -330,7 +330,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "fishscale",
+    stringId: "fishscale15",
     name: "Fishscale",
     id: 15,
     brand: null,
@@ -352,7 +352,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "french",
+    stringId: "french16",
     name: "French",
     id: 16,
     brand: null,
@@ -374,7 +374,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "none",
+    stringId: "none17",
     name: "None",
     id: 17,
     brand: null,
@@ -391,14 +391,14 @@ config.patternArray = [
     hatchJoints: null,
     hatchMinGrid: 1,
     uiHide:
-      '["#width-height-container", "#rows-input-group", "#columns-input-group", "#joints-section", "#add-material-container"]',
+      '["#width-height-container","#rows-input-group","#columns-input-group","#joints-section","#add-material-container"]',
     uiShow:
-      '["#rows-input-group", "#columns-input-group", ".tile-size-container", "#width-input-group", "#height-input-group", ".tone-container", ".edges-container", "#joints-section", "#add-material-container", ".additional-material-section"]',
+      '["#rows-input-group","#columns-input-group",".tile-size-container","#width-input-group","#height-input-group",".tone-container",".edges-container","#joints-section","#add-material-container",".additional-material-section"]',
     widthLabel: null,
     defaultParams: null,
   },
   {
-    stringId: "rubble",
+    stringId: "rubble18",
     name: "Rubble",
     id: 18,
     brand: null,
@@ -420,7 +420,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "drystone",
+    stringId: "drystone19",
     name: "Drystone",
     id: 19,
     brand: null,
@@ -442,7 +442,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "coursedAshlar",
+    stringId: "coursedAshlar20",
     name: "Coursed Ashlar",
     id: 20,
     brand: null,
@@ -464,7 +464,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "mansionWeave",
+    stringId: "mansionWeave21",
     name: "Mansion Weave",
     id: 21,
     brand: null,
@@ -486,7 +486,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "europeanFan",
+    stringId: "europeanFan22",
     name: "European Fan",
     id: 22,
     brand: null,
@@ -508,7 +508,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "houndstooth",
+    stringId: "houndstooth23",
     name: "Houndstooth",
     id: 23,
     brand: null,
@@ -530,7 +530,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "windmill",
+    stringId: "windmill24",
     name: "Windmill",
     id: 24,
     brand: null,
@@ -552,7 +552,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "hexagonWeave",
+    stringId: "hexagonWeave25",
     name: "Hexagon Weave",
     id: 25,
     brand: null,
@@ -574,7 +574,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "plus",
+    stringId: "plus26",
     name: "Plus",
     id: 26,
     brand: null,
@@ -596,7 +596,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "plusSquare",
+    stringId: "plusSquare27",
     name: "Plus and Square",
     id: 27,
     brand: null,
@@ -618,7 +618,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "swissCross",
+    stringId: "swissCross28",
     name: "Swiss Cross",
     id: 28,
     brand: null,
@@ -640,7 +640,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "swissCrossSquare",
+    stringId: "swissCrossSquare29",
     name: "Swiss Cross and Square",
     id: 29,
     brand: null,
@@ -662,7 +662,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "triangle",
+    stringId: "triangle30",
     name: "Triangle",
     id: 30,
     brand: null,
@@ -684,7 +684,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "triangleChevron",
+    stringId: "triangleChevron31",
     name: "Triangle Chevron",
     id: 31,
     brand: null,
@@ -706,7 +706,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "triangleDiamond",
+    stringId: "triangleDiamond32",
     name: "Triangle Diamond",
     id: 32,
     brand: null,
@@ -728,7 +728,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "isosceles",
+    stringId: "isosceles33",
     name: "Isosceles",
     id: 33,
     brand: null,
@@ -750,7 +750,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "staggeredIsosceles",
+    stringId: "staggeredIsosceles34",
     name: "Staggered Isosceles",
     id: 34,
     brand: null,
@@ -772,7 +772,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "compass",
+    stringId: "compass35",
     name: "Compass",
     id: 35,
     brand: null,
@@ -794,7 +794,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "octagonStar",
+    stringId: "octagonStar36",
     name: "Octagon Star",
     id: 36,
     brand: null,
@@ -816,7 +816,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "octagonSquare",
+    stringId: "octagonSquare37",
     name: "Octagon Square",
     id: 37,
     brand: null,
@@ -838,7 +838,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "intersectingCircle",
+    stringId: "intersectingCircle38",
     name: "Intersecting Circle",
     id: 38,
     brand: null,
@@ -860,7 +860,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "hourglass",
+    stringId: "hourglass39",
     name: "Hourglass",
     id: 39,
     brand: null,
@@ -882,7 +882,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "alternatingFishscale",
+    stringId: "alternatingFishscale40",
     name: "Alternating Fishscale",
     id: 40,
     brand: null,
@@ -904,7 +904,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "ogeeFishscale",
+    stringId: "ogeeFishscale41",
     name: "Ogee Fishscale",
     id: 41,
     brand: null,
@@ -926,7 +926,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "hexagonAndTriangle",
+    stringId: "hexagonAndTriangle42",
     name: "Hexagon and Triangle",
     id: 42,
     brand: null,
@@ -948,7 +948,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "starAndHexagon",
+    stringId: "starAndHexagon43",
     name: "Star and Hexagon",
     id: 43,
     brand: null,
@@ -970,7 +970,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "starAndCross",
+    stringId: "starAndCross44",
     name: "Star and Cross",
     id: 44,
     brand: null,
@@ -992,7 +992,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "bsAguisse",
+    stringId: "bsAguisse54",
     name: "Chantilly",
     id: 54,
     brand: null,
@@ -1014,7 +1014,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "bsCheckers",
+    stringId: "bsCheckers60",
     name: "Chess Weave",
     id: 60,
     brand: null,
@@ -1036,7 +1036,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "bsVersailles",
+    stringId: "bsVersailles61",
     name: "Versailles",
     id: 61,
     brand: null,
@@ -1058,7 +1058,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "bsMarelle",
+    stringId: "bsMarelle63",
     name: "Haddon Hall",
     id: 63,
     brand: null,
@@ -1080,7 +1080,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "doubleHerringbone",
+    stringId: "doubleHerringbone65",
     name: "Double Herringbone",
     id: 65,
     brand: null,
@@ -1102,7 +1102,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "tripleHerringbone",
+    stringId: "tripleHerringbone70",
     name: "Triple Herringbone",
     id: 70,
     brand: null,
@@ -1124,7 +1124,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "bsChevron",
+    stringId: "bsChevron75",
     name: "Chevron",
     id: 75,
     brand: null,
@@ -1146,7 +1146,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "bsMoulin",
+    stringId: "bsMoulin130",
     name: "Crosshatch",
     id: 130,
     brand: null,
@@ -1168,7 +1168,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "mixedStones",
+    stringId: "mixedStones131",
     name: "Ionian",
     id: 131,
     brand: null,
@@ -1190,7 +1190,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "roundedRubble",
+    stringId: "roundedRubble132",
     name: "Rounded Rubble",
     id: 132,
     brand: null,
@@ -1212,7 +1212,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "corfu",
+    stringId: "corfu134",
     name: "Corfiot",
     id: 134,
     brand: null,
@@ -1234,7 +1234,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "variableHexagon",
+    stringId: "variableHexagon137",
     name: "Variable Hexagon",
     id: 137,
     brand: null,
@@ -1256,7 +1256,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "variedTerrazzo157",
     name: "Varied Terrazzo",
     id: 157,
     brand: null,
@@ -1278,7 +1278,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "consistentWidthTerrazzo159",
     name: "Consistent Width Terrazzo",
     id: 159,
     brand: null,
@@ -1300,7 +1300,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "variedSizeTerrazzo160",
     name: "Varied Size Terrazzo",
     id: 160,
     brand: null,
@@ -1322,7 +1322,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "roundedRectangleTerrazzo161",
     name: "Rounded Rectangle Terrazzo",
     id: 161,
     brand: null,
@@ -1344,7 +1344,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "leaf226",
     name: "Leaf",
     id: 226,
     brand: null,
@@ -1366,7 +1366,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "diamondWeave231",
     name: "Diamond Weave",
     id: 231,
     brand: null,
@@ -1388,7 +1388,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "angledChevron232",
     name: "Angled Chevron",
     id: 232,
     brand: null,
@@ -1410,7 +1410,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "trueChevron233",
     name: "True Chevron",
     id: 233,
     brand: null,
@@ -1432,7 +1432,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "diamondInDiamond234",
     name: "Diamond in Diamond",
     id: 234,
     brand: null,
@@ -1454,7 +1454,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "trapeze243",
     name: "Trapeze",
     id: 243,
     brand: null,
@@ -1476,7 +1476,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "paseo249",
     name: "Paseo",
     id: 249,
     brand: null,
@@ -1498,7 +1498,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "unifiedHerringbone251",
     name: "Unified Herringbone",
     id: 251,
     brand: null,
@@ -1520,7 +1520,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "arabesqueLantern263",
     name: "Arabesque Lantern",
     id: 263,
     brand: null,
@@ -1542,7 +1542,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "arabesqueFloral266",
     name: "Arabesque Floral",
     id: 266,
     brand: null,
@@ -1564,7 +1564,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "fourLeaf276",
     name: "Four Leaf",
     id: 276,
     brand: null,
@@ -1586,7 +1586,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "halfHexagon277",
     name: "Half Hexagon",
     id: 277,
     brand: null,
@@ -1608,7 +1608,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "picketAndSquare278",
     name: "Picket and Square",
     id: 278,
     brand: null,
@@ -1630,7 +1630,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "interlockingWave279",
     name: "Interlocking Wave",
     id: 279,
     brand: null,
@@ -1652,7 +1652,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "angledTrapezoids280",
     name: "Angled Trapezoids",
     id: 280,
     brand: null,
@@ -1674,7 +1674,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "trapezoidTriangle281",
     name: "Trapezoid Triangle",
     id: 281,
     brand: null,
@@ -1696,7 +1696,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "bowtiePavers282",
     name: "Bowtie Pavers",
     id: 282,
     brand: null,
@@ -1718,7 +1718,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "kite283",
     name: "Kite",
     id: 283,
     brand: null,
@@ -1740,7 +1740,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "scarpa284",
     name: "Scarpa",
     id: 284,
     brand: null,
@@ -1762,7 +1762,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "zigZagPavers286",
     name: "Zig Zag Pavers",
     id: 286,
     brand: null,
@@ -1784,7 +1784,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "doubleStretcher289",
     name: "Double Stretcher",
     id: 289,
     brand: null,
@@ -1806,7 +1806,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "doubleChevronDiamond290",
     name: "Double Chevron Diamond",
     id: 290,
     brand: null,
@@ -1828,7 +1828,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "chevronDiamond291",
     name: "Chevron Diamond",
     id: 291,
     brand: null,
@@ -1850,7 +1850,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "propellerPavers293",
     name: "Propeller Pavers",
     id: 293,
     brand: null,
@@ -1872,7 +1872,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "triHexPavers294",
     name: "Tri Hex Pavers",
     id: 294,
     brand: null,
@@ -1894,7 +1894,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "vPavers295",
     name: "V Pavers ",
     id: 295,
     brand: null,
@@ -1916,7 +1916,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "crazyPaving303",
     name: "Crazy Paving",
     id: 303,
     brand: null,
@@ -1938,7 +1938,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "crazyPaving304",
     name: "Crazy Paving",
     id: 304,
     brand: null,
@@ -1960,7 +1960,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "crazyPaving306",
     name: "Crazy Paving",
     id: 306,
     brand: null,
@@ -1982,7 +1982,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "tripleStretcher307",
     name: "Triple Stretcher",
     id: 307,
     brand: null,
@@ -2004,7 +2004,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "singleBasketweave310",
     name: "Single Basketweave",
     id: 310,
     brand: null,
@@ -2026,8 +2026,8 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
-    name: "T\u00e1vora",
+    stringId: "táVora311",
+    name: "Távora",
     id: 311,
     brand: null,
     categories: '["Paving", "Geometric"]',
@@ -2048,7 +2048,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "1By4RunningBond312",
     name: "1/4 Running Bond",
     id: 312,
     brand: null,
@@ -2070,7 +2070,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "1By3RunningBond314",
     name: "1/3 Running Bond",
     id: 314,
     brand: null,
@@ -2092,7 +2092,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "doubleStretcherWithHeader315",
     name: "Double Stretcher with Header",
     id: 315,
     brand: null,
@@ -2114,7 +2114,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "interlockingRectanglePavers317",
     name: "Interlocking Rectangle Pavers",
     id: 317,
     brand: null,
@@ -2136,7 +2136,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "interlockingRectangleWithSquare318",
     name: "Interlocking Rectangle with Square",
     id: 318,
     brand: null,
@@ -2158,7 +2158,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "doubleFlemish320",
     name: "Double Flemish",
     id: 320,
     brand: null,
@@ -2180,7 +2180,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "1By3Stretcher322",
     name: "1/3 Stretcher ",
     id: 322,
     brand: null,
@@ -2202,7 +2202,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "1By4Stretcher323",
     name: "1/4 Stretcher",
     id: 323,
     brand: null,
@@ -2224,7 +2224,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "octagonSquare342",
     name: "Octagon Square",
     id: 342,
     brand: null,
@@ -2246,7 +2246,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "6PointIntersectingCircle344",
     name: "6 Point Intersecting Circle",
     id: 344,
     brand: null,
@@ -2268,7 +2268,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "brokenHerringbone349",
     name: "Broken Herringbone",
     id: 349,
     brand: null,
@@ -2290,7 +2290,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "snowflake350",
     name: "Snowflake",
     id: 350,
     brand: null,
@@ -2312,7 +2312,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "crossVersailles351",
     name: "Cross Versailles",
     id: 351,
     brand: null,
@@ -2334,7 +2334,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "pyramidVersailles352",
     name: "Pyramid Versailles",
     id: 352,
     brand: null,
@@ -2356,7 +2356,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "cycloneVersailles353",
     name: "Cyclone Versailles",
     id: 353,
     brand: null,
@@ -2378,7 +2378,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "diamondContinuousVersailles354",
     name: "Diamond Continuous Versailles",
     id: 354,
     brand: null,
@@ -2400,7 +2400,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "framedVersailles356",
     name: "Framed Versailles",
     id: 356,
     brand: null,
@@ -2422,7 +2422,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "framedVersailles357",
     name: "Framed Versailles",
     id: 357,
     brand: null,
@@ -2444,7 +2444,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "randomBond358",
     name: "Random Bond",
     id: 358,
     brand: null,
@@ -2466,7 +2466,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "tripleFlemish360",
     name: "Triple Flemish",
     id: 360,
     brand: null,
@@ -2488,7 +2488,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "gothicBond362",
     name: "Gothic Bond",
     id: 362,
     brand: null,
@@ -2510,7 +2510,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "silesianBond363",
     name: "Silesian Bond",
     id: 363,
     brand: null,
@@ -2532,7 +2532,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "monkBond364",
     name: "Monk Bond",
     id: 364,
     brand: null,
@@ -2554,7 +2554,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "englishBond365",
     name: "English Bond",
     id: 365,
     brand: null,
@@ -2576,7 +2576,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "venetian366",
     name: "Venetian",
     id: 366,
     brand: null,
@@ -2598,7 +2598,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "banner367",
     name: "Banner",
     id: 367,
     brand: null,
@@ -2620,7 +2620,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "cloudWeave368",
     name: "Cloud Weave",
     id: 368,
     brand: null,
@@ -2642,7 +2642,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "trapezeHex369",
     name: "Trapeze Hex",
     id: 369,
     brand: null,
@@ -2664,7 +2664,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "parallelogram370",
     name: "Parallelogram",
     id: 370,
     brand: null,
@@ -2686,7 +2686,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "triangleSquareMosaic371",
     name: "Triangle Square Mosaic",
     id: 371,
     brand: null,
@@ -2708,7 +2708,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "petalMosaic372",
     name: "Petal Mosaic",
     id: 372,
     brand: null,
@@ -2730,7 +2730,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "octagonPicket374",
     name: "Octagon Picket",
     id: 374,
     brand: null,
@@ -2752,7 +2752,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "uncoursedAshlar376",
     name: "Uncoursed Ashlar",
     id: 376,
     brand: null,
@@ -2774,7 +2774,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "brokenRangeAshlar377",
     name: "Broken Range Ashlar",
     id: 377,
     brand: null,
@@ -2796,7 +2796,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "threePieceModularPaver378",
     name: "Three Piece Modular Paver",
     id: 378,
     brand: null,
@@ -2818,7 +2818,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "fourPieceModularPaver379",
     name: "Four Piece Modular Paver",
     id: 379,
     brand: null,
@@ -2840,7 +2840,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "octagramMosaic382",
     name: "Octagram Mosaic",
     id: 382,
     brand: null,
@@ -2862,7 +2862,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "starMosaic384",
     name: "Star Mosaic",
     id: 384,
     brand: null,
@@ -2884,7 +2884,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "6PointStarMosaic385",
     name: "6 Point Star Mosaic",
     id: 385,
     brand: null,
@@ -2906,7 +2906,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "hexagonDiamond387",
     name: "Hexagon Diamond",
     id: 387,
     brand: null,
@@ -2928,7 +2928,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: null,
+    stringId: "diamondSquare392",
     name: "Diamond Square",
     id: 392,
     brand: null,
