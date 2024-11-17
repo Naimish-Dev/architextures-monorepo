@@ -10,7 +10,7 @@
     content="A web app for architects and designers. Find materials &amp; create seamless textures, bump maps and CAD hatches" />
   <meta name="viewport" content="width=device-width">
   <meta name="theme-color" content="#eaece8">
-  <link rel="icon" type="image/png" sizes="128x128" href="http://locahost:8081/img/icon128.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="http://localhost:8081/img/icon128.png">
 
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" as="style">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" as="style">
@@ -23,6 +23,7 @@
   <link href="/css/create.css" rel='stylesheet' />
 
   <script src="/js/jquery-3.4.1.min.js"></script>
+  <script src="/js/jquery-init.js"></script>
   <script src="/vendor/spectrum.js"></script>
   <script src="/js/config.js"></script>
   <script src="/vendor/piexif.js"></script>
@@ -80,13 +81,13 @@
   <div id="controls">
     <div class="header">
       <a style="display:flex;" href="/">
-        <img id="app-title-image" src="http://locahost:8081/img/artx-logo.svg">
+        <img id="app-title-image" src="http://localhost:8081/img/artx-logo.svg">
       </a>
       <div class="s-gap cc">
-        <img class="icon menu-toggle" data-target="kebab-menu" src="http://locahost:8081/img/icons/settings-b.svg">
-        <img src="http://locahost:8081/icons/kebab.svg" class="icon menu-toggle" data-target="more-menu">
+        <img class="icon menu-toggle" data-target="kebab-menu" src="http://localhost:8081/img/icons/settings-b.svg">
+        <img src="http://localhost:8081/icons/kebab.svg" class="icon menu-toggle" data-target="more-menu">
         <img id="back-button-in-create-header" class="icon" data-back-button
-          src="http://locahost:8081/icons/arrow-left.svg">
+          src="http://localhost:8081/icons/arrow-left.svg">
       </div>
     </div>
 
@@ -169,10 +170,10 @@
       <div id="3d-controls" class="additional-controls" style="display:none;">
         <div id="3d-shape" class="gbutton-container">
           <div data-view="plane" class="gbutton cc">
-            <img src="http://locahost:8081/icons/plane.svg">
+            <img src="http://localhost:8081/icons/plane.svg">
           </div>
           <div data-view="sphere" class="gbutton cc">
-            <img src="http://locahost:8081/icons/sphere.svg">
+            <img src="http://localhost:8081/icons/sphere.svg">
           </div>
         </div>
         <div class="section section-first">
@@ -191,7 +192,7 @@
               <input id="pattern-input" type="text" class="hidden-input parameter" data-crop="new" data-regen="true" />
             </div>
             <div id="pattern-rotate" data-rotate="0" class="input square-input">
-              <img src="http://locahost:8081/icons/rotate.svg">
+              <img src="http://localhost:8081/icons/rotate.svg">
             </div>
           </div>
           <div class="input-row">
@@ -233,8 +234,8 @@
             <div class="cc s-gap" style="color:#555;font-size:11px;">
               <img id="scale-warning"
                 data-tooltip="Materials have been scaled beyond their true size to meet dimensions"
-                style="display:none;width: 17px;" class="icon" src="http://locahost:8081/icons/warning.svg?v=2">
-              <img id="reset-texture" class="icon" style="width: 15px;" src="http://locahost:8081/icons/retile.svg">
+                style="display:none;width: 17px;" class="icon" src="http://localhost:8081/icons/warning.svg?v=2">
+              <img id="reset-texture" class="icon" style="width: 15px;" src="http://localhost:8081/icons/retile.svg">
             </div>
           </div>
           <div class="input-row">
@@ -248,14 +249,14 @@
             <div id="material-rotate" data-rotate="0"
               class="input square-input material-rotate click-parameter parameter app-param style-param"
               data-param="rotate">
-              <img src="http://locahost:8081/icons/rotate.svg">
+              <img src="http://localhost:8081/icons/rotate.svg">
             </div>
           </div>
           <a class="manufacturer-label-link" style="display:none;" target="_blank" href="#">
             <div class="manufacturer-label pseudo-select">
               <img class="manufacturer-label-img pseudo-select-img">
               <div class="circle-thumb pseudo-icon"
-                style="background-image: url(http://locahost:8081/img/icons/link.svg);">
+                style="background-image: url(http://localhost:8081/img/icons/link.svg);">
               </div>
             </div>
           </a>
@@ -349,7 +350,7 @@
                 id="adjustments">
                 <div class="pseudo-select-text">Levels, Hue, Tint</div>
                 <div class="circle-thumb pseudo-icon"
-                  style="background-image: url(http://locahost:8081/img/adjustments.png);"></div>
+                  style="background-image: url(http://localhost:8081/img/adjustments.png);"></div>
               </div>
             </div>
             <div id="tint-container" class="input-group tint-container">
@@ -358,7 +359,7 @@
                 class="spectrum app-param pseudo-select menu-toggle app-input">
                 <div class="pseudo-select-text">Select</div>
                 <div class="circle-thumb pseudo-icon"
-                  style="background-image: url('http://locahost:8081/img/paint.png');">
+                  style="background-image: url('http://localhost:8081/img/paint.png');">
                 </div>
               </div>
             </div>
@@ -368,19 +369,19 @@
                 <div class="pseudo-select menu-toggle app-input edges" data-target="edges-menu" id="edges">
                   <div class="pseudo-select-text">Select</div>
                   <div class="circle-thumb pseudo-icon"
-                    style="background-image: url(http://locahost:8081/img/icons/edges.svg);"></div>
+                    style="background-image: url(http://localhost:8081/img/icons/edges.svg);"></div>
                 </div>
               </div>
               <div class="input-group square-input profiles-container">
                 <div class="input-label">Profile</div>
                 <div class="input menu-toggle cc" data-target="profile-menu">
-                  <img style="max-height:38%;" src="http://locahost:8081/icons/profile.svg">
+                  <img style="max-height:38%;" src="http://localhost:8081/icons/profile.svg">
                 </div>
               </div>
               <div class="input-group square-input finishes-container">
                 <div class="input-label">Finish</div>
                 <div class="input menu-toggle cc" data-target="finish-menu">
-                  <img style="max-height:38%;" src="http://locahost:8081/icons/finish.svg">
+                  <img style="max-height:38%;" src="http://localhost:8081/icons/finish.svg">
                 </div>
               </div>
             </div>
@@ -403,16 +404,16 @@
               <div class="input-row pbr-tray">
                 <div class="input menu-toggle cc" style="max-width:100%;" title="Displacement settings"
                   data-target="displacement-menu"><img style="max-height:45%;"
-                    src="http://locahost:8081/icons/displacement.svg?v=8"></div>
+                    src="http://localhost:8081/icons/displacement.svg?v=8"></div>
                 <div class="input menu-toggle cc" style="max-width:100%;" title="Bump settings" data-target="bump-menu">
-                  <img style="max-height:40%;" src="http://locahost:8081/icons/bump2.svg?v=7">
+                  <img style="max-height:40%;" src="http://localhost:8081/icons/bump2.svg?v=7">
                 </div>
                 <div class="input menu-toggle cc" style="max-width:100%;" title="Roughness settings"
                   data-target="roughness-menu"><img style="max-height:55%"
-                    src="http://locahost:8081/icons/roughness.svg?v=3"></div>
+                    src="http://localhost:8081/icons/roughness.svg?v=3"></div>
                 <div class="input menu-toggle cc" style="max-width:100%;" title="Metalness settings"
                   data-target="metalness-menu"><img style="max-height:55%"
-                    src="http://locahost:8081/icons/metalness.svg?v=2"></div>
+                    src="http://localhost:8081/icons/metalness.svg?v=2"></div>
               </div>
             </div>
           </div>
@@ -424,7 +425,7 @@
           style="display:none;" data-section="material">
           <div class="sh cv">
             <div class="section-header">Material</div>
-            <img src="http://locahost:8081/icons/x.svg" class="icon remove-material menu-toggle" style="width:15px;">
+            <img src="http://localhost:8081/icons/x.svg" class="icon remove-material menu-toggle" style="width:15px;">
           </div>
           <div class="input-row">
             <div class="material pseudo-proxy pseudo-select menu-toggle app-input psuedo-with-rotate"
@@ -434,14 +435,14 @@
             </div>
             <div class="input square-input material-rotate click-parameter parameter app-param style-param"
               data-param="rotate">
-              <img src="http://locahost:8081/icons/rotate.svg">
+              <img src="http://localhost:8081/icons/rotate.svg">
             </div>
           </div>
           <a class="manufacturer-label-link" style="display:none;">
             <div class="manufacturer-label pseudo-select">
               <img class="manufacturer-label-img pseudo-select-img">
               <div class="circle-thumb pseudo-icon"
-                style="background-image: url(http://locahost:8081/img/icons/link.svg);">
+                style="background-image: url(http://localhost:8081/img/icons/link.svg);">
               </div>
             </div>
           </a>
@@ -472,13 +473,13 @@
           <div class="input-group rules-container placement-option" style="display:none;">
             <div class="pseudo-select menu-toggle app-input define-rules" data-target="rules-menu">
               <div class="pseudo-select-text">Rules</div>
-              <img src="http://locahost:8081/icons/rules.svg">
+              <img src="http://localhost:8081/icons/rules.svg">
             </div>
           </div>
           <div class="input-group placement-select-container placement-option" style="display:none;">
             <div class="pseudo-select app-input placement-select" data-target="selection-menu">
               <div class="pseudo-select-text">Select</div>
-              <img src="http://locahost:8081/icons/cursor.svg">
+              <img src="http://localhost:8081/icons/cursor.svg">
             </div>
           </div>
           <div class="design-options-container">
@@ -488,7 +489,7 @@
             <div class="pseudo-select menu-toggle app-input adjustments" data-target="adjustments-menu">
               <div class="pseudo-select-text">Levels, Hue, Tint</div>
               <div class="circle-thumb pseudo-icon"
-                style="background-image: url(http://locahost:8081/img/adjustments.png);">
+                style="background-image: url(http://localhost:8081/img/adjustments.png);">
               </div>
             </div>
           </div>
@@ -498,7 +499,7 @@
               class="tile-tint spectrum pseudo-select menu-toggle app-input">
               <div class="pseudo-select-text">Select</div>
               <div class="circle-thumb pseudo-icon"
-                style="background-image: url('http://locahost:8081/img/paint.png');">
+                style="background-image: url('http://localhost:8081/img/paint.png');">
               </div>
             </div>
           </div>
@@ -507,7 +508,7 @@
             <div class="pseudo-select menu-toggle app-input edges" data-target="edges-menu">
               <div class="pseudo-select-text">Select</div>
               <div class="circle-thumb pseudo-icon"
-                style="background-image: url(http://locahost:8081/img/icons/edges-1.svg);"></div>
+                style="background-image: url(http://localhost:8081/img/icons/edges-1.svg);"></div>
             </div>
           </div>
           <div class=" tone-container">
@@ -531,7 +532,7 @@
           <a href="/pro" class="pro none" target="_blank"
             style="position: absolute; right: var(--app-section-margin);">Get Pro</a>
           <div id="add-material" class="new-section-button inactive" data-count="1">
-            <img style="width:18px;" src="http://locahost:8081/icons/plus.svg">
+            <img style="width:18px;" src="http://localhost:8081/icons/plus.svg">
             <div class="new-section-button-text">Add Another Material</div>
             <input id="tile-material-selector" type="hidden" class="parameter">
           </div>
@@ -546,7 +547,7 @@
               <input id="joints-input" type="text" class="hidden-input parameter" data-regen="true" />
             </div>
             <div id="joints-rotate" style="display:none;" class="input square-input parameter app-param">
-              <img src="http://locahost:8081/icons/rotate.svg">
+              <img src="http://localhost:8081/icons/rotate.svg">
             </div>
           </div>
           <div class="input-row">
@@ -556,13 +557,13 @@
                 class="spectrum pseudo-select menu-toggle app-input">
                 <div class="pseudo-select-text">Select</div>
                 <div class="circle-thumb pseudo-icon"
-                  style="background-image: url('http://locahost:8081/img/paint.png');">
+                  style="background-image: url('http://localhost:8081/img/paint.png');">
                 </div>
               </div>
             </div>
             <div data-target="joint-adjustments-menu" class="menu-toggle input-group square-input">
               <div class="input cc">
-                <img src="http://locahost:8081/icons/adjustments.svg">
+                <img src="http://localhost:8081/icons/adjustments.svg">
               </div>
             </div>
           </div>
@@ -578,8 +579,8 @@
             </div>
             <div id="chain-icon" class="input-group square-input active">
               <div class="input cc">
-                <img id="joints-locked" src="http://locahost:8081/icons/locked.svg">
-                <img id="joints-unlocked" src="http://locahost:8081/icons/unlocked.svg" style="display:none;">
+                <img id="joints-locked" src="http://localhost:8081/icons/locked.svg">
+                <img id="joints-unlocked" src="http://localhost:8081/icons/unlocked.svg" style="display:none;">
               </div>
             </div>
             <div id="joint-size-vertical-input-group" class="input-group">
@@ -629,7 +630,7 @@
   <div class="menu spectrum-menu" data-option="spectrum" id="spectrum-menu">
     <div class="header">
       <div class="menu-title menu-item">Select Colour</div>
-      <img class="icon menu-toggle" src="http://locahost:8081/icons/x.svg">
+      <img class="icon menu-toggle" src="http://localhost:8081/icons/x.svg">
     </div>
     <div class="menu-content spectrum-menu-content" id="menu-content-spectrum">
       <input type="text" id="spectrum-input" />
@@ -709,7 +710,7 @@
           <option value="Roofing">Roofing</option>
         </select>
         <input id="pattern-search" autocomplete="off" type="text" class="small" placeholder="Search">
-        <img src="http://locahost:8081/icons/x.svg" class="icon menu-toggle">
+        <img src="http://localhost:8081/icons/x.svg" class="icon menu-toggle">
       </div>
     </div>
     <div class="menu-content">
@@ -761,21 +762,21 @@
       <div class="section section-first">
         <div class="planet-container system-container">
           <div id="material-solid" class="menu-option" data-name="Solid" data-option="solid" data-name="Solid Colour"
-            data-thumb="solid" data-type="solid" data-image-src="http://locahost:8081/img/solid.png?v=2"
+            data-thumb="solid" data-type="solid" data-image-src="http://localhost:8081/img/solid.png?v=2"
             data-real-width="999999">
             <div id="solid-color"
               class="menu-option-img-container option-img-container solid-option system-option option-thumb"
-              style="background-image: url('http://locahost:8081/img/paint.png?v=2');"></div>
+              style="background-image: url('http://localhost:8081/img/paint.png?v=2');"></div>
             <div class="menu-option-title">Solid Fill (Tint)</div>
           </div>
           <div id="material-upload" class="menu-option pro-feature" data-name="Upload" data-option="upload"
             data-thumb="solid" data-type="texture" data-resource="upload"
-            data-image-src="http://locahost:8081/img/solid.png?v=2" data-real-width="2000">
+            data-image-src="http://localhost:8081/img/solid.png?v=2" data-real-width="2000">
             <a class="pro menu-option-pro" href="/pro" target="_blank" style="right: 0px; top: 5px;">Get
               Pro</a>
             <div id="tile-upload-option"
               class="menu-option-img-container option-img-container option-thumb system-option tile-upload-option inactive"
-              style="background-image: url('http://locahost:8081/img/upload.png?v=2');"></div>
+              style="background-image: url('http://localhost:8081/img/upload.png?v=2');"></div>
             <div class="menu-option-title">Upload<span class="tooltip-icon"
                 data-tooltip='Choose an image from your device, <a href="/page/uploading-your-own-materials">more details</a>'></span>
             </div>
@@ -891,11 +892,11 @@
         <div id="main-joints-container" class="section section-first">
           <div class="planet-container">
             <div id="joint-solid" class="menu-option" data-name="Solid" data-option="solid" data-name="Solid Colour"
-              data-thumb="solid" data-type="solid" data-image-src="http://locahost:8081/img/solid.png?v=2"
-              data-real-width="999999" data-seamless="false" data-bump-src="http://locahost:8081/img/solid.png?v=2">
+              data-thumb="solid" data-type="solid" data-image-src="http://localhost:8081/img/solid.png?v=2"
+              data-real-width="999999" data-seamless="false" data-bump-src="http://localhost:8081/img/solid.png?v=2">
               <div id="solid-color"
                 class="menu-option-img-container option-img-container solid-option system-option option-thumb"
-                style="background-image: url('http://locahost:8081/img/paint.png?v=2');"></div>
+                style="background-image: url('http://localhost:8081/img/paint.png?v=2');"></div>
               <div class="menu-option-title">Solid Fill</div>
             </div>
           </div>
@@ -939,7 +940,7 @@
       <div data-save-container class="fc s-gap">
         <label class="fr hor-sb pntr">
           <div class="s-gap"><input type="radio" name="action-option" value="save">Save</div>
-          <img class="icon" style="opacity:0.6;" src="http://locahost:8081/icons/bookmark.svg">
+          <img class="icon" style="opacity:0.6;" src="http://localhost:8081/icons/bookmark.svg">
         </label>
         <div data-save-options class="fc s-gap" style="padding-left: 25px;">
           <label><input type="radio" name="save-option" data-sub-action value="save_new" checked>As new
@@ -951,7 +952,7 @@
       <div data-publish-container class="fc s-gap">
         <label class="fr hor-sb pntr">
           <div class="s-gap"><input type="radio" name="action-option" value="publish">Publish</div>
-          <img class="icon" style="opacity:0.6;" src="http://locahost:8081/icons/megaphone.svg">
+          <img class="icon" style="opacity:0.6;" src="http://localhost:8081/icons/megaphone.svg">
         </label>
         <div data-publish-options class="fc s-gap" style="padding-left: 25px;display:none;">
           <label><input type="radio" name="publish-option" data-sub-action value="publish_new" checked>As new
@@ -961,7 +962,7 @@
       <div data-save-params-container class="fc s-gap">
         <label class="fr hor-sb pntr">
           <div class="s-gap"><input type="radio" name="action-option" value="params">Default settings</div>
-          <img class="icon" style="opacity:0.6;" src="http://locahost:8081/icons/code.svg">
+          <img class="icon" style="opacity:0.6;" src="http://localhost:8081/icons/code.svg">
         </label>
         <div data-save-params-options class="fc s-gap" style="padding-left: 25px;display:none;">
           <label><input type="radio" name="params-option" data-sub-action value="app_params" checked>For web
@@ -971,13 +972,13 @@
       <div data-share-container class="fc s-gap">
         <label class="fr hor-sb pntr">
           <div class="s-gap"><input type="radio" name="action-option" value="share">Share link</div>
-          <img class="icon" style="opacity:0.6;" src="http://locahost:8081/icons/chain.svg">
+          <img class="icon" style="opacity:0.6;" src="http://localhost:8081/icons/chain.svg">
         </label>
       </div>
       <div data-download-container class="fc s-gap">
         <label class="fr hor-sb pntr">
           <div class="s-gap"><input type="radio" name="action-option" value="download">Download</div>
-          <img class="icon" style="opacity:0.6;" src="http://locahost:8081/icons/download.svg">
+          <img class="icon" style="opacity:0.6;" src="http://localhost:8081/icons/download.svg">
         </label>
         <div data-download-options class="fc s-gap">
           <select id="download-format">
@@ -1033,7 +1034,7 @@
       <div data-import-container class="fc s-gap" style="display:none;">
         <label class="fr hor-sb pntr">
           <div class="s-gap"><input type="radio" name="action-option" value="import">Import</div>
-          <img class="icon" style="opacity:0.6;" src="http://locahost:8081/icons/download.svg">
+          <img class="icon" style="opacity:0.6;" src="http://localhost:8081/icons/download.svg">
         </label>
         <div data-import-options class="fc s-gap" style="padding-left: 25px;display:none;">
           <label><input type="radio" name="import-option" data-sub-action value="import_new" checked>As new
@@ -1335,24 +1336,24 @@
       <div class="menu-option-container">
         <div class="section section-first">
           <div id="hatch-none" class="menu-option" data-name="Solid" data-option="solid" data-name="Solid Colour"
-            data-thumb="solid" data-type="solid" data-image="http://locahost:8081/img/hatches/none.png">
+            data-thumb="solid" data-type="solid" data-image="http://localhost:8081/img/hatches/none.png">
             <div class="menu-option-img-container option-img-container active hatch-image pattern-image option-thumb"
               data-type="hatch" style="background-size:180%;"></div>
             <div class="menu-option-title">None</div>
           </div>
           <div id="hatch-concrete" class="menu-option" data-name="Solid" data-option="solid" data-name="Solid Colour"
-            data-thumb="solid" data-type="solid" data-image="http://locahost:8081/img/concrete2.svg">
+            data-thumb="solid" data-type="solid" data-image="http://localhost:8081/img/concrete2.svg">
             <div class="menu-option-img-container option-img-container hatch-image pattern-image option-thumb"
               data-type="hatch"
-              style="background-image: url('http://locahost:8081/img/concrete2.svg');background-size:180%;">
+              style="background-image: url('http://localhost:8081/img/concrete2.svg');background-size:180%;">
             </div>
             <div class="menu-option-title">Concrete</div>
           </div>
           <div id="hatch-sand" class="menu-option" data-name="Solid" data-option="solid" data-name="Solid Colour"
-            data-thumb="solid" data-type="solid" data-image="http://locahost:8081/img/hatches/sand.svg">
+            data-thumb="solid" data-type="solid" data-image="http://localhost:8081/img/hatches/sand.svg">
             <div class="menu-option-img-container option-img-container hatch-image pattern-image option-thumb"
               data-type="hatch"
-              style="background-image: url('http://locahost:8081/img/hatches/sand.svg');background-size:180%;"></div>
+              style="background-image: url('http://localhost:8081/img/hatches/sand.svg');background-size:180%;"></div>
             <div class="menu-option-title">Sand</div>
           </div>
         </div>
@@ -1368,7 +1369,7 @@
     </div>
     <div class="header">
       <div class="menu-title menu-item">Surface Profile</div>
-      <img class="icon menu-toggle" src="http://locahost:8081/icons/x.svg">
+      <img class="icon menu-toggle" src="http://localhost:8081/icons/x.svg">
     </div>
     <div class="menu-content">
       <div class="section fc s-gap">
@@ -1391,7 +1392,7 @@
     </div>
     <div class="header">
       <div class="menu-title menu-item">Gradient</div>
-      <img class="icon menu-toggle" src="http://locahost:8081/icons/x.svg">
+      <img class="icon menu-toggle" src="http://localhost:8081/icons/x.svg">
     </div>
     <div class="menu-content">
       <div class="section">
@@ -1399,13 +1400,13 @@
           <div class="input-group profile-container">
             <div class="input-label">Start</div>
             <div class="input">
-              <img style="max-height:38%;" src="http://locahost:8081/icons/paint.svg">
+              <img style="max-height:38%;" src="http://localhost:8081/icons/paint.svg">
             </div>
           </div>
           <div class="input-group profile-container">
             <div class="input-label">End</div>
             <div class="input">
-              <img style="max-height:38%;" src="http://locahost:8081/icons/paint.svg">
+              <img style="max-height:38%;" src="http://localhost:8081/icons/paint.svg">
             </div>
           </div>
         </div>
@@ -1452,7 +1453,7 @@
     </div>
     <div class="header">
       <div class="menu-title menu-item">Surface Finish</div>
-      <img class="icon menu-toggle" src="http://locahost:8081/icons/x.svg">
+      <img class="icon menu-toggle" src="http://localhost:8081/icons/x.svg">
     </div>
     <div class="menu-content">
       <div class="section fc s-gap">
@@ -1476,7 +1477,7 @@
     </div>
     <div class="header">
       <div class="menu-title menu-item">Bump & Normal Options</div>
-      <img class="icon menu-toggle" src="http://locahost:8081/icons/x.svg">
+      <img class="icon menu-toggle" src="http://localhost:8081/icons/x.svg">
     </div>
     <div id="normal-preview" class="map-preview" style="display:none;"></div>
     <div class="menu-content">
@@ -1528,7 +1529,7 @@
     </div>
     <div class="header">
       <div class="menu-title menu-item">Displacement Options</div>
-      <img class="icon menu-toggle" src="http://locahost:8081/icons/x.svg">
+      <img class="icon menu-toggle" src="http://localhost:8081/icons/x.svg">
     </div>
     <div id="displacement-preview" class="map-preview" style="display:none;"></div>
     <div class="menu-content">
@@ -1580,7 +1581,7 @@
     </div>
     <div class="header">
       <div class="menu-title menu-item">Roughness Options</div>
-      <img class="icon menu-toggle" src="http://locahost:8081/icons/x.svg">
+      <img class="icon menu-toggle" src="http://localhost:8081/icons/x.svg">
     </div>
     <div id="roughness-preview" class="map-preview" style="display:none;"></div>
     <div class="menu-content">
@@ -1635,7 +1636,7 @@
     </div>
     <div class="header">
       <div class="menu-title menu-item">Metalness Options</div>
-      <img class="icon menu-toggle" src="http://locahost:8081/icons/x.svg">
+      <img class="icon menu-toggle" src="http://localhost:8081/icons/x.svg">
     </div>
     <div id="metalness-preview" class="map-preview" style="display:none;"></div>
     <div class="menu-content">
@@ -1685,7 +1686,7 @@
   <div class="menu menu-full" data-option="" id="more-menu">
     <div class="header">
       <div class="menu-title menu-item"></div>
-      <img class="icon menu-toggle" src="http://locahost:8081/icons/x.svg">
+      <img class="icon menu-toggle" src="http://localhost:8081/icons/x.svg">
     </div>
     <div data-moved-action="publish" class="target-toggle nav-menu-item" data-target="download-menu"
       data-close="#more-menu" style="display:flex;justify-content:space-between;align-items:center;">
@@ -1754,7 +1755,7 @@
     </a>
     <a class="nav-menu-item menu-link" href="/login?redirect=%2Fcreate">
       <div class="fr s-gap">
-        <img style="height: 20px;" class="icon" src="http://locahost:8081/icons/user2.svg" draggable="false">
+        <img style="height: 20px;" class="icon" src="http://localhost:8081/icons/user2.svg" draggable="false">
         Login
       </div>
     </a>
@@ -1762,7 +1763,7 @@
   <div class="menu" id="user-menu-app" data-option="">
     <div class="header">
       <div class="menu-title menu-item"></div>
-      <img class="icon menu-toggle" src="http://locahost:8081/icons/x.svg">
+      <img class="icon menu-toggle" src="http://localhost:8081/icons/x.svg">
     </div>
     <a class="nav-menu-item" href="/admin/saved">
       <div>Saved</div>
@@ -1788,7 +1789,7 @@
     </div>
     <div class="header">
       <div class="menu-title menu-item">Placement Rules</div>
-      <img src="http://locahost:8081/icons/x.svg" class="icon menu-toggle">
+      <img src="http://localhost:8081/icons/x.svg" class="icon menu-toggle">
     </div>
     <div class="menu-content">
       <div class="section fc s-gap">
@@ -2014,7 +2015,7 @@
   <div class="flex-menu share-menu top-menu" data-group="top-menu" data-option="share" id="share-menu">
     <div class="header">
       <div class="menu-title menu-item">Share this Texture</div>
-      <img class="icon menu-toggle" src="http://locahost:8081/icons/x.svg">
+      <img class="icon menu-toggle" src="http://localhost:8081/icons/x.svg">
     </div>
     <div class="menu-content spectrum-menu-content" id="menu-content-spectrum">
       <div class="section section-first">
@@ -2023,33 +2024,33 @@
     </div>
   </div>
 
-  <script async src="http://locahost:8081/js/es-module-shims/es-module-shims-2.js"></script>
-  <script src="http://locahost:8081/js/threeInit.js" type="module"></script>
+  <script async src="http://localhost:8081/js/es-module-shims/es-module-shims-2.js"></script>
+  <script src="http://localhost:8081/js/threeInit.js" type="module"></script>
   <script>
     const sliderImages = {
       "slides": [
         {
-          src: "http://locahost:8081/uploads/471bbf82-5d70-4ce2-8520-52b3a1c18b8a.jpg",
+          src: "http://localhost:8081/uploads/471bbf82-5d70-4ce2-8520-52b3a1c18b8a.jpg",
           text: "Southwold Beach House, Tom Groves Studio for Architecture For London",
           color: "#474c3c",
         },
         {
-          src: "http://locahost:8081/uploads/d96f9f8f-0f53-41d9-9d82-89e18d77890b.jpg",
+          src: "http://localhost:8081/uploads/d96f9f8f-0f53-41d9-9d82-89e18d77890b.jpg",
           text: "Coombe Street, Axson Office for New Works",
           color: "#7f503d",
         },
         {
-          src: "http://locahost:8081/uploads/f017d3b3-55dc-450f-97c1-8793ec1d66b1.jpg",
+          src: "http://localhost:8081/uploads/f017d3b3-55dc-450f-97c1-8793ec1d66b1.jpg",
           text: "Passivhaus Cohousing, Architecture For London",
           color: "#a3a594",
         },
         {
-          src: "http://locahost:8081/uploads/e17e9fed-6ad4-4392-8a3b-9cb6b6dbd7bb.jpg",
+          src: "http://localhost:8081/uploads/e17e9fed-6ad4-4392-8a3b-9cb6b6dbd7bb.jpg",
           text: "Stockbridge Townhouse, Ossian Architects",
           color: "#9a887a",
         },
         {
-          src: "http://locahost:8081/uploads/de5510df-4ad6-4314-b3b2-81f6340eda76.jpg",
+          src: "http://localhost:8081/uploads/de5510df-4ad6-4314-b3b2-81f6340eda76.jpg",
           text: "Hamilton Mausoleum, Titas Grikevičius &amp; Ross Cameron",
           color: "#9c9a91",
         },
