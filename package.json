@@ -9,6 +9,7 @@
     "dev:backend": "cd backend && npm run dev",
     "build": "npm run build:frontend",
     "build:frontend": "cd frontend && npm run build",
+    "prestart": "npm run build",
     "start": "concurrently -c cyan,green --names Cdn,Backend \"npm run start:cdn\" \"npm run start:backend\"",
     "start:backend": "cd backend && npm run start",
     "start:cdn": "cd cdn && npm run start"
@@ -22,5 +23,8 @@
   "license": "ISC",
   "dependencies": {
     "concurrently": "^9.1.0"
+  },
+  "devDependencies": {
+    "cloudflared-tunnel": "^1.0.3"
   }
 }
