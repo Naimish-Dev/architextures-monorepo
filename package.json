@@ -1,0 +1,22 @@
+{
+  "name": "architextures-monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently -c cyan,green,blue --names Cdn,Backend,Frontend \"npm run dev:cdn\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:cdn": "cd cdn && npm run dev"
+  },
+  "workspaces": [
+    "frontend",
+    "backend",
+    "cdn"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
