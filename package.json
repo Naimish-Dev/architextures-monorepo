@@ -4,10 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently -c cyan,green,blue --names Cdn,Backend,Frontend \"npm run dev:cdn\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev": "concurrently -c cyan,green,blue --names Cdn,Backend,Frontend \"npm run start:cdn\" \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:frontend": "cd frontend && npm run dev",
     "dev:backend": "cd backend && npm run dev",
-    "dev:cdn": "cd cdn && npm run dev"
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "start": "concurrently -c cyan,green --names Cdn,Backend \"npm run start:cdn\" \"npm run start:backend\"",
+    "start:backend": "cd backend && npm run start",
+    "start:cdn": "cd cdn && npm run start"
   },
   "workspaces": [
     "frontend",
