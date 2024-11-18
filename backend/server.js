@@ -8,7 +8,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(express.static("public"));
+if(process.env.NODE_ENV === "development"){
+  app.use(express.static("public"));
+}
 
 app.use("/api/materials", materialsRouter);
 app.use("/", generalRouter);
