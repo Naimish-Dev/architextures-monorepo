@@ -1,6 +1,7 @@
 import express from "express";
 import "dotenv/config";
 import materialsRouter from "./src/routes/materials.router.js";
+import patternsRouter from "./src/routes/patterns.router.js";
 import generalRouter from "./src/routes/general.router.js";
 import httpProxy from "http-proxy";
 
@@ -13,6 +14,7 @@ if(process.env.NODE_ENV === "development"){
 }
 
 app.use("/api/materials", materialsRouter);
+app.use("/api/patterns", patternsRouter);
 app.use("/", generalRouter);
 
 if (process.env.NODE_ENV !== "development") {

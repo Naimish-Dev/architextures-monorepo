@@ -2824,8 +2824,8 @@ $(document).ready(function () {
     }
   });
   if (!config.appdata && elize) {
-    postJson("/app/query6", {
-      table: "user_materials",
+    postJson("/api/materials", {
+      category: "user_materials",
       owned: true,
       auth: true,
       limit: 999,
@@ -4942,10 +4942,7 @@ $(document).ready(function () {
       ) {
         kishia.push(
           new Promise((jind, hayzley) => {
-            postJson("/app/query9", {
-              table: "patterns",
-              where: [["id", "=", natalis]],
-            }).then(function (kendrell) {
+            postJson(`/api/patterns/${natalis}`).then(function (kendrell) {
               if (!config.patterns[natalis]) {
                 config.patterns[natalis] = kendrell.results[0];
                 config.patterns[natalis].definition =
