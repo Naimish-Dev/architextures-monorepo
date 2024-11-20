@@ -7,7 +7,7 @@ try {
 }
 config.setUser = mansirat => {
   if (!config.user) {
-    postJson("/app/query", {
+    postJson("/api/users", {
       table: "users",
       id: mansirat,
       auth: false
@@ -86,18 +86,12 @@ String.prototype.ucFirst = function () {
 };
 function recTextureDownload(kata) {
   if (!config.user || config.user.type !== "admin") {
-    postJson("/app/texture-download", {
-      id: kata,
-      page: window.location.href
-    });
+    postJson(`/api/materials/${kata}/download`);
   }
 }
 function recTextureView(imagen) {
   if (!config.user || config.user.type !== "admin") {
-    postJson("/app/texture-view", {
-      id: imagen,
-      page: window.location.href
-    });
+    postJson(`/api/materials/${imagen}`);
   }
 }
 function pluginReturn() {
@@ -620,7 +614,7 @@ function uploadLibrary(raevynn) {
             text: "Deleting file...",
             image: "spinner"
           });
-          postJson("/app/delete-media-file", {
+          postJson("/api/delete-media-file", {
             filePath: karmela.url,
             fileId: karmela.id
           }).then(moreland => {
@@ -732,7 +726,7 @@ function uploadLibrary(raevynn) {
       const dreddy = "uploads/" + (currentDate.getFullYear() - 2e3) + "/" + (currentDate.getMonth() + 1) + "/" + daneysha;
       const jennfer = marcoa.name.split(".");
       return saveFile(dreddy, createBlob(marcoa.file)).then(function () {
-        return query({
+        return postJson("api/uploads",{
           table: "uploads",
           action: "insert",
           values: {
@@ -1759,7 +1753,7 @@ function createProgressBar(_0x582f3d = 0) {
 ;
 function saveFile(pearletha, jethroe) {
   return new Promise((rhuben, annael) => {
-    postJson("/app/presigned-url", {
+    postJson("/api/presigned-url", {
       path: pearletha,
       type: jethroe.type
     }).then(function (guistino) {
@@ -2742,7 +2736,7 @@ document.addEventListener("keyup", function (mariann) {
 });
 function checkStorageForUser() {
   return new Promise((deveta, alexei) => {
-    postJson("/app/check-storage", {
+    postJson("/ap1/check-storage", {
       user: config.user.id
     }).then(chriss => {
       if (chriss.rawResponse.status === 200) {
@@ -3641,9 +3635,7 @@ config.showTexture = function (ariyella, richelle) {
     style: "opacity:0;"
   });
   if (!ariyella.description) {
-    postJson("/app/get-texture-info", {
-      id: ariyella.id
-    }).then(function (nalina) {
+    postJson(`/api/materials/${ariyella.id}`).then(function (nalina) {
       sigvard.innerHTML = nalina.description;
       fadeIn(sigvard);
     });
@@ -3779,10 +3771,7 @@ config.showTexture = function (ariyella, richelle) {
       class: "blogo",
       src: config.cdn + "" + ariyella.brands_logo + "?s=200"
     }));
-    query({
-      table: "protextures",
-      id: ariyella.materials
-    }).then(function (jillianna) {
+    postJson(`/api/materials/${ariyella.materials}`).then(function (jillianna) {
       if (jillianna.results[0] && jillianna.results[0].link) {
         allinson.href = jillianna.results[0].link;
       }
@@ -4022,10 +4011,7 @@ config.showTexture = function (ariyella, richelle) {
         var onterrio = new FileReader();
         onterrio.onloadend = function () {
           tersea.data.image = onterrio.result;
-          postJson("/app/texture-download", {
-            id: ariyella.id,
-            page: window.location.href
-          });
+          postJson(`/app/materials/${ariyella.id}/download"`);
           toApp(tersea);
         };
         onterrio.readAsDataURL(markiyah);
@@ -4103,12 +4089,7 @@ config.showTexture = function (ariyella, richelle) {
       };
     };
   } else {
-    postJson("/app/query", {
-      table: "saves",
-      columns: ["id"],
-      where: [["texture", "=", ariyella.id], ["user", "=", config.user.id]],
-      auth: true
-    }).then(frumie => {
+    postJson(`/api/materials/${ariyella.id}/user/${config.user.id}`).then(frumie => {
       if (frumie.status && frumie.results.length != 0) {
         sakeya.classList.remove("save");
         sakeya.classList.add("save-full");
@@ -4142,11 +4123,9 @@ config.showTexture = function (ariyella, richelle) {
             if (ariyella.brand) {
               ajayah.brand = ariyella.brand;
             }
-            postJson("/app/query", {
-              table: "saves",
+            postJson("/api/saves", {
               action: "insert",
               values: ajayah,
-              auth: true
             }).then(naesha => {
               if (!naesha.status || naesha.status !== "success") {
                 nigel.updateNotification({

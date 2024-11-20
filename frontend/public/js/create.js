@@ -1449,10 +1449,7 @@ function afterDraw(joyace) {
             if (imya.hasOwnProperty("material")) {
               aryelle.push(
                 new Promise(function (jil) {
-                  query({
-                    table: "protextures",
-                    id: imya.material,
-                  }).then(function (tiffane) {
+                  postJson(`/api/materials/${imya.material}`).then(function (tiffane) {
                     if (tiffane.results.length) {
                       let shamoni = tiffane.results[0];
                       imya.width = shamoni.realwidth;
@@ -1463,9 +1460,7 @@ function afterDraw(joyace) {
                       ) {
                         let madina =
                           config.cdn +
-                          "/materials/" +
-                          imya.material +
-                          "/4000/" +
+                          "/materials/"+
                           deyvon;
                         let yitta = copy(imya);
                         yitta.meshes = [];
@@ -2206,17 +2201,12 @@ $(document).ready(function () {
           ["brand", "=", config.appdata.brand],
           ["status", "IN", tampa.join(",")],
         ];
-    postJson("/app/query1", {
-      table: "protextures",
-      where: faruk,
-      join: {
-        table: "brands",
-        columns: ["name", "website_link", "logo"],
-        on: ["brand", "=", "id"],
-      },
-      sort: ["downloads", "desc"],
+    const payload = {
+      page: endora.page && 1,
+      category: faruk,
       limit: 999,
-    }).then(function (azhaan) {
+    }
+    postJson("/api/materials", payload).then(function (azhaan) {
       for (material of azhaan.results) {
         var tyniyah = material.collection
           ? material.collection
@@ -2314,7 +2304,7 @@ $(document).ready(function () {
       if (materialSearch.value == "") {
         config.clearSearch();
       } else {
-        postJson("/app/query4", eliandra).then(function (deleesa) {
+        postJson(`/api/materials/search?q=${decodeURI(eliandra.search)}`).then(function (deleesa) {
           haku.querySelector(".planet-container").innerHTML = "";
           lafrederick.style.display = "none";
           chigozirim.style.display = "none";
@@ -2824,12 +2814,14 @@ $(document).ready(function () {
     }
   });
   if (!config.appdata && elize) {
-    postJson("/api/materials", {
+    const payload = {
       category: "user_materials",
+      page: 1,
       owned: true,
       auth: true,
       limit: 999,
-    }).then(function (platt) {
+    }
+    postJson("/api/materials", payload).then(function (platt) {
       if (platt.results && platt.results.length) {
         elements("#user-upload-section")[0].style.display = "";
       }
@@ -4049,8 +4041,7 @@ $(document).ready(function () {
             );
             return;
           }
-          postJson("/app/query8", {
-            table: "user_materials",
+          const payload = {
             action: "insert",
             values: {
               name: thanvi,
@@ -4059,7 +4050,8 @@ $(document).ready(function () {
               color: averageColor(alegra.canvases[0]),
             },
             auth: true,
-          }).then(function (joanell) {
+          }
+          postJson("/api/materials", payload).then(function (joanell) {
             if (joanell.status == "success") {
               var emylah = "u" + joanell.id;
               timonthy.setAttribute("data-option", emylah);
@@ -4803,7 +4795,7 @@ $(document).ready(function () {
     function tyge() {
       $.ajax({
         method: "POST",
-        url: "/app/node-canvas",
+        url: "/api/node-canvas",
         data: JSON.stringify(elyanna),
         dataType: "json",
       }).done(function (domina) {
@@ -4965,10 +4957,7 @@ $(document).ready(function () {
       if (params.scene && !config.scenes.hasOwnProperty(params.scene)) {
         kishia.push(
           new Promise((bodhin, brucha) => {
-            postJson("/app/query10", {
-              table: "scenes",
-              where: [["id", "=", params.scene]],
-            }).then(function (shaketha) {
+            postJson(`/api/scenes/${params.scene}`).then(function (shaketha) {
               if (shaketha.results.length) {
                 let yaisha = shaketha.results[0];
                 config.scenes[params.scene] = yaisha;
@@ -5040,7 +5029,7 @@ $(document).ready(function () {
               iralynn.params = iralynn.params ? iralynn.params : {};
               if (iralynn.brand) {
                 let masonalexander = new Promise((aiker, cerria) => {
-                  postJson("/app/get-design-options", {
+                  postJson("/api/get-design-options", {
                     materials: [iralynn.id],
                   }).then(function (naason) {
                     naason = arrayToObject(naason, "id");
@@ -5069,10 +5058,7 @@ $(document).ready(function () {
       if (zoriah.length) {
         kishia.push(
           new Promise((jana, corye) => {
-            postJson("/app/query11", {
-              table: "user_materials",
-              columns: ["id", "name", "source_names", "user"],
-              where: [["id", "in", zoriah.join(",")]],
+            postJson(`/api/materials/${zoriah[0]}`, {
               auth: true,
             }).then(function (kamarien) {
               kamarien.results.forEach(function (angeleia) {
@@ -5234,7 +5220,7 @@ $(document).ready(function () {
       ) {
         muhaimin.push(
           new Promise((cannen, aryauna) => {
-            postJson("/app/get-design-options", {
+            postJson("/api/get-design-options", {
               pattern: elyanna.patternId,
               brand: config.brandUsed,
             }).then(function (esterine) {
