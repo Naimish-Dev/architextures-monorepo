@@ -26,4 +26,4 @@ const TextureSourcesModel = mongoose.model(
   "TextureSource",
   TextureSourcesSchema
 );
-module.exports = TextureSourcesModel;
+export default TextureSourcesModel;

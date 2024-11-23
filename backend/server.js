@@ -16,6 +16,7 @@ mongoose.connect(
 mongoose.connection.on("connected", () => {
   console.log("Connected to MongoDB");
 });
+
 app.use(express.json());
 if(process.env.NODE_ENV === "development"){
   app.use(express.static("public"));

@@ -26,4 +26,4 @@ const PatternSchema = new mongoose.Schema({
 
 const PatternModel = mongoose.model("Pattern", PatternSchema);
 
-module.exports = PatternModel;
+export default PatternModel;

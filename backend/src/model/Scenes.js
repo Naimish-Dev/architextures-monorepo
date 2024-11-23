@@ -27,4 +27,4 @@ const SceneSchema = new mongoose.Schema({
 
 // Export the model
 const ScenesModel = mongoose.model("Scene", SceneSchema);
-module.exports = ScenesModel;
+export default ScenesModel;
