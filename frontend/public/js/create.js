@@ -5001,11 +5001,11 @@ let predraw;
       function tyge() {
         $.ajax({
           method: "POST",
-          url: "/app/node-canvas",
+          url: "/api/node-canvas",
           data: JSON.stringify(elyanna),
           dataType: "json",
         }).done(function (domina) {
-          if (1 == domina) {
+          if (domina) {
             var trudi = new Image();
             (trudi.src = "data:image/jpeg;base64," + domina.imgData),
               hideSpinner(),
