@@ -15,4 +15,4 @@ const HeightMapsSchema = new mongoose.Schema({
 
 // Export the model
 const HeightMapsModel = mongoose.model("HeightMaps", HeightMapsSchema);
-module.exports = HeightMapsModel;
+export default HeightMapsModel;

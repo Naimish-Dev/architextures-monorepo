@@ -35,4 +35,4 @@ const TextureSchema = new mongoose.Schema(
 );
 
 const TextureModel = mongoose.model("Texture", TextureSchema);
-module.exports = TextureModel;
+export default TextureModel;
