@@ -7,11 +7,7 @@ try {
 }
 config.setUser = mansirat => {
   if (!config.user) {
-    postJson("/api/users", {
-      table: "users",
-      id: mansirat,
-      auth: false
-    }).then(kimyatta => {
+    postJson(`/api/users/${mansirat}`).then(kimyatta => {
       config.user = kimyatta.results[0];
     });
   }
@@ -91,7 +87,7 @@ function recTextureDownload(kata) {
 }
 function recTextureView(imagen) {
   if (!config.user || config.user.type !== "admin") {
-    postJson(`/api/materials/${imagen}`);
+    postJson(`/api/materials?ids=${imagen}`);
   }
 }
 function pluginReturn() {
@@ -614,10 +610,7 @@ function uploadLibrary(raevynn) {
             text: "Deleting file...",
             image: "spinner"
           });
-          postJson("/api/delete-media-file", {
-            filePath: karmela.url,
-            fileId: karmela.id
-          }).then(moreland => {
+          postJson(`/api/delete-media-file/${karmela.id}`).then(moreland => {
             if (moreland.status === "success") {
               teng.updateNotification({
                 text: "File deleted successfully",
@@ -1953,38 +1946,33 @@ function patchJson(_0x34166d = "", _0x13b21e = {}) {
 }
 function query(kenzly) {
   return new Promise((kenlyn, ellioth) => {
-    postJson("/app/query", kenzly).then(function (daytron) {
+    postJson("/api/query", kenzly).then(function (daytron) {
       kenlyn(daytron);
     });
   });
 }
 function getThumbSrc(breckynn, jankarlo) {
   if (jankarlo === "protextures") {
-    return config.cdn + "/thumbnails/" + breckynn.thumbnail + "?v=" + generateUid();
-  } else {
-    if (jankarlo === "textures") {
-      return config.cdn + "" + breckynn.imgurl + "?s=400&q=60";
-    } else {
-      if (jankarlo === "saves") {
-        return config.cdn + breckynn.imgurl;
-      } else {
-        if (jankarlo === "user_materials") {
-          return config.cdn + "/users/" + config.user.id + "/uploads/thumb-u" + breckynn.id + ".jpg?v=" + generateUid();
-        } else {
-          if (jankarlo === "patterns") {
-            return config.cdn + "/patterns/" + (breckynn.stringId ? breckynn.stringId : breckynn.id) + ".svg";
-          } else {
-            if (jankarlo === "brands") {
-              return config.cdn + breckynn.logo;
-            } else {
-              return "";
-            }
-          }
-        }
-      }
-    }
+    return `${config.cdn}/thumbnails/${breckynn.thumbnail}`;
   }
+  if (jankarlo === "textures") {
+    return `${config.cdn}${breckynn.imgurl}`;
+  }
+  if (jankarlo === "saves") {
+    return `${config.cdn}${breckynn.imgurl}`;
+  }
+  if (jankarlo === "user_materials") {
+    return `${config.cdn}/users/${config.user.id}/uploads/thumb-u${breckynn.id}.jpg?v=${generateUid()}`;
+  }
+  if (jankarlo === "patterns") {
+    return `${config.cdn}/patterns/${breckynn.stringId}.svg`;
+  }
+  if (jankarlo === "brands") {
+    return `${config.cdn}${breckynn.logo}`;
+  }
+  return "";
 }
+
 function closeAdminPages() {
   if (document.querySelector(".statistics-only")) {
     document.querySelector(".statistics-only").remove();
@@ -2184,7 +2172,7 @@ function createDatabox(azarel) {
     if (_0x2cc129 || !malayia) {
       aarnavi();
     }
-    queryUrl = taquasia.query.hasOwnProperty("url") ? taquasia.query.url : "/app/query";
+    queryUrl = taquasia.query.hasOwnProperty("url") ? taquasia.query.url : "/api/query";
     postJson(queryUrl, taquasia.query).then(function (constantinos) {
       heidee(constantinos, _0x2cc129);
     });
@@ -2192,41 +2180,29 @@ function createDatabox(azarel) {
   function marhonda(gilson) {
     function zackory(nataliee) {
       let taydin;
-      if (azarel.query.table === "protextures") {
+      const baseStyle = `width:${quintavia};min-width:${quintavia};height:${quintavia};background-size:cover;background-image:url(${getThumbSrc(nataliee, azarel.query.table)})`;
+    
+      if (azarel.query.table === "protextures" || azarel.query.table === "textures") {
+        taydin = createHtml({ tag: "div", style: baseStyle });
+      } else if (azarel.query.table === "patterns") {
         taydin = createHtml({
           tag: "div",
-          style: "width:" + quintavia + ";min-width:" + quintavia + ";height:" + quintavia + ";background-size:cover;background-image:url(" + getThumbSrc(nataliee, azarel.query.table) + ")"
+          style: `width:${quintavia};min-width:${quintavia};height:${quintavia};background-size:calc(${nataliee.thumbnailSize} * 1.5);background-image:url(${getThumbSrc(nataliee, azarel.query.table)})`
+        });
+      } else if (azarel.query.table === "brands") {
+        taydin = createHtml({
+          tag: "div",
+          style: `width:${quintavia};min-width:${quintavia};box-sizing:border-box;padding:5px;background-repeat:no-repeat;height:${quintavia};background-size:contain;background-image:url(${getThumbSrc(nataliee, azarel.query.table)})`
         });
       } else {
-        if (azarel.query.table === "textures") {
-          taydin = createHtml({
-            tag: "div",
-            style: "width:" + quintavia + ";min-width:" + quintavia + ";height:" + quintavia + ";background-size:cover;background-image:url(" + getThumbSrc(nataliee, azarel.query.table) + ")"
-          });
-        } else {
-          if (azarel.query.table === "patterns") {
-            taydin = createHtml({
-              tag: "div",
-              style: "width:" + quintavia + ";min-width:" + quintavia + ";height:" + quintavia + ";background-size:calc(" + nataliee.thumbnailSize + " * 1.5);background-image:url(" + getThumbSrc(nataliee, azarel.query.table) + ")"
-            });
-          } else {
-            if (azarel.query.table === "brands") {
-              taydin = createHtml({
-                tag: "div",
-                style: "width:" + quintavia + ";min-width:" + quintavia + ";box-sizing:border-box;padding:5px;background-repeat: no-repeat;height:" + quintavia + ";background-size:contain;background-image:url(" + getThumbSrc(nataliee, azarel.query.table) + ")"
-              });
-            } else {
-              taydin = createHtml({
-                tag: "div"
-              });
-            }
-          }
-        }
+        taydin = createHtml({ tag: "div" });
       }
+    
       taydin.style.backgroundColor = "#eee";
       taydin.style.backgroundPosition = "center";
       return taydin;
     }
+    
     for (let chazmin of gilson) {
       let jeanann;
       if (azarel.itemHtml) {
@@ -3635,7 +3611,7 @@ config.showTexture = function (ariyella, richelle) {
     style: "opacity:0;"
   });
   if (!ariyella.description) {
-    postJson(`/api/materials/${ariyella.id}`).then(function (nalina) {
+    postJson(`/api/materials?ids=${ariyella.id}`).then(function (nalina) {
       sigvard.innerHTML = nalina.description;
       fadeIn(sigvard);
     });
@@ -3771,7 +3747,7 @@ config.showTexture = function (ariyella, richelle) {
       class: "blogo",
       src: config.cdn + "" + ariyella.brands_logo + "?s=200"
     }));
-    postJson(`/api/materials/${ariyella.materials}`).then(function (jillianna) {
+    postJson(`/api/materials?ids=${Array.isArray(ariyella.materials) ? ariyella.materials.join(",") : ariyella.materials}`).then(function (jillianna) {
       if (jillianna.results[0] && jillianna.results[0].link) {
         allinson.href = jillianna.results[0].link;
       }
@@ -4011,7 +3987,7 @@ config.showTexture = function (ariyella, richelle) {
         var onterrio = new FileReader();
         onterrio.onloadend = function () {
           tersea.data.image = onterrio.result;
-          postJson(`/app/materials/${ariyella.id}/download"`);
+          postJson(`/api/materials/${ariyella.id}/download`);
           toApp(tersea);
         };
         onterrio.readAsDataURL(markiyah);
@@ -4123,8 +4099,7 @@ config.showTexture = function (ariyella, richelle) {
             if (ariyella.brand) {
               ajayah.brand = ariyella.brand;
             }
-            postJson("/api/saves", {
-              action: "insert",
+            postJson("/api/saves/create", {
               values: ajayah,
             }).then(naesha => {
               if (!naesha.status || naesha.status !== "success") {
@@ -4359,7 +4334,7 @@ config.createCatMenu = function (geriah, rahkeem) {
 config.createBrandMenu = function (blayten, taifa) {
   let shara = createDatabox({
     query: {
-      url: "/app/get-brands"
+      url: "/api/get-brands"
     },
     itemHtml: function (duanne) {
       let rubiel = createHtml({
