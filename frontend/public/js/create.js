@@ -2275,7 +2275,7 @@ let predraw;
         (config.searchDelay = setTimeout(function () {
           "" == materialSearch.value
             ? config.clearSearch()
-            : postJson("/api/query4", eliandra).then(function (deleesa) {
+            : postJson(`/api/materials?search=${eliandra.search}`, ).then(function (deleesa) {
                 (haku.querySelector(".planet-container").innerHTML = ""),
                   (lafrederick.style.display = "none"),
                   (chigozirim.style.display = "none"),
@@ -2627,7 +2627,7 @@ let predraw;
               },
               {
                 tag: "img",
-                src: config.cdn + "" + mikeala.brands_logo + "?s=200",
+                src: config.cdn + "/brands/" + mikeala.brands_logo,
               },
             ],
           })),
@@ -3500,7 +3500,7 @@ let predraw;
                   dhaani(siwar);
               }),
                 (deovian.src =
-                  config.cdn +
+                  config.cdn + "/brands/" +
                   config.materials[params.tileStyles.a.materialId].brands_logo),
                 (deovian.crossOrigin = "anonymous");
             } else
@@ -3980,7 +3980,7 @@ let predraw;
                 kasiya.style.display = "";
               }),
             (agneta.querySelector(".manufacturer-label-img").src =
-              config.cdn + "" + kamberlyn.brands_logo + "?s=200"),
+              config.cdn + "/brands/" + kamberlyn.brands_logo),
             (agneta.querySelector(".manufacturer-label-link").style.display =
               ""))
           : (document
@@ -4094,7 +4094,7 @@ let predraw;
         ) {
           if (
             ((veanna.querySelector(".manufacturer-label-img").src =
-              config.cdn + "" + heike.brands_logo + "?s=200"),
+              config.cdn + "/brands/" + heike.brands_logo),
             (veanna.querySelector(".manufacturer-label").style.display = ""),
             veanna.querySelector(".manufacturer-label-link") &&
               (veanna.querySelector(".manufacturer-label-link").href =
@@ -5001,7 +5001,7 @@ let predraw;
       function tyge() {
         $.ajax({
           method: "POST",
-          url: "/api/node-canvas",
+          url: "/app/node-canvas",
           data: JSON.stringify(elyanna),
           dataType: "json",
         }).done(function (domina) {

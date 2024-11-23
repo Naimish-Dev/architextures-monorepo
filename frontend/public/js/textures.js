@@ -3765,7 +3765,7 @@ config.showTexture = function (ariyella, richelle) {
     allinson.appendChild(createHtml({
       tag: "img",
       class: "blogo",
-      src: config.cdn + "" + ariyella.brands_logo + "?s=200"
+      src: config.cdn + "/brands/" + ariyella.brands_logo
     }));
     postJson(`/api/materials?ids=${Array.isArray(ariyella.materials) ? ariyella.materials.join(",") : ariyella.materials}`).then(function (jillianna) {
       if (jillianna.results[0] && jillianna.results[0].link) {
@@ -4170,7 +4170,7 @@ config.createAssetCard = function (braneisha) {
   var eleanora = createHtml({
     tag: "img",
     style: "filter:saturate(0);opacity:0.9;max-height:12px;max-height:80pxobject-fit:contain;",
-    src: braneisha.brands_logo ? config.cdn + "" + braneisha.brands_logo + "?s=400&q=60" : ""
+    src: braneisha.brands_logo ? config.cdn + "/brands/" + braneisha.brands_logo + "?s=400&q=60" : ""
   });
   var tantanea = createHtml({
     tag: "a",
