@@ -22,7 +22,7 @@ config.preDrawJs = function () {};
 config.patterns = {};
 config.patternArray = [
   {
-    stringId: "stack1",
+    stringId: "a1818543-cfdf-473c-8c3d-172b39c062b7",
     name: "Stack",
     id: 1,
     brand: null,
@@ -44,7 +44,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "stretcher2",
+    stringId: "2e46f269-83c4-4599-9a28-99bf2be914ea",
     name: "Stretcher",
     id: 2,
     brand: null,
@@ -66,7 +66,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "herringbone3",
+    stringId: "f987844b-a00b-4da5-b97b-5da1e6c30eb7",
     name: "Herringbone",
     id: 3,
     brand: null,
@@ -88,7 +88,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "flemish4",
+    stringId: "4d7aff81-509b-4ca9-94ed-52ad2f586daa",
     name: "Flemish",
     id: 4,
     brand: null,
@@ -110,7 +110,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "common5",
+    stringId: "148b2b85-5a04-469b-86ff-a35e0021e3d3",
     name: "Common",
     id: 5,
     brand: null,
@@ -132,7 +132,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "chevron6",
+    stringId: "0e6c1807-43cb-4070-a67d-f91ce6dcb0f5",
     name: "Chevron",
     id: 6,
     brand: null,
@@ -154,7 +154,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "staggered7",
+    stringId: "f4ebc1cb-21b8-4f23-b80f-dd80aad67ceb",
     name: "Staggered",
     id: 7,
     brand: null,
@@ -176,7 +176,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "ashlar8",
+    stringId: "2d1ad682-be63-44e0-913f-9d690644ad03",
     name: "Ashlar",
     id: 8,
     brand: null,
@@ -198,7 +198,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "cubic9",
+    stringId: "28301191-4c55-4f6e-a0cb-b5226f33b502",
     name: "Cubic",
     id: 9,
     brand: null,
@@ -220,7 +220,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "hexagonal10",
+    stringId: "af244a30-c8f7-4d55-b0c1-7e79ee80d0eb",
     name: "Hexagonal",
     id: 10,
     brand: null,
@@ -242,7 +242,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "basketweave11",
+    stringId: "321e5233-5e15-47db-837d-7892beb0d22e",
     name: "Basketweave",
     id: 11,
     brand: null,
@@ -264,7 +264,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "hopscotch12",
+    stringId: "b2fd87ac-a2d1-48fa-bdf4-cdc7ea4ec6ac",
     name: "Hopscotch",
     id: 12,
     brand: null,
@@ -286,7 +286,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "diamond13",
+    stringId: "dbeb5c75-be62-4be7-b2e6-2526ac5cdc2e",
     name: "Diamond",
     id: 13,
     brand: null,
@@ -308,7 +308,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "circular14",
+    stringId: "6d1b178f-cf74-4dee-ac5e-cfa511545035",
     name: "Circular",
     id: 14,
     brand: null,
@@ -330,7 +330,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "fishscale15",
+    stringId: "a7c549ef-3779-47bc-8cd9-2a71f74f9a73",
     name: "Fishscale",
     id: 15,
     brand: null,
@@ -352,7 +352,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "french16",
+    stringId: "e1135362-565b-458b-9f9a-313499ae3dde",
     name: "French",
     id: 16,
     brand: null,
@@ -374,7 +374,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "none17",
+    stringId: "1a13e64a-0bb2-49f5-9d94-4bd4331f9aa5",
     name: "None",
     id: 17,
     brand: null,
@@ -398,7 +398,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "rubble18",
+    stringId: "f157d1c4-ebb7-4336-90a6-832e9a43576b",
     name: "Rubble",
     id: 18,
     brand: null,
@@ -420,7 +420,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "drystone19",
+    stringId: "a3f12b4d-0676-40c4-88bd-ce40a614e0bf",
     name: "Drystone",
     id: 19,
     brand: null,
@@ -442,7 +442,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "coursedAshlar20",
+    stringId: "ce37ce38-0d50-405e-91a6-014ae16757e2",
     name: "Coursed Ashlar",
     id: 20,
     brand: null,
@@ -464,7 +464,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "mansionWeave21",
+    stringId: "7aa15827-4a92-4ac9-965d-30f7e08ab0c7",
     name: "Mansion Weave",
     id: 21,
     brand: null,
@@ -486,7 +486,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "europeanFan22",
+    stringId: "c0cfd24f-ef2b-4959-a0b3-e8b8cb4f19cc",
     name: "European Fan",
     id: 22,
     brand: null,
@@ -508,7 +508,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "houndstooth23",
+    stringId: "337821dc-e3e3-418a-9007-9cd471124e41",
     name: "Houndstooth",
     id: 23,
     brand: null,
@@ -530,7 +530,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "windmill24",
+    stringId: "ff56724e-fba8-4de8-89e4-a5f9461179e7",
     name: "Windmill",
     id: 24,
     brand: null,
@@ -552,7 +552,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "hexagonWeave25",
+    stringId: "7f89a98c-3d12-44e3-b575-ac7e53d8fdb0",
     name: "Hexagon Weave",
     id: 25,
     brand: null,
@@ -574,7 +574,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "plus26",
+    stringId: "50e0149e-b070-4646-8e47-c53cdfb92e21",
     name: "Plus",
     id: 26,
     brand: null,
@@ -596,7 +596,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "plusSquare27",
+    stringId: "ccc9ffcb-3859-4298-b127-50dff283e1d5",
     name: "Plus and Square",
     id: 27,
     brand: null,
@@ -618,7 +618,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "swissCross28",
+    stringId: "5d8255fe-c3da-4008-98a6-1b6542044b23",
     name: "Swiss Cross",
     id: 28,
     brand: null,
@@ -640,7 +640,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "swissCrossSquare29",
+    stringId: "b9c29a8b-f258-463f-a84d-aadc9927d665",
     name: "Swiss Cross and Square",
     id: 29,
     brand: null,
@@ -662,7 +662,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "triangle30",
+    stringId: "b374978c-869e-4717-af5a-42ca1e9d5738",
     name: "Triangle",
     id: 30,
     brand: null,
@@ -684,7 +684,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "triangleChevron31",
+    stringId: "6bdea118-eb55-45a3-ada6-b11f4d0d37b3",
     name: "Triangle Chevron",
     id: 31,
     brand: null,
@@ -706,7 +706,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "triangleDiamond32",
+    stringId: "dc7ddc9c-f877-4a61-b513-cf7d3a3f0cbc",
     name: "Triangle Diamond",
     id: 32,
     brand: null,
@@ -728,7 +728,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "isosceles33",
+    stringId: "9677e29d-911a-4965-a0d4-5264fef07609",
     name: "Isosceles",
     id: 33,
     brand: null,
@@ -750,7 +750,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "staggeredIsosceles34",
+    stringId: "a69cfa0b-1d0a-486c-a990-66706152919d",
     name: "Staggered Isosceles",
     id: 34,
     brand: null,
@@ -772,7 +772,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "compass35",
+    stringId: "c9ff71f1-ff1a-4e6a-985a-14306d704909",
     name: "Compass",
     id: 35,
     brand: null,
@@ -794,7 +794,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "octagonStar36",
+    stringId: "2ac9e0a1-370b-42e6-ac71-ef269aebad2b",
     name: "Octagon Star",
     id: 36,
     brand: null,
@@ -816,7 +816,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "octagonSquare37",
+    stringId: "130f3e3c-b0bf-4d8b-b774-9bd623e87177",
     name: "Octagon Square",
     id: 37,
     brand: null,
@@ -838,7 +838,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "intersectingCircle38",
+    stringId: "d07e4e17-7496-4e28-b7a8-7682978d8cf0",
     name: "Intersecting Circle",
     id: 38,
     brand: null,
@@ -860,7 +860,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "hourglass39",
+    stringId: "9f06616d-f9cd-4483-b422-1f94c96ebe69",
     name: "Hourglass",
     id: 39,
     brand: null,
@@ -882,7 +882,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "alternatingFishscale40",
+    stringId: "c040f912-8e6f-4fa7-9287-12909f323dcc",
     name: "Alternating Fishscale",
     id: 40,
     brand: null,
@@ -904,7 +904,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "ogeeFishscale41",
+    stringId: "30218df5-460a-41f2-8739-6ad1c14ec181",
     name: "Ogee Fishscale",
     id: 41,
     brand: null,
@@ -926,7 +926,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "hexagonAndTriangle42",
+    stringId: "6c8ed4bc-84b9-4f33-a954-88a25b3ae7ab",
     name: "Hexagon and Triangle",
     id: 42,
     brand: null,
@@ -948,7 +948,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "starAndHexagon43",
+    stringId: "3881db6f-06e6-49a5-8774-d18b83ea3b53",
     name: "Star and Hexagon",
     id: 43,
     brand: null,
@@ -970,7 +970,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "starAndCross44",
+    stringId: "b5d48b76-8efa-40e1-b550-45caabaa3892",
     name: "Star and Cross",
     id: 44,
     brand: null,
@@ -992,7 +992,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "bsAguisse54",
+    stringId: "cdfe8487-3b39-4e65-be05-6d0016ca32e3",
     name: "Chantilly",
     id: 54,
     brand: null,
@@ -1014,7 +1014,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "bsCheckers60",
+    stringId: "65d0b0c9-a7f1-4cae-a5b0-e4070e9d8c7a",
     name: "Chess Weave",
     id: 60,
     brand: null,
@@ -1036,7 +1036,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "bsVersailles61",
+    stringId: "629fe050-bd75-4dff-a20a-a69233466379",
     name: "Versailles",
     id: 61,
     brand: null,
@@ -1058,7 +1058,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "bsMarelle63",
+    stringId: "eea27de1-20ad-40f8-8f1f-c85f92cea915",
     name: "Haddon Hall",
     id: 63,
     brand: null,
@@ -1080,7 +1080,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "doubleHerringbone65",
+    stringId: "ac5329c5-e939-47e0-b996-b20612b044c2",
     name: "Double Herringbone",
     id: 65,
     brand: null,
@@ -1102,7 +1102,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "tripleHerringbone70",
+    stringId: "52a4d1d5-aaf0-4ed9-a4ba-61b5891b0eca",
     name: "Triple Herringbone",
     id: 70,
     brand: null,
@@ -1124,7 +1124,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "bsChevron75",
+    stringId: "41ff02da-eca0-41d7-83ff-07513be40d3b",
     name: "Chevron",
     id: 75,
     brand: null,
@@ -1146,7 +1146,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "bsMoulin130",
+    stringId: "ad398ef0-6941-439a-8ef2-0c3c52533a21",
     name: "Crosshatch",
     id: 130,
     brand: null,
@@ -1168,7 +1168,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "mixedStones131",
+    stringId: "74eb650a-7cc9-437f-931b-6b4512187fc7",
     name: "Ionian",
     id: 131,
     brand: null,
@@ -1190,7 +1190,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "roundedRubble132",
+    stringId: "2fca2c6b-a611-43f7-b6cc-badf94b08704",
     name: "Rounded Rubble",
     id: 132,
     brand: null,
@@ -1212,7 +1212,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "corfu134",
+    stringId: "f748457b-56ee-42e2-a6bb-df61a4ede095",
     name: "Corfiot",
     id: 134,
     brand: null,
@@ -1234,7 +1234,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "variableHexagon137",
+    stringId: "f029c1b2-4859-4483-8834-a39dd4b108c9",
     name: "Variable Hexagon",
     id: 137,
     brand: null,
@@ -1256,7 +1256,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "variedTerrazzo157",
+    stringId: "a25ce978-8f41-4724-963e-8c118a609d7c",
     name: "Varied Terrazzo",
     id: 157,
     brand: null,
@@ -1278,7 +1278,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "consistentWidthTerrazzo159",
+    stringId: "d6f54bdf-0ab3-4742-b227-5356fb29302d",
     name: "Consistent Width Terrazzo",
     id: 159,
     brand: null,
@@ -1300,7 +1300,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "variedSizeTerrazzo160",
+    stringId: "9b3d00a9-5368-427e-8ed2-b1e4e4258b3f",
     name: "Varied Size Terrazzo",
     id: 160,
     brand: null,
@@ -1322,7 +1322,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "roundedRectangleTerrazzo161",
+    stringId: "f595ba32-8edf-4bb0-86a4-679667fd2418",
     name: "Rounded Rectangle Terrazzo",
     id: 161,
     brand: null,
@@ -1344,7 +1344,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "leaf226",
+    stringId: "2221ce76-ba3b-4023-8f13-456f643146e0",
     name: "Leaf",
     id: 226,
     brand: null,
@@ -1366,7 +1366,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "diamondWeave231",
+    stringId: "07afeb8e-dada-42ca-b779-30af5b9a3f31",
     name: "Diamond Weave",
     id: 231,
     brand: null,
@@ -1388,7 +1388,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "angledChevron232",
+    stringId: "bbb75fa8-83bc-48dd-81f7-abbfa85e3150",
     name: "Angled Chevron",
     id: 232,
     brand: null,
@@ -1410,7 +1410,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "trueChevron233",
+    stringId: "9802cfec-5c33-43f1-b19b-e7fc8f19baff",
     name: "True Chevron",
     id: 233,
     brand: null,
@@ -1432,7 +1432,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "diamondInDiamond234",
+    stringId: "b0c443f0-7884-409e-9099-173a2c4053ca",
     name: "Diamond in Diamond",
     id: 234,
     brand: null,
@@ -1454,7 +1454,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "trapeze243",
+    stringId: "a3306f59-ecf4-46d1-a192-1c9d32cb1150",
     name: "Trapeze",
     id: 243,
     brand: null,
@@ -1476,7 +1476,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "paseo249",
+    stringId: "bd46f280-f355-4de3-a086-355b8a866615",
     name: "Paseo",
     id: 249,
     brand: null,
@@ -1498,7 +1498,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "unifiedHerringbone251",
+    stringId: "e071c044-d8d6-4ea8-8f2e-f4f45280e47f",
     name: "Unified Herringbone",
     id: 251,
     brand: null,
@@ -1520,7 +1520,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "arabesqueLantern263",
+    stringId: "a1922400-5335-46f3-987d-79e485ac8f56",
     name: "Arabesque Lantern",
     id: 263,
     brand: null,
@@ -1542,7 +1542,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "arabesqueFloral266",
+    stringId: "e0c3aec2-144f-413e-af87-432aff4be855",
     name: "Arabesque Floral",
     id: 266,
     brand: null,
@@ -1564,7 +1564,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "fourLeaf276",
+    stringId: "9a0744b8-945f-4a91-bb3f-249da17a4449",
     name: "Four Leaf",
     id: 276,
     brand: null,
@@ -1586,7 +1586,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "halfHexagon277",
+    stringId: "b2e75adb-18eb-413c-a006-003c143045c3",
     name: "Half Hexagon",
     id: 277,
     brand: null,
@@ -1608,7 +1608,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "picketAndSquare278",
+    stringId: "4754549e-6cc4-44f6-8245-959df1f35d44",
     name: "Picket and Square",
     id: 278,
     brand: null,
@@ -1630,7 +1630,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "interlockingWave279",
+    stringId: "3238c238-5247-417d-8846-459df414a947",
     name: "Interlocking Wave",
     id: 279,
     brand: null,
@@ -1652,7 +1652,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "angledTrapezoids280",
+    stringId: "114de64c-8e52-4c33-93a3-9c5aff1bcea0",
     name: "Angled Trapezoids",
     id: 280,
     brand: null,
@@ -1674,7 +1674,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "trapezoidTriangle281",
+    stringId: "45362502-7c0f-44c5-bec0-8194480df82d",
     name: "Trapezoid Triangle",
     id: 281,
     brand: null,
@@ -1696,7 +1696,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "bowtiePavers282",
+    stringId: "e64c9f57-8db5-4c83-836d-c5c87579d643",
     name: "Bowtie Pavers",
     id: 282,
     brand: null,
@@ -1718,7 +1718,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "kite283",
+    stringId: "e5f2bb91-255d-476e-81a2-ef4691158243",
     name: "Kite",
     id: 283,
     brand: null,
@@ -1740,7 +1740,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "scarpa284",
+    stringId: "b1be2a9f-9614-4b15-90e7-84d82361a49e",
     name: "Scarpa",
     id: 284,
     brand: null,
@@ -1762,7 +1762,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "zigZagPavers286",
+    stringId: "0143f703-63d1-4a19-bcef-58c200dca8f8",
     name: "Zig Zag Pavers",
     id: 286,
     brand: null,
@@ -1784,7 +1784,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "doubleStretcher289",
+    stringId: "cab96405-d341-4048-985a-5792b49b2843",
     name: "Double Stretcher",
     id: 289,
     brand: null,
@@ -1806,7 +1806,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "doubleChevronDiamond290",
+    stringId: "1410bc0b-23c9-4025-8114-0c5d809b0eb7",
     name: "Double Chevron Diamond",
     id: 290,
     brand: null,
@@ -1828,7 +1828,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "chevronDiamond291",
+    stringId: "afa0ebc9-2780-49e4-b6b0-86b6954261ad",
     name: "Chevron Diamond",
     id: 291,
     brand: null,
@@ -1850,7 +1850,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "propellerPavers293",
+    stringId: "1b4b044f-82c2-4f26-876a-ec7333340fab",
     name: "Propeller Pavers",
     id: 293,
     brand: null,
@@ -1872,7 +1872,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "triHexPavers294",
+    stringId: "81dd1087-35d5-4a41-90b3-4e0a67cbc0ba",
     name: "Tri Hex Pavers",
     id: 294,
     brand: null,
@@ -1894,7 +1894,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "vPavers295",
+    stringId: "f7d03afd-5322-49d8-826f-3470741c3cee",
     name: "V Pavers ",
     id: 295,
     brand: null,
@@ -1916,7 +1916,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "crazyPaving303",
+    stringId: "24688f06-0c5d-4322-8b0f-41c4b3e89be5",
     name: "Crazy Paving",
     id: 303,
     brand: null,
@@ -1938,7 +1938,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "crazyPaving304",
+    stringId: "8555fe0d-e626-44a8-a027-0739596e1b8c",
     name: "Crazy Paving",
     id: 304,
     brand: null,
@@ -1960,7 +1960,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "crazyPaving306",
+    stringId: "97b5c77b-79ef-424a-b69b-f169735505bf",
     name: "Crazy Paving",
     id: 306,
     brand: null,
@@ -1982,7 +1982,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "tripleStretcher307",
+    stringId: "ae7f0dbc-98b3-47d4-9eb1-d796fa35836d",
     name: "Triple Stretcher",
     id: 307,
     brand: null,
@@ -2004,7 +2004,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "singleBasketweave310",
+    stringId: "b3dcd022-9aec-49e5-b836-252f9bfb62f7",
     name: "Single Basketweave",
     id: 310,
     brand: null,
@@ -2026,7 +2026,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "táVora311",
+    stringId: "c7531827-9ea4-4ea1-9070-bbdc1777fee0",
     name: "Távora",
     id: 311,
     brand: null,
@@ -2048,7 +2048,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "1By4RunningBond312",
+    stringId: "b04704cd-98e9-4401-9fb7-0d28c6928e5c",
     name: "1/4 Running Bond",
     id: 312,
     brand: null,
@@ -2070,7 +2070,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "1By3RunningBond314",
+    stringId: "9ce18790-e4ce-4b64-90e4-d2f6f806c46a",
     name: "1/3 Running Bond",
     id: 314,
     brand: null,
@@ -2092,7 +2092,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "doubleStretcherWithHeader315",
+    stringId: "a6c5649d-51f1-47e9-bbc0-13c1bef01e51",
     name: "Double Stretcher with Header",
     id: 315,
     brand: null,
@@ -2114,7 +2114,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "interlockingRectanglePavers317",
+    stringId: "b58cf3f1-586b-416a-89f2-d59cffc67d7b",
     name: "Interlocking Rectangle Pavers",
     id: 317,
     brand: null,
@@ -2136,7 +2136,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "interlockingRectangleWithSquare318",
+    stringId: "56c931e9-6640-41ae-8751-4ee20c0e733b",
     name: "Interlocking Rectangle with Square",
     id: 318,
     brand: null,
@@ -2158,7 +2158,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "doubleFlemish320",
+    stringId: "cc75b56e-ee7c-462f-9172-4253306b53d9",
     name: "Double Flemish",
     id: 320,
     brand: null,
@@ -2180,7 +2180,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "1By3Stretcher322",
+    stringId: "b8babef3-a620-494c-abd7-710582d779da",
     name: "1/3 Stretcher ",
     id: 322,
     brand: null,
@@ -2202,7 +2202,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "1By4Stretcher323",
+    stringId: "955e6ca8-f49b-4072-b25e-a85127f5a08d",
     name: "1/4 Stretcher",
     id: 323,
     brand: null,
@@ -2224,7 +2224,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "octagonSquare342",
+    stringId: "cd2b1a9b-ae37-49de-9d18-fde91f3ec758",
     name: "Octagon Square",
     id: 342,
     brand: null,
@@ -2246,7 +2246,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "6PointIntersectingCircle344",
+    stringId: "e3b8c065-eb3e-4f62-bd9f-72d7cfd3a43a",
     name: "6 Point Intersecting Circle",
     id: 344,
     brand: null,
@@ -2268,7 +2268,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "brokenHerringbone349",
+    stringId: "1ebed0cc-f8ca-4c14-90a3-64b270dea884",
     name: "Broken Herringbone",
     id: 349,
     brand: null,
@@ -2290,7 +2290,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "snowflake350",
+    stringId: "7863a92c-1d74-4c9e-a7e1-a17cd44dd951",
     name: "Snowflake",
     id: 350,
     brand: null,
@@ -2312,7 +2312,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "crossVersailles351",
+    stringId: "033077dd-7d1e-4b71-adcc-d48f0cd41054",
     name: "Cross Versailles",
     id: 351,
     brand: null,
@@ -2334,7 +2334,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "pyramidVersailles352",
+    stringId: "6608634c-4f74-4508-9001-f23a04a9c921",
     name: "Pyramid Versailles",
     id: 352,
     brand: null,
@@ -2356,7 +2356,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "cycloneVersailles353",
+    stringId: "709e3c80-68f1-4a1d-9274-f850d3ee346d",
     name: "Cyclone Versailles",
     id: 353,
     brand: null,
@@ -2378,7 +2378,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "diamondContinuousVersailles354",
+    stringId: "ed00dccf-adb0-4703-a9f1-917c254673e3",
     name: "Diamond Continuous Versailles",
     id: 354,
     brand: null,
@@ -2400,7 +2400,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "framedVersailles356",
+    stringId: "ea462c8b-ee2a-4c84-82d0-fc87ea5c4334",
     name: "Framed Versailles",
     id: 356,
     brand: null,
@@ -2422,7 +2422,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "framedVersailles357",
+    stringId: "b7db5a4d-4c40-429a-905b-6192ec9b87fb",
     name: "Framed Versailles",
     id: 357,
     brand: null,
@@ -2444,7 +2444,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "randomBond358",
+    stringId: "836fa1eb-546b-4c28-9972-2c51bb92e85a",
     name: "Random Bond",
     id: 358,
     brand: null,
@@ -2466,7 +2466,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "tripleFlemish360",
+    stringId: "f3030d4e-2899-46d8-a9f0-14f72e18a92a",
     name: "Triple Flemish",
     id: 360,
     brand: null,
@@ -2488,7 +2488,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "gothicBond362",
+    stringId: "1f7a258c-a7d1-4a9f-8568-49176f2ced2d",
     name: "Gothic Bond",
     id: 362,
     brand: null,
@@ -2510,7 +2510,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "silesianBond363",
+    stringId: "205bd6b9-c74a-42f7-ada2-4922d8fbcb16",
     name: "Silesian Bond",
     id: 363,
     brand: null,
@@ -2532,7 +2532,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "monkBond364",
+    stringId: "b5224c30-94a7-4025-9c6a-a6e5d3671d58",
     name: "Monk Bond",
     id: 364,
     brand: null,
@@ -2554,7 +2554,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "englishBond365",
+    stringId: "6640cf44-c56c-477b-a094-2bfa8b01228c",
     name: "English Bond",
     id: 365,
     brand: null,
@@ -2576,7 +2576,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "venetian366",
+    stringId: "c5861722-2b1b-41bc-a612-8a373573aa3f",
     name: "Venetian",
     id: 366,
     brand: null,
@@ -2598,7 +2598,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "banner367",
+    stringId: "da71754b-235a-4722-be98-ae93ccc27de9",
     name: "Banner",
     id: 367,
     brand: null,
@@ -2620,7 +2620,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "cloudWeave368",
+    stringId: "f21a6e9b-ba47-46a0-8e5f-f13e094d05d6",
     name: "Cloud Weave",
     id: 368,
     brand: null,
@@ -2642,7 +2642,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "trapezeHex369",
+    stringId: "489d4649-04a3-4cdc-9cc9-ff33de6e512f",
     name: "Trapeze Hex",
     id: 369,
     brand: null,
@@ -2664,7 +2664,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "parallelogram370",
+    stringId: "52ec8859-e8a6-41b1-8a5a-dae2d8a81783",
     name: "Parallelogram",
     id: 370,
     brand: null,
@@ -2686,7 +2686,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "triangleSquareMosaic371",
+    stringId: "d1c95127-9b37-4109-98e1-cd7d7456e582",
     name: "Triangle Square Mosaic",
     id: 371,
     brand: null,
@@ -2708,7 +2708,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "petalMosaic372",
+    stringId: "f9e34680-f22b-4763-80d2-d3e13f5d7fe0",
     name: "Petal Mosaic",
     id: 372,
     brand: null,
@@ -2730,7 +2730,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "octagonPicket374",
+    stringId: "ec218a6a-c0df-4b4d-a8e3-175c97c629be",
     name: "Octagon Picket",
     id: 374,
     brand: null,
@@ -2752,7 +2752,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "uncoursedAshlar376",
+    stringId: "82a8c116-d64e-464e-af40-4ce63095e164",
     name: "Uncoursed Ashlar",
     id: 376,
     brand: null,
@@ -2774,7 +2774,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "brokenRangeAshlar377",
+    stringId: "ac469420-7727-4995-bf16-81a515eaff12",
     name: "Broken Range Ashlar",
     id: 377,
     brand: null,
@@ -2796,7 +2796,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "threePieceModularPaver378",
+    stringId: "d97a12a3-3024-4ff5-9e42-a68c9d83df5c",
     name: "Three Piece Modular Paver",
     id: 378,
     brand: null,
@@ -2818,7 +2818,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "fourPieceModularPaver379",
+    stringId: "b65c43a5-ae57-458d-8772-f1cff72ff3fd",
     name: "Four Piece Modular Paver",
     id: 379,
     brand: null,
@@ -2840,7 +2840,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "octagramMosaic382",
+    stringId: "1d3793ac-135c-4527-b0d6-f5227dff56cc",
     name: "Octagram Mosaic",
     id: 382,
     brand: null,
@@ -2862,7 +2862,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "starMosaic384",
+    stringId: "c99caed4-ca2e-45d2-9b60-672c3d4975e2",
     name: "Star Mosaic",
     id: 384,
     brand: null,
@@ -2884,7 +2884,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "6PointStarMosaic385",
+    stringId: "93e81eca-4787-4c35-b656-f1a628163def",
     name: "6 Point Star Mosaic",
     id: 385,
     brand: null,
@@ -2906,7 +2906,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "hexagonDiamond387",
+    stringId: "6ae0eb69-a2c0-468e-bc9e-f4e8a00cf6d6",
     name: "Hexagon Diamond",
     id: 387,
     brand: null,
@@ -2928,7 +2928,7 @@ config.patternArray = [
     defaultParams: null,
   },
   {
-    stringId: "diamondSquare392",
+    stringId: "eb9ae922-4771-4929-8177-8a4a442f178d",
     name: "Diamond Square",
     id: 392,
     brand: null,

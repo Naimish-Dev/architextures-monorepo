@@ -4,10 +4,18 @@ import materialsRouter from "./src/routes/materials.router.js";
 import patternsRouter from "./src/routes/patterns.router.js";
 import generalRouter from "./src/routes/general.router.js";
 import httpProxy from "http-proxy";
+import mongoose from "mongoose";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+mongoose.connect(
+  "mongodb+srv://Naimish:Naimish@first.bltaab9.mongodb.net/architecture"
+);
+
+mongoose.connection.on("connected", () => {
+  console.log("Connected to MongoDB");
+});
 app.use(express.json());
 if(process.env.NODE_ENV === "development"){
   app.use(express.static("public"));
