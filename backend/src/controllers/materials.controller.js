@@ -1,35 +1,31 @@
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-const db = require("../db.json");
+import Material from "../model/Material.js";
 
 export async function index(req, res, next) {
   try {
-    const page = +req.body?.page || 0;
-    const limit = +req.body?.limit || 20;
-    const offset = limit * page;
-    const endIndex = offset + limit;
-    const category = req.body.category.toLocaleLowerCase() || "stone";
-    const materials = db.materials.filter(
-      (v) => v.category.toLocaleLowerCase() == category
-    );
+    const { page = 1, limit = 10, category = null, ids = null } = req.query;
 
-    const data = materials.slice(offset, endIndex);
-    res.json({
-      more: endIndex < materials.length,
-      results: data,
+    const query = {};
+
+    if (category) {
+      query.category = { $regex : new RegExp(category, "i") };
+    }
+
+    if (ids) {
+      query.id = { $in: ids.split(",") };
+    }
+
+    const options = {
+      limit,
+      page,
+    };
+
+    const { docs, hasNextPage } = await Material.paginate(query, options);
+
+    return res.json({
+      more: hasNextPage,
+      results: docs,
       status: "success",
     });
-  } catch (error) {
-    next(error);
-  }
-}
-
-export async function show(req, res, next) {
-  try {
-    const data = db.materials.filter((texture) => {
-      return +req.params.id === texture.id;
-    });
-    res.json({ more: false, results: data, status: "success" });
   } catch (error) {
     next(error);
   }

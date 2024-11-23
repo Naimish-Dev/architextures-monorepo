@@ -10,7 +10,7 @@ router.post("/api/get-design-options", (req, res, next) => {
   res.json({});
 });
 
-router.post("/api/material-view", (req, res, next) => {
+router.post("/api/material-view/:id", (req, res, next) => {
   res.json(req.body);
 });
 

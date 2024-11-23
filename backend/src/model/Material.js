@@ -1,11 +1,12 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+import paginate from "mongoose-paginate-v2";
 
 const materialSchema = new mongoose.Schema({
   id: { type: Number, unique: true },
   name: { type: String },
   category: { type: String },
   subcategory: { type: String, default: null },
-  description: { type: String },
+  description: { type: String, default: "" },
   collection: { type: String, default: "" },
   thumbnail: { type: String },
   realwidth: { type: Number, default: 0 },
@@ -17,24 +18,7 @@ const materialSchema = new mongoose.Schema({
   country: { type: mongoose.Schema.Types.Mixed, default: null },
   seamless: { type: String, default: "0" },
   source_type: { type: String, default: "single" },
-  json_data: {
-    productUrl: { type: String, default: "" },
-    units: { type: String, default: "mm" },
-    appearance: {
-      tint: { type: String, default: "#FFFFFF" },
-      edgeStyle: { type: String, default: "" },
-      edgeScale: { type: String, default: "" },
-    },
-    appSettings: {
-      customSizes: { type: Boolean, default: false },
-      sizes: { type: Array, default: [] },
-      patterns: { type: Array, default: [] },
-      adjustments: { type: Boolean, default: false },
-      tint: { type: Boolean, default: false },
-      edges: { type: Boolean, default: false },
-      tone: { type: Boolean, default: false },
-    },
-  },
+  json_data: { type: Object, default: {} },
   source_names: { type: [String], default: [] },
   color: { type: String, default: "" },
   link: { type: String, default: null },
@@ -55,6 +39,8 @@ const materialSchema = new mongoose.Schema({
   protextures_position_as_position: { type: Number, default: null },
 });
 
+materialSchema.plugin(paginate);
+
 const MaterialModel = mongoose.model("Material", materialSchema);
 
-module.exports = MaterialModel;
+export default MaterialModel;

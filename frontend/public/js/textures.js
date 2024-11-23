@@ -610,7 +610,10 @@ function uploadLibrary(raevynn) {
             text: "Deleting file...",
             image: "spinner"
           });
-          postJson(`/api/delete-media-file/${karmela.id}`).then(moreland => {
+          postJson("/api/delete-media-file", {
+            filePath: karmela.url,
+            fileId: karmela.id
+          }).then(moreland => {
             if (moreland.status === "success") {
               teng.updateNotification({
                 text: "File deleted successfully",
@@ -1953,26 +1956,31 @@ function query(kenzly) {
 }
 function getThumbSrc(breckynn, jankarlo) {
   if (jankarlo === "protextures") {
-    return `${config.cdn}/thumbnails/${breckynn.thumbnail}`;
+    return config.cdn + "/thumbnails/" + breckynn.thumbnail + "?v=" + generateUid();
+  } else {
+    if (jankarlo === "textures") {
+      return config.cdn + "" + breckynn.imgurl + "?s=400&q=60";
+    } else {
+      if (jankarlo === "saves") {
+        return config.cdn + breckynn.imgurl;
+      } else {
+        if (jankarlo === "user_materials") {
+          return config.cdn + "/users/" + config.user.id + "/uploads/thumb-u" + breckynn.id + ".jpg?v=" + generateUid();
+        } else {
+          if (jankarlo === "patterns") {
+            return config.cdn + "/patterns/" + (breckynn.stringId ? breckynn.stringId : breckynn.id) + ".svg";
+          } else {
+            if (jankarlo === "brands") {
+              return config.cdn + breckynn.logo;
+            } else {
+              return "";
+            }
+          }
+        }
+      }
+    }
   }
-  if (jankarlo === "textures") {
-    return `${config.cdn}${breckynn.imgurl}`;
-  }
-  if (jankarlo === "saves") {
-    return `${config.cdn}${breckynn.imgurl}`;
-  }
-  if (jankarlo === "user_materials") {
-    return `${config.cdn}/users/${config.user.id}/uploads/thumb-u${breckynn.id}.jpg?v=${generateUid()}`;
-  }
-  if (jankarlo === "patterns") {
-    return `${config.cdn}/patterns/${breckynn.stringId}.svg`;
-  }
-  if (jankarlo === "brands") {
-    return `${config.cdn}${breckynn.logo}`;
-  }
-  return "";
 }
-
 function closeAdminPages() {
   if (document.querySelector(".statistics-only")) {
     document.querySelector(".statistics-only").remove();
@@ -2180,29 +2188,41 @@ function createDatabox(azarel) {
   function marhonda(gilson) {
     function zackory(nataliee) {
       let taydin;
-      const baseStyle = `width:${quintavia};min-width:${quintavia};height:${quintavia};background-size:cover;background-image:url(${getThumbSrc(nataliee, azarel.query.table)})`;
-    
-      if (azarel.query.table === "protextures" || azarel.query.table === "textures") {
-        taydin = createHtml({ tag: "div", style: baseStyle });
-      } else if (azarel.query.table === "patterns") {
+      if (azarel.query.table === "protextures") {
         taydin = createHtml({
           tag: "div",
-          style: `width:${quintavia};min-width:${quintavia};height:${quintavia};background-size:calc(${nataliee.thumbnailSize} * 1.5);background-image:url(${getThumbSrc(nataliee, azarel.query.table)})`
-        });
-      } else if (azarel.query.table === "brands") {
-        taydin = createHtml({
-          tag: "div",
-          style: `width:${quintavia};min-width:${quintavia};box-sizing:border-box;padding:5px;background-repeat:no-repeat;height:${quintavia};background-size:contain;background-image:url(${getThumbSrc(nataliee, azarel.query.table)})`
+          style: "width:" + quintavia + ";min-width:" + quintavia + ";height:" + quintavia + ";background-size:cover;background-image:url(" + getThumbSrc(nataliee, azarel.query.table) + ")"
         });
       } else {
-        taydin = createHtml({ tag: "div" });
+        if (azarel.query.table === "textures") {
+          taydin = createHtml({
+            tag: "div",
+            style: "width:" + quintavia + ";min-width:" + quintavia + ";height:" + quintavia + ";background-size:cover;background-image:url(" + getThumbSrc(nataliee, azarel.query.table) + ")"
+          });
+        } else {
+          if (azarel.query.table === "patterns") {
+            taydin = createHtml({
+              tag: "div",
+              style: "width:" + quintavia + ";min-width:" + quintavia + ";height:" + quintavia + ";background-size:calc(" + nataliee.thumbnailSize + " * 1.5);background-image:url(" + getThumbSrc(nataliee, azarel.query.table) + ")"
+            });
+          } else {
+            if (azarel.query.table === "brands") {
+              taydin = createHtml({
+                tag: "div",
+                style: "width:" + quintavia + ";min-width:" + quintavia + ";box-sizing:border-box;padding:5px;background-repeat: no-repeat;height:" + quintavia + ";background-size:contain;background-image:url(" + getThumbSrc(nataliee, azarel.query.table) + ")"
+              });
+            } else {
+              taydin = createHtml({
+                tag: "div"
+              });
+            }
+          }
+        }
       }
-    
       taydin.style.backgroundColor = "#eee";
       taydin.style.backgroundPosition = "center";
       return taydin;
     }
-    
     for (let chazmin of gilson) {
       let jeanann;
       if (azarel.itemHtml) {
@@ -2712,7 +2732,7 @@ document.addEventListener("keyup", function (mariann) {
 });
 function checkStorageForUser() {
   return new Promise((deveta, alexei) => {
-    postJson("/ap1/check-storage", {
+    postJson("/api/check-storage", {
       user: config.user.id
     }).then(chriss => {
       if (chriss.rawResponse.status === 200) {
@@ -3987,7 +4007,7 @@ config.showTexture = function (ariyella, richelle) {
         var onterrio = new FileReader();
         onterrio.onloadend = function () {
           tersea.data.image = onterrio.result;
-          postJson(`/api/materials/${ariyella.id}/download`);
+          postJson(`/api/materials/${ariyella.id}/download"`);
           toApp(tersea);
         };
         onterrio.readAsDataURL(markiyah);
@@ -4099,7 +4119,8 @@ config.showTexture = function (ariyella, richelle) {
             if (ariyella.brand) {
               ajayah.brand = ariyella.brand;
             }
-            postJson("/api/saves/create", {
+            postJson("/api/saves", {
+              action: "insert",
               values: ajayah,
             }).then(naesha => {
               if (!naesha.status || naesha.status !== "success") {
