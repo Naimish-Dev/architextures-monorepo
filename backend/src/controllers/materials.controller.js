@@ -1,8 +1,8 @@
-import Material from "../model/Material.js";
+import Material from "../models/materials.model.js";
 
 export async function index(req, res, next) {
   try {
-    const { page = 1, limit = 10, category = null, ids = null } = req.query;
+    const { page = 1, limit = 10, category = null, ids = null, search = null } = req.query;
 
     const query = {};
 
@@ -12,6 +12,10 @@ export async function index(req, res, next) {
 
     if (ids) {
       query.id = { $in: ids.split(",") };
+    }
+
+    if(search){
+      query.name = { $regex : new RegExp(category, "i") }
     }
 
     const options = {

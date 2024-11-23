@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose"
 
 const PatternSchema = new mongoose.Schema({
   id: { type: String, unique: true },

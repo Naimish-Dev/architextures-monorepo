@@ -1,19 +1,19 @@
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-const db = require("../db.json");
+import Pattern from "../models/patterns.model.js";
 
 export async function index(req, res, next) {
   try {
-    const page = +req.body?.page || 0;
-    const limit = +req.body?.limit || 20;
-    const offset = limit * page;
-    const endIndex = offset + limit;
-    const patterns = db.patterns
+    const { page = 1, limit = 10 } = req.query;
 
-    const data = patterns.slice(offset, endIndex);
-    res.json({
-      more: endIndex < patterns.length,
-      results: data,
+    const options = {
+      limit,
+      page,
+    };
+
+    const { docs, hasNextPage } = await Pattern.paginate({}, options);
+
+    return res.json({
+      more: hasNextPage,
+      results: docs,
       status: "success",
     });
   } catch (error) {
@@ -23,9 +23,8 @@ export async function index(req, res, next) {
 
 export async function show(req, res, next) {
   try {
-    const data = db.patterns.filter((texture) => {
-      return +req.params.id === texture.id;
-    });
+    const data = await Pattern.find({ id: +req.params.id });
+
     res.json({ more: false, results: data, status: "success" });
   } catch (error) {
     next(error);
