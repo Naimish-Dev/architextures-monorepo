@@ -75,7 +75,7 @@ document.querySelector("[data-action='material_params']").addEventListener("clic
 
         const query = {action: "update", table: "protextures", id: params.tileStyles.a.materialId, values: {params: JSON.stringify(saveMaterialParams)}, auth: true};
 
-        postJson("/app/query", query).then(response => {
+        postJson("/api/query", query).then(response => {
             if (!response.status || response.status !== "success") {
                 saveMaterialNotification.updateNotification({text: "Error saving material settings", image: "warning"});
             } else {
@@ -131,7 +131,7 @@ document.querySelector("[data-action='pattern_params']").addEventListener("click
         }
 
         const delQuery = {action:"delete", table: "default_params", where: [["pattern","=",params.patternId]], auth: true};
-        postJson("/app/query", delQuery).then(response => {
+        postJson("/api/query", delQuery).then(response => {
             if (!response.status || response.status !== "success") {
                 savePatternNotification.updateNotification({text: "Error saving pattern settings", image: "warning"});
                 return;
@@ -145,7 +145,7 @@ document.querySelector("[data-action='pattern_params']").addEventListener("click
 
             const query = {action: "insert", table: "default_params", values: {pattern: params.patternId, brand: config.user.brand, params: JSON.stringify(savePatternParams)}, auth: true};
 
-            postJson("/app/query", query).then(response => {
+            postJson("/api/query", query).then(response => {
                 if (!response.status && response.status !== "success") {
                     savePatternNotification.updateNotification({text: "Error saving pattern settings", image: "warning"});
                 } else {
@@ -165,7 +165,7 @@ document.querySelector("[data-action='app_params']").addEventListener("click", (
 
     const query = {action: "update", table: "users", id: config.user.id, values: {app_default_params: JSON.stringify(params)}, auth: true};
 
-    postJson("/app/query", query).then(response => {
+    postJson("/api/query", query).then(response => {
         if (!response.status && response.status !== "success") {
             saveWebNotification.updateNotification({text: "Error saving app settings", image: "warning"});
         } else {
@@ -182,7 +182,7 @@ document.querySelector("[data-action='branded_app_params']").addEventListener("c
 
     const query = {action: "update", table: "apps", id: config.appdata.id, values: {params: JSON.stringify(params)}, auth: true};
 
-    postJson("/app/query", query).then(response => {
+    postJson("/api/query", query).then(response => {
         if (!response.status && response.status !== "success") {
             saveCustomAppNotification.updateNotification({text: "Error saving custom settings", image: "warning"});
         } else {

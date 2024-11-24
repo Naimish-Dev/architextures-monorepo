@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8081;
 
 app.use(
   cors({
-    origin: process.env.BACKEND_URL ,
+    origin: process.env.BACKEND_URL,
   })
 );
 app.use(express.json());

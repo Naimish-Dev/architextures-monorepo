@@ -1,5 +1,5 @@
 import { Router } from "express";
-import * as materialsController from "../controllers/materials.controller.js";
+import * as materialsController from "../app/controllers/materials.controller.js";
 
 const router = Router();
 

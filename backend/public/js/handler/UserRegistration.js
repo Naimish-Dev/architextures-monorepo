@@ -105,7 +105,7 @@ class UserRegistration
                                 if(window.location.href.includes("create") && this.params) {
                                     $.ajax({
                                         method: "POST",
-                                        url: "/app/tolibrary",
+                                        url: "/api/library",
                                         data: this.params,
                                     }).done(function(data) {
                                         document.cookie = "artx_ntf='Texture saved successfully'; path=/; expires=" + new Date(new Date().setSeconds(new Date().getSeconds() + 30)).toUTCString() + ";";
@@ -116,7 +116,7 @@ class UserRegistration
                                     document.cookie = "artx_ntf='Logged in successfully'; path=/; expires=" + new Date(new Date().setSeconds(new Date().getSeconds() + 30)).toUTCString() + ";";
                                     redirectTo(redirect);
                                 } else if(window.location.href.includes("textures") && this.params) {
-                                    postJson("/app/query", {
+                                    postJson("/api/query", {
                                         table: "saves",
                                         action: "insert",
                                         auth: true,

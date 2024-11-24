@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const TextureSourcesSchema = new mongoose.Schema({
   id: { type: Number, unique: true }, // Unique numeric identifier

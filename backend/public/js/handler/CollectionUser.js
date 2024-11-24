@@ -28,7 +28,7 @@ class CollectionUser
         if(!this.userId || !id) return false;
 
         // check if texture is in saves
-        return postJson("/app/query", {
+        return postJson("/api/query", {
             table: "saves",
             columns: ["id"],
             where: [
@@ -50,14 +50,14 @@ class CollectionUser
     showCollections()
     {
         // get user collections
-        return postJson("/app/collections", {method: "getUserCollections"}).then(response => {
+        return postJson("/api/collections", {method: "getUserCollections"}).then(response => {
             const collections = response.results;
             const saveOptions = [];
             let inCollection;
 
             // get save id
             const promise = this.saveId ?
-                postJson("/app/query", {
+                postJson("/api/query", {
                     table: "collection_saves",
                     columns: ["collection"],
                     where: [
@@ -65,7 +65,7 @@ class CollectionUser
                     ],
                     auth: true
                 }) :
-                postJson("/app/collections", {method: "textureInCollections", texture: this.textureId}).then(response => {
+                postJson("/api/collections", {method: "textureInCollections", texture: this.textureId}).then(response => {
                     if(!response.error) inCollection = response.map(collection => collection.collection);
                 });
 
@@ -215,7 +215,7 @@ class CollectionUser
                         }
                         // delete from saves and all collections
                         saveIdPromise.then(saveId => {
-                            postJson("/app/query", {
+                            postJson("/api/query", {
                                 table: "saves",
                                 action: "delete",
                                 where: [
@@ -265,7 +265,7 @@ class CollectionUser
                         });
                     } else if(checkbox.checked) {
                         // add to saves
-                        postJson("/app/query", {
+                        postJson("/api/query", {
                             table: "saves",
                             action: "insert",
                             values: {
@@ -303,7 +303,7 @@ class CollectionUser
 
                     // remove from the collection
                     saveIdPromise.then(saveId => {
-                        postJson("/app/query", {
+                        postJson("/api/query", {
                             table: "collection_saves",
                             action: "delete",
                             where: [
@@ -334,7 +334,7 @@ class CollectionUser
                     // add to collection
                     saveIdPromise.then(saveId => {
                         // check if texture is already in the collection
-                        postJson("/app/collections", {method: "isTextureInCollection", collection: collectionId, saveId: saveId}).then(response => {
+                        postJson("/api/collections", {method: "isTextureInCollection", collection: collectionId, saveId: saveId}).then(response => {
                             if(response.isInCollection){
                                 // show error message
                                 notification.updateNotification({
@@ -344,7 +344,7 @@ class CollectionUser
                                 return;
                             }
                             // save in collection
-                            postJson("/app/query", {
+                            postJson("/api/query", {
                                 table: "collection_saves",
                                 action: "insert",
                                 values: {
@@ -401,7 +401,7 @@ class CollectionUser
                 });
 
                 // create collection
-                postJson("/app/collections", {method: "createCollection", name: document.querySelector("[data-user-collection='new-name']").value}).then(response => {
+                postJson("/api/collections", {method: "createCollection", name: document.querySelector("[data-user-collection='new-name']").value}).then(response => {
                     modal.remove();
                     if(this.persistMenu) {
                         this.resetMenu();
@@ -465,7 +465,7 @@ class CollectionUser
     {
         return this.saveId ?
             Promise.resolve(this.saveId) :
-            postJson("/app/query", {
+            postJson("/api/query", {
                 table: "saves",
                 columns: ["id"],
                 where: [

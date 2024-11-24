@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon ./server.js",
+    "dev": "nodemon ./server.js --ignore ./public --ignore ./views",
     "start": "node ./server.js"
   },
   "keywords": [],
@@ -20,6 +20,7 @@
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
+    "express-edge": "^3.0.0",
     "express-session": "^1.18.1",
     "helmet": "^8.0.0",
     "http-proxy": "^1.18.1",

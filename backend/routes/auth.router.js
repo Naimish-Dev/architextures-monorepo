@@ -1,7 +1,7 @@
 import { Router } from "express";
-import * as authController from "../controllers/auth.controller.js";
-import { auth } from "../middlewares/auth.middleware.js";
-import { signedRouteVerify } from "../middlewares/signed-route-verify.middleware.js";
+import * as authController from "../app/controllers/auth.controller.js";
+import { auth } from "../app/middlewares/auth.middleware.js";
+import { signedRouteVerify } from "../app/middlewares/signed-route-verify.middleware.js";
 
 const router = Router();
 

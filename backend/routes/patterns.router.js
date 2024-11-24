@@ -1,5 +1,5 @@
 import { Router } from "express";
-import * as patternsController from "../controllers/patterns.controller.js";
+import * as patternsController from "../app/controllers/patterns.controller.js";
 
 const router = Router();
 

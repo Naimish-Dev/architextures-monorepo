@@ -3001,3 +3001,7 @@ config.textureData = {
 };
 config.textureData.params = params;
 config.textureData.sourceTable = "default";
+
+if(typeof sharedParams !== "undefined"){
+  params = JSON.parse(sharedParams);
+}

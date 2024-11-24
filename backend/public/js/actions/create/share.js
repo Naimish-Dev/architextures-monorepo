@@ -18,14 +18,15 @@ document.querySelector("[data-action='share']").addEventListener("click", () => 
         data.brand = config.materials[params.tileStyles.a.materialId].brand;
     }
     // send data
-    postJson("/app/tolibrary", data).then(response => {
-        if (parseInt(response)) {
+    postJson("/api/share", data).then(response => {
+        console.log("response", response)
+        if (response) {
             linkNotification.updateNotification({
                 text: "Link created",
                 image: "tick",
                 duration: 2000
             });
-            let shareLink = "https://architextures.org/create/share/" + response;
+            let shareLink = window.location.origin + "/share/" + response.id;
             if (config.appdata) {
                 shareLink = shareLink + '?appid=' + config.appdata.id;
             }

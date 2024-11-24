@@ -59,7 +59,7 @@ document.querySelector("[data-action='save_new']").addEventListener("click", () 
             });
 
             const savePromise = new Promise((resolve, reject) => {
-                postJson("/app/tolibrary", jsonpost).then(response => {
+                postJson("/api/library", jsonpost).then(response => {
                     if (typeof parseInt(response) !== "number") {
                         notification.updateNotification({
                             text: "Could not save texture",
@@ -116,7 +116,7 @@ document.querySelector("[data-action='save_update']").addEventListener("click", 
     }
 
     resizeImage(canvas.toDataURL(), {maxSize: 800}).then(image => {
-        postJson("/app/tolibrary", {
+        postJson("/api/library", {
             id: saveId,
             type: "update",
             realwidth: config.textureWidth,
