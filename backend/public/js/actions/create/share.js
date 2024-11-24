@@ -19,7 +19,6 @@ document.querySelector("[data-action='share']").addEventListener("click", () => 
     }
     // send data
     postJson("/api/share", data).then(response => {
-        console.log("response", response)
         if (response) {
             linkNotification.updateNotification({
                 text: "Link created",

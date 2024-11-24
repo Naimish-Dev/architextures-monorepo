@@ -27,6 +27,10 @@ router.post("/query", (req, res, next) => {
   res.json({});
 });
 
+router.post("/check-storage", (req, res, next) => {
+  res.json({});
+});
+
 router.post("/share", shareController.share);
 
 export default router;

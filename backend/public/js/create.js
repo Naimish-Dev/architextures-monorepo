@@ -4996,22 +4996,25 @@ let predraw;
       function tyge() {
         $.ajax({
           method: "POST",
-          url: "/app/node-canvas",
+          url: "/api/node-canvas",
           data: JSON.stringify(elyanna),
           dataType: "json",
         }).done(function (domina) {
           if (domina) {
             var trudi = new Image();
-            (trudi.src = "data:image/jpeg;base64," + domina.imgData),
-              hideSpinner(),
-              (jaydaa.width = trudi.width),
-              (jaydaa.height = trudi.height),
-              asa.drawImage(trudi, 0, 0),
-              tileTexture(),
-              "#high-res" === crissangel &&
+            trudi.src = "data:image/jpeg;base64," + domina.imgData
+            trudi.onload = function(){
+              hideSpinner();
+              jaydaa.width = trudi.width;
+              jaydaa.height = trudi.height;
+              asa.drawImage(trudi, 0, 0);
+              tileTexture();
+              if("#high-res" === crissangel){
                 setTimeout(function () {
                   downloadTexture("canvas", 0.95);
                 }, 500);
+              }
+            }
           }
         });
       }
