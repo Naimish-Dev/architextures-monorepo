@@ -24,6 +24,7 @@
     "express-session": "^1.18.1",
     "helmet": "^8.0.0",
     "http-proxy": "^1.18.1",
+    "mongoose": "^8.8.2",
     "mongoose-paginate-v2": "^1.8.5",
     "nodemailer": "^6.9.16",
     "passport": "^0.7.0",
