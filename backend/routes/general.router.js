@@ -15,6 +15,14 @@ router.post("/material-view/:id", (req, res, next) => {
   res.json(req.body);
 });
 
+router.post("/material-download", (req, res, next) => {
+  res.json(req.body);
+});
+
+router.post("/downloads", (req, res, next) => {
+  res.json(req.body);
+});
+
 router.post("/library", (req, res, next) => {
   res.json({});
 });
