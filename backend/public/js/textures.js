@@ -1763,12 +1763,16 @@ function saveFile(pearletha, jethroe) {
         return;
       }
       var zaliyah = guistino.presignedUrl;
+      const file = new File([jethroe], "image.jpeg", {
+        type: jethroe.type,
+      });
+      var formdata = new FormData()
+      formdata.append('file', file)
       fetch(zaliyah, {
         method: "PUT",
-        body: jethroe,
+        body: formdata,
         headers: {
-          "Content-Type": jethroe.type,
-          "x-amz-acl": "public-read"
+          "x-signature": "123"
         }
       }).then(function (athenna) {
         rhuben(athenna);

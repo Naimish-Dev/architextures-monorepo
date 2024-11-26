@@ -5,15 +5,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "concurrently -c cyan,green --names Cdn,Backend \"npm run start:cdn\" \"npm run dev:backend\"",
-    "dev:frontend": "cd frontend && npm run dev",
+    "dev": "concurrently -c cyan,green --names Cdn,Backend \"npm run dev:cdn\" \"npm run dev:backend\"",
+    "dev:cdn": "cd cdn && npm run dev",
     "dev:backend": "cd backend && npm run dev",
-    "build": "npm run build:frontend",
-    "build:frontend": "cd frontend && npm run build",
-    "start": "concurrently -c cyan,green,blue --names Cdn,Backend,Frontend \"npm run start:cdn\" \"npm run start:backend\" \"npm run start:frontend\"",
+    "start": "concurrently -c cyan,green --names Cdn,Backend \"npm run start:cdn\" \"npm run start:backend\"",
     "start:backend": "cd backend && npm run start",
-    "start:cdn": "cd cdn && npm run start",
-    "start:frontend": "cd frontend && npm run preview"
+    "start:cdn": "cd cdn && npm run start"
   },
   "workspaces": [
     "backend",

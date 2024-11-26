@@ -5,7 +5,7 @@ import engine from "express-edge";
 import webRouter from "./routes/web.router.js";
 import materialsRouter from "./routes/materials.router.js";
 import patternsRouter from "./routes/patterns.router.js";
-import generalRouter from "./routes/general.router.js";
+import apiRouter from "./routes/api.router.js";
 import authRouter from "./routes/auth.router.js";
 import session from "express-session";
 import passport from "passport";
@@ -44,7 +44,7 @@ app.use(webRouter);
 app.use("/auth", authRouter);
 app.use("/api/materials", materialsRouter);
 app.use("/api/patterns", patternsRouter);
-app.use("/api", generalRouter);
+app.use("/api", apiRouter);
 
 app.get("/*", (req, res)=>{
   return res.render("errors.404")
