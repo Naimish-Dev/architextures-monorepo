@@ -1,17 +1,15 @@
-import Pattern from "../models/patterns.model.js";
+import HeightMapsModel from "../models/heightmaps.model.js";
 
 export async function index(req, res, next) {
   try {
-    console.log(req);
-    
-    const { page = 1, limit = 20 } = req.query;
+    const { page = 1, limit = 10 } = req.query;
 
     const options = {
       limit,
       page,
     };
 
-    const { docs, hasNextPage } = await Pattern.paginate({}, options);
+    const { docs, hasNextPage } = await HeightMapsModel.paginate({}, options);
 
     return res.json({
       more: hasNextPage,
@@ -25,7 +23,7 @@ export async function index(req, res, next) {
 
 export async function show(req, res, next) {
   try {
-    const data = await Pattern.find({ id: +req.params.id });
+    const data = await HeightMapsModel.find({ id: +req.params.id });
 
     res.json({ more: false, results: data, status: "success" });
   } catch (error) {

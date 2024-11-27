@@ -361,8 +361,11 @@ function drawSphere(satvika) {
   });
 }
 function uuidv4() {
-  return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
-    (+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
+  return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, (c) =>
+    (
+      +c ^
+      (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (+c / 4)))
+    ).toString(16)
   );
 }
 function drawError(ginaya) {
@@ -1826,8 +1829,8 @@ let predraw;
           ],
         });
       (utkarsh.onclick = function () {
-        postJson(`/api/share`,{
-          params: JSON.stringify(params)
+        postJson(`/api/share`, {
+          params: JSON.stringify(params),
         }).then(function (ballarie) {
           createHtml({
             tag: "a",
@@ -2022,7 +2025,9 @@ let predraw;
         page: yatzary.page,
         category: yatzary.category,
       };
-      postJson(`/api/materials?page=${payload.page}&limit=${payload.limit}&category=${payload.category}`).then(function (livy) {
+      postJson(
+        `/api/materials?page=${payload.page}&limit=${payload.limit}&category=${payload.category}`
+      ).then(function (livy) {
         adyaan(livy, "#material-menu .stone-container", yatzary);
       });
     }
@@ -2036,7 +2041,9 @@ let predraw;
       page: arshanti.page,
       category: arshanti.category,
     };
-    postJson(`/api/materials?page=${payload.page}&limit=${payload.limit}&category=${payload.category}`).then(function (samnatha) {
+    postJson(
+      `/api/materials?page=${payload.page}&limit=${payload.limit}&category=${payload.category}`
+    ).then(function (samnatha) {
       adyaan(samnatha, "#material-menu .stone-container", arshanti);
     });
     var lafrederick = element("#material-menu-content"),
@@ -2068,7 +2075,9 @@ let predraw;
                 page: kedwin.page,
                 category: kedwin.category,
               };
-              postJson(`/api/materials?page=${payload.page}&limit=${payload.limit}&category=${payload.category}`).then(function (soyer) {
+              postJson(
+                `/api/materials?page=${payload.page}&limit=${payload.limit}&category=${payload.category}`
+              ).then(function (soyer) {
                 (soyer.results = soyer.results.filter(
                   (diyara) =>
                     null !==
@@ -2211,7 +2220,8 @@ let predraw;
             (_0x1055d0.bumpContrast = 1.5),
           _0x1055d0.hasOwnProperty("bumpOpacity") ||
             (_0x1055d0.bumpOpacity = 1),
-          _0x1055d0.hasOwnProperty("bumpInvert") || (_0x1055d0.bumpInvert = false),
+          _0x1055d0.hasOwnProperty("bumpInvert") ||
+            (_0x1055d0.bumpInvert = false),
           _0x1055d0.hasOwnProperty("displacementEdges") ||
             (_0x1055d0.displacementEdges = true),
           _0x1055d0.hasOwnProperty("displacementImage") ||
@@ -2278,27 +2288,29 @@ let predraw;
         (config.searchDelay = setTimeout(function () {
           "" == materialSearch.value
             ? config.clearSearch()
-            : postJson(`/api/materials?search=${eliandra.search}`, ).then(function (deleesa) {
-                (haku.querySelector(".planet-container").innerHTML = ""),
-                  (lafrederick.style.display = "none"),
-                  (chigozirim.style.display = "none"),
-                  (haku.style.display = ""),
-                  deleesa.results.length
-                    ? adyaan(
-                        deleesa,
-                        haku.querySelector(".planet-container"),
-                        eliandra
-                      )
-                    : insertHtml(
-                        createHtml({
-                          tag: "div",
-                          text: "No results found",
-                          class: "flex-centred",
-                          style: "width:100%;height:400px;",
-                        }),
-                        haku.querySelector(".planet-container")
-                      );
-              });
+            : postJson(`/api/materials?search=${eliandra.search}`).then(
+                function (deleesa) {
+                  (haku.querySelector(".planet-container").innerHTML = ""),
+                    (lafrederick.style.display = "none"),
+                    (chigozirim.style.display = "none"),
+                    (haku.style.display = ""),
+                    deleesa.results.length
+                      ? adyaan(
+                          deleesa,
+                          haku.querySelector(".planet-container"),
+                          eliandra
+                        )
+                      : insertHtml(
+                          createHtml({
+                            tag: "div",
+                            text: "No results found",
+                            class: "flex-centred",
+                            style: "width:100%;height:400px;",
+                          }),
+                          haku.querySelector(".planet-container")
+                        );
+                }
+              );
         }, 500));
     }),
     (element("#material-search-clear").onclick = function () {
@@ -2670,7 +2682,9 @@ let predraw;
               page: sayquan.page,
               category: sayquan.category,
             };
-            postJson(`/api/materials?page=${payload.page}&limit=${payload.limit}&category=${payload.category}`).then(function (gillan) {
+            postJson(
+              `/api/materials?page=${payload.page}&limit=${payload.limit}&category=${payload.category}`
+            ).then(function (gillan) {
               (milderd.style.display = "none"),
                 (dakisha.style.display = ""),
                 adyaan(gillan, sosie, sayquan);
@@ -2786,7 +2800,9 @@ let predraw;
     }),
       !config.appdata &&
         elize &&
-        postJson(`/api/materials?page=1&limit=999&category=user_materials`).then(function (platt) {
+        postJson(
+          `/api/materials?page=1&limit=999&category=user_materials`
+        ).then(function (platt) {
           for (material of (platt.results &&
             platt.results.length &&
             (elements("#user-upload-section")[0].style.display = ""),
@@ -3500,7 +3516,8 @@ let predraw;
                   dhaani(siwar);
               }),
                 (deovian.src =
-                  config.cdn + "/brands/" +
+                  config.cdn +
+                  "/brands/" +
                   config.materials[params.tileStyles.a.materialId].brands_logo),
                 (deovian.crossOrigin = "anonymous");
             } else
@@ -4530,7 +4547,7 @@ let predraw;
                 var tenneil = createHtml({
                     tag: "img",
                     src:
-                      "https://cdn.architextures.org" +
+                      "http://localhost:8081/uploads/" +
                       mareena.image +
                       "?s=80&q=75",
                     style:
@@ -4846,7 +4863,9 @@ let predraw;
                 config.brandsUsed.length &&
                 muhaimin.push(
                   new Promise((cannen, aryauna) => {
-                    postJson(`/api/get-design-options?pattern=${elyanna.patternId}&brand=${config.brandUsed}`).then(function (esterine) {
+                    postJson(
+                      `/api/get-design-options?pattern=${elyanna.patternId}&brand=${config.brandUsed}`
+                    ).then(function (esterine) {
                       esterine.forEach(function (willibaldo) {
                         willibaldo.fromPattern = elyanna.patternId;
                       }),
@@ -4994,19 +5013,19 @@ let predraw;
         }).done(function (domina) {
           if (domina) {
             var trudi = new Image();
-            trudi.src = "data:image/jpeg;base64," + domina.imgData
-            trudi.onload = function(){
+            trudi.src = "data:image/jpeg;base64," + domina.imgData;
+            trudi.onload = function () {
               hideSpinner();
               jaydaa.width = trudi.width;
               jaydaa.height = trudi.height;
               asa.drawImage(trudi, 0, 0);
               tileTexture();
-              if("#high-res" === crissangel){
+              if ("#high-res" === crissangel) {
                 setTimeout(function () {
                   downloadTexture("canvas", 0.95);
                 }, 500);
               }
-            }
+            };
           }
         });
       }
@@ -5059,6 +5078,8 @@ let predraw;
                 table: "paths",
                 where: [["id", "in", config.pathsUsed.join(",")]],
               }).then(function (andrean) {
+                console.log(andrean);
+
                 andrean.results.forEach(function (lamiracle) {
                   config.paths[lamiracle.id] = lamiracle;
                 }),
@@ -5113,7 +5134,9 @@ let predraw;
             !config.scenes.hasOwnProperty(params.scene) &&
             kishia.push(
               new Promise((bodhin, brucha) => {
-                postJson(`/api/scenes/${params.scene}`).then(function (shaketha) {
+                postJson(`/api/scenes/${params.scene}`).then(function (
+                  shaketha
+                ) {
                   if (shaketha.results.length) {
                     let yaisha = shaketha.results[0];
                     (config.scenes[params.scene] = yaisha),
@@ -5142,7 +5165,9 @@ let predraw;
           bomani.length)
         ) {
           var genesia = new Promise((arati, kinnidy) => {
-            postJson(`/api/materials?ids=${bomani.join(",")}`).then(function (jayleana) {
+            postJson(`/api/materials?ids=${bomani.join(",")}`).then(function (
+              jayleana
+            ) {
               (designOptionPromises = []),
                 jayleana.results.forEach(function (iralynn) {
                   if (
@@ -5180,7 +5205,9 @@ let predraw;
                     iralynn.brand)
                   ) {
                     let masonalexander = new Promise((aiker, cerria) => {
-                      postJson(`/api/get-design-options?material=${iralynn.id}`).then(function (naason) {
+                      postJson(
+                        `/api/get-design-options?material=${iralynn.id}`
+                      ).then(function (naason) {
                         (naason = arrayToObject(naason, "id")),
                           (iralynn.designOptions = naason),
                           (config.materials[iralynn.id] = iralynn),

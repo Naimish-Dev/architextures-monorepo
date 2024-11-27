@@ -5,16 +5,18 @@ try {
 } catch (queston) {
   config.canAccessParent = false;
 }
-config.setUser = mansirat => {
+config.setUser = (mansirat) => {
   if (!config.user) {
-    postJson(`/api/users/${mansirat}`).then(kimyatta => {
+    postJson(`/api/users/${mansirat}`).then((kimyatta) => {
       config.user = kimyatta.results[0];
     });
   }
 };
 function jpegStringWithExif(luana, devony) {
   var margree = {
-    [piexif.ImageIFD.Software]: "Made with Architextures Create from architextures.org, Copyright Architextures " + abriya
+    [piexif.ImageIFD.Software]:
+      "Made with Architextures Create from architextures.org, Copyright Architextures " +
+      abriya,
   };
   var jocene = {};
   var leamond = {};
@@ -23,15 +25,21 @@ function jpegStringWithExif(luana, devony) {
   var vondalee = {
     "0th": margree,
     Exif: jocene,
-    GPS: leamond
+    GPS: leamond,
   };
   var anveer = piexif.dump(vondalee);
-  var aniaya = typeof luana == "string" ? document.getElementById(luana).toDataURL("image/jpeg", devony) : luana.toDataURL("image/jpeg", devony);
+  var aniaya =
+    typeof luana == "string"
+      ? document.getElementById(luana).toDataURL("image/jpeg", devony)
+      : luana.toDataURL("image/jpeg", devony);
   return piexif.insert(anveer, aniaya);
 }
 if (!String.prototype.replaceAll) {
   String.prototype.replaceAll = function (reionna, esli) {
-    if (Object.prototype.toString.call(reionna).toLowerCase() === "[object regexp]") {
+    if (
+      Object.prototype.toString.call(reionna).toLowerCase() ===
+      "[object regexp]"
+    ) {
       return this.replace(reionna, esli);
     }
     return this.replace(new RegExp(reionna, "g"), esli);
@@ -74,7 +82,9 @@ function getDimensionValue(dracy, zaahira) {
   if (genisha === "inches" && config.units === "mm") {
     return inchesToMm(dracy);
   } else {
-    return genisha === "mm" && config.units === "inches" ? mmToInches(dracy) : dracy;
+    return genisha === "mm" && config.units === "inches"
+      ? mmToInches(dracy)
+      : dracy;
   }
 }
 String.prototype.ucFirst = function () {
@@ -101,25 +111,32 @@ config.importMessage = createHtml({
   tag: "div",
   class: "modal-container",
   style: "pointer-events:none;user-select:none;",
-  children: [{
-    tag: "div",
-    style: "padding: 50px;",
-    class: "card cc",
-    children: [{
+  children: [
+    {
       tag: "div",
-      class: "spinner import-img",
-      style: "display:none;"
-    }, {
-      tag: "img",
-      class: "import-img",
-      style: "display:none;",
-      src: config.cdn + "/icons/tick.svg"
-    }]
-  }]
+      style: "padding: 50px;",
+      class: "card cc",
+      children: [
+        {
+          tag: "div",
+          class: "spinner import-img",
+          style: "display:none;",
+        },
+        {
+          tag: "img",
+          class: "import-img",
+          style: "display:none;",
+          src: config.cdn + "/icons/tick.svg",
+        },
+      ],
+    },
+  ],
 });
 function showImportMessage() {
   return new Promise(function (cherle, caliegh) {
-    let jajuane = window.location.pathname.startsWith("/create") ? document.querySelector("[data-import-container]") : document.body;
+    let jajuane = window.location.pathname.startsWith("/create")
+      ? document.querySelector("[data-import-container]")
+      : document.body;
     jajuane.appendChild(config.importMessage);
     fadeOut(config.importMessage.querySelector("img"), 1);
     fadeIn(config.importMessage.querySelector(".spinner"), 1);
@@ -138,7 +155,11 @@ function hideImportMessage() {
   fadeIn(config.importMessage.querySelector("img"), 1100);
 }
 function toApp(xiomary) {
-  if (xiomary.hasOwnProperty("data") && xiomary.data.hasOwnProperty("name") && xiomary.data.name.includes("/")) {
+  if (
+    xiomary.hasOwnProperty("data") &&
+    xiomary.data.hasOwnProperty("name") &&
+    xiomary.data.name.includes("/")
+  ) {
     xiomary.data.name = xiomary.data.name.replaceAll("/", "-");
   }
   if (config.canAccessParent) {
@@ -147,36 +168,49 @@ function toApp(xiomary) {
     } else if (window.parent.revit) {
       window.parent.revit.execute(xiomary);
     } else {
-      window.parent.postMessage({
-        config: xiomary
-      }, "*");
+      window.parent.postMessage(
+        {
+          config: xiomary,
+        },
+        "*"
+      );
     }
   } else {
-    window.parent.postMessage({
-      config: xiomary
-    }, "*");
+    window.parent.postMessage(
+      {
+        config: xiomary,
+      },
+      "*"
+    );
   }
 }
 function iframeMessage(marcquez, _0x294c3c = false, _0x1742fc = 0) {
-  window.parent.postMessage({
-    config: {
-      type: marcquez,
-      data: _0x294c3c,
-      requestId: _0x1742fc
-    }
-  }, "*");
+  window.parent.postMessage(
+    {
+      config: {
+        type: marcquez,
+        data: _0x294c3c,
+        requestId: _0x1742fc,
+      },
+    },
+    "*"
+  );
 }
 function checkboxesToArray(ewurabena) {
   var kamarii = [];
-  document.querySelectorAll("[data-column='" + ewurabena.getAttribute("data-column") + "']").forEach(function (yasmeen) {
-    if (yasmeen.checked) {
-      var fineas = yasmeen.value;
-      if (!isNaN(fineas)) {
-        fineas = parseInt(fineas);
+  document
+    .querySelectorAll(
+      "[data-column='" + ewurabena.getAttribute("data-column") + "']"
+    )
+    .forEach(function (yasmeen) {
+      if (yasmeen.checked) {
+        var fineas = yasmeen.value;
+        if (!isNaN(fineas)) {
+          fineas = parseInt(fineas);
+        }
+        kamarii.push(fineas);
       }
-      kamarii.push(fineas);
-    }
-  });
+    });
   return kamarii;
 }
 function sourceEditorImportImage(adrion) {
@@ -186,7 +220,10 @@ function sourceEditorImportImage(adrion) {
   naythan.width = adrion.width;
   naythan.height = adrion.height;
   chrisalynn.drawImage(adrion, 0, 0);
-  derric.setAttribute("viewBox", "0, 0, " + naythan.width + ", " + naythan.height);
+  derric.setAttribute(
+    "viewBox",
+    "0, 0, " + naythan.width + ", " + naythan.height
+  );
   derric.setAttribute("width", naythan.width);
   derric.setAttribute("height", naythan.height);
   const kiichi = naythan.getBoundingClientRect().width;
@@ -195,8 +232,10 @@ function sourceEditorImportImage(adrion) {
     naythan.parentNode.style.width = "100px";
     naythan.parentNode.style.height = "100px";
   } else {
-    naythan.parentNode.style.maxWidth = naythan.getBoundingClientRect().width + 10 + "px";
-    naythan.parentNode.style.maxHeight = naythan.getBoundingClientRect().height + 10 + "px";
+    naythan.parentNode.style.maxWidth =
+      naythan.getBoundingClientRect().width + 10 + "px";
+    naythan.parentNode.style.maxHeight =
+      naythan.getBoundingClientRect().height + 10 + "px";
   }
 }
 function svgSourceListener() {
@@ -215,77 +254,96 @@ function launchSourceEditor(talesa, merium) {
     tag: "div",
     id: "editor-modal",
     class: "modal grey",
-    children: [{
-      tag: "div",
-      attributes: {
-        id: "sample-selector",
-        class: "modal-window"
+    children: [
+      {
+        tag: "div",
+        attributes: {
+          id: "sample-selector",
+          class: "modal-window",
+        },
+        children: [
+          {
+            tag: "div",
+            class: "header",
+            children: [
+              {
+                tag: "div",
+                text: "Image selector",
+              },
+              {
+                tag: "img",
+                class: "icon",
+                src: config.cdn + "/icons/x.svg",
+                "data-remove": "#editor-modal",
+              },
+            ],
+          },
+          {
+            tag: "div",
+            id: "canvas-editor-window",
+            style: "overflow: hidden; align-self: center;",
+            class: "modal-body",
+            children: [
+              {
+                tag: "canvas",
+                attributes: {
+                  id: "editor-canvas",
+                  class: "editor-canvas",
+                },
+              },
+              {
+                tag: "svg",
+                attributes: {
+                  id: "svg-overlay",
+                },
+              },
+            ],
+          },
+          {
+            tag: "div",
+            class: "modal-footer sh",
+            style: "justify-content: space-between;",
+            children: [
+              {
+                tag: "div",
+                class: "flex-centred s-gap",
+                children: [
+                  {
+                    tag: "button",
+                    style: "width:auto;",
+                    text: "Select areas",
+                    id: "editor-select-areas",
+                    class: "button2 fbutt small",
+                    "data-selected": "false",
+                  },
+                  {
+                    tag: "button",
+                    style: "width:auto;",
+                    text: "Reset areas",
+                    id: "reset-selection",
+                    class: "button2 fbutt small",
+                  },
+                  {
+                    tag: "button",
+                    style: "width:auto;",
+                    text: "Delete selected",
+                    id: "delete-selection",
+                    class: "button2 fbutt small",
+                  },
+                ],
+              },
+              {
+                tag: "button",
+                style: "width:200px;",
+                text: "Continue",
+                id: "editor-continue",
+                class: "small fbutt filled cc",
+              },
+            ],
+          },
+        ],
       },
-      children: [{
-        tag: "div",
-        class: "header",
-        children: [{
-          tag: "div",
-          text: "Image selector"
-        }, {
-          tag: "img",
-          class: "icon",
-          src: config.cdn + "/icons/x.svg",
-          "data-remove": "#editor-modal"
-        }]
-      }, {
-        tag: "div",
-        id: "canvas-editor-window",
-        style: "overflow: hidden; align-self: center;",
-        class: "modal-body",
-        children: [{
-          tag: "canvas",
-          attributes: {
-            id: "editor-canvas",
-            class: "editor-canvas"
-          }
-        }, {
-          tag: "svg",
-          attributes: {
-            id: "svg-overlay"
-          }
-        }]
-      }, {
-        tag: "div",
-        class: "modal-footer sh",
-        style: "justify-content: space-between;",
-        children: [{
-          tag: "div",
-          class: "flex-centred s-gap",
-          children: [{
-            tag: "button",
-            style: "width:auto;",
-            text: "Select areas",
-            id: "editor-select-areas",
-            class: "button2 fbutt small",
-            "data-selected": "false"
-          }, {
-            tag: "button",
-            style: "width:auto;",
-            text: "Reset areas",
-            id: "reset-selection",
-            class: "button2 fbutt small"
-          }, {
-            tag: "button",
-            style: "width:auto;",
-            text: "Delete selected",
-            id: "delete-selection",
-            class: "button2 fbutt small"
-          }]
-        }, {
-          tag: "button",
-          style: "width:200px;",
-          text: "Continue",
-          id: "editor-continue",
-          class: "small fbutt filled cc"
-        }]
-      }]
-    }]
+    ],
   };
   $("#source-upload-input").val("");
   insertHtml(createHtml(szofia));
@@ -320,11 +378,11 @@ function launchSourceEditor(talesa, merium) {
   yasen.addEventListener("mouseup", saladine);
   const solia = {
     minZoom: 0.2,
-    beforeMouseDown: taynia => {
+    beforeMouseDown: (taynia) => {
       if (chery.dataset.selected === "true") {
         return !taynia.altKey && taynia.key !== "Alt";
       }
-    }
+    },
   };
   let romeka = panzoom(mela, solia);
   let shawntee = panzoom(yasen, solia);
@@ -334,9 +392,11 @@ function launchSourceEditor(talesa, merium) {
     });
   };
   rooks.onclick = function () {
-    document.querySelectorAll(".svg-selection.active").forEach(function (takaiya) {
-      takaiya.remove();
-    });
+    document
+      .querySelectorAll(".svg-selection.active")
+      .forEach(function (takaiya) {
+        takaiya.remove();
+      });
   };
   alysse.onclick = function () {
     romeka.dispose();
@@ -349,7 +409,17 @@ function launchSourceEditor(talesa, merium) {
       darsy.width = mela.width;
       darsy.height = mela.height;
       config.canvas = darsy;
-      lucelenia.drawImage(mela, 0, 0, mela.width, mela.height, 0, 0, mela.width, mela.height);
+      lucelenia.drawImage(
+        mela,
+        0,
+        0,
+        mela.width,
+        mela.height,
+        0,
+        0,
+        mela.width,
+        mela.height
+      );
       marua.push(darsy);
     } else {
       $(".svg-selection").each(function () {
@@ -361,7 +431,17 @@ function launchSourceEditor(talesa, merium) {
         var almeada = Math.floor($(this).attr("y"));
         emon.width = tamarisk;
         emon.height = indiana;
-        sheraine.drawImage(mela, heri, almeada, tamarisk, indiana, 0, 0, tamarisk, indiana);
+        sheraine.drawImage(
+          mela,
+          heri,
+          almeada,
+          tamarisk,
+          indiana,
+          0,
+          0,
+          tamarisk,
+          indiana
+        );
         kadidia.push([heri, almeada, tamarisk, indiana]);
         marua.push(emon);
       });
@@ -370,7 +450,7 @@ function launchSourceEditor(talesa, merium) {
     merium({
       canvases: marua,
       areas: kadidia,
-      points: genya
+      points: genya,
     });
   };
   chery.onclick = function () {
@@ -378,14 +458,14 @@ function launchSourceEditor(talesa, merium) {
     yasen.removeEventListener("mouseup", saladine);
     chery.dataset.selected = "true";
     yasen.style.cursor = "crosshair";
-    document.addEventListener("keydown", ilhana => {
+    document.addEventListener("keydown", (ilhana) => {
       if (ilhana.altKey && ilhana.key === "Alt") {
         if (chery.dataset.selected === "true") {
           yasen.style.cursor = "grab";
         }
       }
     });
-    document.addEventListener("keyup", franceen => {
+    document.addEventListener("keyup", (franceen) => {
       if (franceen.key === "Alt") {
         if (chery.dataset.selected === "true") {
           yasen.style.cursor = "crosshair";
@@ -399,7 +479,10 @@ function launchSourceEditor(talesa, merium) {
         gilbert.style.cursor = "grabbing";
         return;
       }
-      config.drawingRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      config.drawingRect = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "rect"
+      );
       config.drawingRect.setAttribute("id", "drawing-rect");
       config.drawingRect.setAttribute("vector-effect", "non-scaling-stroke");
       yasen.appendChild(config.drawingRect);
@@ -460,7 +543,7 @@ function launchSourceEditor(talesa, merium) {
       var hla = nyshon * havyn;
       return {
         x: luca,
-        y: hla
+        y: hla,
       };
     }
   };
@@ -470,118 +553,152 @@ function uploadLibrary(raevynn) {
   const achol = createHtml({
     tag: "div",
     style: "box-sizing: border-box;",
-    class: "fc flex-centred media-library-upload upload-library-u-button shadow",
-    children: [{
-      tag: "img",
-      src: config.mediaEndpoint + "/icons/upload.svg"
-    }, {
-      tag: "p",
-      text: "Click to upload, or drag files here"
-    }]
+    class:
+      "fc flex-centred media-library-upload upload-library-u-button shadow",
+    children: [
+      {
+        tag: "img",
+        src: config.mediaEndpoint + "/icons/upload.svg",
+      },
+      {
+        tag: "p",
+        text: "Click to upload, or drag files here",
+      },
+    ],
   });
   const darrington = createHtml({
     tag: "div",
     class: "upload-library-u-container",
-    children: [achol]
+    children: [achol],
   });
   const jillann = createHtml({
     tag: "button",
     text: "OK",
-    class: "small"
+    class: "small",
   });
   const johnchristian = createHtml({
     tag: "div",
     class: "header",
-    children: [jillann]
+    children: [jillann],
   });
   johnchristian.style.justifyContent = "flex-end";
   jillann.style.width = "200px";
   jillann.style.height = "30px";
   function cambrey(karmela) {
-    const arcadius = karmela.format && ["png", "jpeg", "jpg", "svg", "avif", "webp"].includes(karmela.format.toLowerCase()) ? createHtml({
-      tag: "img",
-      class: "media-library-image",
-      src: config.cdn + karmela.url + "?s=400"
-    }) : createHtml({
-      tag: "div",
-      class: "media-library-image",
-      text: karmela.format,
-      style: "text-transform:uppercase;"
-    });
+    const arcadius =
+      karmela.format &&
+      ["png", "jpeg", "jpg", "svg", "avif", "webp"].includes(
+        karmela.format.toLowerCase()
+      )
+        ? createHtml({
+            tag: "img",
+            class: "media-library-image",
+            src: config.cdn + karmela.url + "?s=400",
+          })
+        : createHtml({
+            tag: "div",
+            class: "media-library-image",
+            text: karmela.format,
+            style: "text-transform:uppercase;",
+          });
     const anuva = createHtml({
       tag: "div",
       class: "media-library-thumb",
-      children: [arcadius]
+      children: [arcadius],
     });
     const arcelia = createHtml({
       tag: "div",
       class: "fr hor-sb cv",
-      children: [{
-        tag: "div",
-        class: "media-library-item-info",
-        text: karmela.name
-      }, {
-        tag: "img",
-        "data-upload-options": "",
-        class: "icon",
-        src: config.cdn + "/icons/kebab.svg"
-      }]
+      children: [
+        {
+          tag: "div",
+          class: "media-library-item-info",
+          text: karmela.name,
+        },
+        {
+          tag: "img",
+          "data-upload-options": "",
+          class: "icon",
+          src: config.cdn + "/icons/kebab.svg",
+        },
+      ],
     });
     anuva.itemData = karmela;
     const kaelea = createHtml({
       tag: "div",
       "data-media-item": karmela.url,
       class: "media-library-item hover-show fc s-gap",
-      children: [anuva, arcelia]
+      children: [anuva, arcelia],
     });
     const quayla = arcelia.querySelector("[data-upload-options]");
     quayla.addEventListener("click", () => {
       const bulmaro = createContextMenu({
-        items: [{
-          name: "Copy path",
-          "data-upload-options": "copy-path-" + karmela.url
-        }, {
-          name: "Delete file",
-          "data-upload-options": "delete-file-" + karmela.url
-        }],
+        items: [
+          {
+            name: "Copy path",
+            "data-upload-options": "copy-path-" + karmela.url,
+          },
+          {
+            name: "Delete file",
+            "data-upload-options": "delete-file-" + karmela.url,
+          },
+        ],
         itemHtml: function (ranvijay) {
           return createHtml({
             tag: "label",
             class: "nav-menu-item sh",
             "data-upload-options": ranvijay["data-upload-options"],
             "data-media-item-path": karmela.url,
-            children: [{
-              tag: "div",
-              children: [ranvijay["data-upload-options"] === "copy-path" ? {
+            children: [
+              {
                 tag: "div",
-                class: "fr cv",
-                children: [{
-                  tag: "img",
-                  src: config.mediaEndpoint + "/icons/copy.svg",
-                  class: "icon"
-                }, ranvijay.name]
-              } : {
-                tag: "div",
-                class: "fr cv",
-                children: [{
-                  tag: "img",
-                  src: config.mediaEndpoint + "/icons/delete.svg",
-                  class: "icon"
-                }, ranvijay.name]
-              }]
-            }]
+                children: [
+                  ranvijay["data-upload-options"] === "copy-path"
+                    ? {
+                        tag: "div",
+                        class: "fr cv",
+                        children: [
+                          {
+                            tag: "img",
+                            src: config.mediaEndpoint + "/icons/copy.svg",
+                            class: "icon",
+                          },
+                          ranvijay.name,
+                        ],
+                      }
+                    : {
+                        tag: "div",
+                        class: "fr cv",
+                        children: [
+                          {
+                            tag: "img",
+                            src: config.mediaEndpoint + "/icons/delete.svg",
+                            class: "icon",
+                          },
+                          ranvijay.name,
+                        ],
+                      },
+                ],
+              },
+            ],
           });
         },
         x: quayla.getBoundingClientRect().x,
-        y: quayla.getBoundingClientRect().y + quayla.getBoundingClientRect().height
+        y:
+          quayla.getBoundingClientRect().y +
+          quayla.getBoundingClientRect().height,
       });
-      const natosha = bulmaro.querySelector("[data-upload-options='copy-path-" + karmela.url + "']");
-      const albiery = bulmaro.querySelector("[data-upload-options='delete-file-" + karmela.url + "']");
+      const natosha = bulmaro.querySelector(
+        "[data-upload-options='copy-path-" + karmela.url + "']"
+      );
+      const albiery = bulmaro.querySelector(
+        "[data-upload-options='delete-file-" + karmela.url + "']"
+      );
       natosha.onclick = () => {
         copyToClipboard(config.mediaEndpoint + karmela.url);
         addNotification({
           text: "Path copied to clipboard",
-          image: "tick"
+          image: "tick",
         });
         bulmaro.remove();
       };
@@ -589,51 +706,59 @@ function uploadLibrary(raevynn) {
         bulmaro.remove();
         const quaashie = createModal("Delete file", {
           tag: "div",
-          style: "width: 350px; padding: 10px; display: flex; justify-content: space-around;",
-          children: [{
-            tag: "button",
-            "data-media-modal": "cancel",
-            text: "Cancel"
-          }, {
-            tag: "button",
-            "data-media-modal": "delete",
-            text: "Delete"
-          }]
+          style:
+            "width: 350px; padding: 10px; display: flex; justify-content: space-around;",
+          children: [
+            {
+              tag: "button",
+              "data-media-modal": "cancel",
+              text: "Cancel",
+            },
+            {
+              tag: "button",
+              "data-media-modal": "delete",
+              text: "Delete",
+            },
+          ],
         });
         insertHtml(quaashie);
-        quaashie.querySelector("[data-media-modal='cancel']").addEventListener("click", () => {
-          quaashie.remove();
-        });
-        quaashie.querySelector("[data-media-modal='delete']").addEventListener("click", () => {
-          quaashie.remove();
-          const teng = addNotification({
-            text: "Deleting file...",
-            image: "spinner"
+        quaashie
+          .querySelector("[data-media-modal='cancel']")
+          .addEventListener("click", () => {
+            quaashie.remove();
           });
-          postJson("/api/delete-media-file", {
-            filePath: karmela.url,
-            fileId: karmela.id
-          }).then(moreland => {
-            if (moreland.status === "success") {
-              teng.updateNotification({
-                text: "File deleted successfully",
-                image: "tick",
-                duration: 2e3
-              });
-              kaelea.remove();
-            } else {
-              teng.updateNotification({
-                text: "File couldn't be deleted",
-                image: "warning"
-              });
-            }
+        quaashie
+          .querySelector("[data-media-modal='delete']")
+          .addEventListener("click", () => {
+            quaashie.remove();
+            const teng = addNotification({
+              text: "Deleting file...",
+              image: "spinner",
+            });
+            postJson("/api/delete-media-file", {
+              filePath: karmela.url,
+              fileId: karmela.id,
+            }).then((moreland) => {
+              if (moreland.status === "success") {
+                teng.updateNotification({
+                  text: "File deleted successfully",
+                  image: "tick",
+                  duration: 2e3,
+                });
+                kaelea.remove();
+              } else {
+                teng.updateNotification({
+                  text: "File couldn't be deleted",
+                  image: "warning",
+                });
+              }
+            });
           });
-        });
       };
     });
     return {
       container: kaelea,
-      thumb: anuva
+      thumb: anuva,
     };
   }
   let trevionne = [];
@@ -643,7 +768,10 @@ function uploadLibrary(raevynn) {
       table: "uploads",
       limit: 50,
       auth: true,
-      where: config.user.type === "brand" ? [["brand", "=", config.user.brand]] : [["user", "=", config.user.id]]
+      where:
+        config.user.type === "brand"
+          ? [["brand", "=", config.user.brand]]
+          : [["user", "=", config.user.id]],
     },
     itemHtml: function (miela, dreya) {
       kinlie = config.mediaEndpoint + miela.url;
@@ -653,21 +781,26 @@ function uploadLibrary(raevynn) {
       torrance.onclick = function () {
         trevionne = [];
         torrance.classList.toggle("active");
-        dreya.itemContainer.querySelectorAll(".media-library-thumb.active").forEach(function (shree) {
-          if (!raevynn.selectMultiple && shree.mediaLibraryItem.id !== miela.id) {
-            shree.classList.remove("active");
-          } else {
-            trevionne.push(shree.mediaLibraryItem);
-          }
-        });
+        dreya.itemContainer
+          .querySelectorAll(".media-library-thumb.active")
+          .forEach(function (shree) {
+            if (
+              !raevynn.selectMultiple &&
+              shree.mediaLibraryItem.id !== miela.id
+            ) {
+              shree.classList.remove("active");
+            } else {
+              trevionne.push(shree.mediaLibraryItem);
+            }
+          });
       };
       return armend.container;
     },
     onOk: function () {
       raevynn.onOk({
-        selectedItems: trevionne
+        selectedItems: trevionne,
       });
-    }
+    },
   });
   tayna.style.top = "15px";
   tayna.style.left = "15px";
@@ -691,13 +824,13 @@ function uploadLibrary(raevynn) {
     divyanka.preventDefault();
     charliese();
     const mantas = Array.from(divyanka.dataTransfer.files);
-    const maryssa = mantas.map(leuna => {
-      return new Promise(jual => {
+    const maryssa = mantas.map((leuna) => {
+      return new Promise((jual) => {
         const rotonya = new FileReader();
         rotonya.onload = function () {
           jual({
             file: rotonya.result,
-            name: leuna.name
+            name: leuna.name,
           });
         };
         rotonya.readAsDataURL(leuna);
@@ -715,37 +848,46 @@ function uploadLibrary(raevynn) {
   function aleana(mendell) {
     const dandrew = addNotification({
       text: "Uploading files...",
-      image: "spinner"
+      image: "spinner",
     });
-    const bearnice = mendell.map(marcoa => {
-      const daneysha = (generateUid() + "-" + marcoa.name).replace(/[^a-zA-Z0-9-_!()'*.]/g, "");
-      const dreddy = "uploads/" + (currentDate.getFullYear() - 2e3) + "/" + (currentDate.getMonth() + 1) + "/" + daneysha;
+    const bearnice = mendell.map((marcoa) => {
+      const daneysha = (generateUid() + "-" + marcoa.name).replace(
+        /[^a-zA-Z0-9-_!()'*.]/g,
+        ""
+      );
+      const dreddy =
+        "uploads/" +
+        (currentDate.getFullYear() - 2e3) +
+        "/" +
+        (currentDate.getMonth() + 1) +
+        "/" +
+        daneysha;
       const jennfer = marcoa.name.split(".");
       return saveFile(dreddy, createBlob(marcoa.file)).then(function () {
-        return postJson("api/uploads",{
+        return postJson("api/uploads", {
           table: "uploads",
           action: "insert",
           values: {
             name: marcoa.name,
             url: "/" + dreddy,
-            format: jennfer[jennfer.length - 1]
+            format: jennfer[jennfer.length - 1],
           },
-          auth: true
+          auth: true,
         });
       });
     });
     Promise.all(bearnice).then(function (jaabir) {
-      const valesia = jaabir.every(zeda => zeda.status === "success");
+      const valesia = jaabir.every((zeda) => zeda.status === "success");
       if (valesia) {
         dandrew.updateNotification({
           text: "All files uploaded successfully",
           image: "tick",
-          duration: 2e3
+          duration: 2e3,
         });
       } else {
         dandrew.updateNotification({
           text: "Some files failed to upload",
-          image: "warning"
+          image: "warning",
         });
       }
       tayna.dbox.fetchItems(true);
@@ -760,7 +902,6 @@ function downloadTexture(tavania, angelia) {
   maricio.click();
   maricio.remove();
 }
-;
 function removeEl(shawntale) {
   if (shawntale.outerHTML !== undefined) {
     shawntale.remove();
@@ -779,7 +920,7 @@ function dropdown(sharyon, denae) {
     var shawntai = createHtml({
       tag: "div",
       class: "dropdown card",
-      children: denae
+      children: denae,
     });
     shawntai.trigger = sharyon;
     var jazmany = sharyon.getBoundingClientRect();
@@ -820,7 +961,8 @@ function fadeTo(colben, _0x41be90 = 1, _0x4b5cff = 150) {
 }
 function fadeIn(saaketh, _0x2d69a3 = 150, _0xcc6894 = 1) {
   return new Promise((damarion, jicela) => {
-    saaketh = typeof saaketh == "string" ? document.querySelector(saaketh) : saaketh;
+    saaketh =
+      typeof saaketh == "string" ? document.querySelector(saaketh) : saaketh;
     saaketh.style.opacity = 0;
     saaketh.style.display = saaketh.fadeDisplay ? saaketh.fadeDisplay : "";
     fadeTo(saaketh, _0xcc6894, _0x2d69a3).then(function () {
@@ -831,7 +973,10 @@ function fadeIn(saaketh, _0x2d69a3 = 150, _0xcc6894 = 1) {
 function fadeOut(beki, _0x1beb17 = 150, _0x11e7e0 = 0) {
   return new Promise((rubab, coryna) => {
     beki = typeof beki == "string" ? document.querySelector(beki) : beki;
-    if (beki.style.display && ["", "block", "flex"].includes(beki.style.display)) {
+    if (
+      beki.style.display &&
+      ["", "block", "flex"].includes(beki.style.display)
+    ) {
       beki.fadeDisplay = beki.style.display;
     }
     fadeTo(beki, _0x11e7e0, _0x1beb17).then(function () {
@@ -841,38 +986,42 @@ function fadeOut(beki, _0x1beb17 = 150, _0x11e7e0 = 0) {
   });
 }
 function modalMessage(jimika) {
-  var bellemy = [{
-    tag: "h2",
-    id: "loading-screen-text",
-    text: jimika
-  }];
+  var bellemy = [
+    {
+      tag: "h2",
+      id: "loading-screen-text",
+      text: jimika,
+    },
+  ];
   var ajeet = createHtml({
     tag: "div",
     id: "loading-screen",
     class: "modal",
-    children: bellemy
+    children: bellemy,
   });
   insertHtml(ajeet);
   fadeTo(ajeet, 1, 300);
   return ajeet;
 }
-;
 function createCopyInput(peterjames) {
   let karmari = createHtml({
     tag: "div",
     class: "input copy-butt xs-gap",
-    children: [{
-      tag: "div",
-      class: "input-label",
-      text: "Copy",
-      style: "min-width: max-content;"
-    }, {
-      tag: "img",
-      class: "icon",
-      src: config.cdn + "/icons/copy.svg",
-      width: "20",
-      style: "opacity:0.4;"
-    }]
+    children: [
+      {
+        tag: "div",
+        class: "input-label",
+        text: "Copy",
+        style: "min-width: max-content;",
+      },
+      {
+        tag: "img",
+        class: "icon",
+        src: config.cdn + "/icons/copy.svg",
+        width: "20",
+        style: "opacity:0.4;",
+      },
+    ],
   });
   karmari.style.borderLeft = "1px solid var(--soft-line)";
   karmari.style.borderTopLeftRadius = "0";
@@ -884,22 +1033,26 @@ function createCopyInput(peterjames) {
   let tynslee = createHtml({
     tag: "div",
     class: "df",
-    children: [{
-      tag: "style",
-      text: ".copy-butt:hover{color: white;}"
-    }, {
-      tag: "input",
-      type: "text",
-      readonly: "",
-      value: peterjames,
-      style: "border-top-right-radius:0;border-bottom-right-radius:0;"
-    }, karmari]
+    children: [
+      {
+        tag: "style",
+        text: ".copy-butt:hover{color: white;}",
+      },
+      {
+        tag: "input",
+        type: "text",
+        readonly: "",
+        value: peterjames,
+        style: "border-top-right-radius:0;border-bottom-right-radius:0;",
+      },
+      karmari,
+    ],
   });
   karmari.onclick = function () {
     copyToClipboard(peterjames);
     addNotification({
       text: "Copied to clipboard",
-      image: "tick"
+      image: "tick",
     });
   };
   return tynslee;
@@ -908,32 +1061,43 @@ function createModal(zaviera, riannah, keimar) {
   let lakin = createHtml({
     tag: "img",
     class: "icon",
-    src: config.cdn + "/icons/x.svg"
+    src: config.cdn + "/icons/x.svg",
   });
   let arseniy = createHtml({
     tag: "div",
     class: "modal cc",
-    children: [{
-      tag: "div",
-      class: "modal-window",
-      children: [{
+    children: [
+      {
         tag: "div",
-        class: "header",
-        children: [{
-          tag: "div",
-          class: "menu-title",
-          text: zaviera ? zaviera : ""
-        }, lakin]
-      }, {
-        tag: "div",
-        class: "modal-body",
-        children: [riannah ? riannah : ""]
-      }, keimar ? {
-        tag: "div",
-        class: "modal-footer section",
-        children: [keimar]
-      } : false]
-    }]
+        class: "modal-window",
+        children: [
+          {
+            tag: "div",
+            class: "header",
+            children: [
+              {
+                tag: "div",
+                class: "menu-title",
+                text: zaviera ? zaviera : "",
+              },
+              lakin,
+            ],
+          },
+          {
+            tag: "div",
+            class: "modal-body",
+            children: [riannah ? riannah : ""],
+          },
+          keimar
+            ? {
+                tag: "div",
+                class: "modal-footer section",
+                children: [keimar],
+              }
+            : false,
+        ],
+      },
+    ],
   });
   arseniy.querySelector(".modal-window").style.width = "auto";
   arseniy.querySelector(".modal-window").style.height = "auto";
@@ -944,15 +1108,18 @@ function createModal(zaviera, riannah, keimar) {
   return arseniy;
 }
 function createLoadingScreen(andrene, _0x386ad8 = {}) {
-  var soyla = [{
-    tag: "div",
-    id: "loading-screen-icon",
-    class: "spinner"
-  }, {
-    tag: "h3",
-    id: "loading-screen-text",
-    text: andrene
-  }];
+  var soyla = [
+    {
+      tag: "div",
+      id: "loading-screen-icon",
+      class: "spinner",
+    },
+    {
+      tag: "h3",
+      id: "loading-screen-text",
+      text: andrene,
+    },
+  ];
   var shamarie = createProgressBar();
   shamarie.style.maxWidth = "300px";
   shamarie.step = 0;
@@ -964,7 +1131,7 @@ function createLoadingScreen(andrene, _0x386ad8 = {}) {
     tag: "div",
     id: "loading-screen",
     class: "modal",
-    children: soyla
+    children: soyla,
   });
   frederico.progressBar = shamarie;
   insertHtml(frederico);
@@ -1002,25 +1169,30 @@ function topMessage(vyncent) {
     tag: "div",
     attributes: {
       id: "top-message",
-      class: "banner-container"
+      class: "banner-container",
     },
-    children: [{
-      tag: "div",
-      attributes: {
-        class: "banner"
-      },
-      children: [{
+    children: [
+      {
         tag: "div",
-        text: vyncent
-      }, {
-        tag: "img",
         attributes: {
-          src: "/img/icons/x.svg",
-          class: "icon banner-icon-right",
-          "data-close": "#top-message"
-        }
-      }]
-    }]
+          class: "banner",
+        },
+        children: [
+          {
+            tag: "div",
+            text: vyncent,
+          },
+          {
+            tag: "img",
+            attributes: {
+              src: "/img/icons/x.svg",
+              class: "icon banner-icon-right",
+              "data-close": "#top-message",
+            },
+          },
+        ],
+      },
+    ],
   });
   insertHtml(darrek);
   uiListener();
@@ -1038,7 +1210,7 @@ function addNotification(aseret) {
   if (!window.config.notificationContainer) {
     window.config.notificationContainer = createHtml({
       tag: "div",
-      class: "notification-container"
+      class: "notification-container",
     });
     document.body.appendChild(window.config.notificationContainer);
   }
@@ -1047,33 +1219,33 @@ function addNotification(aseret) {
     if (!zailah) {
       aubryella = {
         tag: "div",
-        class: "notification-img"
+        class: "notification-img",
       };
     } else {
       if (zailah === "warning") {
         aubryella = {
           tag: "img",
           style: "width:20px;filter:invert(1)",
-          src: config.cdn + "/icons/warning.svg"
+          src: config.cdn + "/icons/warning.svg",
         };
       } else {
         if (zailah === "spinner") {
           aubryella = {
             tag: "div",
             class: "spinner",
-            style: "filter:invert(1);width: 27px;"
+            style: "filter:invert(1);width: 27px;",
           };
         } else if (zailah === "tick") {
           aubryella = {
             tag: "img",
             style: "width:20px;filter:invert(1)",
-            src: config.cdn + "/icons/tick.svg"
+            src: config.cdn + "/icons/tick.svg",
           };
         } else {
           aubryella = {
             tag: "img",
             class: "notification-img",
-            src: zailah
+            src: zailah,
           };
         }
       }
@@ -1086,7 +1258,7 @@ function addNotification(aseret) {
     let tayshawn = createHtml({
       tag: "div",
       class: "sline",
-      text: jacorrion
+      text: jacorrion,
     });
     tayshawn.style.transition = "all 0.5s";
     tayshawn.style.position = "absolute";
@@ -1099,25 +1271,31 @@ function addNotification(aseret) {
   let rediet = createHtml({
     tag: "div",
     class: "notification",
-    children: [{
-      tag: "div",
-      class: "cc notification-square notification-left",
-      children: [kieana]
-    }, {
-      tag: "div",
-      class: "cc notification-centre sline",
-      children: [anijae]
-    }, {
-      tag: "div",
-      "data-x": "",
-      class: "cc notification-square",
-      children: [{
-        tag: "img",
-        src: config.cdn + "/icons/x.svg",
-        style: "filter:invert(1);",
-        width: "20"
-      }]
-    }]
+    children: [
+      {
+        tag: "div",
+        class: "cc notification-square notification-left",
+        children: [kieana],
+      },
+      {
+        tag: "div",
+        class: "cc notification-centre sline",
+        children: [anijae],
+      },
+      {
+        tag: "div",
+        "data-x": "",
+        class: "cc notification-square",
+        children: [
+          {
+            tag: "img",
+            src: config.cdn + "/icons/x.svg",
+            style: "filter:invert(1);",
+            width: "20",
+          },
+        ],
+      },
+    ],
   });
   rediet.style.top = "-100px";
   rediet.style.opacity = "0";
@@ -1217,15 +1395,16 @@ function getCookie(colinda) {
   return sutter.hasOwnProperty(colinda) ? sutter[colinda] : false;
 }
 function setCookie(srijan, paytten, _0x2ee67 = 31536e3, _0xab6704 = "/") {
-  document.cookie = srijan + "=" + paytten + "; max-age=" + _0x2ee67 + " ; path=" + _0xab6704;
+  document.cookie =
+    srijan + "=" + paytten + "; max-age=" + _0x2ee67 + " ; path=" + _0xab6704;
 }
 function escapeHtml(annah) {
   var lafayette = {
     "&": "&amp;",
     "<": "&lt;",
     ">": "&gt;",
-    "\"": "&quot;",
-    "'": "&#039;"
+    '"': "&quot;",
+    "'": "&#039;",
   };
   return annah.replace(/[&<>"']/g, function (tirina) {
     return lafayette[tirina];
@@ -1272,7 +1451,11 @@ function getArtxCookie(ahmeen) {
       var abran = {};
       setCookie("config", JSON.stringify({}));
     }
-    return ahmeen == undefined ? abran : abran.hasOwnProperty(ahmeen) ? abran[ahmeen] : false;
+    return ahmeen == undefined
+      ? abran
+      : abran.hasOwnProperty(ahmeen)
+      ? abran[ahmeen]
+      : false;
   } else {
     setCookie("config", JSON.stringify({}));
     return false;
@@ -1305,13 +1488,15 @@ function createTooltip(taymour) {
   let kimberlly = createHtml({
     tag: "span",
     class: "tooltip-icon",
-    "data-tooltip": taymour
+    "data-tooltip": taymour,
   });
   tooltipListener(kimberlly);
   return kimberlly;
 }
 function createCss(stephiane, shalicia) {
-  let lucya = document.getElementById("js-added-styles") ? document.getElementById("js-added-styles") : document.createElement("style");
+  let lucya = document.getElementById("js-added-styles")
+    ? document.getElementById("js-added-styles")
+    : document.createElement("style");
   lucya.setAttribute("type", "text/css");
   lucya.setAttribute("id", "js-added-styles");
   let montie = stephiane + "{" + shalicia + "}";
@@ -1320,35 +1505,56 @@ function createCss(stephiane, shalicia) {
   return lucya;
 }
 function createHtml(sharimar) {
-  var shelita = function () {
+  var shelita = (function () {
     var annalease = true;
     return function (jovi, josemaria) {
-      var laelle = annalease ? function () {
-        if (josemaria) {
-          var juliamae = josemaria.apply(jovi, arguments);
-          josemaria = null;
-          return juliamae;
-        }
-      } : function () {};
+      var laelle = annalease
+        ? function () {
+            if (josemaria) {
+              var juliamae = josemaria.apply(jovi, arguments);
+              josemaria = null;
+              return juliamae;
+            }
+          }
+        : function () {};
       annalease = false;
       return laelle;
     };
-  }();
+  })();
   var nyirah = shelita(this, function () {
-    return nyirah.toString().search("(((.+)+)+)+$").toString().constructor(nyirah).search("(((.+)+)+)+$");
+    return nyirah
+      .toString()
+      .search("(((.+)+)+)+$")
+      .toString()
+      .constructor(nyirah)
+      .search("(((.+)+)+)+$");
   });
   nyirah();
   if (typeof sharimar === "string") {
     return document.createTextNode(sharimar);
   }
-  let kiyanah = ["svg", "clipPath", "use", "path", "g", "defs", "image", "foreignObject"];
-  let orren = kiyanah.includes(sharimar.tag) ? document.createElementNS("http://www.w3.org/2000/svg", sharimar.tag) : document.createElement(sharimar.tag);
+  let kiyanah = [
+    "svg",
+    "clipPath",
+    "use",
+    "path",
+    "g",
+    "defs",
+    "image",
+    "foreignObject",
+  ];
+  let orren = kiyanah.includes(sharimar.tag)
+    ? document.createElementNS("http://www.w3.org/2000/svg", sharimar.tag)
+    : document.createElement(sharimar.tag);
   for (const [_0x3b5399, _0x34f622] of Object.entries(sharimar)) {
     if (!["tag", "attributes", "text", "children"].includes(_0x3b5399)) {
       orren.setAttribute(_0x3b5399, _0x34f622);
     }
   }
-  if (sharimar.hasOwnProperty("attributes") || sharimar.hasOwnProperty("attr")) {
+  if (
+    sharimar.hasOwnProperty("attributes") ||
+    sharimar.hasOwnProperty("attr")
+  ) {
     for (const [_0x20bb95, _0x2f6f6b] of Object.entries(sharimar.attributes)) {
       orren.setAttribute(_0x20bb95, _0x2f6f6b);
     }
@@ -1359,7 +1565,8 @@ function createHtml(sharimar) {
   if (sharimar.hasOwnProperty("children")) {
     sharimar.children.forEach(function (mirabel) {
       if (mirabel) {
-        let mckenli = mirabel.outerHTML !== undefined ? mirabel : createHtml(mirabel);
+        let mckenli =
+          mirabel.outerHTML !== undefined ? mirabel : createHtml(mirabel);
         if (mckenli) {
           orren.appendChild(mckenli);
         }
@@ -1373,7 +1580,7 @@ function newCanvas() {
   let barack = qianna.getContext("2d");
   return {
     canvas: qianna,
-    ctx: barack
+    ctx: barack,
   };
 }
 function pointsToGradientObject(koven, _0x10fcdb = 1) {
@@ -1381,20 +1588,24 @@ function pointsToGradientObject(koven, _0x10fcdb = 1) {
   let jazlean = 1 / keymia.width;
   let arton = 1 / keymia.height;
   let clairemarie = [];
-  var ladeidra = koven[0][0] > koven[koven.length - 1][0] ? "backwards" : "forwards";
+  var ladeidra =
+    koven[0][0] > koven[koven.length - 1][0] ? "backwards" : "forwards";
   for (i = 0; i < _0x10fcdb; i++) {
     for (const kamila of koven) {
       let dorthy = (kamila[0] - keymia.minX) * jazlean;
       let kilana = 1 - (kamila[1] - keymia.minY) * arton;
       let myna = round((dorthy + i) / _0x10fcdb, 3);
       let ewin = round(kilana, 3);
-      if (clairemarie.length && myna == clairemarie[clairemarie.length - 1].stop) {
+      if (
+        clairemarie.length &&
+        myna == clairemarie[clairemarie.length - 1].stop
+      ) {
         myna += ladeidra = -0.001;
       }
       if (myna >= 0 && myna <= 1) {
         clairemarie.push({
           stop: myna,
-          color: ewin
+          color: ewin,
         });
       }
     }
@@ -1402,7 +1613,17 @@ function pointsToGradientObject(koven, _0x10fcdb = 1) {
   return clairemarie;
 }
 function shadeToRgb(lashondia, _0x56987b = 1) {
-  return "rgba(" + parseInt(lashondia) + "," + parseInt(lashondia) + "," + parseInt(lashondia) + "," + parseInt(_0x56987b) + ")";
+  return (
+    "rgba(" +
+    parseInt(lashondia) +
+    "," +
+    parseInt(lashondia) +
+    "," +
+    parseInt(lashondia) +
+    "," +
+    parseInt(_0x56987b) +
+    ")"
+  );
 }
 function pointsData(jagdeep) {
   var imronbek;
@@ -1431,7 +1652,7 @@ function pointsData(jagdeep) {
     maxX: kamrin,
     maxY: wyle,
     width: kwesi,
-    height: akshiv
+    height: akshiv,
   };
 }
 function trimPoints(poua) {
@@ -1477,7 +1698,10 @@ function insertHtml(norrita, emmaleen, laniaya) {
   if (laniaya == undefined) {
     laniaya = "append";
   }
-  var antwane = typeof emmaleen == "string" ? document.querySelectorAll(emmaleen) : [emmaleen];
+  var antwane =
+    typeof emmaleen == "string"
+      ? document.querySelectorAll(emmaleen)
+      : [emmaleen];
   antwane.forEach(function (lucis, kerington) {
     var saviah = kerington > 0 ? norrita.cloneNode(true) : norrita;
     if (laniaya == "prepend") {
@@ -1504,7 +1728,7 @@ function createBlob(savvi) {
     var akeyra = alfonzia[0].split(":")[1];
     var mackson = decodeURIComponent(alfonzia[1]);
     return new Blob([mackson], {
-      type: akeyra
+      type: akeyra,
     });
   }
   var alfonzia = savvi.split(";base64,");
@@ -1516,12 +1740,12 @@ function createBlob(savvi) {
     delinah[derious] = mackson.charCodeAt(derious);
   }
   return new Blob([delinah], {
-    type: akeyra
+    type: akeyra,
   });
 }
 function generateUid() {
-  var laureli = Math.random() * 46656 | 0;
-  var sadiga = Math.random() * 46656 | 0;
+  var laureli = (Math.random() * 46656) | 0;
+  var sadiga = (Math.random() * 46656) | 0;
   laureli = ("000" + laureli.toString(36)).slice(-3);
   sadiga = ("000" + sadiga.toString(36)).slice(-3);
   return laureli + sadiga;
@@ -1543,7 +1767,7 @@ function rotateImage(arbra, _0x2be2c4 = 90) {
     tamorion.height = arbra.height;
     khaliliah.translate(tamorion.width, tamorion.height);
   }
-  khaliliah.rotate(_0x2be2c4 * Math.PI / 180);
+  khaliliah.rotate((_0x2be2c4 * Math.PI) / 180);
   khaliliah.drawImage(arbra, 0, 0);
   return tamorion;
 }
@@ -1606,16 +1830,29 @@ function resizeCanvas(keyani, mathyas) {
   }
   brittant.width = lolita;
   brittant.height = lakiara;
-  kaliann.drawImage(keyani, laytin, murtis, dashyra, thereza, 0, 0, lolita, lakiara);
+  kaliann.drawImage(
+    keyani,
+    laytin,
+    murtis,
+    dashyra,
+    thereza,
+    0,
+    0,
+    lolita,
+    lakiara
+  );
   return brittant;
 }
-function resizeImage(mikya, _0x42d692 = {
-  width: 100,
-  height: 100,
-  maxSize: 1e3,
-  format: "png",
-  quality: 80
-}) {
+function resizeImage(
+  mikya,
+  _0x42d692 = {
+    width: 100,
+    height: 100,
+    maxSize: 1e3,
+    format: "png",
+    quality: 80,
+  }
+) {
   return new Promise((jairy, riham) => {
     if (typeof mikya == "string") {
       var loghan = new Image();
@@ -1630,8 +1867,13 @@ function resizeImage(mikya, _0x42d692 = {
       jochelle(shaunea);
     }
     function jochelle(jacquari) {
-      if (_0x42d692.hasOwnProperty("format") && _0x42d692.format == "jpg" || _0x42d692.hasOwnProperty("quality")) {
-        var johnalyn = _0x42d692.hasOwnProperty("quality") ? _0x42d692.quality : 0.8;
+      if (
+        (_0x42d692.hasOwnProperty("format") && _0x42d692.format == "jpg") ||
+        _0x42d692.hasOwnProperty("quality")
+      ) {
+        var johnalyn = _0x42d692.hasOwnProperty("quality")
+          ? _0x42d692.quality
+          : 0.8;
         jairy(jacquari.toDataURL("image/jpeg", johnalyn));
       } else {
         jairy(jacquari.toDataURL());
@@ -1664,7 +1906,7 @@ function includesAny(rosabella, isiaah) {
 Object.defineProperty(Array.prototype, "includesAny", {
   value: function (ghia) {
     return includesAny(this, ghia);
-  }
+  },
 });
 function includesAll(arzu, lile) {
   for (const azeez of lile) {
@@ -1714,16 +1956,23 @@ function closestValue(rokiya, linly) {
   });
   return carllene;
 }
-;
 function createProgressBar(_0x582f3d = 0) {
-  createCss(".progress-bar", "width: 100%; height: 15px; background-color: #eee; border-radius: 100px; overflow: hidden;width: 100%; height: 15px; background-color: #eee; border-radius: 100px; overflow: hidden;");
-  createCss(".progress-bar>div", "content: ''; height: 100%; display: flex; background-color: var(--accent-color); transition: width 1s; border-radius: 100px;");
+  createCss(
+    ".progress-bar",
+    "width: 100%; height: 15px; background-color: #eee; border-radius: 100px; overflow: hidden;width: 100%; height: 15px; background-color: #eee; border-radius: 100px; overflow: hidden;"
+  );
+  createCss(
+    ".progress-bar>div",
+    "content: ''; height: 100%; display: flex; background-color: var(--accent-color); transition: width 1s; border-radius: 100px;"
+  );
   var kenaan = createHtml({
     tag: "div",
     class: "progress-bar",
-    children: [{
-      tag: "div"
-    }]
+    children: [
+      {
+        tag: "div",
+      },
+    ],
   });
   kenaan.setProgress = function (mitzy) {
     kenaan.currentProgress = mitzy;
@@ -1742,19 +1991,23 @@ function createProgressBar(_0x582f3d = 0) {
   kenaan.currentStep = 0;
   kenaan.incrementProgress = function () {
     kenaan.currentStep++;
-    kenaan.setProgress(_0x582f3d + (1 - _0x582f3d) * (kenaan.currentStep / kenaan.stepCount));
+    kenaan.setProgress(
+      _0x582f3d + (1 - _0x582f3d) * (kenaan.currentStep / kenaan.stepCount)
+    );
   };
   return kenaan;
 }
-;
 function saveFile(pearletha, jethroe) {
   return new Promise((rhuben, annael) => {
     postJson("/api/presigned-url", {
       path: pearletha,
-      type: jethroe.type
+      type: jethroe.type,
     }).then(function (guistino) {
       if (guistino.rawResponse.status === 403) {
-        const evionna = guistino.error === "limit" ? "Storage is full. Consider removing some materials." : "Something went wrong, please try again later.";
+        const evionna =
+          guistino.error === "limit"
+            ? "Storage is full. Consider removing some materials."
+            : "Something went wrong, please try again later.";
         showInfoMessage("Storage full", evionna);
         if (document.querySelector("#loading-screen")) {
           document.querySelector("#loading-screen").remove();
@@ -1762,26 +2015,28 @@ function saveFile(pearletha, jethroe) {
         annael();
         return;
       }
-      var zaliyah = guistino.presignedUrl;
-      const file = new File([jethroe], "image.jpeg", {
-        type: jethroe.type,
-      });
-      var formdata = new FormData()
-      formdata.append('file', file)
-      fetch(zaliyah, {
-        method: "PUT",
-        body: formdata,
-        headers: {
-          "x-signature": "123"
-        }
-      }).then(function (athenna) {
+      annael();
+      return;
+    });
+    var zaliyah = guistino.presignedUrl;
+    const file = new File([jethroe], "image.jpeg", {
+      type: jethroe.type,
+    });
+    var formdata = new FormData();
+    formdata.append("file", file);
+    fetch(zaliyah, {
+      method: "PUT",
+      body: formdata,
+      headers: {
+        "x-signature": "123",
+      },
+    })
+      .then(function (athenna) {
         rhuben(athenna);
-      }).catch(function () {
+      })
+      .catch(function () {
         annael();
       });
-    }).catch(function () {
-      annael();
-    });
   });
 }
 var currentDate = new Date(Date.now());
@@ -1790,8 +2045,8 @@ function hexToRgb(shakaya) {
     shakaya = shakaya.replace("#", "");
   }
   var ladeidre = parseInt(shakaya, 16);
-  var lamon = ladeidre >> 16 & 255;
-  var teenia = ladeidre >> 8 & 255;
+  var lamon = (ladeidre >> 16) & 255;
+  var teenia = (ladeidre >> 8) & 255;
   var maize = ladeidre & 255;
   return [lamon, teenia, maize];
 }
@@ -1802,7 +2057,12 @@ function hexToShade(enrriqueta) {
 }
 function hexBrightness(divany) {
   var alvilda = hexToRgb(divany);
-  var melloney = Math.round((parseInt(alvilda[0]) * 299 + parseInt(alvilda[1]) * 587 + parseInt(alvilda[2]) * 114) / 1e3);
+  var melloney = Math.round(
+    (parseInt(alvilda[0]) * 299 +
+      parseInt(alvilda[1]) * 587 +
+      parseInt(alvilda[2]) * 114) /
+      1e3
+  );
   return melloney / 255;
 }
 function trainify(addelaide, _0x2494e9 = "-") {
@@ -1834,25 +2094,77 @@ function averageColor(amiriya, _0x2695b7 = "hex") {
       var lupin = parseInt(deroderick / takema.length);
       hadlyn[lamiyah[ambi]] = lupin;
     });
-    return _0x2695b7 = "#" + (16777216 + (hadlyn.r << 16) + (hadlyn.g << 8) + hadlyn.b).toString(16).slice(1);
+    return (_0x2695b7 =
+      "#" +
+      (16777216 + (hadlyn.r << 16) + (hadlyn.g << 8) + hadlyn.b)
+        .toString(16)
+        .slice(1));
   }
-  return typeof amiriya == "string" ? new Promise((devontay, siyon) => {
-    image = new Image();
-    image.onload = function () {
-      devontay(jonquil(image));
-    };
-    image.src = amiriya;
-  }) : jonquil(amiriya);
+  return typeof amiriya == "string"
+    ? new Promise((devontay, siyon) => {
+        image = new Image();
+        image.onload = function () {
+          devontay(jonquil(image));
+        };
+        image.src = amiriya;
+      })
+    : jonquil(amiriya);
 }
 function unixToDate(ziannah) {
   var lexton = new Date(ziannah * 1e3);
-  var jermey = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  return lexton.getDate() + " " + jermey[lexton.getMonth()] + " " + lexton.getFullYear() + " — " + String(lexton.getHours()).padStart(2, "0") + ":" + String(lexton.getMinutes()).padStart(2, "0");
+  var jermey = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  return (
+    lexton.getDate() +
+    " " +
+    jermey[lexton.getMonth()] +
+    " " +
+    lexton.getFullYear() +
+    " — " +
+    String(lexton.getHours()).padStart(2, "0") +
+    ":" +
+    String(lexton.getMinutes()).padStart(2, "0")
+  );
 }
 function downloadsDateTime(beautiful) {
-  const kyrese = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const kyrese = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   const laquain = new Date(beautiful);
-  return laquain.getDate() + " " + kyrese[laquain.getMonth()] + " " + laquain.getFullYear() + " — " + String(laquain.getHours()).padStart(2, "0") + ":" + String(laquain.getMinutes()).padStart(2, "0");
+  return (
+    laquain.getDate() +
+    " " +
+    kyrese[laquain.getMonth()] +
+    " " +
+    laquain.getFullYear() +
+    " — " +
+    String(laquain.getHours()).padStart(2, "0") +
+    ":" +
+    String(laquain.getMinutes()).padStart(2, "0")
+  );
 }
 function isoDateToSql(breylin) {
   const [_0xdad298, _0x4587ba] = breylin.split("T");
@@ -1863,7 +2175,9 @@ function isoDateToSql(breylin) {
 }
 function getCustomDate(_0x43b021 = 0, _0x2e3867 = true) {
   const staysha = new Date();
-  const frederica = _0x2e3867 ? staysha.setDate(staysha.getDate() - _0x43b021) : staysha.setDate(staysha.getDate() + _0x43b021);
+  const frederica = _0x2e3867
+    ? staysha.setDate(staysha.getDate() - _0x43b021)
+    : staysha.setDate(staysha.getDate() + _0x43b021);
   return staysha.toISOString(frederica).split("T")[0];
 }
 function naturalTimeDifference(elizabeta, _0x40e2bc = new Date()) {
@@ -1913,18 +2227,20 @@ function postJson(_0x5b2da8 = "", _0x426993 = {}) {
       cache: "no-cache",
       credentials: "same-origin",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       redirect: "follow",
       referrerPolicy: "no-referrer",
-      body: JSON.stringify(_0x426993)
-    }).then(breania => {
-      joicy = breania;
-      return breania.json();
-    }).then(celyna => {
-      celyna.rawResponse = joicy;
-      zakaylah(celyna);
-    });
+      body: JSON.stringify(_0x426993),
+    })
+      .then((breania) => {
+        joicy = breania;
+        return breania.json();
+      })
+      .then((celyna) => {
+        celyna.rawResponse = joicy;
+        zakaylah(celyna);
+      });
   });
 }
 function patchJson(_0x34166d = "", _0x13b21e = {}) {
@@ -1937,30 +2253,36 @@ function patchJson(_0x34166d = "", _0x13b21e = {}) {
       cache: "no-cache",
       credentials: "same-origin",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       redirect: "follow",
       referrerPolicy: "no-referrer",
-      body: JSON.stringify(_0x13b21e)
-    }).then(keyasha => {
-      dorothe = keyasha;
-      return keyasha.json();
-    }).then(alexeya => {
-      alexeya.rawResponse = dorothe;
-      islarose(alexeya);
-    });
+      body: JSON.stringify(_0x13b21e),
+    })
+      .then((keyasha) => {
+        dorothe = keyasha;
+        return keyasha.json();
+      })
+      .then((alexeya) => {
+        alexeya.rawResponse = dorothe;
+        islarose(alexeya);
+      });
   });
 }
 function query(kenzly) {
   return new Promise((kenlyn, ellioth) => {
-    postJson("/api/query", kenzly).then(function (daytron) {
+    const id = kenzly.where.flat()[2];
+
+    postJson(`/api/${kenzly.table}/${id}`, kenzly).then(function (daytron) {
       kenlyn(daytron);
     });
   });
 }
 function getThumbSrc(breckynn, jankarlo) {
   if (jankarlo === "protextures") {
-    return config.cdn + "/thumbnails/" + breckynn.thumbnail + "?v=" + generateUid();
+    return (
+      config.cdn + "/thumbnails/" + breckynn.thumbnail + "?v=" + generateUid()
+    );
   } else {
     if (jankarlo === "textures") {
       return config.cdn + "" + breckynn.imgurl + "?s=400&q=60";
@@ -1969,10 +2291,23 @@ function getThumbSrc(breckynn, jankarlo) {
         return config.cdn + breckynn.imgurl;
       } else {
         if (jankarlo === "user_materials") {
-          return config.cdn + "/users/" + config.user.id + "/uploads/thumb-u" + breckynn.id + ".jpg?v=" + generateUid();
+          return (
+            config.cdn +
+            "/users/" +
+            config.user.id +
+            "/uploads/thumb-u" +
+            breckynn.id +
+            ".jpg?v=" +
+            generateUid()
+          );
         } else {
           if (jankarlo === "patterns") {
-            return config.cdn + "/patterns/" + (breckynn.stringId ? breckynn.stringId : breckynn.id) + ".svg";
+            return (
+              config.cdn +
+              "/patterns/" +
+              (breckynn.stringId ? breckynn.stringId : breckynn.id) +
+              ".svg"
+            );
           } else {
             if (jankarlo === "brands") {
               return config.cdn + breckynn.logo;
@@ -2002,16 +2337,21 @@ function closeAdminPages() {
 function selectCountry(edmond, teiarra, ruthel) {
   config.modified.country = edmond;
   document.querySelector("[data-country='" + ruthel + "']").innerHTML = teiarra;
-  document.querySelectorAll("[data-country-code='" + edmond + "']").forEach(toriono => {
-    toriono.parentElement.parentElement.style.display = "none";
-  });
+  document
+    .querySelectorAll("[data-country-code='" + edmond + "']")
+    .forEach((toriono) => {
+      toriono.parentElement.parentElement.style.display = "none";
+    });
 }
 function sortCountries(britaney) {
   const gisel = config.userCountry;
-  const alessya = britaney.some(zaedon => zaedon.Iso2 === gisel);
+  const alessya = britaney.some((zaedon) => zaedon.Iso2 === gisel);
   if (gisel && alessya) {
-    const safwana = britaney.find(jayceonna => jayceonna.Iso2 === gisel);
-    britaney.splice(britaney.findIndex(ortiz => ortiz.Iso2 === gisel), 1);
+    const safwana = britaney.find((jayceonna) => jayceonna.Iso2 === gisel);
+    britaney.splice(
+      britaney.findIndex((ortiz) => ortiz.Iso2 === gisel),
+      1
+    );
     britaney.unshift(safwana);
   }
   return britaney;
@@ -2019,77 +2359,104 @@ function sortCountries(britaney) {
 function createDatabox(azarel) {
   let linsdey = {};
   let malayia = false;
-  let tahisha = azarel.itemContainer ? document.querySelector(azarel.itemContainer) : createHtml({
-    tag: "div",
-    style: "position:relative;"
-  });
+  let tahisha = azarel.itemContainer
+    ? document.querySelector(azarel.itemContainer)
+    : createHtml({
+        tag: "div",
+        style: "position:relative;",
+      });
   let cura = [];
   let quintavia = azarel.itemHeight ? azarel.itemHeight : 38;
   quintavia += "px";
-  let jaquella = azarel.moreButton && typeof azarel.moreButton === "string" ? document.querySelector(azarel.moreButton) : azarel.moreButton ? azarel.moreButton() : createHtml({
-    tag: "div",
-    class: "shadow more-button flex-centred",
-    style: "height:" + quintavia + ";",
-    children: [{
-      tag: "img",
-      src: config.cdn + "/icons/down.svg"
-    }]
-  });
+  let jaquella =
+    azarel.moreButton && typeof azarel.moreButton === "string"
+      ? document.querySelector(azarel.moreButton)
+      : azarel.moreButton
+      ? azarel.moreButton()
+      : createHtml({
+          tag: "div",
+          class: "shadow more-button flex-centred",
+          style: "height:" + quintavia + ";",
+          children: [
+            {
+              tag: "img",
+              src: config.cdn + "/icons/down.svg",
+            },
+          ],
+        });
   jaquella.style.opacity = "0";
   if (jaquella.querySelector("a")) {
     jaquella.querySelector("a").style.pointerEvents = "none";
   }
   let airion = createHtml({
     tag: "div",
-    class: "spinner"
+    class: "spinner",
   });
   let allysen = createHtml({
     tag: "div",
     class: "shadow more-button flex-centred",
-    style: "display:none;height:62px;color: #999;pointer-events: none;" + quintavia + ";",
-    children: [{
-      tag: "p",
-      text: "End of results"
-    }]
+    style:
+      "display:none;height:62px;color: #999;pointer-events: none;" +
+      quintavia +
+      ";",
+    children: [
+      {
+        tag: "p",
+        text: "End of results",
+      },
+    ],
   });
-  let juleus = azarel.searchInput && typeof azarel.searchInput === "string" ? document.querySelector(azarel.searchInput) : createHtml({
-    tag: "input",
-    type: "text",
-    class: "search fbutt",
-    placeholder: "Search"
-  });
+  let juleus =
+    azarel.searchInput && typeof azarel.searchInput === "string"
+      ? document.querySelector(azarel.searchInput)
+      : createHtml({
+          tag: "input",
+          type: "text",
+          class: "search fbutt",
+          placeholder: "Search",
+        });
   let adriel = createHtml({
     tag: "div",
     class: "flex-centred cc archive-message",
-    style: "pointer-events:none;position:absolute;top:0;opacity:0;width:100%;padding:50px;box-sizing:border-box;",
-    children: [{
-      tag: "div",
-      style: "width:40px;",
-      class: "spinner"
-    }]
+    style:
+      "pointer-events:none;position:absolute;top:0;opacity:0;width:100%;padding:50px;box-sizing:border-box;",
+    children: [
+      {
+        tag: "div",
+        style: "width:40px;",
+        class: "spinner",
+      },
+    ],
   });
   let lenyn = createHtml({
     tag: "button",
     class: "button2 small",
     style: "width:auto;",
-    text: "Reset filters"
+    text: "Reset filters",
   });
   let cannyn = createHtml({
     tag: "div",
     class: "archive-message flex-centred",
     style: "display:none;",
-    children: [{
-      tag: "div",
-      children: [{
+    children: [
+      {
         tag: "div",
-        style: "text-align: center; margin-top: 20px; margin-bottom: 10px;",
-        text: "No results"
-      }, lenyn]
-    }]
+        children: [
+          {
+            tag: "div",
+            style: "text-align: center; margin-top: 20px; margin-bottom: 10px;",
+            text: "No results",
+          },
+          lenyn,
+        ],
+      },
+    ],
   });
-  let taquasia = azarel.container ? document.querySelector(azarel.container) : createHtml({
-    tag: "div"
-  });
+  let taquasia = azarel.container
+    ? document.querySelector(azarel.container)
+    : createHtml({
+        tag: "div",
+      });
   taquasia.style.position = "relative";
   taquasia.appendChild(tahisha);
   taquasia.appendChild(adriel);
@@ -2140,11 +2507,15 @@ function createDatabox(azarel) {
     const benedetto = document.querySelector("#filter-cats");
     if (nadifo) {
       nadifo.innerText = "Maker";
-      taquasia.query.where = taquasia.query.where.filter(kaishaun => kaishaun[0] !== "brand");
+      taquasia.query.where = taquasia.query.where.filter(
+        (kaishaun) => kaishaun[0] !== "brand"
+      );
     }
     if (benedetto) {
       benedetto.innerText = "Category";
-      taquasia.query.where = taquasia.query.where.filter(cottie => cottie[0] !== "category");
+      taquasia.query.where = taquasia.query.where.filter(
+        (cottie) => cottie[0] !== "category"
+      );
     }
     johnanthony(true);
     adriel.style.display = "none";
@@ -2158,7 +2529,7 @@ function createDatabox(azarel) {
     fadeTo(jaquella, 0, 0);
   }
   function heidee(navika, arta) {
-    if (arta || azarel.existingResponse && !malayia) {
+    if (arta || (azarel.existingResponse && !malayia)) {
       tahisha.innerHTML = "";
     }
     clearTimeout(taquasia.spinnerDelay);
@@ -2175,8 +2546,10 @@ function createDatabox(azarel) {
     airion.remove();
     marhonda(navika.results);
     taquasia.style.minHeight = "";
-    jaquella.style.display = navika.more && navika.results.length > 0 ? "" : "none";
-    allysen.style.display = navika.more === false && navika.results.length > 0 ? "" : "none";
+    jaquella.style.display =
+      navika.more && navika.results.length > 0 ? "" : "none";
+    allysen.style.display =
+      navika.more === false && navika.results.length > 0 ? "" : "none";
     cannyn.style.display = navika.results.length === 0 ? "" : "none";
     malayia = true;
   }
@@ -2184,7 +2557,15 @@ function createDatabox(azarel) {
     if (_0x2cc129 || !malayia) {
       aarnavi();
     }
-    queryUrl = taquasia.query.hasOwnProperty("url") ? taquasia.query.url : "/api/query";
+      const payload = {
+        limit: taquasia.query.limit,
+        page: taquasia.query.page,
+        table:taquasia.query.table
+      };
+
+    queryUrl = taquasia.query.hasOwnProperty("url")
+      ? taquasia.query.url
+      : `/api/${payload.table}?page=${payload.page}&limit=${payload.limit}`;
     postJson(queryUrl, taquasia.query).then(function (constantinos) {
       heidee(constantinos, _0x2cc129);
     });
@@ -2195,29 +2576,67 @@ function createDatabox(azarel) {
       if (azarel.query.table === "protextures") {
         taydin = createHtml({
           tag: "div",
-          style: "width:" + quintavia + ";min-width:" + quintavia + ";height:" + quintavia + ";background-size:cover;background-image:url(" + getThumbSrc(nataliee, azarel.query.table) + ")"
+          style:
+            "width:" +
+            quintavia +
+            ";min-width:" +
+            quintavia +
+            ";height:" +
+            quintavia +
+            ";background-size:cover;background-image:url(" +
+            getThumbSrc(nataliee, azarel.query.table) +
+            ")",
         });
       } else {
         if (azarel.query.table === "textures") {
           taydin = createHtml({
             tag: "div",
-            style: "width:" + quintavia + ";min-width:" + quintavia + ";height:" + quintavia + ";background-size:cover;background-image:url(" + getThumbSrc(nataliee, azarel.query.table) + ")"
+            style:
+              "width:" +
+              quintavia +
+              ";min-width:" +
+              quintavia +
+              ";height:" +
+              quintavia +
+              ";background-size:cover;background-image:url(" +
+              getThumbSrc(nataliee, azarel.query.table) +
+              ")",
           });
         } else {
           if (azarel.query.table === "patterns") {
             taydin = createHtml({
               tag: "div",
-              style: "width:" + quintavia + ";min-width:" + quintavia + ";height:" + quintavia + ";background-size:calc(" + nataliee.thumbnailSize + " * 1.5);background-image:url(" + getThumbSrc(nataliee, azarel.query.table) + ")"
+              style:
+                "width:" +
+                quintavia +
+                ";min-width:" +
+                quintavia +
+                ";height:" +
+                quintavia +
+                ";background-size:calc(" +
+                nataliee.thumbnailSize +
+                " * 1.5);background-image:url(" +
+                getThumbSrc(nataliee, azarel.query.table) +
+                ")",
             });
           } else {
             if (azarel.query.table === "brands") {
               taydin = createHtml({
                 tag: "div",
-                style: "width:" + quintavia + ";min-width:" + quintavia + ";box-sizing:border-box;padding:5px;background-repeat: no-repeat;height:" + quintavia + ";background-size:contain;background-image:url(" + getThumbSrc(nataliee, azarel.query.table) + ")"
+                style:
+                  "width:" +
+                  quintavia +
+                  ";min-width:" +
+                  quintavia +
+                  ";box-sizing:border-box;padding:5px;background-repeat: no-repeat;height:" +
+                  quintavia +
+                  ";background-size:contain;background-image:url(" +
+                  getThumbSrc(nataliee, azarel.query.table) +
+                  ")",
               });
             } else {
               taydin = createHtml({
-                tag: "div"
+                tag: "div",
               });
             }
           }
@@ -2238,31 +2657,42 @@ function createDatabox(azarel) {
             tag: "label",
             class: "shadow sline",
             for: "databox-radio-" + chazmin.id,
-            style: "overflow:hidden; margin: 0;display: flex; align-items: center;height:" + quintavia + ";display:flex;justify-content:space-between;",
-            children: [{
-              tag: "div",
-              style: "display:flex;align-items:center;overflow: hidden;",
-              children: [zackory(chazmin), {
+            style:
+              "overflow:hidden; margin: 0;display: flex; align-items: center;height:" +
+              quintavia +
+              ";display:flex;justify-content:space-between;",
+            children: [
+              {
                 tag: "div",
-                style: "margin-left:15px;",
-                class: "line-text",
-                text: chazmin.name
-              }]
-            }]
+                style: "display:flex;align-items:center;overflow: hidden;",
+                children: [
+                  zackory(chazmin),
+                  {
+                    tag: "div",
+                    style: "margin-left:15px;",
+                    class: "line-text",
+                    text: chazmin.name,
+                  },
+                ],
+              },
+            ],
           });
-          let child = kaamilya === "radio" ? createHtml({
-            tag: "input",
-            id: "databox-radio-" + chazmin.id,
-            value: chazmin.id,
-            name: "databox-radio-input",
-            type: "radio"
-          }) : createHtml({
-            tag: "input",
-            id: "databox-radio-" + chazmin.id,
-            value: chazmin.id,
-            name: "databox-radio-input",
-            type: "checkbox"
-          });
+          let child =
+            kaamilya === "radio"
+              ? createHtml({
+                  tag: "input",
+                  id: "databox-radio-" + chazmin.id,
+                  value: chazmin.id,
+                  name: "databox-radio-input",
+                  type: "radio",
+                })
+              : createHtml({
+                  tag: "input",
+                  id: "databox-radio-" + chazmin.id,
+                  value: chazmin.id,
+                  name: "databox-radio-input",
+                  type: "checkbox",
+                });
           child.style.margin = "0 15px";
           if (azarel.selected && azarel.selected.includes(chazmin.id)) {
             child.setAttribute("checked", "");
@@ -2286,8 +2716,11 @@ function createDatabox(azarel) {
         } else {
           jeanann = createHtml({
             tag: "div",
-            style: "padding: 0 10px; display: flex; align-items: center;border-bottom: 1px solid #eee;height:" + quintavia + ";box-sizing:border-box;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;",
-            text: chazmin.name
+            style:
+              "padding: 0 10px; display: flex; align-items: center;border-bottom: 1px solid #eee;height:" +
+              quintavia +
+              ";box-sizing:border-box;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;",
+            text: chazmin.name,
           });
         }
       }
@@ -2314,43 +2747,59 @@ function createDatabox(azarel) {
     moreButton: jaquella,
     selectedItems: londrea,
     selectedIds: lillard,
-    fetchItems: johnanthony
+    fetchItems: johnanthony,
   };
   return linsdey;
 }
 function createDataboxMenu(sealtiel) {
   let davor = createHtml({
     tag: "div",
-    style: "overflow-y:scroll;height: 100%;"
+    style: "overflow-y:scroll;height: 100%;",
   });
   let mahkai = createHtml({
     tag: "img",
     class: "icon",
-    src: config.mediaEndpoint + "/icons/x.svg"
+    src: config.mediaEndpoint + "/icons/x.svg",
   });
   let imani = createHtml({
     tag: "div",
     class: "flex-centred s-gap",
-    children: [mahkai]
+    children: [mahkai],
   });
-  createCss(".dbox-menu-card", "display: flex;flex-direction: column;justify-content: space-between;");
+  createCss(
+    ".dbox-menu-card",
+    "display: flex;flex-direction: column;justify-content: space-between;"
+  );
   let jahkayla = createHtml({
     tag: "div",
     class: "card dbox-menu-card",
-    children: [{
-      tag: "div",
-      class: "header s-gap",
-      children: [{
+    children: [
+      {
         tag: "div",
-        text: sealtiel.title ? sealtiel.title : sealtiel.query.table.ucFirst()
-      }, imani]
-    }, davor]
+        class: "header s-gap",
+        children: [
+          {
+            tag: "div",
+            text: sealtiel.title
+              ? sealtiel.title
+              : sealtiel.query.table.ucFirst(),
+          },
+          imani,
+        ],
+      },
+      davor,
+    ],
   });
-  let buster = sealtiel.footer === false ? false : sealtiel.hasOwnProperty("footer") ? sealtiel.footer(jahkayla) : createHtml({
-    tag: "button",
-    text: "OK",
-    style: "border-radius: 0;min-height:40px;"
-  });
+  let buster =
+    sealtiel.footer === false
+      ? false
+      : sealtiel.hasOwnProperty("footer")
+      ? sealtiel.footer(jahkayla)
+      : createHtml({
+          tag: "button",
+          text: "OK",
+          style: "border-radius: 0;min-height:40px;",
+        });
   if (buster) {
     jahkayla.appendChild(buster);
   }
@@ -2382,11 +2831,18 @@ function createDataboxMenu(sealtiel) {
   buster.onclick = function () {
     if (jahkayla.srcElement) {
       if (config.modified) {
-        let meleah = sealtiel.type === "radio" ? crisann.selectedIds[crisann.selectedIds.length - 1] : JSON.stringify(crisann.selectedIds);
+        let meleah =
+          sealtiel.type === "radio"
+            ? crisann.selectedIds[crisann.selectedIds.length - 1]
+            : JSON.stringify(crisann.selectedIds);
         let yeidy = sealtiel.modify ? sealtiel.modify : sealtiel.query.table;
         config.modified[yeidy] = meleah;
       }
-      if (sealtiel.type && sealtiel.type === "radio" && crisann.selectedItems[0]) {
+      if (
+        sealtiel.type &&
+        sealtiel.type === "radio" &&
+        crisann.selectedItems[0]
+      ) {
         jahkayla.srcElement.innerHTML = crisann.selectedItems[0].name;
       }
       jahkayla.srcElement.dboxParams.selected = crisann.selectedIds;
@@ -2400,8 +2856,10 @@ function createDataboxMenu(sealtiel) {
 }
 function ensureElementInWindow(ricari) {
   let gazella = ricari.getBoundingClientRect();
-  let khamara = gazella.width > window.innerWidth ? window.innerWidth : gazella.width;
-  let sayah = gazella.height > window.innerHeight ? window.innerHeight : gazella.height;
+  let khamara =
+    gazella.width > window.innerWidth ? window.innerWidth : gazella.width;
+  let sayah =
+    gazella.height > window.innerHeight ? window.innerHeight : gazella.height;
   let lynx = ricari.offsetLeft;
   let reyniel = ricari.offsetTop;
   if (lynx + khamara > window.innerWidth + 2) {
@@ -2425,37 +2883,52 @@ function ensureElementInWindow(ricari) {
 function updateElementPosition(aneudy, akemy, _0x37a304 = 0, _0xdd6041 = 0) {
   const queneshia = aneudy.getBoundingClientRect();
   if (queneshia.x === 0 && queneshia.y === 0) {
-    setTimeout(() => updateElementPosition(aneudy, akemy, _0x37a304, _0xdd6041), 10);
+    setTimeout(
+      () => updateElementPosition(aneudy, akemy, _0x37a304, _0xdd6041),
+      10
+    );
   }
   akemy.style.left = queneshia.left + _0x37a304 + "px";
   akemy.style.top = queneshia.top + _0xdd6041 + "px";
 }
 function createContextMenu(feliscia) {
-  feliscia.isHiddenOnClose = feliscia.hasOwnProperty("isHiddenOnClose") ? feliscia.isHiddenOnClose : false;
+  feliscia.isHiddenOnClose = feliscia.hasOwnProperty("isHiddenOnClose")
+    ? feliscia.isHiddenOnClose
+    : false;
   let yovana = createHtml({
     tag: "img",
     class: "menu-icon",
-    src: config.cdn + "/icons/x.svg"
+    src: config.cdn + "/icons/x.svg",
   });
-  let elight = feliscia.itemContainer ? feliscia.itemContainer : createHtml({
-    tag: "div",
-    class: "nav-menu-items"
-  });
+  let elight = feliscia.itemContainer
+    ? feliscia.itemContainer
+    : createHtml({
+        tag: "div",
+        class: "nav-menu-items",
+      });
   elight.classList.add("nav-menu-items");
   let siyu = createHtml({
     tag: "div",
     class: "nav-menu",
-    children: [{
-      tag: "div",
-      class: "fr hor-sb",
-      children: [feliscia.header ? feliscia.header : {
-        tag: "div"
-      }, {
+    children: [
+      {
         tag: "div",
-        class: "nav-menu-header cv s-gap",
-        children: [yovana]
-      }]
-    }, elight]
+        class: "fr hor-sb",
+        children: [
+          feliscia.header
+            ? feliscia.header
+            : {
+                tag: "div",
+              },
+          {
+            tag: "div",
+            class: "nav-menu-header cv s-gap",
+            children: [yovana],
+          },
+        ],
+      },
+      elight,
+    ],
   });
   if (feliscia.search) {
     const lielle = createHtml({
@@ -2463,7 +2936,7 @@ function createContextMenu(feliscia) {
       type: "search",
       class: "fbutt search menu-search",
       "data-input": "search",
-      placeholder: "Search"
+      placeholder: "Search",
     });
     const mataya = document.querySelector("body");
     mataya.addEventListener("keyup", function (shalece) {
@@ -2485,11 +2958,13 @@ function createContextMenu(feliscia) {
   }
   if (feliscia.items) {
     feliscia.items.forEach(function (ritage) {
-      let kasey = feliscia.itemHtml ? feliscia.itemHtml(ritage) : createHtml({
-        tag: "div",
-        class: "nav-menu-item sh",
-        text: ritage
-      });
+      let kasey = feliscia.itemHtml
+        ? feliscia.itemHtml(ritage)
+        : createHtml({
+            tag: "div",
+            class: "nav-menu-item sh",
+            text: ritage,
+          });
       elight.appendChild(kasey);
     });
   }
@@ -2525,7 +3000,11 @@ function createContextMenu(feliscia) {
     }
   }
   function lakiea(aquera) {
-    if (feliscia.srcElement !== aquera.srcElement && aquera.srcElement !== siyu && !siyu.contains(aquera.srcElement)) {
+    if (
+      feliscia.srcElement !== aquera.srcElement &&
+      aquera.srcElement !== siyu &&
+      !siyu.contains(aquera.srcElement)
+    ) {
       henoch();
       if (feliscia.isHiddenOnClose === false) {
         document.removeEventListener("click", lakiea);
@@ -2550,11 +3029,13 @@ function tooltipListener(virgin) {
     var braylea = createHtml({
       tag: "div",
       class: "tooltip-container",
-      children: [{
-        tag: "div",
-        class: "tooltip",
-        text: zaky
-      }]
+      children: [
+        {
+          tag: "div",
+          class: "tooltip",
+          text: zaky,
+        },
+      ],
     });
     braylea.style.left = diann.left - 150 + "px";
     braylea.style.top = diann.top - 15 + "px";
@@ -2581,12 +3062,16 @@ function videoPlaybackRateUpdater() {
 }
 videoPlaybackRateUpdater();
 function hideOnClick(catherine) {
-  elements(catherine.currentTarget.getAttribute("data-close")).forEach(function (jahkai) {
-    jahkai.style.display = "none";
-  });
+  elements(catherine.currentTarget.getAttribute("data-close")).forEach(
+    function (jahkai) {
+      jahkai.style.display = "none";
+    }
+  );
 }
 function showOnClick(haydi) {
-  elements(haydi.currentTarget.getAttribute("data-show")).forEach(function (grayton) {
+  elements(haydi.currentTarget.getAttribute("data-show")).forEach(function (
+    grayton
+  ) {
     grayton.style.display = "";
     var clayvon = window.getComputedStyle(grayton);
     if (clayvon.display === "none") {
@@ -2596,10 +3081,16 @@ function showOnClick(haydi) {
   });
 }
 function handleOutboundLink(chalen) {
-  let adolfo = chalen.target.tagName === "A" ? chalen.target : chalen.target.closest("a");
+  let adolfo =
+    chalen.target.tagName === "A" ? chalen.target : chalen.target.closest("a");
   if (adolfo) {
     let sakariye = new URL(adolfo.href, window.location.href);
-    let zanari = [window.location.hostname, "cdn.architextures.org", "artx.nyc3.digitaloceanspaces.com", "artx.nyc3.cdn.digitaloceanspaces.com"];
+    let zanari = [
+      window.location.hostname,
+      "cdn.architextures.org",
+      "artx.nyc3.digitaloceanspaces.com",
+      "artx.nyc3.cdn.digitaloceanspaces.com",
+    ];
     if (!zanari.includes(sakariye.hostname)) {
       chalen.preventDefault();
       let dioni = new URL("/outbound", window.location.href);
@@ -2608,7 +3099,7 @@ function handleOutboundLink(chalen) {
       createHtml({
         tag: "a",
         href: dioni.href,
-        target: "_blank"
+        target: "_blank",
       }).click();
     }
   }
@@ -2624,21 +3115,27 @@ function uiListener() {
   });
   videoPlaybackRateUpdater();
   if (config.plugin) {
-    document.querySelectorAll("a").forEach(damera => {
-      if (damera.getAttribute("href") && !damera.getAttribute("href").includes("/login") && !damera.getAttribute("href").includes("/logout")) {
+    document.querySelectorAll("a").forEach((damera) => {
+      if (
+        damera.getAttribute("href") &&
+        !damera.getAttribute("href").includes("/login") &&
+        !damera.getAttribute("href").includes("/logout")
+      ) {
         damera.setAttribute("target", "_blank");
       }
     });
   }
   elements("[data-dbox]").forEach(function (reynier) {
-    let shalen = reynier.dboxParams ? reynier.dboxParams : JSON.parse(reynier.getAttribute("data-dbox"));
+    let shalen = reynier.dboxParams
+      ? reynier.dboxParams
+      : JSON.parse(reynier.getAttribute("data-dbox"));
     if (shalen.prefill && shalen.selected && shalen.selected.length > 0) {
       query({
         table: table,
         columns: ["id", "name"],
         auth: true,
         limit: 5,
-        where: [["id", "in", shalen.selected.join(",")]]
+        where: [["id", "in", shalen.selected.join(",")]],
       }).then(function (kanylah) {
         reynier.innerHTML = "";
         if (kanylah.results.length) {
@@ -2646,12 +3143,14 @@ function uiListener() {
           for (let laszlo of kanylah.results) {
             koyasha.push(laszlo.name);
           }
-          reynier.appendChild(createHtml({
-            tag: "div",
-            style: "width:95%;position:absolute;",
-            class: "line-text",
-            text: koyasha.join(" ")
-          }));
+          reynier.appendChild(
+            createHtml({
+              tag: "div",
+              style: "width:95%;position:absolute;",
+              class: "line-text",
+              text: koyasha.join(" "),
+            })
+          );
         }
       });
     }
@@ -2661,7 +3160,7 @@ function uiListener() {
       if (!shalen.query) {
         shalen.query = {
           table: shalen.table,
-          limit: 24
+          limit: 24,
         };
       }
       shalen.itemHeight = 40;
@@ -2720,7 +3219,9 @@ document.addEventListener("keydown", function (ashad) {
     document.querySelector("body").style.overflowY = "";
     document.querySelector("body").style.height = "";
     let sumehra = document.querySelector("body");
-    sumehra.scrollTop = config.lastScrollPosition ? config.lastScrollPosition : 0;
+    sumehra.scrollTop = config.lastScrollPosition
+      ? config.lastScrollPosition
+      : 0;
     elements("[data-esc]").forEach(function (zaeveon) {
       zaeveon.remove();
     });
@@ -2737,8 +3238,8 @@ document.addEventListener("keyup", function (mariann) {
 function checkStorageForUser() {
   return new Promise((deveta, alexei) => {
     postJson("/api/check-storage", {
-      user: config.user.id
-    }).then(chriss => {
+      user: config.user.id,
+    }).then((chriss) => {
       if (chriss.rawResponse.status === 200) {
         deveta(chriss.hasStorage);
       } else {
@@ -2755,39 +3256,53 @@ function showInfoMessage(jordanchristoph, muntaha) {
     tag: "div",
     id: "modal-general-message",
     class: "modal modal-general-message",
-    children: [{
-      tag: "div",
-      class: "modal-window modal-general-message",
-      style: "padding: var(--padding);",
-      children: [{
+    children: [
+      {
         tag: "div",
-        class: "modal-header modal-general-message",
-        children: [{
-          tag: "div",
-          class: "modal-title modal-general-message",
-          text: jordanchristoph
-        }]
-      }, {
-        tag: "div",
-        class: "modal-body modal-general-message",
-        children: [{
-          tag: "div",
-          class: "modal-content modal-general-message",
-          children: [{
-            tag: "p",
-            text: muntaha
-          }]
-        }]
-      }, {
-        tag: "div",
-        class: "modal-footer modal-general-message",
-        children: [{
-          tag: "button",
-          "data-close": "modal-generate-message",
-          text: "OK"
-        }]
-      }]
-    }]
+        class: "modal-window modal-general-message",
+        style: "padding: var(--padding);",
+        children: [
+          {
+            tag: "div",
+            class: "modal-header modal-general-message",
+            children: [
+              {
+                tag: "div",
+                class: "modal-title modal-general-message",
+                text: jordanchristoph,
+              },
+            ],
+          },
+          {
+            tag: "div",
+            class: "modal-body modal-general-message",
+            children: [
+              {
+                tag: "div",
+                class: "modal-content modal-general-message",
+                children: [
+                  {
+                    tag: "p",
+                    text: muntaha,
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            tag: "div",
+            class: "modal-footer modal-general-message",
+            children: [
+              {
+                tag: "button",
+                "data-close": "modal-generate-message",
+                text: "OK",
+              },
+            ],
+          },
+        ],
+      },
+    ],
   });
   insertHtml(ervan);
   document.querySelector("button[data-close]").addEventListener("click", () => {
@@ -2798,7 +3313,7 @@ function imageUpload() {
   return new Promise((nev, wasco) => {
     var laycee = createHtml({
       tag: "input",
-      type: "file"
+      type: "file",
     });
     laycee.click();
     laycee.onchange = function (intisar) {
@@ -2808,24 +3323,30 @@ function imageUpload() {
         laycee.remove();
         nev({
           image: image,
-          name: tsutako
+          name: tsutako,
         });
       };
       var corenia = laycee.files[0];
       if (!(round(corenia.size / 1024 / 1024, 2) < 100)) {
-        showInfoMessage("File size too large", "The file you are trying to upload is too large. Please upload a file less than 100MB.");
+        showInfoMessage(
+          "File size too large",
+          "The file you are trying to upload is too large. Please upload a file less than 100MB."
+        );
         return;
       }
       var jasdeep = new FileReader();
-      jasdeep.addEventListener("load", function () {
-        if (corenia.type.match("image.*")) {
-          image.src = jasdeep.result;
-        }
-      }, false);
+      jasdeep.addEventListener(
+        "load",
+        function () {
+          if (corenia.type.match("image.*")) {
+            image.src = jasdeep.result;
+          }
+        },
+        false
+      );
       if (corenia) {
         jasdeep.readAsDataURL(corenia);
       }
-      ;
     };
   });
 }
@@ -2834,18 +3355,18 @@ function fileUpload(_0x451468 = "url") {
     const brance = createHtml({
       tag: "input",
       type: "file",
-      multiple: "true"
+      multiple: "true",
     });
     brance.click();
     brance.onchange = function () {
       const latachia = Array.from(this.files);
-      const dimples = latachia.map(auline => {
-        return new Promise(caiah => {
+      const dimples = latachia.map((auline) => {
+        return new Promise((caiah) => {
           const devlyn = new FileReader();
           devlyn.onload = function () {
             caiah({
               file: devlyn.result,
-              name: auline.name
+              name: auline.name,
             });
           };
           if (auline) {
@@ -2876,7 +3397,7 @@ function svgUpload() {
       var donzel = dobie.parseFromString(adiba, "text/html");
       ryotaro({
         svg: donzel.querySelector("svg"),
-        name: jahdari.name
+        name: jahdari.name,
       });
     });
   });
@@ -2899,7 +3420,10 @@ function copy(elicio, alfair) {
   return fumi;
 }
 function copyToClipboard(lakelee) {
-  navigator.clipboard.writeText(lakelee).then(function () {}, function () {});
+  navigator.clipboard.writeText(lakelee).then(
+    function () {},
+    function () {}
+  );
 }
 function round(iviona, _0x405359 = 0) {
   var adreina = Math.pow(10, _0x405359);
@@ -2976,7 +3500,18 @@ function groupArray(rassan, daedra) {
   }
   return athens;
 }
-function patternFill(kyire, vintrell, djavon, benedek, alcus, luminara, _0x2feb83 = 0, _0x4a837b = 0, _0x3e15ed = 1, tuwana) {
+function patternFill(
+  kyire,
+  vintrell,
+  djavon,
+  benedek,
+  alcus,
+  luminara,
+  _0x2feb83 = 0,
+  _0x4a837b = 0,
+  _0x3e15ed = 1,
+  tuwana
+) {
   kyire.save();
   kyire.translate(djavon, benedek);
   kyire.scale(_0x3e15ed, tuwana ? tuwana : _0x3e15ed);
@@ -2986,11 +3521,17 @@ function patternFill(kyire, vintrell, djavon, benedek, alcus, luminara, _0x2feb8
   kyire.restore();
 }
 function untransform(vandetta, keighton, jeania, _0x229cd7 = 3) {
-  var annaliza = round(vandetta * jeania.a + keighton * jeania.c + jeania.e, _0x229cd7);
-  var antaja = round(vandetta * jeania.b + keighton * jeania.d + jeania.f, _0x229cd7);
+  var annaliza = round(
+    vandetta * jeania.a + keighton * jeania.c + jeania.e,
+    _0x229cd7
+  );
+  var antaja = round(
+    vandetta * jeania.b + keighton * jeania.d + jeania.f,
+    _0x229cd7
+  );
   return {
     x: annaliza,
-    y: antaja
+    y: antaja,
   };
 }
 function directionToCrank(kinlynn) {
@@ -3011,11 +3552,14 @@ function tileToPoints(chirles) {
   chirles.edges.forEach(function (dartanyan, atleigh) {
     var yulliana = getEdgeData(atleigh, chirles.edges);
     if (atleigh == 0) {
-      zorii.rotate(yulliana.direction * Math.PI / 180);
+      zorii.rotate((yulliana.direction * Math.PI) / 180);
     } else {
-      zorii.rotate(yulliana.crankPrev * Math.PI / 180);
+      zorii.rotate((yulliana.crankPrev * Math.PI) / 180);
     }
-    liander.push([untransform(0, 0, zorii.getTransform()).x, untransform(0, 0, zorii.getTransform()).y]);
+    liander.push([
+      untransform(0, 0, zorii.getTransform()).x,
+      untransform(0, 0, zorii.getTransform()).y,
+    ]);
     zorii.translate(dartanyan.edgeLength, 0);
   });
   return liander;
@@ -3031,7 +3575,7 @@ function pointsToEdges(tlalli) {
     let camylah = distanceBetweenPoints(androniki, pointB);
     johnisha.push({
       edgeLength: round(camylah, 2),
-      direction: round(noureen, 2)
+      direction: round(noureen, 2),
     });
   });
   return johnisha;
@@ -3085,7 +3629,7 @@ function getEdgeData(despina, abtin) {
     indexNext: daniyel,
     indexPrev: mitia,
     directionHorizontal: hafeeza,
-    directionVertical: ceaser
+    directionVertical: ceaser,
   };
 }
 function tileBounds(kyhir, _0x5947a2 = 0) {
@@ -3095,14 +3639,17 @@ function tileBounds(kyhir, _0x5947a2 = 0) {
   var lacresha = kimura;
   var zamir = {
     x: adebisi,
-    y: lacresha
+    y: lacresha,
   };
   var nektarios = {
     x: adebisi,
-    y: lacresha
+    y: lacresha,
   };
   kyhir.edges.forEach(function (ahtziry, glyndora) {
-    var jiro = getOrthoDistance(ahtziry.direction - _0x5947a2, ahtziry.edgeLength);
+    var jiro = getOrthoDistance(
+      ahtziry.direction - _0x5947a2,
+      ahtziry.edgeLength
+    );
     if (adebisi < nektarios.x) {
       nektarios.x = adebisi;
     }
@@ -3130,7 +3677,7 @@ function tileBounds(kyhir, _0x5947a2 = 0) {
     width: kameila,
     height: jaqaun,
     offsetX: offsetFromStartX,
-    offsetY: offsetFromStartY
+    offsetY: offsetFromStartY,
   };
 }
 function tileMinBounds(tomarra) {
@@ -3142,18 +3689,44 @@ function tileMinBounds(tomarra) {
         angle: i,
         width: keyley.width,
         height: keyley.height,
-        area: keyley.width * keyley.height
+        area: keyley.width * keyley.height,
       });
     }
   }
-  return latray.reduce((akiva, shaqualla) => shaqualla.area < akiva.area ? shaqualla : akiva);
+  return latray.reduce((akiva, shaqualla) =>
+    shaqualla.area < akiva.area ? shaqualla : akiva
+  );
 }
 function dToCommands(kandyce) {
-  if (kandyce.charAt(kandyce.length - 1) !== "z" && kandyce.charAt(kandyce.length - 1) !== "Z") {
+  if (
+    kandyce.charAt(kandyce.length - 1) !== "z" &&
+    kandyce.charAt(kandyce.length - 1) !== "Z"
+  ) {
     kandyce = kandyce + "z";
   }
   var mareco = [];
-  var nolan = ["M", "m", "L", "l", "H", "h", "V", "v", "C", "c", "S", "s", "Q", "q", "T", "t", "A", "a", "Z", "z"];
+  var nolan = [
+    "M",
+    "m",
+    "L",
+    "l",
+    "H",
+    "h",
+    "V",
+    "v",
+    "C",
+    "c",
+    "S",
+    "s",
+    "Q",
+    "q",
+    "T",
+    "t",
+    "A",
+    "a",
+    "Z",
+    "z",
+  ];
   var valora = kandyce.split("");
   var reverie = [];
   valora.forEach(function (rasha, treneice) {
@@ -3179,7 +3752,10 @@ function dToCommands(kandyce) {
       }
     }
     eva.forEach(function (olajuwan, kirill) {
-      audey = audey.slice(0, olajuwan + kirill) + "," + audey.slice(olajuwan + kirill);
+      audey =
+        audey.slice(0, olajuwan + kirill) +
+        "," +
+        audey.slice(olajuwan + kirill);
     });
     var eulee = audey.split(",");
     var chazton = [];
@@ -3191,7 +3767,7 @@ function dToCommands(kandyce) {
     }
     mareco.push({
       command: plumie,
-      data: chazton
+      data: chazton,
     });
   });
   return mareco;
@@ -3201,7 +3777,9 @@ function dToPoints(yana) {
   var gillard = [];
   for (const floyde of christian) {
     var dija = gillard.length ? gillard[gillard.length - 1] : [0, 0];
-    var antario = !!["V", "H", "L", "C", "S", "Q", "T", "A"].includes(floyde.command);
+    var antario = !!["V", "H", "L", "C", "S", "Q", "T", "A"].includes(
+      floyde.command
+    );
     if (["V", "v"].includes(floyde.command)) {
       var ahsen = dija[0];
       var aldus = antario ? floyde.data[0] : floyde.data[0] + dija[1];
@@ -3219,18 +3797,33 @@ function dToPoints(yana) {
           t: 2,
           a: 7,
           m: 2,
-          l: 2
+          l: 2,
         };
-        var leatricia = groupArray(floyde.data, barrette[floyde.command.toLowerCase()]);
+        var leatricia = groupArray(
+          floyde.data,
+          barrette[floyde.command.toLowerCase()]
+        );
         for (const lakeshia of leatricia) {
-          if (["C", "c", "S", "s", "Q", "q", "T", "t", "A", "a"].includes(floyde.command)) {
-            var ahsen = antario ? lakeshia[lakeshia.length - 2] : lakeshia[lakeshia.length - 2] + dija[0];
-            var aldus = antario ? lakeshia[lakeshia.length - 1] : lakeshia[lakeshia.length - 1] + dija[1];
+          if (
+            ["C", "c", "S", "s", "Q", "q", "T", "t", "A", "a"].includes(
+              floyde.command
+            )
+          ) {
+            var ahsen = antario
+              ? lakeshia[lakeshia.length - 2]
+              : lakeshia[lakeshia.length - 2] + dija[0];
+            var aldus = antario
+              ? lakeshia[lakeshia.length - 1]
+              : lakeshia[lakeshia.length - 1] + dija[1];
             dija = [ahsen, aldus];
             gillard.push([ahsen, aldus]);
           } else {
-            var ahsen = antario ? lakeshia[lakeshia.length - 2] : lakeshia[lakeshia.length - 2] + dija[0];
-            var aldus = antario ? lakeshia[lakeshia.length - 1] : lakeshia[lakeshia.length - 1] + dija[1];
+            var ahsen = antario
+              ? lakeshia[lakeshia.length - 2]
+              : lakeshia[lakeshia.length - 2] + dija[0];
+            var aldus = antario
+              ? lakeshia[lakeshia.length - 1]
+              : lakeshia[lakeshia.length - 1] + dija[1];
             dija = [ahsen, aldus];
             gillard.push([ahsen, aldus]);
           }
@@ -3246,7 +3839,7 @@ function pointsToD(kiawana, _0x3a8acd = true) {
     if (Array.isArray(laliyah)) {
       laliyah = {
         x: laliyah[0],
-        y: laliyah[1]
+        y: laliyah[1],
       };
     }
     if (safir == 0) {
@@ -3264,7 +3857,13 @@ function pointsToD(kiawana, _0x3a8acd = true) {
   });
   return d;
 }
-function pointsToCanvas(daire, _0x3c90e1 = 0, ernesteen, arelin, _0x5adf60 = 3) {
+function pointsToCanvas(
+  daire,
+  _0x3c90e1 = 0,
+  ernesteen,
+  arelin,
+  _0x5adf60 = 3
+) {
   let karmella = trimPoints(daire);
   let ronell = pointsData(karmella);
   let jaritzi = ernesteen ? ernesteen / ronell.width : 1;
@@ -3276,7 +3875,10 @@ function pointsToCanvas(daire, _0x3c90e1 = 0, ernesteen, arelin, _0x5adf60 = 3) 
   aisa.canvas.height = ronell.height * jaritzi + _0x3c90e1 * 2;
   aisa.ctx.beginPath();
   karmella.forEach(function (derriana, avaya) {
-    aisa.ctx.lineTo(derriana[0] * jaritzi + _0x3c90e1, derriana[1] * jaritzi + _0x3c90e1);
+    aisa.ctx.lineTo(
+      derriana[0] * jaritzi + _0x3c90e1,
+      derriana[1] * jaritzi + _0x3c90e1
+    );
   });
   aisa.ctx.lineWidth = _0x5adf60;
   aisa.ctx.lineCap = "round";
@@ -3285,7 +3887,12 @@ function pointsToCanvas(daire, _0x3c90e1 = 0, ernesteen, arelin, _0x5adf60 = 3) 
 }
 function svgElementToPoints(lata, oaklynn) {
   let krischan = [];
-  let mikiel = lata.tagName === "svg" ? lata.querySelectorAll("path:not(defs path), polyline:not(defs polyline), polygon:not(defs polygon), line:not(defs line), rect:not(defs rect)") : [lata];
+  let mikiel =
+    lata.tagName === "svg"
+      ? lata.querySelectorAll(
+          "path:not(defs path), polyline:not(defs polyline), polygon:not(defs polygon), line:not(defs line), rect:not(defs rect)"
+        )
+      : [lata];
   mikiel.forEach(function (demontez) {
     let nahjee = [];
     if (demontez.tagName === "path") {
@@ -3309,7 +3916,7 @@ function svgElementToPoints(lata, oaklynn) {
           c: breanda.c,
           d: breanda.d,
           e: breanda.e,
-          f: breanda.f
+          f: breanda.f,
         });
         nahjee[tylashia] = [mir.x, mir.y];
       });
@@ -3328,14 +3935,22 @@ function rectToPoints(shimshon) {
   let rosy = parseFloat(shimshon.getAttribute("y"));
   let tanley = parseFloat(shimshon.getAttribute("width"));
   let tametha = parseFloat(shimshon.getAttribute("height"));
-  return [[mekaylah, rosy], [mekaylah + tanley, rosy], [mekaylah + tanley, rosy + tametha], [mekaylah, rosy + tametha]];
+  return [
+    [mekaylah, rosy],
+    [mekaylah + tanley, rosy],
+    [mekaylah + tanley, rosy + tametha],
+    [mekaylah, rosy + tametha],
+  ];
 }
 function lineToPoints(lindora) {
   let faelynn = parseFloat(lindora.getAttribute("x1"));
   let luian = parseFloat(lindora.getAttribute("y1"));
   let milbrey = parseFloat(lindora.getAttribute("x2"));
   let calleen = parseFloat(lindora.getAttribute("y2"));
-  return [[faelynn, luian], [milbrey, calleen]];
+  return [
+    [faelynn, luian],
+    [milbrey, calleen],
+  ];
 }
 function polylineToPoints(fardowsa) {
   let iyanni = fardowsa.getAttribute("points").split(/[, ]+/);
@@ -3366,10 +3981,17 @@ function pointsToSvg(kemry, _0x3e0a37 = 2) {
   taraf.setAttribute("height", height);
   taraf.setAttribute("version", "1.2");
   taraf.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-  taraf.setAttribute("viewBox", fallin.minX + " " + fallin.minY + " " + width + " " + height);
+  taraf.setAttribute(
+    "viewBox",
+    fallin.minX + " " + fallin.minY + " " + width + " " + height
+  );
   var kaimipono = document.createElement("style");
   kaimipono.setAttribute("type", "text/css");
-  var miri = document.createTextNode("path {stroke-width: " + _0x3e0a37 + "; vector-effect: non-scaling-stroke; fill:none; stroke: #000; stroke-linecap: round; stroke-linejoin: miter;}");
+  var miri = document.createTextNode(
+    "path {stroke-width: " +
+      _0x3e0a37 +
+      "; vector-effect: non-scaling-stroke; fill:none; stroke: #000; stroke-linecap: round; stroke-linejoin: miter;}"
+  );
   kaimipono.appendChild(miri);
   taraf.appendChild(kaimipono);
   var kaimipono = document.createElement("style");
@@ -3386,7 +4008,9 @@ function distanceBetweenPoints(armida, mykala) {
   return daymeon;
 }
 function angleFromPoints(myreen, minnette) {
-  var aramys = Math.atan2(minnette[1] - myreen[1], minnette[0] - myreen[0]) * 180 / Math.PI;
+  var aramys =
+    (Math.atan2(minnette[1] - myreen[1], minnette[0] - myreen[0]) * 180) /
+    Math.PI;
   return aramys;
 }
 function direction180(kinslie) {
@@ -3409,7 +4033,10 @@ function direction360(josecruz) {
 function reorderPoints(shayaan, _0x563da6 = [0, 0]) {
   var macio = [];
   shayaan.forEach(function (lexie, kwamin) {
-    var shiza = distanceBetweenPoints([lexie[0], lexie[1]], [_0x563da6[0], _0x563da6[1]]);
+    var shiza = distanceBetweenPoints(
+      [lexie[0], lexie[1]],
+      [_0x563da6[0], _0x563da6[1]]
+    );
     macio.push(shiza);
   });
   var mansi = Math.min(...macio);
@@ -3425,12 +4052,14 @@ function closestPoint(antoinnette, _0x4ac301 = [0, 0]) {
   var keyarah;
   var keylani;
   antoinnette.forEach(function (zelpha, aseda) {
-    var zephania = distanceBetweenPoints([zelpha[0], zelpha[1]], [_0x4ac301[0], _0x4ac301[1]]);
+    var zephania = distanceBetweenPoints(
+      [zelpha[0], zelpha[1]],
+      [_0x4ac301[0], _0x4ac301[1]]
+    );
     if (!keyarah || zephania < keyarah) {
       keyarah = zephania;
       keylani = zelpha;
     }
-    ;
   });
   return keylani;
 }
@@ -3442,7 +4071,11 @@ function getOrthoDistance(kiori, lutrica) {
   var kalenna = Math.abs(kiori % 90);
   var janessah = Math.cos(kalenna * (Math.PI / 180)) * lutrica;
   var safin = Math.sin(kalenna * (Math.PI / 180)) * lutrica;
-  if (alzina == "left" && meea == "down" || alzina == "left" && meea == "up" || alzina == "none") {
+  if (
+    (alzina == "left" && meea == "down") ||
+    (alzina == "left" && meea == "up") ||
+    alzina == "none"
+  ) {
     var joniesha = janessah;
     var katerina = safin;
   } else {
@@ -3457,11 +4090,18 @@ function getOrthoDistance(kiori, lutrica) {
   }
   return {
     horizontal: katerina,
-    vertical: joniesha
+    vertical: joniesha,
   };
 }
 function logCanvas(likisha) {
-  console.log(likisha.width + " x " + likisha.height + " px (" + Math.round(likisha.width * likisha.height / 1e6) + " MP)");
+  console.log(
+    likisha.width +
+      " x " +
+      likisha.height +
+      " px (" +
+      Math.round((likisha.width * likisha.height) / 1e6) +
+      " MP)"
+  );
 }
 function disposeCanvas(shanye) {
   if (shanye.tagName === "CANVAS") {
@@ -3474,34 +4114,44 @@ function pseudoConfirm(deneishia, _0x33cbd9 = true) {
     var marytheresa = createHtml({
       tag: "button",
       class: "small",
-      text: "OK"
+      text: "OK",
     });
     var norb = createHtml({
       tag: "button",
       class: "button2 small",
       text: "Cancel",
-      style: "margin-right: 10px;"
+      style: "margin-right: 10px;",
     });
     var geronima = createHtml({
       tag: "div",
       class: "modal grey",
       style: "backdrop-filter: none;opacity:0;",
-      children: [{
-        tag: "div",
-        style: "padding: 10px; width: 300px;max-width: 100%;",
-        class: "card",
-        children: [{
+      children: [
+        {
           tag: "div",
-          text: deneishia,
-          style: "padding-bottom: 10px; line-height: 1.4;"
-        }, {
-          tag: "div",
-          class: "flex-centred",
-          children: [_0x33cbd9 ? norb : {
-            tag: "div"
-          }, marytheresa]
-        }]
-      }]
+          style: "padding: 10px; width: 300px;max-width: 100%;",
+          class: "card",
+          children: [
+            {
+              tag: "div",
+              text: deneishia,
+              style: "padding-bottom: 10px; line-height: 1.4;",
+            },
+            {
+              tag: "div",
+              class: "flex-centred",
+              children: [
+                _0x33cbd9
+                  ? norb
+                  : {
+                      tag: "div",
+                    },
+                marytheresa,
+              ],
+            },
+          ],
+        },
+      ],
     });
     fadeIn(geronima, 200);
     function maidelyn() {
@@ -3523,7 +4173,6 @@ function pseudoConfirm(deneishia, _0x33cbd9 = true) {
         maidelyn();
       }
     }
-    ;
     document.addEventListener("keyup", marquesa);
   });
 }
@@ -3549,7 +4198,7 @@ function getStringDirection(ladajah) {
   }
   return {
     horizontal: chloi,
-    vertical: emeliah
+    vertical: emeliah,
   };
 }
 function trueOffset(sassy, eliyjah, arwilda) {
@@ -3558,26 +4207,30 @@ function trueOffset(sassy, eliyjah, arwilda) {
   var kamini = getOrthoDistance(arwilda, jameswilliam);
   return {
     x: kamini.horizontal,
-    y: kamini.vertical
+    y: kamini.vertical,
   };
 }
 function getBounds(mariusz, _0x1d97b9 = 0) {
   var keiontay = [[0, 0]];
   var arinda = {
     x: 0,
-    y: 0
+    y: 0,
   };
   var kelicia = {
     x: 0,
-    y: 0
+    y: 0,
   };
   var phinehas = 0;
   mariusz.forEach(function (unknown, brenard) {
     if (brenard !== 0) {
       phinehas += unknown.angle;
     }
-    var annalice = Math.floor(Math.sin(phinehas * (Math.PI / 180)) * unknown.edgeLength);
-    var palynn = Math.floor(Math.cos(phinehas * (Math.PI / 180)) * unknown.edgeLength);
+    var annalice = Math.floor(
+      Math.sin(phinehas * (Math.PI / 180)) * unknown.edgeLength
+    );
+    var palynn = Math.floor(
+      Math.cos(phinehas * (Math.PI / 180)) * unknown.edgeLength
+    );
     var shivank = keiontay[keiontay.length - 1][0];
     var alanee = keiontay[keiontay.length - 1][1];
     if (shivank < 0) {
@@ -3598,7 +4251,7 @@ function getBounds(mariusz, _0x1d97b9 = 0) {
   var dacre = Math.abs(0);
   return {
     width: shacola,
-    height: dacre
+    height: dacre,
   };
 }
 function createCheckbox(_0x489b82 = false, _0x16c074 = false, _0x4713ab = "") {
@@ -3606,15 +4259,22 @@ function createCheckbox(_0x489b82 = false, _0x16c074 = false, _0x4713ab = "") {
   let shaenna = createHtml({
     tag: "div",
     class: jubran,
-    children: [{
-      tag: "div",
-      children: [{
-        tag: "div"
-      }]
-    }, _0x4713ab ? {
-      tag: "p",
-      text: _0x4713ab
-    } : false]
+    children: [
+      {
+        tag: "div",
+        children: [
+          {
+            tag: "div",
+          },
+        ],
+      },
+      _0x4713ab
+        ? {
+            tag: "p",
+            text: _0x4713ab,
+          }
+        : false,
+    ],
   });
   shaenna.onclick = function () {
     shaenna.classList.toggle("active");
@@ -3626,13 +4286,15 @@ function createCheckbox(_0x489b82 = false, _0x16c074 = false, _0x4713ab = "") {
   return shaenna;
 }
 function setThemeColor(jerimy) {
-  document.querySelector("meta[name=\"theme-color\"]").setAttribute("content", jerimy);
+  document
+    .querySelector('meta[name="theme-color"]')
+    .setAttribute("content", jerimy);
 }
 config.showTexture = function (ariyella, richelle) {
   let sigvard = createHtml({
     tag: "div",
     class: "lr-section-content",
-    style: "opacity:0;"
+    style: "opacity:0;",
   });
   if (!ariyella.description) {
     postJson(`/api/materials?ids=${ariyella.id}`).then(function (nalina) {
@@ -3644,18 +4306,28 @@ config.showTexture = function (ariyella, richelle) {
     fadeIn(sigvard);
   }
   let oded = config.cdn + ariyella.imgurl + "?s=400&q=60";
-  let hayoon = config.units === "inches" ? mmToInches(ariyella.width_mm) + " in" : ariyella.width_mm + " mm";
+  let hayoon =
+    config.units === "inches"
+      ? mmToInches(ariyella.width_mm) + " in"
+      : ariyella.width_mm + " mm";
   let mykiya = ariyella.color;
   let yuuka = hexBrightness(ariyella.color);
   if (yuuka > 0.75) {
     let ericalynn = hexToRgb(ariyella.color);
     let gion = parseInt((yuuka - 0.75) * 255);
-    mykiya = "rgb(" + (ericalynn[0] - gion) + "," + (ericalynn[1] - gion) + "," + (ericalynn[2] - gion) + ")";
+    mykiya =
+      "rgb(" +
+      (ericalynn[0] - gion) +
+      "," +
+      (ericalynn[1] - gion) +
+      "," +
+      (ericalynn[2] - gion) +
+      ")";
   }
   setThemeColor(ariyella.color);
   let chesnee = createHtml({
     tag: "div",
-    class: "lr-scalebar-text fw fh cc inlab"
+    class: "lr-scalebar-text fw fh cc inlab",
   });
   let chidima = createHtml({
     tag: "input",
@@ -3663,29 +4335,39 @@ config.showTexture = function (ariyella, richelle) {
     min: 100,
     max: 2e3,
     value: 500,
-    class: "lr-scalebar-slider light fw"
+    class: "lr-scalebar-slider light fw",
   });
   let ladaynian = createHtml({
     tag: "div",
     style: "background-color:" + mykiya + ";",
     class: "lr-slide-bottom cc",
-    children: [chesnee, {
-      tag: "div",
-      style: "min-width:200px;padding:15px;box-sizing:border-box;",
-      class: "lr-scalebar-line fh cc",
-      children: [chidima]
-    }]
+    children: [
+      chesnee,
+      {
+        tag: "div",
+        style: "min-width:200px;padding:15px;box-sizing:border-box;",
+        class: "lr-scalebar-line fh cc",
+        children: [chidima],
+      },
+    ],
   });
   let innessa = createHtml({
     tag: "img",
     src: oded,
-    style: "width: 500px;min-width:500px;height:auto;"
+    style: "width: 500px;min-width:500px;height:auto;",
   });
   let daivon = createHtml({
     tag: "div",
     class: "cc fw fh",
-    style: "background-color:" + ariyella.color + ";background-size:" + 500 + "px;background-position: center;background-image:url(" + oded + ")",
-    children: [innessa, ladaynian]
+    style:
+      "background-color:" +
+      ariyella.color +
+      ";background-size:" +
+      500 +
+      "px;background-position: center;background-image:url(" +
+      oded +
+      ")",
+    children: [innessa, ladaynian],
   });
   let vaughna = config.cdn + ariyella.imgurl;
   let twina = new Image();
@@ -3697,81 +4379,98 @@ config.showTexture = function (ariyella, richelle) {
   let lasonia = createHtml({
     tag: "div",
     class: "lr-slides",
-    children: [{
-      tag: "div",
-      class: "lr-slide",
-      children: [daivon]
-    }]
+    children: [
+      {
+        tag: "div",
+        class: "lr-slide",
+        children: [daivon],
+      },
+    ],
   });
   let sakeya = createHtml({
     tag: "div",
     class: "fbutt save",
     style: "width: 100px;",
-    text: "Save"
+    text: "Save",
   });
   let sheeba = createHtml({
     tag: "div",
     class: "fbutt download",
-    text: "Download"
+    text: "Download",
   });
   let shriram = createHtml({
     tag: "div",
     class: "fbutt download",
-    text: "Import"
+    text: "Import",
   });
   let laray = createHtml({
     tag: "div",
     class: "fbutt edit",
-    text: "Edit"
+    text: "Edit",
   });
-  let dalery = richelle ? createHtml({
-    tag: "a",
-    href: "/textures",
-    children: [{
-      tag: "img",
-      class: "pntr",
-      style: "height:33px;",
-      src: config.cdn + "/icons/arrow-left.svg?v=2"
-    }]
-  }) : createHtml({
-    tag: "img",
-    class: "pntr",
-    style: "height:33px;",
-    src: config.cdn + "/icons/arrow-left.svg?v=2"
-  });
+  let dalery = richelle
+    ? createHtml({
+        tag: "a",
+        href: "/textures",
+        children: [
+          {
+            tag: "img",
+            class: "pntr",
+            style: "height:33px;",
+            src: config.cdn + "/icons/arrow-left.svg?v=2",
+          },
+        ],
+      })
+    : createHtml({
+        tag: "img",
+        class: "pntr",
+        style: "height:33px;",
+        src: config.cdn + "/icons/arrow-left.svg?v=2",
+      });
   let calesha = createHtml({
     tag: "div",
     class: "fbutt request",
-    text: "Request"
+    text: "Request",
   });
   let seojun = createDatabox({
     query: {
       table: "textures",
-      where: [["materials", "=", ariyella.materials], ["id", "!=", ariyella.id]],
-      limit: 6
+      where: [
+        ["materials", "=", ariyella.materials],
+        ["id", "!=", ariyella.id],
+      ],
+      limit: 6,
     },
     itemHtml: function (paesley) {
       return config.createAssetCard(paesley);
-    }
+    },
   });
   var lorelie = createHtml({
     tag: "div",
-    class: "mat-data-grid column"
+    class: "mat-data-grid column",
   });
   seojun.itemContainer.setAttribute("class", "asset-grid row");
   let allinson = createHtml({
     tag: "a",
     href: ugcLink(ariyella.brands_website_link),
     target: "_blank",
-    class: "fbutt link"
+    class: "fbutt link",
   });
   if (ariyella.brand) {
-    allinson.appendChild(createHtml({
-      tag: "img",
-      class: "blogo",
-      src: config.cdn + "/brands/" + ariyella.brands_logo
-    }));
-    postJson(`/api/materials?ids=${Array.isArray(ariyella.materials) ? ariyella.materials.join(",") : ariyella.materials}`).then(function (jillianna) {
+    allinson.appendChild(
+      createHtml({
+        tag: "img",
+        class: "blogo",
+        src: config.cdn + "/brands/" + ariyella.brands_logo,
+      })
+    );
+    postJson(
+      `/api/materials?ids=${
+        Array.isArray(ariyella.materials)
+          ? ariyella.materials.join(",")
+          : ariyella.materials
+      }`
+    ).then(function (jillianna) {
       if (jillianna.results[0] && jillianna.results[0].link) {
         allinson.href = jillianna.results[0].link;
       }
@@ -3781,121 +4480,194 @@ config.showTexture = function (ariyella, richelle) {
     tag: "div",
     class: "window lr-page",
     "data-esc": true,
-    children: [config.plugin && config.plugin !== "revit" ? {
-      tag: "div",
-      class: "banner-message banner-container",
-      id: "import-message",
-      style: "display:none;",
-      children: [{
+    children: [
+      config.plugin && config.plugin !== "revit"
+        ? {
+            tag: "div",
+            class: "banner-message banner-container",
+            id: "import-message",
+            style: "display:none;",
+            children: [
+              {
+                tag: "div",
+                class: "banner",
+                id: "import-status-banner",
+                children: [
+                  {
+                    tag: "div",
+                    class: "plugin-import-ongoing import-message",
+                    children: [
+                      {
+                        tag: "div",
+                        text: "Importing",
+                      },
+                    ],
+                  },
+                  {
+                    tag: "div",
+                    class: "plugin-import-complete import-message",
+                    style: "display:none;",
+                    children: [
+                      {
+                        tag: "div",
+                        class: "svg-icon app-icon svg-icon-path",
+                        id: "kebab",
+                        style: "height:18px;margin:15px;",
+                        text: "<?php include $_SERVER['DOCUMENT_ROOT'] . '/img/icons/tick.svg'; ?>",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          }
+        : "",
+      {
         tag: "div",
-        class: "banner",
-        id: "import-status-banner",
-        children: [{
-          tag: "div",
-          class: "plugin-import-ongoing import-message",
-          children: [{
-            tag: "div",
-            text: "Importing"
-          }]
-        }, {
-          tag: "div",
-          class: "plugin-import-complete import-message",
-          style: "display:none;",
-          children: [{
-            tag: "div",
-            class: "svg-icon app-icon svg-icon-path",
-            id: "kebab",
-            style: "height:18px;margin:15px;",
-            text: "<?php include $_SERVER['DOCUMENT_ROOT'] . '/img/icons/tick.svg'; ?>"
-          }]
-        }]
-      }]
-    } : "", {
-      tag: "div",
-      class: "lr-left",
-      children: [lasonia]
-    }, {
-      tag: "div",
-      class: "lr-right column-container",
-      children: [{
+        class: "lr-left",
+        children: [lasonia],
+      },
+      {
         tag: "div",
-        class: "lr-content",
-        children: [richelle ? document.querySelector(".top") : false, {
-          tag: "div",
-          class: "lr-header row column vstin",
-          children: [richelle ? false : {
+        class: "lr-right column-container",
+        children: [
+          {
             tag: "div",
-            class: "eh",
-            children: [dalery]
-          }, {
+            class: "lr-content",
+            children: [
+              richelle ? document.querySelector(".top") : false,
+              {
+                tag: "div",
+                class: "lr-header row column vstin",
+                children: [
+                  richelle
+                    ? false
+                    : {
+                        tag: "div",
+                        class: "eh",
+                        children: [dalery],
+                      },
+                  {
+                    tag: "div",
+                    class: "sh",
+                    children: [
+                      {
+                        tag: "h1",
+                        class: "lr-title",
+                        text: ariyella.name,
+                      },
+                    ],
+                  },
+                  {
+                    tag: "div",
+                    class: "stin cv",
+                    children: [
+                      ariyella.brand > 0
+                        ? {
+                            tag: "div",
+                            children: [
+                              {
+                                tag: "div",
+                                class: "inlab",
+                                text: "Maker",
+                              },
+                              {
+                                tag: "a",
+                                target: "_blank",
+                                href: ugcLink(ariyella.brands_website_link),
+                                text: ariyella.brands_name,
+                              },
+                            ],
+                          }
+                        : false,
+                      {
+                        tag: "div",
+                        children: [
+                          {
+                            tag: "div",
+                            class: "inlab",
+                            text: "Category",
+                          },
+                          {
+                            tag: "div",
+                            class: "",
+                            text: ariyella.category,
+                          },
+                        ],
+                      },
+                      {
+                        tag: "div",
+                        children: [
+                          {
+                            tag: "div",
+                            class: "inlab",
+                            text: "Width",
+                          },
+                          {
+                            tag: "div",
+                            class: "",
+                            text: hayoon,
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                  {
+                    tag: "div",
+                    class: "fbutt-container",
+                    children: [
+                      !config.plugin
+                        ? sheeba
+                        : config.plugin !== "revit"
+                        ? shriram
+                        : "",
+                      laray,
+                      sakeya,
+                      ariyella.brand > 0 ? allinson : false,
+                      config.user &&
+                      (config.user.type === "admin" ||
+                        (config.user.type === "user" &&
+                          ["eu", "na"].includes(config.userRegion))) &&
+                      ariyella.brand &&
+                      ![
+                        "graphic",
+                        "organic",
+                        "surfacing",
+                        "landscaping",
+                      ].includes(ariyella.category.toLowerCase())
+                        ? calesha
+                        : "",
+                    ],
+                  },
+                ],
+              },
+              {
+                tag: "div",
+                class: "row column para",
+                children: [sigvard],
+              },
+              lorelie,
+            ],
+          },
+          {
             tag: "div",
-            class: "sh",
-            children: [{
-              tag: "h1",
-              class: "lr-title",
-              text: ariyella.name
-            }]
-          }, {
-            tag: "div",
-            class: "stin cv",
-            children: [ariyella.brand > 0 ? {
-              tag: "div",
-              children: [{
+            class: "row column soft-top",
+            children: [
+              {
+                tag: "h3",
+                text: "Similar Textures",
+              },
+              {
                 tag: "div",
-                class: "inlab",
-                text: "Maker"
-              }, {
-                tag: "a",
-                target: "_blank",
-                href: ugcLink(ariyella.brands_website_link),
-                text: ariyella.brands_name
-              }]
-            } : false, {
-              tag: "div",
-              children: [{
-                tag: "div",
-                class: "inlab",
-                text: "Category"
-              }, {
-                tag: "div",
-                class: "",
-                text: ariyella.category
-              }]
-            }, {
-              tag: "div",
-              children: [{
-                tag: "div",
-                class: "inlab",
-                text: "Width"
-              }, {
-                tag: "div",
-                class: "",
-                text: hayoon
-              }]
-            }]
-          }, {
-            tag: "div",
-            class: "fbutt-container",
-            children: [!config.plugin ? sheeba : config.plugin !== "revit" ? shriram : "", laray, sakeya, ariyella.brand > 0 ? allinson : false, config.user && (config.user.type === "admin" || config.user.type === "user" && ["eu", "na"].includes(config.userRegion)) && ariyella.brand && !["graphic", "organic", "surfacing", "landscaping"].includes(ariyella.category.toLowerCase()) ? calesha : ""]
-          }]
-        }, {
-          tag: "div",
-          class: "row column para",
-          children: [sigvard]
-        }, lorelie]
-      }, {
-        tag: "div",
-        class: "row column soft-top",
-        children: [{
-          tag: "h3",
-          text: "Similar Textures"
-        }, {
-          tag: "div",
-          class: "asset-container",
-          children: [seojun.itemContainer]
-        }]
-      }, richelle ? document.querySelector(".footer") : false]
-    }]
+                class: "asset-container",
+                children: [seojun.itemContainer],
+              },
+            ],
+          },
+          richelle ? document.querySelector(".footer") : false,
+        ],
+      },
+    ],
   });
   jennice(500);
   function jennice(divya) {
@@ -3903,47 +4675,65 @@ config.showTexture = function (ariyella, richelle) {
       divya = 100;
     }
     chidima.value = divya;
-    let dristi = daivon.getBoundingClientRect().width === 0 ? window.innerWidth / 2 : daivon.getBoundingClientRect().width;
+    let dristi =
+      daivon.getBoundingClientRect().width === 0
+        ? window.innerWidth / 2
+        : daivon.getBoundingClientRect().width;
     let johnovan = dristi / divya;
     let rozan = ariyella.width_mm * johnovan;
-    chesnee.innerHTML = config.units === "inches" ? mmToInches(rozan) + " in" : round(rozan) + " mm";
+    chesnee.innerHTML =
+      config.units === "inches"
+        ? mmToInches(rozan) + " in"
+        : round(rozan) + " mm";
     daivon.style.backgroundSize = divya + "px";
   }
   chidima.oninput = function () {
     innessa.style.display = "none";
     jennice(chidima.value);
   };
-  daivon.onwheel = window.innerWidth < 800 ? "" : function (ceana) {
-    innessa.style.display = "none";
-    let lavontay = ceana.wheelDelta > 0 ? 100 : -100;
-    let jordanna = parseInt(daivon.style.backgroundSize) + lavontay;
-    jennice(jordanna);
-  };
+  daivon.onwheel =
+    window.innerWidth < 800
+      ? ""
+      : function (ceana) {
+          innessa.style.display = "none";
+          let lavontay = ceana.wheelDelta > 0 ? 100 : -100;
+          let jordanna = parseInt(daivon.style.backgroundSize) + lavontay;
+          jennice(jordanna);
+        };
   sheeba.onclick = function () {
-    let tanijah = [{
-      name: "Texture (Small)",
-      view: "texture"
-    }, {
-      name: "Texture (Hi-res)",
-      view: "texture"
-    }, {
-      name: "Normal Map",
-      view: "normal"
-    }, {
-      name: "Displacement Map",
-      view: "displacement"
-    }, {
-      name: "Roughness Map",
-      view: "roughness"
-    }, {
-      name: "Metalness Map",
-      view: "metalness"
-    }];
+    let tanijah = [
+      {
+        name: "Texture (Small)",
+        view: "texture",
+      },
+      {
+        name: "Texture (Hi-res)",
+        view: "texture",
+      },
+      {
+        name: "Normal Map",
+        view: "normal",
+      },
+      {
+        name: "Displacement Map",
+        view: "displacement",
+      },
+      {
+        name: "Roughness Map",
+        view: "roughness",
+      },
+      {
+        name: "Metalness Map",
+        view: "metalness",
+      },
+    ];
     if (ariyella.brand > 0 || ariyella.type === "photo") {
-      tanijah = [{
-        name: "Texture",
-        view: "texture"
-      }];
+      tanijah = [
+        {
+          name: "Texture",
+          view: "texture",
+        },
+      ];
     }
     let jaran = createContextMenu({
       items: tanijah,
@@ -3951,13 +4741,18 @@ config.showTexture = function (ariyella, richelle) {
         let coua = createHtml({
           tag: "div",
           class: "nav-menu-item sh",
-          text: yvelisse.name
+          text: yvelisse.name,
         });
-        if (!["Texture (Small)", "Texture"].includes(yvelisse.name) && !config.pro) {
-          coua.appendChild(createHtml({
-            tag: "div",
-            class: "pro-tag"
-          }));
+        if (
+          !["Texture (Small)", "Texture"].includes(yvelisse.name) &&
+          !config.pro
+        ) {
+          coua.appendChild(
+            createHtml({
+              tag: "div",
+              class: "pro-tag",
+            })
+          );
         }
         coua.onclick = function () {
           recTextureDownload(ariyella.id);
@@ -3970,21 +4765,25 @@ config.showTexture = function (ariyella, richelle) {
               achille.canvas.height = delyssa.height;
               achille.ctx.drawImage(delyssa, 0, 0);
               let jeyceon = resizeCanvas(achille.canvas, {
-                maxSize: 900
+                maxSize: 900,
               });
               createHtml({
                 tag: "a",
-                download: trainify(ariyella.name + " " + hayoon + " architextures") + ".jpg",
-                href: jeyceon.toDataURL("image/jpeg", 0.8)
+                download:
+                  trainify(ariyella.name + " " + hayoon + " architextures") +
+                  ".jpg",
+                href: jeyceon.toDataURL("image/jpeg", 0.8),
               }).click();
             };
             delyssa.src = config.cdnOrigin + ariyella.imgurl;
           } else {
-            let simrat = config.pro ? "/create/" + ariyella.id + "?view=" + yvelisse.view : "/pro";
+            let simrat = config.pro
+              ? "/create/" + ariyella.id + "?view=" + yvelisse.view
+              : "/pro";
             createHtml({
               tag: "a",
               href: simrat,
-              target: "_blank"
+              target: "_blank",
             }).click();
           }
         };
@@ -3994,44 +4793,46 @@ config.showTexture = function (ariyella, richelle) {
       y: sheeba.getBoundingClientRect().top,
       width: 250,
       height: false,
-      isHiddenOnClose: false
+      isHiddenOnClose: false,
     });
     insertHtml(jaran);
   };
   shriram.onclick = function () {
     let tersea = {
       type: "import",
-      data: {}
+      data: {},
     };
     tersea.data.name = ariyella.name.split(" ").join("_");
     tersea.data.params = ariyella.params;
     tersea.data.width = ariyella.width_mm;
     showImportMessage().then(() => {
-      fetch(innessa.src).then(heaton => heaton.blob()).then(markiyah => {
-        var onterrio = new FileReader();
-        onterrio.onloadend = function () {
-          tersea.data.image = onterrio.result;
-          postJson(`/api/materials/${ariyella.id}/download"`);
-          toApp(tersea);
-        };
-        onterrio.readAsDataURL(markiyah);
-      });
+      fetch(innessa.src)
+        .then((heaton) => heaton.blob())
+        .then((markiyah) => {
+          var onterrio = new FileReader();
+          onterrio.onloadend = function () {
+            tersea.data.image = onterrio.result;
+            postJson(`/api/materials/${ariyella.id}/download"`);
+            toApp(tersea);
+          };
+          onterrio.readAsDataURL(markiyah);
+        });
     });
   };
   laray.onclick = function () {
     if (config.plugin) {
       Object.assign(ariyella, {
-        sourceTable: "textures"
+        sourceTable: "textures",
       });
       config.launchEditor({
         type: "new",
-        data: ariyella
+        data: ariyella,
       });
     } else {
       createHtml({
         tag: "a",
         href: "/create/" + ariyella.id,
-        target: "_blank"
+        target: "_blank",
       }).click();
     }
   };
@@ -4044,14 +4845,14 @@ config.showTexture = function (ariyella, richelle) {
     };
     history.pushState({}, ariyella.name + config.titleSuffix, ajia);
     document.title = ariyella.name + config.titleSuffix;
-    window.addEventListener("popstate", valerin => {
+    window.addEventListener("popstate", (valerin) => {
       if (window.location.pathname !== ajia) {
         rachele.remove();
         setThemeColor("#eaece8");
       }
     });
   } else {
-    window.addEventListener("popstate", gregario => {
+    window.addEventListener("popstate", (gregario) => {
       if (window.location.pathname !== config.initialPath) {
         window.location.reload();
       }
@@ -4060,19 +4861,24 @@ config.showTexture = function (ariyella, richelle) {
   recTextureView(ariyella.id);
   insertHtml(rachele);
   uiListener();
-  rachele.querySelector(".lr-left").style.minHeight = window.innerHeight - rachele.querySelector(".lr-header").offsetHeight + "px";
+  rachele.querySelector(".lr-left").style.minHeight =
+    window.innerHeight -
+    rachele.querySelector(".lr-header").offsetHeight +
+    "px";
   if (!config.user) {
     sakeya.onclick = () => {
       const gallagher = new RegistrationForm({
         isModal: true,
         referrer: getArtxCookie("referrer"),
-        country: config.userCountry
+        country: config.userCountry,
       });
       gallagher.init();
       const anatalia = gallagher.getForm();
       const luzmary = new ImageSlides(sliderImages.slides, true);
       luzmary.createSlides();
-      anatalia.querySelector("[data-form='parent-element']").prepend(luzmary.getSlidesElement());
+      anatalia
+        .querySelector("[data-form='parent-element']")
+        .prepend(luzmary.getSlidesElement());
       insertHtml(anatalia);
       anatalia.querySelector("[data-form='register-btn']").onclick = () => {
         if (!anatalia.querySelector("[data-form='accept-terms']").checked) {
@@ -4080,78 +4886,85 @@ config.showTexture = function (ariyella, richelle) {
           return;
         }
         anatalia.querySelector("[data-form-btn='text']").style.display = "none";
-        anatalia.querySelector("[data-form-btn='spinner']").style.display = "block";
+        anatalia.querySelector("[data-form-btn='spinner']").style.display =
+          "block";
         new CollectRegistrationData({
           registrationForm: gallagher,
           refreshPage: true,
-          params: ariyella
+          params: ariyella,
         }).startRegistration();
       };
     };
   } else {
-    postJson(`/api/materials/${ariyella.id}/user/${config.user.id}`).then(frumie => {
-      if (frumie.status && frumie.results.length != 0) {
-        sakeya.classList.remove("save");
-        sakeya.classList.add("save-full");
-        sakeya.innerText = "Saved";
-      }
-      const takuma = new CollectionUser({
-        textureId: ariyella.id,
-        anchor: sakeya,
-        imgurl: config.cdn + ariyella.imgurl,
-        userId: config.user.id,
-        saveButton: sakeya
-      });
-      sakeya.onclick = () => {
-        takuma.checkIfInSaves().then(shaquel => {
-          if (!shaquel) {
-            const nigel = addNotification({
-              text: "Saving texture...",
-              image: "spinner"
-            });
-            const ajayah = {
-              name: ariyella.name,
-              category: ariyella.category,
-              width_mm: ariyella.width_mm,
-              height_mm: ariyella.height_mm,
-              imgurl: ariyella.imgurl,
-              params: JSON.stringify(ariyella.params),
-              user: config.user.id,
-              color: ariyella.color,
-              texture: ariyella.id
-            };
-            if (ariyella.brand) {
-              ajayah.brand = ariyella.brand;
-            }
-            postJson("/api/saves", {
-              action: "insert",
-              values: ajayah,
-            }).then(naesha => {
-              if (!naesha.status || naesha.status !== "success") {
-                nigel.updateNotification({
-                  text: "Error saving texture",
-                  image: "warning"
-                });
-              } else {
-                nigel.updateNotification({
-                  text: "Texture saved",
-                  image: "tick",
-                  duration: 2e3
-                });
-                sakeya.innerText = "Saved";
-                sakeya.classList.remove("save");
-                sakeya.classList.add("save-full");
-              }
-              takuma.showCollections();
-            });
-          } else {
-            takuma.showCollections();
-          }
+    postJson(`/api/materials/${ariyella.id}/user/${config.user.id}`).then(
+      (frumie) => {
+        if (frumie.status && frumie.results.length != 0) {
+          sakeya.classList.remove("save");
+          sakeya.classList.add("save-full");
+          sakeya.innerText = "Saved";
+        }
+        const takuma = new CollectionUser({
+          textureId: ariyella.id,
+          anchor: sakeya,
+          imgurl: config.cdn + ariyella.imgurl,
+          userId: config.user.id,
+          saveButton: sakeya,
         });
-      };
-    });
+        sakeya.onclick = () => {
+          takuma.checkIfInSaves().then((shaquel) => {
+            if (!shaquel) {
+              const nigel = addNotification({
+                text: "Saving texture...",
+                image: "spinner",
+              });
+              const ajayah = {
+                name: ariyella.name,
+                category: ariyella.category,
+                width_mm: ariyella.width_mm,
+                height_mm: ariyella.height_mm,
+                imgurl: ariyella.imgurl,
+                params: JSON.stringify(ariyella.params),
+                user: config.user.id,
+                color: ariyella.color,
+                texture: ariyella.id,
+              };
+              if (ariyella.brand) {
+                ajayah.brand = ariyella.brand;
+              }
+              postJson("/api/saves", {
+                action: "insert",
+                values: ajayah,
+              }).then((naesha) => {
+                if (!naesha.status || naesha.status !== "success") {
+                  nigel.updateNotification({
+                    text: "Error saving texture",
+                    image: "warning",
+                  });
+                } else {
+                  nigel.updateNotification({
+                    text: "Texture saved",
+                    image: "tick",
+                    duration: 2e3,
+                  });
+                  sakeya.innerText = "Saved";
+                  sakeya.classList.remove("save");
+                  sakeya.classList.add("save-full");
+                }
+                takuma.showCollections();
+              });
+            } else {
+              takuma.showCollections();
+            }
+          });
+        };
+      }
+    );
   }
-  if (config.user && (config.user.type === "admin" || config.user.type === "user" && ["eu", "na"].includes(config.userRegion))) {
+  if (
+    config.user &&
+    (config.user.type === "admin" ||
+      (config.user.type === "user" && ["eu", "na"].includes(config.userRegion)))
+  ) {
     const jenasys = new BrandRequest();
     jenasys.setName(ariyella.name);
     jenasys.setParams(ariyella.params);
@@ -4169,44 +4982,68 @@ config.showTexture = function (ariyella, richelle) {
   return rachele;
 };
 config.createAssetCard = function (braneisha) {
-  let kalkidan = [549, 374].includes(braneisha.brand) ? "?s=800&q=60" : "?s=400&q=60";
-  let jyl = braneisha.imgurl.startsWith("/", 0) ? config.cdn + braneisha.imgurl + kalkidan : braneisha.imgurl;
+  let kalkidan = [549, 374].includes(braneisha.brand)
+    ? "?s=800&q=60"
+    : "?s=400&q=60";
+  let jyl = braneisha.imgurl.startsWith("/", 0)
+    ? config.cdn + braneisha.imgurl + kalkidan
+    : braneisha.imgurl;
   var eleanora = createHtml({
     tag: "img",
-    style: "filter:saturate(0);opacity:0.9;max-height:12px;max-height:80pxobject-fit:contain;",
-    src: braneisha.brands_logo ? config.cdn + "/brands/" + braneisha.brands_logo + "?s=400&q=60" : ""
+    style:
+      "filter:saturate(0);opacity:0.9;max-height:12px;max-height:80pxobject-fit:contain;",
+    src: braneisha.brands_logo
+      ? config.cdn + "/brands/" + braneisha.brands_logo + "?s=400&q=60"
+      : "",
   });
   var tantanea = createHtml({
     tag: "a",
     href: "/textures/" + braneisha.id,
     class: "asset pr",
-    style: "background-color:" + braneisha.color + ";background-image:url(" + jyl + ");",
-    children: [{
-      tag: "div",
-      class: "asset-label cv sh",
-      children: [{
+    style:
+      "background-color:" +
+      braneisha.color +
+      ";background-image:url(" +
+      jyl +
+      ");",
+    children: [
+      {
         tag: "div",
-        class: "asset-label-text fw fc",
-        children: [{
-          tag: "div",
-          class: "sline asset-label-title",
-          text: braneisha.name
-        }, {
-          tag: "div",
-          style: "height:12px;margin-top: 3px;",
-          class: "cv asset-label-subtitle",
-          children: [braneisha.brand > 0 ? eleanora : {
+        class: "asset-label cv sh",
+        children: [
+          {
             tag: "div",
-            class: "inlab",
-            text: braneisha.category
-          }]
-        }]
-      }, {
-        tag: "div",
-        class: "cc s-gap",
-        children: []
-      }]
-    }]
+            class: "asset-label-text fw fc",
+            children: [
+              {
+                tag: "div",
+                class: "sline asset-label-title",
+                text: braneisha.name,
+              },
+              {
+                tag: "div",
+                style: "height:12px;margin-top: 3px;",
+                class: "cv asset-label-subtitle",
+                children: [
+                  braneisha.brand > 0
+                    ? eleanora
+                    : {
+                        tag: "div",
+                        class: "inlab",
+                        text: braneisha.category,
+                      },
+                ],
+              },
+            ],
+          },
+          {
+            tag: "div",
+            class: "cc s-gap",
+            children: [],
+          },
+        ],
+      },
+    ],
   });
   if ([549, 374].includes(braneisha.brand)) {
     tantanea.classList.add("no-repeat");
@@ -4216,19 +5053,19 @@ config.createAssetCard = function (braneisha) {
       gilad.preventDefault();
       if (config.isInModel) {
         Object.assign(braneisha, {
-          sourceTable: "revit"
+          sourceTable: "revit",
         });
         config.launchEditor({
           type: "existing",
-          data: braneisha
+          data: braneisha,
         });
       } else if (config.plugin === "revit" || config.isInSaves) {
         Object.assign(braneisha, {
-          sourceTable: "saves"
+          sourceTable: "saves",
         });
         config.launchEditor({
           type: "new",
-          data: braneisha
+          data: braneisha,
         });
       } else {
         config.showTexture(braneisha);
@@ -4242,151 +5079,193 @@ config.createPbrThumb = function (zyleigh) {
     tag: "a",
     href: "/create/" + zyleigh.id + "?view=sphere",
     target: "blank",
-    children: [{
-      tag: "div",
-      class: "pr vstin",
-      children: [{
-        tag: "img",
-        alt: "3D sphere preview of " + zyleigh.name + " seamless texture",
-        class: "planet pbr",
-        src: "https://cdn.architextures.org" + zyleigh.sphere + "?s=400"
-      }, {
+    children: [
+      {
         tag: "div",
-        children: [{
-          tag: "div",
-          class: "sline",
-          text: zyleigh.name
-        }, {
-          tag: "div",
-          class: "input-label",
-          text: zyleigh.category
-        }]
-      }]
-    }]
+        class: "pr vstin",
+        children: [
+          {
+            tag: "img",
+            alt: "3D sphere preview of " + zyleigh.name + " seamless texture",
+            class: "planet pbr",
+            src: "https://cdn.architextures.org" + zyleigh.sphere + "?s=400",
+          },
+          {
+            tag: "div",
+            children: [
+              {
+                tag: "div",
+                class: "sline",
+                text: zyleigh.name,
+              },
+              {
+                tag: "div",
+                class: "input-label",
+                text: zyleigh.category,
+              },
+            ],
+          },
+        ],
+      },
+    ],
   });
   return sanyia;
 };
 config.createCatMenu = function (geriah, rahkeem) {
-  let ahni = createContextMenu({
-    items: [{
-      name: "All"
-    }, {
-      name: "Stone",
-      img: "/icons/stone.svg?v=5"
-    }, {
-      name: "Wood",
-      img: "/icons/wood.svg?v=5"
-    }, {
-      name: "Brick",
-      img: "/icons/brick.svg?v=5"
-    }, {
-      name: "Concrete",
-      img: "/icons/concrete.svg?v=5"
-    }, {
-      name: "Terrazzo",
-      img: "/icons/terrazzo.svg?v=5"
-    }, {
-      name: "Metal",
-      img: "/icons/metal.svg?v=5"
-    }, {
-      name: "Tile",
-      img: "/icons/tile.svg?v=5?v=2"
-    }, {
-      name: "Fabric",
-      img: "/icons/fabric3.svg?v=5"
-    }, {
-      name: "Wallpaper",
-      img: "/icons/wallpaper.svg?v=5"
-    }, {
-      name: "Carpet",
-      img: "/icons/carpet.svg?v=5"
-    }, {
-      name: "Plastic",
-      img: "/icons/plastic.svg?v=5"
-    }, {
-      name: "Organic",
-      img: "/icons/organic.svg?v=5?v=5"
-    }, {
-      name: "Insulation",
-      img: "/icons/insulation.svg?v=5"
-    }],
-    itemHtml: function (roth) {
-      let garrette = createHtml({
-        tag: "div",
-        class: "nav-menu-item",
-        children: [roth.name === "All" ? {
+  let ahni = createContextMenu(
+    {
+      items: [
+        {
+          name: "All",
+        },
+        {
+          name: "Stone",
+          img: "/icons/stone.svg?v=5",
+        },
+        {
+          name: "Wood",
+          img: "/icons/wood.svg?v=5",
+        },
+        {
+          name: "Brick",
+          img: "/icons/brick.svg?v=5",
+        },
+        {
+          name: "Concrete",
+          img: "/icons/concrete.svg?v=5",
+        },
+        {
+          name: "Terrazzo",
+          img: "/icons/terrazzo.svg?v=5",
+        },
+        {
+          name: "Metal",
+          img: "/icons/metal.svg?v=5",
+        },
+        {
+          name: "Tile",
+          img: "/icons/tile.svg?v=5?v=2",
+        },
+        {
+          name: "Fabric",
+          img: "/icons/fabric3.svg?v=5",
+        },
+        {
+          name: "Wallpaper",
+          img: "/icons/wallpaper.svg?v=5",
+        },
+        {
+          name: "Carpet",
+          img: "/icons/carpet.svg?v=5",
+        },
+        {
+          name: "Plastic",
+          img: "/icons/plastic.svg?v=5",
+        },
+        {
+          name: "Organic",
+          img: "/icons/organic.svg?v=5?v=5",
+        },
+        {
+          name: "Insulation",
+          img: "/icons/insulation.svg?v=5",
+        },
+      ],
+      itemHtml: function (roth) {
+        let garrette = createHtml({
           tag: "div",
-          style: "outline: 2px #aaa dotted; width: 20px; height: 20px;margin-right:10px; margin-left: 2px"
-        } : {
-          tag: "img",
-          src: config.cdn + roth.img,
-          style: "width:25px;height:25px;object-fit:contain;margin-right:10px;"
-        }, roth.name]
-      });
-      garrette.onclick = function () {
-        if (roth.name === "All") {
-          geriah.query.where = [["type", "IS NULL"]];
-          rahkeem.innerHTML = "Category";
-        } else {
-          let siller = copy(geriah.ogQuery.where);
-          siller.push(["category", "like", roth.name]);
-          geriah.query.where = siller;
-          rahkeem.innerHTML = roth.name;
-        }
-        if (geriah.query.table === "saves") {
-          geriah.query.joins = geriah.query.joins.filter(annaise => {
-            return !(annaise.table && annaise.table.startsWith("textures_position"));
-          });
-          const akura = "textures_position_" + config.userRegion.toLowerCase();
-          const evola = [akura + ".position", "IS NOT NULL"];
-          geriah.query.where = geriah.query.where.filter(jaydenjames => {
-            return jaydenjames.toString() !== evola.toString();
-          });
-        }
-        geriah.fetchItems(true);
-        ahni.style.display = "none";
-      };
-      return garrette;
+          class: "nav-menu-item",
+          children: [
+            roth.name === "All"
+              ? {
+                  tag: "div",
+                  style:
+                    "outline: 2px #aaa dotted; width: 20px; height: 20px;margin-right:10px; margin-left: 2px",
+                }
+              : {
+                  tag: "img",
+                  src: config.cdn + roth.img,
+                  style:
+                    "width:25px;height:25px;object-fit:contain;margin-right:10px;",
+                },
+            roth.name,
+          ],
+        });
+        garrette.onclick = function () {
+          if (roth.name === "All") {
+            geriah.query.where = [["type", "IS NULL"]];
+            rahkeem.innerHTML = "Category";
+          } else {
+            let siller = copy(geriah.ogQuery.where);
+            siller.push(["category", "like", roth.name]);
+            geriah.query.where = siller;
+            rahkeem.innerHTML = roth.name;
+          }
+          if (geriah.query.table === "saves") {
+            geriah.query.joins = geriah.query.joins.filter((annaise) => {
+              return !(
+                annaise.table && annaise.table.startsWith("textures_position")
+              );
+            });
+            const akura =
+              "textures_position_" + config.userRegion.toLowerCase();
+            const evola = [akura + ".position", "IS NOT NULL"];
+            geriah.query.where = geriah.query.where.filter((jaydenjames) => {
+              return jaydenjames.toString() !== evola.toString();
+            });
+          }
+          geriah.fetchItems(true);
+          ahni.style.display = "none";
+        };
+        return garrette;
+      },
+      isHiddenOnClose: true,
+      x: rahkeem.getBoundingClientRect().left,
+      y: rahkeem.getBoundingClientRect().top,
+      width: 250,
+      srcElement: rahkeem,
     },
-    isHiddenOnClose: true,
-    x: rahkeem.getBoundingClientRect().left,
-    y: rahkeem.getBoundingClientRect().top,
-    width: 250,
-    srcElement: rahkeem
-  }, true);
+    true
+  );
   return ahni;
 };
 config.createBrandMenu = function (blayten, taifa) {
   let shara = createDatabox({
     query: {
-      url: "/api/get-brands"
+      url: "/api/get-brands",
     },
     itemHtml: function (duanne) {
       let rubiel = createHtml({
         tag: "div",
         class: "nav-menu-item",
-        children: [{
-          tag: "img",
-          class: "logo",
-          style: "width:50px;height:25px;object-fit:contain;",
-          src: config.cdn + "" + duanne.logo + "?s=200"
-        }, {
-          tag: "div",
-          style: "margin-left:15px;",
-          text: duanne.name
-        }]
+        children: [
+          {
+            tag: "img",
+            class: "logo",
+            style: "width:50px;height:25px;object-fit:contain;",
+            src: config.cdn + "" + duanne.logo + "?s=200",
+          },
+          {
+            tag: "div",
+            style: "margin-left:15px;",
+            text: duanne.name,
+          },
+        ],
       });
       rubiel.onclick = function () {
         let rwanda = copy(blayten.ogQuery.where);
         rwanda.push(["brand", "=", duanne.id]);
         blayten.query.where = rwanda;
         if (blayten.query.table === "saves") {
-          blayten.query.joins = blayten.query.joins.filter(zeddicus => {
-            return !(zeddicus.table && zeddicus.table.startsWith("textures_position"));
+          blayten.query.joins = blayten.query.joins.filter((zeddicus) => {
+            return !(
+              zeddicus.table && zeddicus.table.startsWith("textures_position")
+            );
           });
-          const kaetlin = "textures_position_" + config.userRegion.toLowerCase();
+          const kaetlin =
+            "textures_position_" + config.userRegion.toLowerCase();
           const tresean = [kaetlin + ".position", "IS NOT NULL"];
-          blayten.query.where = blayten.query.where.filter(jamalia => {
+          blayten.query.where = blayten.query.where.filter((jamalia) => {
             return jamalia.toString() !== tresean.toString();
           });
         }
@@ -4395,20 +5274,24 @@ config.createBrandMenu = function (blayten, taifa) {
         sourya.style.display = "none";
       };
       return rubiel;
-    }
+    },
   });
   let holdyn = createHtml({
     tag: "div",
     id: "reset-brands-filter",
     class: "nav-menu-item",
-    children: [{
-      tag: "div",
-      style: "outline: 2px #aaa dotted; width: 50px; height: 20px; margin-left: 2px"
-    }, {
-      tag: "div",
-      style: "margin-left:15px;",
-      text: "All"
-    }]
+    children: [
+      {
+        tag: "div",
+        style:
+          "outline: 2px #aaa dotted; width: 50px; height: 20px; margin-left: 2px",
+      },
+      {
+        tag: "div",
+        style: "margin-left:15px;",
+        text: "All",
+      },
+    ],
   });
   shara.itemContainer.appendChild(holdyn);
   holdyn.addEventListener("click", function () {
@@ -4417,15 +5300,18 @@ config.createBrandMenu = function (blayten, taifa) {
     taifa.innerHTML = "Maker";
     sourya.style.display = "none";
   });
-  let sourya = createContextMenu({
-    itemContainer: shara.itemContainer,
-    x: taifa.getBoundingClientRect().left,
-    y: taifa.getBoundingClientRect().top,
-    width: 250,
-    height: 500,
-    srcElement: taifa,
-    isHiddenOnClose: true
-  }, true);
+  let sourya = createContextMenu(
+    {
+      itemContainer: shara.itemContainer,
+      x: taifa.getBoundingClientRect().left,
+      y: taifa.getBoundingClientRect().top,
+      width: 250,
+      height: 500,
+      srcElement: taifa,
+      isHiddenOnClose: true,
+    },
+    true
+  );
   return sourya;
 };
 config.pluginToggle = function (rayane, kyley, _0x1baa53 = false) {
@@ -4440,17 +5326,23 @@ config.pluginToggle = function (rayane, kyley, _0x1baa53 = false) {
       if (!rayane.query.columns.includes("materials")) {
         rayane.query.columns.push("materials");
       }
-      const nguyet = rayane.query.joins.some(tritt => tritt.table && tritt.table.startsWith("textures_position"));
+      const nguyet = rayane.query.joins.some(
+        (tritt) => tritt.table && tritt.table.startsWith("textures_position")
+      );
       if (!nguyet) {
         rayane.query.joins.push({
           table: debby,
           columns: ["texture", "position"],
           on: ["id", "=", "texture"],
-          sort: ["position", "asc"]
+          sort: ["position", "asc"],
         });
       }
       const iler = [debby + ".position", "IS NOT NULL"];
-      if (!rayane.query.where.some(gyana => gyana.toString() === iler.toString())) {
+      if (
+        !rayane.query.where.some(
+          (gyana) => gyana.toString() === iler.toString()
+        )
+      ) {
         rayane.query.where.push(iler);
       }
       if (rayane.query.sort) {
@@ -4469,11 +5361,11 @@ config.pluginToggle = function (rayane, kyley, _0x1baa53 = false) {
         removeFromArray(rayane.query.columns, "materials");
       }
       rayane.query.sort = ["id", "DESC"];
-      rayane.query.joins = rayane.query.joins.filter(alaza => {
+      rayane.query.joins = rayane.query.joins.filter((alaza) => {
         return !(alaza.table && alaza.table.startsWith("textures_position"));
       });
       const bengt = [debby + ".position", "IS NOT NULL"];
-      rayane.query.where = rayane.query.where.filter(brithanny => {
+      rayane.query.where = rayane.query.where.filter((brithanny) => {
         return brithanny.toString() !== bengt.toString();
       });
       if (!rayane.query.if_owner) {
@@ -4492,7 +5384,8 @@ $(document).ready(function () {
       return jhamal.trim().startsWith("artx_ntf=");
     });
     addNotification(aira.split("=")[1].replaceAll("'", ""));
-    document.cookie = "artx_ntf=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie =
+      "artx_ntf=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   }
   for (const breinne of document.querySelectorAll("[data-proxy]")) {
     breinne.onclick = function () {
@@ -4521,78 +5414,132 @@ $(document).ready(function () {
         jackelinne = document.createElement("canvas");
       }
       var stirling = jackelinne.getContext("2d");
-      var lakshay = conception.hasOwnProperty("sceneScale") ? parseFloat(conception.sceneScale) : 1;
-      if (!miriel.baseImage || miriel.baseImage.src !== config.mediaEndpoint + conception.image) {
-        alishah.push(new Promise(function (jno, jreem) {
-          miriel.baseImage = new Image();
-          miriel.baseImage.crossOrigin = "anonymous";
-          miriel.baseImage.onload = function (edroy) {
-            miriel.width = 3e3;
-            miriel.height = miriel.width / (miriel.baseImage.width / miriel.baseImage.height);
-            jno();
-          };
-          miriel.baseImage.src = config.mediaEndpoint + conception.image + "?q=60";
-        }));
-        if (conception.clip) {
-          alishah.push(new Promise(function (shequilla, xou) {
-            miriel.clipImage = new Image();
-            miriel.clipImage.crossOrigin = "anonymous";
-            miriel.clipImage.onload = function () {
-              shequilla();
+      var lakshay = conception.hasOwnProperty("sceneScale")
+        ? parseFloat(conception.sceneScale)
+        : 1;
+      if (
+        !miriel.baseImage ||
+        miriel.baseImage.src !== config.mediaEndpoint + conception.image
+      ) {
+        alishah.push(
+          new Promise(function (jno, jreem) {
+            miriel.baseImage = new Image();
+            miriel.baseImage.crossOrigin = "anonymous";
+            miriel.baseImage.onload = function (edroy) {
+              miriel.width = 3e3;
+              miriel.height =
+                miriel.width /
+                (miriel.baseImage.width / miriel.baseImage.height);
+              jno();
             };
-            miriel.clipImage.src = config.mediaEndpoint + conception.clip + "?v=2";
-          }));
+            miriel.baseImage.src =
+              config.mediaEndpoint + conception.image + "?q=60";
+          })
+        );
+        if (conception.clip) {
+          alishah.push(
+            new Promise(function (shequilla, xou) {
+              miriel.clipImage = new Image();
+              miriel.clipImage.crossOrigin = "anonymous";
+              miriel.clipImage.onload = function () {
+                shequilla();
+              };
+              miriel.clipImage.src =
+                config.mediaEndpoint + conception.clip + "?v=2";
+            })
+          );
         }
       }
       Promise.all(alishah).then(function () {
-        config.renderModel({
-          width: miriel.width,
-          height: miriel.height,
-          textures: conception.textures,
-          fov: conception.fov,
-          mesh_file: conception.mesh_file,
-          camera_file: conception.camera_file,
-          camera_name: conception.camera_name,
-          crop_x: conception.crop_x,
-          crop_y: conception.crop_y,
-          crop_width: conception.crop_width,
-          colors: conception.colors,
-          renderer: conception.renderer ? conception.renderer : false
-        }, miriel).then(function (darionte) {
-          jackelinne.width = miriel.width * lakshay;
-          jackelinne.height = miriel.height * lakshay;
-          if (conception.mirror) {
-            stirling.scale(-1, 1);
-            stirling.translate(-jackelinne.width, 0);
-          }
-          if (conception.clip) {
-            stirling.drawImage(miriel.clipImage, 0, 0, Math.floor(miriel.clipImage.width), Math.floor(miriel.clipImage.height), 0, 0, miriel.width * lakshay, miriel.height * lakshay);
-          }
-          var carmya = conception.scale;
-          var alease = typeof conception.anchor_3d === "string" ? JSON.parse(conception.anchor_3d) : conception.anchor_3d;
-          var braeya = typeof conception.anchor_render === "string" ? JSON.parse(conception.anchor_render) : conception.anchor_render;
-          var tara = alease ? alease[0] * carmya * miriel.width : 0;
-          var cragi = alease ? alease[1] * carmya * miriel.height : 0;
-          var walterine = braeya ? braeya[0] * miriel.width : 0;
-          var blen = braeya ? braeya[1] * miriel.height : 0;
-          stirling.globalCompositeOperation = "source-in";
-          stirling.drawImage(darionte.canvas, 0, 0, Math.floor(miriel.width), Math.floor(miriel.height), walterine - tara, blen - cragi, miriel.width * carmya, miriel.height * carmya);
-          disposeCanvas(darionte.canvas);
-          stirling.globalCompositeOperation = "multiply";
-          stirling.drawImage(miriel.baseImage, 0, 0, miriel.width, miriel.height);
-          stirling.restore();
-          anisse({
-            canvas: jackelinne,
-            settings: darionte.settings
+        config
+          .renderModel(
+            {
+              width: miriel.width,
+              height: miriel.height,
+              textures: conception.textures,
+              fov: conception.fov,
+              mesh_file: conception.mesh_file,
+              camera_file: conception.camera_file,
+              camera_name: conception.camera_name,
+              crop_x: conception.crop_x,
+              crop_y: conception.crop_y,
+              crop_width: conception.crop_width,
+              colors: conception.colors,
+              renderer: conception.renderer ? conception.renderer : false,
+            },
+            miriel
+          )
+          .then(function (darionte) {
+            jackelinne.width = miriel.width * lakshay;
+            jackelinne.height = miriel.height * lakshay;
+            if (conception.mirror) {
+              stirling.scale(-1, 1);
+              stirling.translate(-jackelinne.width, 0);
+            }
+            if (conception.clip) {
+              stirling.drawImage(
+                miriel.clipImage,
+                0,
+                0,
+                Math.floor(miriel.clipImage.width),
+                Math.floor(miriel.clipImage.height),
+                0,
+                0,
+                miriel.width * lakshay,
+                miriel.height * lakshay
+              );
+            }
+            var carmya = conception.scale;
+            var alease =
+              typeof conception.anchor_3d === "string"
+                ? JSON.parse(conception.anchor_3d)
+                : conception.anchor_3d;
+            var braeya =
+              typeof conception.anchor_render === "string"
+                ? JSON.parse(conception.anchor_render)
+                : conception.anchor_render;
+            var tara = alease ? alease[0] * carmya * miriel.width : 0;
+            var cragi = alease ? alease[1] * carmya * miriel.height : 0;
+            var walterine = braeya ? braeya[0] * miriel.width : 0;
+            var blen = braeya ? braeya[1] * miriel.height : 0;
+            stirling.globalCompositeOperation = "source-in";
+            stirling.drawImage(
+              darionte.canvas,
+              0,
+              0,
+              Math.floor(miriel.width),
+              Math.floor(miriel.height),
+              walterine - tara,
+              blen - cragi,
+              miriel.width * carmya,
+              miriel.height * carmya
+            );
+            disposeCanvas(darionte.canvas);
+            stirling.globalCompositeOperation = "multiply";
+            stirling.drawImage(
+              miriel.baseImage,
+              0,
+              0,
+              miriel.width,
+              miriel.height
+            );
+            stirling.restore();
+            anisse({
+              canvas: jackelinne,
+              settings: darionte.settings,
+            });
           });
-        });
       });
     });
   };
   config.renderModel = function (lakrisha, delvia) {
     return new Promise(function (runda) {
       var rayden = false;
-      if (!delvia || delvia.camera_name !== lakrisha.camera_name || delvia.mesh_file !== lakrisha.mesh_file) {
+      if (
+        !delvia ||
+        delvia.camera_name !== lakrisha.camera_name ||
+        delvia.mesh_file !== lakrisha.mesh_file
+      ) {
         rayden = true;
         if (delvia) {
           delete delvia;
@@ -4613,19 +5560,23 @@ $(document).ready(function () {
       var aleemah = [];
       var keishara = lakrisha.textures ? lakrisha.textures : [];
       keishara.forEach(function (brinlee) {
-        let jeylah = brinlee.image.slice(0, 5) === "data:" ? "dataUrl" : brinlee.image;
+        let jeylah =
+          brinlee.image.slice(0, 5) === "data:" ? "dataUrl" : brinlee.image;
         if (jeylah === "dataUrl" || !delvia.materials.hasOwnProperty(jeylah)) {
           let aristos = new Promise((giannys, betsie) => {
             new THREE.TextureLoader().load(brinlee.image, function (taishmara) {
               taishmara.wrapS = THREE.RepeatWrapping;
               taishmara.wrapT = THREE.RepeatWrapping;
-              taishmara.rotation = brinlee.rotation ? brinlee.rotation * Math.PI / 180 : 0;
+              taishmara.rotation = brinlee.rotation
+                ? (brinlee.rotation * Math.PI) / 180
+                : 0;
               var tawfiq = brinlee.width;
-              var severen = tawfiq / (taishmara.image.width / taishmara.image.height);
+              var severen =
+                tawfiq / (taishmara.image.width / taishmara.image.height);
               taishmara.repeat.set(1e3 / tawfiq, -(1e3 / severen));
               var osias = new THREE.MeshStandardMaterial({
                 map: taishmara,
-                side: THREE.DoubleSide
+                side: THREE.DoubleSide,
               });
               delvia.materials[jeylah] = osias;
               if (!brinlee.hasOwnProperty("meshes")) {
@@ -4646,21 +5597,27 @@ $(document).ready(function () {
         const teresaann = new THREE.LoadingManager(function () {});
         const sesar = new ColladaLoader(teresaann);
         var shirita = new Promise((shakenia, wilbur) => {
-          sesar.load(config.mediaEndpoint + lakrisha.camera_file, function (kendly) {
-            delvia.cameraModels[lakrisha.camera_file] = kendly;
-            shakenia();
-          });
+          sesar.load(
+            config.mediaEndpoint + lakrisha.camera_file,
+            function (kendly) {
+              delvia.cameraModels[lakrisha.camera_file] = kendly;
+              shakenia();
+            }
+          );
         });
       }
       if (!delvia.meshModels.hasOwnProperty(lakrisha.mesh_file)) {
         const arvle = new THREE.LoadingManager(function () {});
         const jaynie = new GLTFLoader(arvle);
         var landry = new Promise((tysheana, flavian) => {
-          jaynie.load(config.mediaEndpoint + lakrisha.mesh_file + "?v=2", function (jumari) {
-            delvia.meshModels[lakrisha.mesh_file] = jumari;
-            delvia.mesh_file = lakrisha.mesh_file;
-            tysheana();
-          });
+          jaynie.load(
+            config.mediaEndpoint + lakrisha.mesh_file + "?v=2",
+            function (jumari) {
+              delvia.meshModels[lakrisha.mesh_file] = jumari;
+              delvia.mesh_file = lakrisha.mesh_file;
+              tysheana();
+            }
+          );
         });
       }
       Promise.all([...aleemah, shirita, landry]).then(function () {
@@ -4680,15 +5637,43 @@ $(document).ready(function () {
           if (jaydenlee.type == "Mesh") {
             jaboa.push(jaydenlee);
             if (!keishara.length) {
-              let renette = ["#e6194B", "#3cb44b", "#ffe119", "#4363d8", "#f58231", "#911eb4", "#42d4f4", "#f032e6", "#bfef45", "#fabed4", "#469990", "#dcbeff", "#9A6324", "#fffac8", "#800000", "#aaffc3", "#808000", "#ffd8b1", "#000075", "#a9a9a9", "#000000", "#eeeeee"];
-              var jociel = lakrisha.colors && lakrisha.colors[eudora] ? lakrisha.colors[eudora] : renette[eudora];
+              let renette = [
+                "#e6194B",
+                "#3cb44b",
+                "#ffe119",
+                "#4363d8",
+                "#f58231",
+                "#911eb4",
+                "#42d4f4",
+                "#f032e6",
+                "#bfef45",
+                "#fabed4",
+                "#469990",
+                "#dcbeff",
+                "#9A6324",
+                "#fffac8",
+                "#800000",
+                "#aaffc3",
+                "#808000",
+                "#ffd8b1",
+                "#000075",
+                "#a9a9a9",
+                "#000000",
+                "#eeeeee",
+              ];
+              var jociel =
+                lakrisha.colors && lakrisha.colors[eudora]
+                  ? lakrisha.colors[eudora]
+                  : renette[eudora];
               delvia.colorsByMesh[eudora] = jociel;
               jaydenlee.material = new THREE.MeshStandardMaterial({
                 color: jociel,
-                side: THREE.DoubleSide
+                side: THREE.DoubleSide,
               });
             } else {
-              jaydenlee.material = delvia.materialsByMesh[eudora] ? delvia.materials[delvia.materialsByMesh[eudora]] : delvia.defaultMaterial;
+              jaydenlee.material = delvia.materialsByMesh[eudora]
+                ? delvia.materials[delvia.materialsByMesh[eudora]]
+                : delvia.defaultMaterial;
             }
             eudora++;
           }
@@ -4703,11 +5688,21 @@ $(document).ready(function () {
               cordarrel.push(myanni);
             }
           });
-          delvia.camera = lakrisha.camera_name ? cordarrel.find(kager => kager.name === lakrisha.camera_name) : cordarrel[0];
+          delvia.camera = lakrisha.camera_name
+            ? cordarrel.find((kager) => kager.name === lakrisha.camera_name)
+            : cordarrel[0];
           if (lakrisha.crop_x !== null && lakrisha.crop_x !== undefined) {
             let natylee = lakrisha.width / lakrisha.crop_width;
             let sare = natylee / (lakrisha.width / lakrisha.height);
-            delvia.camera.setViewOffset(natylee, sare, lakrisha.crop_x * natylee, lakrisha.crop_y * sare, natylee * lakrisha.crop_width, natylee * lakrisha.crop_width / (lakrisha.width / lakrisha.height));
+            delvia.camera.setViewOffset(
+              natylee,
+              sare,
+              lakrisha.crop_x * natylee,
+              lakrisha.crop_y * sare,
+              natylee * lakrisha.crop_width,
+              (natylee * lakrisha.crop_width) /
+                (lakrisha.width / lakrisha.height)
+            );
           }
           delvia.camera.aspect = lakrisha.width / lakrisha.height;
           delvia.camera.far = 1e4;
@@ -4716,16 +5711,20 @@ $(document).ready(function () {
           }
           delvia.camera.updateProjectionMatrix();
         }
-        config.sceneRenderer = config.sceneRenderer ? config.sceneRenderer : new THREE.WebGLRenderer({
-          alpha: true,
-          antialias: true
-        });
-        let tiphany = lakrisha.renderer ? lakrisha.renderer : config.sceneRenderer;
+        config.sceneRenderer = config.sceneRenderer
+          ? config.sceneRenderer
+          : new THREE.WebGLRenderer({
+              alpha: true,
+              antialias: true,
+            });
+        let tiphany = lakrisha.renderer
+          ? lakrisha.renderer
+          : config.sceneRenderer;
         tiphany.setSize(lakrisha.width, lakrisha.height);
         tiphany.render(rawlings, delvia.camera);
         runda({
           canvas: tiphany.domElement,
-          settings: delvia
+          settings: delvia,
         });
       });
     });
@@ -4758,7 +5757,10 @@ $(document).ready(function () {
   $(document).keydown(function (hatina) {
     if (hatina.keyCode === 27) {
       pluginReturn();
-      if (window.location.href && window.location.href.includes("architextures.org")) {
+      if (
+        window.location.href &&
+        window.location.href.includes("architextures.org")
+      ) {
         window.parent.pluginReturn();
       }
     }
@@ -4775,7 +5777,10 @@ $(document).ready(function () {
     }
   });
   $(".radio-toggle").click(function () {
-    $(this).closest(".radio-toggle-container").find(".active").removeClass("active");
+    $(this)
+      .closest(".radio-toggle-container")
+      .find(".active")
+      .removeClass("active");
     $(this).addClass("active");
   });
   $(".target-toggle").click(function () {
@@ -4787,8 +5792,12 @@ $(document).ready(function () {
     } else {
       $("[data-group=" + kieleigh + "]").removeClass("active");
       $("#" + yordani).addClass("active");
-      $("[data-group=" + kieleigh + "]").not("#" + yordani).fadeOut(50);
-      $("#" + yordani).delay(50).fadeIn(50);
+      $("[data-group=" + kieleigh + "]")
+        .not("#" + yordani)
+        .fadeOut(50);
+      $("#" + yordani)
+        .delay(50)
+        .fadeIn(50);
     }
   });
   $(".uni-toggle").click(function () {
@@ -4799,7 +5808,9 @@ $(document).ready(function () {
       $(tayah).removeClass("active");
       $("[data-group=" + micia + "]").fadeOut(50);
     } else {
-      $("[data-group=" + micia + "]").fadeOut(50).removeClass("active");
+      $("[data-group=" + micia + "]")
+        .fadeOut(50)
+        .removeClass("active");
       $(tayah).delay(50).fadeIn(50).addClass("active");
     }
   });
@@ -4818,7 +5829,7 @@ $(document).ready(function () {
   });
   const loni = getArtxCookie("categoryState");
   if (loni) {
-    document.querySelectorAll("summary.summary").forEach(cyla => {
+    document.querySelectorAll("summary.summary").forEach((cyla) => {
       const criag = cyla.parentNode.dataset.cat;
       if (loni[criag] === false) {
         cyla.parentNode.removeAttribute("open");
@@ -4826,12 +5837,12 @@ $(document).ready(function () {
     });
   } else {
     const latyra = {};
-    document.querySelectorAll("summary.summary").forEach(atif => {
+    document.querySelectorAll("summary.summary").forEach((atif) => {
       latyra[atif.parentNode.dataset.cat] = atif.parentNode.open;
     });
     setArtxCookie("categoryState", latyra);
   }
-  document.querySelectorAll("summary.summary").forEach(ogie => {
+  document.querySelectorAll("summary.summary").forEach((ogie) => {
     ogie.parentNode.addEventListener("toggle", () => {
       const tamiqua = getArtxCookie("categoryState");
       tamiqua[ogie.parentNode.dataset.cat] = ogie.parentNode.open;

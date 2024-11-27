@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import paginate from "mongoose-paginate-v2";
 
 const HeightMapsSchema = new mongoose.Schema({
   id: { type: Number, unique: true }, // Unique numeric identifier
@@ -12,7 +13,6 @@ const HeightMapsSchema = new mongoose.Schema({
     unique: true,
   },
 });
-
-// Export the model
+HeightMapsSchema.plugin(paginate);
 const HeightMapsModel = mongoose.model("HeightMaps", HeightMapsSchema);
 export default HeightMapsModel;
