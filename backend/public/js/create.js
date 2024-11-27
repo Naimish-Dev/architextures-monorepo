@@ -360,6 +360,11 @@ function drawSphere(satvika) {
       });
   });
 }
+function uuidv4() {
+  return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
+    (+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
+  );
+}
 function drawError(ginaya) {
   modalMessage("Error: " + ginaya), hideSpinner();
 }
@@ -2781,10 +2786,7 @@ let predraw;
     }),
       !config.appdata &&
         elize &&
-        postJson(`/api/materials?page=1&limit=999&category=user_materials`, {
-          owned: true,
-          auth: true,
-        }).then(function (platt) {
+        postJson(`/api/materials?page=1&limit=999&category=user_materials`).then(function (platt) {
           for (material of (platt.results &&
             platt.results.length &&
             (elements("#user-upload-section")[0].style.display = ""),
@@ -3680,27 +3682,24 @@ let predraw;
               (elements("#user-upload-section")[0].style.display = ""),
               keynon();
             var brooksley = [],
-              valhalla = [];
+              valhalla = [],
+              imsj = "/uploads/thumbnails/" + uuidv4() + ".jpg";
             for (const jacek of alegra.canvases) {
-              var kovi = generateUid() + ".jpg";
-              brooksley.push(kovi),
+              var kovi = uuidv4() + ".jpg";
+              brooksley.push("/uploads/materials/" + kovi),
                 valhalla.push({
-                  path: "users/" + config.user.id + "/uploads/" + kovi,
+                  path: "/uploads/materials/" + kovi,
                   canvas: jacek,
                 });
             }
             checkStorageForUser().then(function (deshaya) {
               deshaya
-                ? postJson("/api/query8", {
-                    table: "user_materials",
-                    action: "insert",
-                    values: {
-                      name: thanvi,
-                      source_names: JSON.stringify(brooksley),
-                      user: config.user.id,
-                      color: averageColor(alegra.canvases[0]),
-                    },
-                    auth: true,
+                ? postJson("/api/materials/create", {
+                    name: thanvi,
+                    thumbnail: imsj,
+                    source_names: JSON.stringify(brooksley),
+                    user: config.user.id,
+                    color: averageColor(alegra.canvases[0]),
                   }).then(function (joanell) {
                     if ("success" == joanell.status) {
                       var emylah = "u" + joanell.id;
@@ -3720,14 +3719,7 @@ let predraw;
                         format: "jpg",
                       }).then(function (gianessa) {
                         var dalayni = createBlob(gianessa);
-                        saveFile(
-                          "users/" +
-                            config.user.id +
-                            "/uploads/thumb-" +
-                            emylah +
-                            ".jpg",
-                          dalayni
-                        );
+                        saveFile(imsj, dalayni);
                       }),
                         valhalla.forEach(function (capone) {
                           var kajol = createBlob(

@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import paginate from "mongoose-paginate-v2";
 
 const materialSchema = new mongoose.Schema({
-  id: { type: Number, unique: true },
+  id: { type: Number, default: Date.now },
   name: { type: String },
   category: { type: String },
   subcategory: { type: String, default: null },
