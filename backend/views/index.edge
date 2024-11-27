@@ -5,7 +5,7 @@
   <meta charset='utf-8' />
   <title>Create - Architextures</title>
   <meta property="og:title" content="Create - Architextures" />
-  <meta property="og:image" content="https://cdn.architextures.org/uploads/24/8/9cqtiz-create-og.jpg" />
+  <meta property="og:image" content="http://localhost:8081/images/arhitacture.jpg" />
   <meta name="description"
     content="A web app for architects and designers. Find materials &amp; create seamless textures, bump maps and CAD hatches" />
   <meta name="viewport" content="width=device-width">
@@ -98,11 +98,9 @@
       <div id="view-controls" class="gbutton-container">
         <div data-view="texture" id="texture-option" data-target="texture-controls"
           class="view-option gbutton active view-option-button">Texture</div>
-        <div data-view="bump" id="bump-option" class="view-option gbutton pro-feature ">Bump<a class="pro" href="/pro"
-            target="_blank" style="top: 1px; right: -16px;">Get Pro</a></div>
+        <div data-view="bump" id="bump-option" class="view-option gbutton pro-feature ">Bump</div>
         <div data-view="hatch" id="hatch-option" data-target="hatch-controls"
-          class="view-option gbutton view-option-button pro-feature ">Hatch<a class="pro" href="/pro" target="_blank"
-            style="top: 1px; right: -16px;">Get Pro</a></div>
+          class="view-option gbutton view-option-button pro-feature ">Hatch</div>
         <div data-view="displacement" class="view-option gbutton view-option-button" style="display:none;">
           Displ.</div>
         <div data-view="normal" class="view-option gbutton view-option-button" style="display:none;">Normal
@@ -532,8 +530,6 @@
 
         <!-- /\/\/\/\/\/\ END TEMPLATE MATERIAL _____________________________________________________________ -->
         <div id="add-material-container" class="pro-feature default-parameter">
-          <a href="/pro" class="pro none" target="_blank"
-            style="position: absolute; right: var(--app-section-margin);">Get Pro</a>
           <div id="add-material" class="new-section-button" data-count="1">
             <img style="width:18px;" src="http://localhost:8081/icons/plus.svg">
             <div class="new-section-button-text">Add Another Material</div>
@@ -663,7 +659,7 @@
       <div class="section fc xs-gap">
         <h1 style="font-size: 18px; font-weight:500; margin-top:5px;">Architextures Seamless Texture Editor</h1>
         <p style="margin-bottom:5px;">Use the control panel to adjust parameters and create your desired
-          texture. Additional formats and features are available with a <a href="pro">Pro</a> account.</p>
+          texture. </p>
       </div>
       <div class="section fc xs-gap">
         <div class="section-header">Units</div>
@@ -775,8 +771,6 @@
           <div id="material-upload" class="menu-option pro-feature" data-name="Upload" data-option="upload"
             data-thumb="solid" data-type="texture" data-resource="upload"
             data-image-src="http://localhost:8081/img/solid.png?v=2" data-real-width="2000">
-            <a class="pro menu-option-pro" href="/pro" target="_blank" style="right: 0px; top: 5px;">Get
-              Pro</a>
             <div id="tile-upload-option"
               class="menu-option-img-container option-img-container option-thumb system-option tile-upload-option"
               style="background-image: url('http://localhost:8081/img/upload.png?v=2');"></div>
@@ -1017,7 +1011,6 @@
                 </div>
               </div>
             </div>
-            <a class="pro" href="/pro" target="_blank" style="top: 1px; right: -10px;">Get Pro</a>
           </div>
           <div class="fc s-gap">
             <div class="fc xs-gap">
@@ -1032,12 +1025,9 @@
                     <input id="license-commercial" class="" name="license2" type="radio">
                     <div style="opacity:0.7;">Commercial use</div>
                   </label>
-                  <a class="pro" href="/pro" target="_blank" style="top: 1px; right: -10px;">Get
-                    Pro</a>
                 </div>
               </div>
             </div>
-            <a class="fbutt cc" href="/pro" target="_blank">Get a Pro account</a>
           </div>
         </div>
       </div>
@@ -1068,7 +1058,6 @@
                 </div>
               </div>
             </div>
-            <a class="pro" href="/pro" target="_blank" style="top: 1px; right: -10px;">Get Pro</a>
           </div>
           <div>
             <div class="fc s-gap">
@@ -1083,12 +1072,10 @@
                   <div class="">
                     <label for="license-commercial-import" class="pro-feature"><input id="license-commercial-import"
                         name="license2-import" type="radio">Commercial use</label>
-                    <a class="pro" href="/pro" target="_blank" style="top: 1px; right: -10px;">Get
-                      Pro</a>
+
                   </div>
                 </div>
               </div>
-              <a class="fbutt cc" href="/pro" target="_blank">Get a Pro account</a>
             </div>
           </div>
         </div>
@@ -1272,8 +1259,6 @@
         </div>
         <div class="pro-feature xs-gap fc">
           <div class="input-label">Profile width</div>
-          <a href="/pro" class="pro" href="/pro" target="_blank" style="position: absolute; right: 1px; top: -2px;">Get
-            Pro</a>
           <div class="">
             <input id="edge-offset" type="text" class="parameter app-param" data-category="edge" data-param="edge.width"
               value="5">
@@ -1281,8 +1266,6 @@
         </div>
         <div class="pro-feature fc s-gap">
           <div class="input-label">Exclude sides</div>
-          <a class="pro" href="/pro" target="_blank" style="position: absolute; right: 1px; top: -2px;">Get
-            Pro</a>
           <div class="input-row ">
             <button style="padding:0;"
               class="param multi-input-first hit-miss-parameter rule-parameter proxy-checkbox app-input"
@@ -1930,7 +1913,7 @@
   <div id="save-parameters-menu" class="menu" style="width:300px;">
     <div class="header">
       <div class="menu-title">Save Parameters</div>
-      <img src="https://artx.nyc3.digitaloceanspaces.com/icons/x.svg" class="icon" data-close="#save-parameters-menu">
+      <img src="http://localhost:8081/icons/x.svg" class="icon" data-close="#save-parameters-menu">
     </div>
     <div class="scrollable-area section section-first">
       <div>
@@ -1978,7 +1961,7 @@
   <div id="update-published-menu" class="menu" style="width:300px;">
     <div class="header">
       <div class="menu-title">Update Published</div>
-      <img src="https://artx.nyc3.digitaloceanspaces.com/icons/x.svg" class="icon" data-close="#update-published-menu">
+      <img src="http://localhost:8081/icons/x.svg" class="icon" data-close="#update-published-menu">
     </div>
     <div class="scrollable-area section section-first">
       <input id="upd-pub-params" type="checkbox" checked><label for="upd-pub-params">Parameters</label><br>
