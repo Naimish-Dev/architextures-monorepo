@@ -42,7 +42,7 @@ document.querySelector("[data-action='download']").addEventListener("click", () 
     } else {
         downloadTexture("canvas", 0.95);
     }
-    config.materialsUsed.forEach(matId => postJson("/app/material-download", {id:matId,page:window.location.href}) );
+    config.materialsUsed.forEach(matId => postJson("/api/material-download", {id:matId,page:window.location.href}) );
 });
 
 function recordAppDownload(){
@@ -51,5 +51,5 @@ function recordAppDownload(){
         "params": JSON.stringify(params),
     };
 
-    postJson("/app/downloads", data);
+    postJson("/api/downloads", data);
 }
