@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import "dotenv/config";
 import { upload } from "./utils/multer-storage.js";
+import { signedRouteVerify } from "./middlewares/signed-route-verify.middleware.js";
 
 const app = express();
 const PORT = process.env.PORT || 8081;
@@ -13,7 +14,7 @@ app.use(
 );
 app.use(express.json());
 app.use(express.static("public"));
-app.put("/put/*", upload.any(), (req, res, next) => {
+app.put("/put/*", signedRouteVerify, upload.any(), (req, res, next) => {
   const url = `${process.env.APP_URL}/${req.params[0]}`;
   res.json({
     url,

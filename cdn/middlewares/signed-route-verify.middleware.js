@@ -7,19 +7,21 @@ export function signedRouteVerify(req, res, next) {
 
   const [path, queryParamsString] = `${protocol}://${host}${originalUrl}`.split("?");
   if (!queryParamsString) {
-    return res.redirect(`${failedRedirect}?error=bad_request`);
+    return res.status(400).json({ error: "bad_request" });
   }
 
   const queryParams = qs.parse(queryParamsString);
   const { expires, signature, failedRedirect } = queryParams;
 
   if (!expires || !signature) {
-    return res.redirect(`${failedRedirect}?error=bad_request`);
+    return res.status(400).json({ error: "bad_request" });
   }
 
   delete queryParams.signature;
   const reconstructedQuery = qs.stringify(queryParams);
-  const unsignedUrl = reconstructedQuery ? `${path}?${reconstructedQuery}` : path;
+  const unsignedUrl = reconstructedQuery
+    ? `${path}?${reconstructedQuery}`
+    : path;
 
   const hmac = crypto.createHmac("sha256", process.env.APP_KEY);
   const expectedSignature = hmac.update(unsignedUrl).digest("hex");
@@ -30,12 +32,11 @@ export function signedRouteVerify(req, res, next) {
       Buffer.from(expectedSignature, "hex")
     )
   ) {
-    return res.redirect(`${failedRedirect}?error=invalid_signature`);
+    return res.status(400).json({ error: "invalid_signature" });
   }
 
-  // Check if the link has expired
   if (Number(expires) < Date.now()) {
-    return res.redirect(`${failedRedirect}?error=link_expired`);
+    return res.status(410).json({ error: "link_expired" });
   }
 
   next();

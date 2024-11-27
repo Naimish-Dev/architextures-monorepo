@@ -13,16 +13,13 @@ export function excludeFields(inputObject, excludedKeys) {
   return result;
 }
 
-export function temporarySignedRoute(basePath, expiredAt, queryParams) {
-  const hmac = crypto.createHmac(
-    "sha256",
-    process.env.APP_KEY || "secret"
-  );
-  let url = `${basePath}?expires=${new Date(expiredAt).getTime()}`;
-  if (queryParams) {
-    const query = qs.stringify(queryParams);
-    url += `&${query}`;
-  }
+export function temporarySignedRoute(basePath, expiredAt, queryParams = {}) {
+  const hmac = crypto.createHmac("sha256", process.env.APP_KEY || "secret");
+
+  const expires = new Date(expiredAt).getTime();
+  const query = qs.stringify({ ...queryParams, expires });
+  const url = `${basePath}?${query}`;
+
   const signature = hmac.update(url).digest("hex");
   return `${url}&signature=${signature}`;
 }
