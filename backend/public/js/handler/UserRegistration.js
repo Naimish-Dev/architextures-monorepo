@@ -11,7 +11,7 @@ class UserRegistration
         delete planData.stripeKey;
 
         this.data = Object.assign({}, formData, planData);
-        this.url = "/app/register";
+        this.url = "/auth/register";
         this.form = form;
         this.params = params;
     }
@@ -51,9 +51,9 @@ class UserRegistration
                     this.form.removeErrors();
 
                     // validation error
-                    Object.keys(response.error).forEach((error) => {
-                      if (response.error.hasOwnProperty(error)) {
-                        this.form.showError(error, response.error[error]);
+                    Object.keys(response.errors).forEach((error) => {
+                      if (response.errors.hasOwnProperty(error)) {
+                        this.form.showError(error, response.errors[error]);
                       }
                     });
 
@@ -97,7 +97,7 @@ class UserRegistration
                             let redirect = redirectUrl || window.location.href;
                             const redirectTo = (url) => window.location.href = url;
 
-                            postJson("/app/login", {
+                            postJson("/auth/login", {
                                 email: this.data.email,
                                 password: this.data.password,
                                 redirect: redirect
@@ -108,12 +108,12 @@ class UserRegistration
                                         url: "/api/library",
                                         data: this.params,
                                     }).done(function(data) {
-                                        document.cookie = "artx_ntf='Texture saved successfully'; path=/; expires=" + new Date(new Date().setSeconds(new Date().getSeconds() + 30)).toUTCString() + ";";
+                                        document.cookie = "sess_ntf='Texture saved successfully'; path=/; expires=" + new Date(new Date().setSeconds(new Date().getSeconds() + 30)).toUTCString() + ";";
                                         redirect = "/create?save=" + data;
                                         redirectTo(redirect);
                                     });
                                 } else if(window.location.href.includes("textures?app=")) {
-                                    document.cookie = "artx_ntf='Logged in successfully'; path=/; expires=" + new Date(new Date().setSeconds(new Date().getSeconds() + 30)).toUTCString() + ";";
+                                    document.cookie = "sess_ntf='Logged in successfully'; path=/; expires=" + new Date(new Date().setSeconds(new Date().getSeconds() + 30)).toUTCString() + ";";
                                     redirectTo(redirect);
                                 } else if(window.location.href.includes("textures") && this.params) {
                                     postJson("/api/query", {
@@ -131,7 +131,7 @@ class UserRegistration
                                             color: this.params.color
                                         }
                                     }).then(() => {
-                                        document.cookie = "artx_ntf='Texture saved successfully'; path=/; expires=" + new Date(new Date().setSeconds(new Date().getSeconds() + 30)).toUTCString() + ";";
+                                        document.cookie = "sess_ntf='Texture saved successfully'; path=/; expires=" + new Date(new Date().setSeconds(new Date().getSeconds() + 30)).toUTCString() + ";";
                                         redirectTo(redirect);
                                     });
                                 } else {
@@ -140,12 +140,12 @@ class UserRegistration
                             });
                             break;
                         case "home": default:
-                            postJson("/app/login", {
+                            postJson("/auth/login", {
                                 email: this.data.email,
                                 password: this.data.password,
                                 redirect: redirectUrl || "/"
                             }).then(response => {
-                                document.cookie = "artx_ntf='Logged in successfully'; path=/; expires=" + new Date(new Date().setSeconds(new Date().getSeconds() + 30)).toUTCString() + ";";
+                                document.cookie = "sess_ntf='Logged in successfully'; path=/; expires=" + new Date(new Date().setSeconds(new Date().getSeconds() + 30)).toUTCString() + ";";
                                 window.location.href = response.redirect;
                             });
                     }

@@ -4487,12 +4487,12 @@ config.resetBrands = function (zaccai) {
   zaccai.fetchItems(true);
 };
 $(document).ready(function () {
-  if (document.cookie.indexOf("artx_ntf=") !== -1) {
+  if (document.cookie.indexOf("sess_ntf=") !== -1) {
     const aira = document.cookie.split(";").find(function (jhamal) {
-      return jhamal.trim().startsWith("artx_ntf=");
+      return jhamal.trim().startsWith("sess_ntf=");
     });
     addNotification(aira.split("=")[1].replaceAll("'", ""));
-    document.cookie = "artx_ntf=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "sess_ntf=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   }
   for (const breinne of document.querySelectorAll("[data-proxy]")) {
     breinne.onclick = function () {

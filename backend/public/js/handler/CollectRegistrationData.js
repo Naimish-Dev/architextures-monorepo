@@ -2,7 +2,7 @@ class CollectRegistrationData
 {
     constructor({userPlanData = {}, registrationForm, goToPayment = false, refreshPage = false, params = {}, redirect = ""})
     {
-        const ALLOWED_FORMDATA_KEYS = ["firstname", "lastname", "email", "company", "industry", "password", "referrer", "type", "is_sub_marketing", "country"];
+        const ALLOWED_FORMDATA_KEYS = ["first_name", "last_name", "email", "company", "industry", "password", "referrer", "type", "is_sub_marketing", "country"];
         const ALLOWED_PLANDATA_KEYS = ["plan", "planQuantity", "stripeKey"];
 
         this.registrationForm = registrationForm;

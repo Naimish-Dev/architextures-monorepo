@@ -20,18 +20,24 @@ passport.deserializeUser(async function (id, done) {
 });
 
 passport.use(
-  new LocalStrategy(async function (username, password, done) {
-    try {
-      const user = await User.findOne({ email: username }).lean();
-      if (!user || !bcrypt.compareSync(password, user.password)) {
-        return done(null, false, { message: "Invalid credentials" });
-      }
+  new LocalStrategy(
+    {
+      usernameField: "email",
+      passwordField: "password",
+    },
+    async function (email, password, done) {
+      try {
+        const user = await User.findOne({ email }).lean();
+        if (!user || !bcrypt.compareSync(password, user.password)) {
+          return done(null, false, { message: "Invalid credentials" });
+        }
 
-      return done(null, excludeFields(user, ["password"]));
-    } catch (error) {
-      done(error);
+        return done(null, excludeFields(user, ["password"]));
+      } catch (error) {
+        done(error);
+      }
     }
-  })
+  )
 );
 
 export default passport;

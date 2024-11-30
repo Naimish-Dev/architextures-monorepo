@@ -1,3 +1,7 @@
 import mongoose from "mongoose";
 
-mongoose.connect(process.env.DATABASE_URL);
+try {
+    mongoose.connect(process.env.DATABASE_URL);
+} catch (error) {
+    console.log(error)
+}

@@ -1,45 +1,47 @@
-import bcrypt from 'bcryptjs';
-import { validate } from '../utils/validate.js';
-import { HttpException } from '../exceptions/http.exception.js';
-import { HttpStatus } from '../constraints/http-status.enum.js';
-import User from '../models/users.model.js';
-import passport from './passport.init.js';
-import { AuthService } from '../services/auth.service.js';
-import crypto from 'crypto';
+import bcrypt from "bcryptjs";
+import { validate } from "../utils/validate.js";
+import { HttpException } from "../exceptions/http.exception.js";
+import { HttpStatus } from "../constraints/http-status.enum.js";
+import User from "../models/users.model.js";
+import passport from "./passport.init.js";
+import { AuthService } from "../services/auth.service.js";
+import crypto from "crypto";
 
 const authService = new AuthService();
 
 async function register(req, res, next) {
   try {
     const validated = validate(req.body, {
-      name: "required|string",
+      first_name: "required|string",
+      last_name: "required|string",
       email: "required|email",
-      password: "required|confirmed|min:8",
+      company: "required|string",
+      industry: "required|string",
+      type: "required|string",
+      country: "required|string",
+      is_sub_marketing: "required|boolean",
+      password: "required|min:8",
     });
 
     // Hash the password
-    const password = bcrypt.hashSync(validated.password, bcrypt.genSaltSync(10));
+    const password = bcrypt.hashSync(
+      validated.password,
+      bcrypt.genSaltSync(10)
+    );
 
-    // Create new user with Mongoose
     const user = new User({
       ...validated,
       password,
     });
 
-    await user.save(); // Save user to the MongoDB database
+    await user.save();
 
-    req.logIn(user.toObject(), (err) => { // Convert mongoose document to plain object
-      if (err) {
-        throw new HttpException("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
-      }
-
-      return res.status(HttpStatus.CREATED).json({
-        message: "User signup successfully",
-        statusCode: HttpStatus.CREATED,
-      });
+    return res.status(HttpStatus.CREATED).json({
+      success: "user validation passed",
+      user_id: user.id,
     });
   } catch (error) {
-    if (error.code === 11000) { // Duplicate key error (unique email)
+    if (error.code === 11000) {
       return res.status(HttpStatus.UNPROCESSABLE_ENTITY).json({
         message: "Validation Exception",
         errors: {
@@ -54,10 +56,10 @@ async function register(req, res, next) {
 async function login(req, res, next) {
   try {
     validate(req.body, {
-      username: "required|email",
+      email: "required|email",
       password: "required",
     });
-
+ 
     passport.authenticate("local", async (error, user, info) => {
       if (error || !user) {
         return res.status(HttpStatus.UNAUTHORIZED).json({
@@ -75,8 +77,8 @@ async function login(req, res, next) {
         }
 
         return res.status(HttpStatus.OK).json({
-          message: "User login successfully",
-          statusCode: HttpStatus.OK,
+          success: user.id,
+          redirect: req.body.redirect,
         });
       });
     })(req, res, next);
@@ -110,7 +112,10 @@ async function verifyEmail(req, res, next) {
       return res.redirect(`${req.query.failedRedirect}?error=bad_request`);
     }
 
-    const emailHash = crypto.createHash("sha1").update(user.email).digest("hex");
+    const emailHash = crypto
+      .createHash("sha1")
+      .update(user.email)
+      .digest("hex");
 
     if (req.params.hash !== emailHash) {
       return res.redirect(`${req.query.failedRedirect}?error=bad_request`);

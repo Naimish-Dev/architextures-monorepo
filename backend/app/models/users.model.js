@@ -1,14 +1,13 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
-    id: {
-      type: Number,
+    first_name: {
+      type: String,
       required: true,
-      unique: true,
-      autoIncrement: true,
+      maxlength: 255,
     },
-    name: {
+    last_name: {
       type: String,
       required: true,
       maxlength: 255,
@@ -19,35 +18,42 @@ const userSchema = new mongoose.Schema(
       unique: true,
       maxlength: 255,
     },
-    email_verified_at: {
-      type: Date,
+    company: {
+      type: String,
+      maxlength: 255,
       default: null,
+    },
+    industry: {
+      type: String,
+      maxlength: 255,
+      default: null,
+    },
+    type: {
+      type: String,
+      maxlength: 255,
+      default: null,
+    },
+    country: {
+      type: String,
+      maxlength: 255,
+      default: null,
+    },
+    is_sub_marketing: {
+      type: Boolean,
+      default: false,
     },
     password: {
       type: String,
       required: true,
       maxlength: 255,
     },
-    remember_token: {
-      type: String,
-      maxlength: 100,
-      default: null,
-    },
-    created_at: {
-      type: Date,
-      default: Date.now,
-    },
-    updated_at: {
-      type: Date,
-      default: Date.now,
-    },
   },
   {
-    collection: 'users',
-    timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
+    collection: "users",
+    timestamps: true, // Automatically add createdAt and updatedAt
   }
 );
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 export default User;

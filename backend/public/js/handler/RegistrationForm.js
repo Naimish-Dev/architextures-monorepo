@@ -28,8 +28,8 @@ class RegistrationForm
     getData()
     {
         return {
-            firstname: this.form.querySelector("[data-form='firstname']").value,
-            lastname: this.form.querySelector("[data-form='lastname']").value,
+            first_name: this.form.querySelector("[data-form='first_name']").value,
+            last_name: this.form.querySelector("[data-form='last_name']").value,
             email: this.form.querySelector("[data-form='email']").value,
             company: this.form.querySelector("[data-form='company']").value,
             industry: this.industries ? this.industries.filter(i => i.selected).map(i => i.name).join(", ") : null,
@@ -51,7 +51,7 @@ class RegistrationForm
                     ]} : {tag: "div"},
                     this.isModal ? {tag:"img", "data-close-modal":"", class:"icon", src:config.cdn+"/icons/x.svg"} : "",
                 ]},
-                {tag: "div", class: "fc l-gap l-pad", style:"max-width: 500px;", children: [
+                {tag: "div", class: "fc l-gap l-pad", style:"max-width: 500px;overflow-y:scroll", children: [
                     {tag:"div", class:"fc s-gap", children: [
                         {tag:"h1", class:"title", text: this.title},
                         {tag: "div", "data-error": "general-error", Style: "display: none", text: "Something went wrong, please try again later."},
@@ -61,10 +61,10 @@ class RegistrationForm
                         {tag:"div", class:"bv m-gap fw", children: [
                             {tag:"div", class:"fc xs-gap fw", children: [
                                 {tag: "div", class: "inlab", text: "name"},
-                                {tag: "input", "data-form": "firstname", "data-required": "firstname", class: "fw", type:"text", placeholder: "First"}
+                                {tag: "input", "data-form": "first_name", "data-required": "first_name", class: "fw", type:"text", placeholder: "First"}
                             ]},
                             {tag:"div", class:"fc xs-gap fw", children: [
-                                {tag: "input", "data-form": "lastname", "data-required": "lastname", class: "fw", type:"text", placeholder: "Last"}
+                                {tag: "input", "data-form": "last_name", "data-required": "last_name", class: "fw", type:"text", placeholder: "Last"}
                             ]},
                         ]},
                         {tag:"div", class:"fc xs-gap", children: [
@@ -141,8 +141,9 @@ class RegistrationForm
         });
     }
 
-    showError(field, text = "Field is required")
+    showError(field, errors)
     {
+        const text = errors?.[0] || "Field is required";
         let formField = this.form.querySelector("[data-form='" + field + "']");
         formField.classList.add("input-error");
         const errorDiv = createHtml({tag: "div", id: "error-" + field, text: text});
