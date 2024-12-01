@@ -122,7 +122,7 @@ class CollectionUser
                         checkbox = createHtml({
                             tag: "img",
                             width: "20",
-                            src: "https://cdn.architextures.org/icons/plus.svg"
+                            src: "http://localhost:8081/icons/plus.svg"
                         });
                         break;
                     default:
@@ -146,7 +146,7 @@ class CollectionUser
                     ]},
                     saveOption["data-user-collection"] === "new" ? "" :
                     {tag: "div", "data-user-collection": "admin-collection-" + saveOption["data-user-collection"], style: "width: unset;", class: "nav-menu-item sh", children: [
-                        {tag: "img", style: "cursor: pointer;", width: "20", src: "https://cdn.architextures.org/icons/arrow-right.svg"}
+                        {tag: "img", style: "cursor: pointer;", width: "20", src: "http://localhost:8081/icons/arrow-right.svg"}
                     ]}
                 ]});
             },
@@ -445,7 +445,7 @@ class CollectionUser
                 {tag: "div", class: "modal-window modal-window-collection", style: "padding: var(--padding);", children: [
                     {tag: "div", class: "modal-header", children: [
                         {tag: "div", class: "modal-title", text: "New Collection"},
-                        {tag: "img", class: "icon", src: "https://cdn.architextures.org/icons/x.svg", "data-close": "#new-collection-modal"}
+                        {tag: "img", class: "icon", src: "http://localhost:8081/icons/x.svg", "data-close": "#new-collection-modal"}
                     ]},
                     {tag: "div", class: "modal-body modal-body-collection", children: [
                         {tag: "div", class: "modal-content modal-img-collection", children: [
