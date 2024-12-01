@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap">
-    <link href="/css/style.css" rel='stylesheet'/>
+    <link href="/css/style.css" rel='stylesheet' />
     <link href="/vendor/flickity.min.css" rel="stylesheet">
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/js/config.js"></script>
@@ -60,8 +60,8 @@
                             src="http://localhost:8081/img/kebab.png" draggable="false">
                         <div id="main-menu" class="nav-menu" style="display:none;right:5px;top:5px;">
                             <div class="eh">
-                                <img class="menu-icon" data-close="#main-menu"
-                                    src="http://localhost:8081/icons/x.svg" draggable="false">
+                                <img class="menu-icon" data-close="#main-menu" src="http://localhost:8081/icons/x.svg"
+                                    draggable="false">
                             </div>
                             <div class="nav-menu-items">
                                 <a class="nav-menu-item" href="/create">
@@ -96,8 +96,8 @@
                         </div>
                         <div id="user-menu" class="nav-menu" style="display:none;right:35px;top:5px;">
                             <div class="eh">
-                                <img class="menu-icon" data-close="#user-menu"
-                                    src="http://localhost:8081/icons/x.svg" draggable="false">
+                                <img class="menu-icon" data-close="#user-menu" src="http://localhost:8081/icons/x.svg"
+                                    draggable="false">
                             </div>
                             <div class="nav-menu-items">
                                 <a class="nav-menu-item" href="/admin/saved">
@@ -121,6 +121,9 @@
                 </div>
                 <script>
 
+                    /**
+                     * Event listener to close the dropdown menus when clicked outside of them
+                     */
                     document.addEventListener("click", function (event) {
                         const mainMenu = document.getElementById('main-menu')
                         // close main menu
@@ -145,72 +148,35 @@
                 <div class="lr-content">
                     <div class="gallery-content">
                         <div class="lr-header row column vstin">
-                            <h1 class="lr-title">Log in</h1>
                         </div>
-                        <div class="lr-section column">
-                            <form id="login-form" method="post" class="user-form">
-                                <div class="group">
-                                    <div class="input-label">Email</div>
-                                    <input name="email" type="email" placeholder="alvar@example.com" value="" required>
-                                </div>
-                                <div class="group">
-                                    <div class="input-label">Password</div>
-                                    <input name="password" type="password" placeholder="●●●●●●●●" required>
-                                    <div data-login-err="general" class="hide-me black-warning">Email or password is
-                                        incorrect</div>
-                                </div>
-                                <div class="group">
-                                    <input type="submit" data-login-button="active"
-                                        class="form-button button user-button" value="Log in">
-                                    <div class="button disabled hide-me" data-login-button="inactive">
-                                        <div class="spinner"></div>
-                                    </div>
-                                </div>
-                                <div class="group">
-                                    <p>Don't have a Pro account? <a id="register" class="uline" href="/pro">Get one here</a></p>
-                                    <div><a id="forgot-password" class="uline" href="/forgot-password">Forgot password</a>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                        <script src='https://js.stripe.com/v3/'></script>
+                        <div data-registration-form="register"></div>
                         <script>
-                                (() => {
-                                    const loginForm = document.querySelector('#login-form');
-                                    const errorMessage = document.querySelector("[data-login-err='general']");
-                                    const loginButtonActive = document.querySelector("[data-login-button='active']");
-                                    const loginButtonInactive = document.querySelector("[data-login-button='inactive']");
+                            // reshuffle CSS
+                            const gallery = document.querySelector(".gallery-content");
+                            gallery.style.padding = 'unset';
+                            gallery.querySelector(".lr-header.row.column.vstin").remove();
 
-                                    loginForm.addEventListener("submit", (e) => {
-                                        e.preventDefault();
+                            const data = {};
+                            data.country = "IN";
+                            data.userType = "user";
+                            data.referrer = "";
+                            data.email = "";
+                            const regForm = new RegistrationForm(data);
+                            regForm.init();
+                            const form = regForm.getForm();
+                            form.style.minHeight = "calc(100vh - var(--top-height))";
 
-                                        errorMessage.classList.add('hide-me');
-                                        loginButtonActive.classList.add('hide-me');
-                                        loginButtonInactive.classList.remove('hide-me');
-
-                                        const form = e.target;
-                                        const formData = new FormData(form);
-                                        const data = {};
-                                        for (const pair of formData.entries()) {
-                                            data[pair[0]] = pair[1];
-                                        }
-
-                                        postJson("/auth/login", data).then(response => {
-                                            if (response.statusCode == 401) {
-                                                errorMessage.classList.remove('hide-me');
-                                                loginButtonActive.classList.remove('hide-me');
-                                                loginButtonInactive.classList.add('hide-me');
-                                                return;
-                                            }
-
-                                            let redirectTarget = '/';
-                                            if (response.redirect) {
-                                                redirectTarget = response.redirect;
-                                            }
-
-                                            window.location.href = redirectTarget;
-                                        });
-                                    });
-                                })();
+                            document.querySelector("[data-registration-form='register']").appendChild(form);
+                            form.querySelector("[data-form='register-btn']").onclick = () => {
+                                if (!form.querySelector("[data-form='accept-terms']").checked) {
+                                    regForm.showError("accept-terms");
+                                    return;
+                                }
+                                form.querySelector("[data-form-btn='text']").style.display = "none";
+                                form.querySelector("[data-form-btn='spinner']").style.display = "block";
+                                new CollectRegistrationData({ registrationForm: regForm }).startRegistration();
+                            };
                         </script>
                     </div>
                 </div>
@@ -350,7 +316,8 @@
                                         <li><a href="/about">About</a></li>
                                         <li><a href="/about">Contact</a></li>
                                         <li><a
-                                                href="https://144083254.hs-sites-eu1.com/architextures-newsletter-sign-up">Newsletter sign-up</a></li>
+                                                href="https://144083254.hs-sites-eu1.com/architextures-newsletter-sign-up">Newsletter
+                                                sign-up</a></li>
                                         <li><a href="/pro">Get a Pro Account</a></li>
                                         <li><a href="/manufacturers">For Manufacturers</a></li>
                                     </ul>
@@ -372,7 +339,8 @@
                         </div>
                         <div class="below-footer row outline sh cv">
                             <div class="copyright-notice">© Architextures 2024</div>
-                            <img id="logo" alt="ARTX, the Architextures logo" src="http://localhost:8081/img/artx-logo.svg">
+                            <img id="logo" alt="ARTX, the Architextures logo"
+                                src="http://localhost:8081/img/artx-logo.svg">
                         </div>
                     </div>
                 </div>

@@ -2,7 +2,6 @@ import Pattern from "../models/patterns.model.js";
 
 export async function index(req, res, next) {
   try {
-    console.log(req);
     
     const { page = 1, limit = 20 } = req.query;
 

@@ -156,7 +156,7 @@ async function resetPassword(req, res, next) {
     const validated = validate(req.body, {
       token: "required|string",
       email: "required|email",
-      password: "required|confirmed|min:8",
+      password: "required|min:8",
     });
 
     await authService.resetPassword(validated);

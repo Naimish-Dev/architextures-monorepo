@@ -51,7 +51,7 @@ class RegistrationForm
                     ]} : {tag: "div"},
                     this.isModal ? {tag:"img", "data-close-modal":"", class:"icon", src:config.cdn+"/icons/x.svg"} : "",
                 ]},
-                {tag: "div", class: "fc l-gap l-pad", style:"max-width: 500px;overflow-y:scroll", children: [
+                {tag: "div", class: "fc l-gap l-pad", style:"max-width: 500px;overflow-y:auto", children: [
                     {tag:"div", class:"fc s-gap", children: [
                         {tag:"h1", class:"title", text: this.title},
                         {tag: "div", "data-error": "general-error", Style: "display: none", text: "Something went wrong, please try again later."},

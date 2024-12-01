@@ -17,23 +17,29 @@ router.get("/login", (req, res, next) => {
     next(error);
   }
 });
-router.get("/signup", (req, res, next) => {
+router.get("/register", (req, res, next) => {
   try {
-    return res.render("signup");
+    return res.render("register");
   } catch (error) {
     next(error);
   }
 });
-router.get("/account/resetpass", (req, res, next) => {
+router.get("/forgot-password", (req, res, next) => {
   try {
-    return res.render("resetpassword");
+    return res.render("forgot-password");
   } catch (error) {
     next(error);
   }
 });
-router.get("/account/forgetpass/:id", (req, res, next) => {
+router.get("/reset-password", (req, res, next) => {
   try {
-    return res.render("forgetpassword");
+    if(!req.query.email || !req.query.code){
+      return res.redirect("/login")
+    }
+    return res.render("reset-password", {
+      email: req.query.email,
+      code: req.query.code,
+    });
   } catch (error) {
     next(error);
   }
