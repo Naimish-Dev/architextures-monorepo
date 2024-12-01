@@ -11,7 +11,7 @@ export function signedRouteVerify(req, res, next) {
   }
 
   const queryParams = qs.parse(queryParamsString);
-  const { expires, signature, failedRedirect } = queryParams;
+  const { expires, signature } = queryParams;
 
   if (!expires || !signature) {
     return res.status(400).json({ error: "bad_request" });
