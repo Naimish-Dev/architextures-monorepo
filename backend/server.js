@@ -6,6 +6,8 @@ import webRouter from "./routes/web.router.js";
 import materialsRouter from "./routes/materials.router.js";
 import patternsRouter from "./routes/patterns.router.js";
 import apiRouter from "./routes/api.router.js";
+import pathsRouter from "./routes/paths.router.js";
+import heightRouter from "./routes/heightmaps.router.js";
 import authRouter from "./routes/auth.router.js";
 import session from "express-session";
 import passport from "passport";
@@ -45,9 +47,11 @@ app.use("/auth", authRouter);
 app.use("/api/materials", materialsRouter);
 app.use("/api/patterns", patternsRouter);
 app.use("/api", apiRouter);
+app.use("/api/paths", pathsRouter);
+app.use("/api/heightmaps", heightRouter);
 
-app.get("/*", (req, res)=>{
-  return res.render("errors.404")
+app.get("/*", (req, res) => {
+  return res.render("errors.404");
 });
 
 app.use(ValidationException.handler);

@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import paginate from "mongoose-paginate-v2";
 
 const PathSchema = new mongoose.Schema({
   id: { type: Number, required: true, unique: true }, // Unique numeric identifier
@@ -8,12 +9,9 @@ const PathSchema = new mongoose.Schema({
     required: true,
   },
   svg: { type: String, default: null }, // Path to the SVG file
-  stringId: {
-    type: String,
-    default: () => new mongoose.Types.ObjectId().toString(), // Generates a unique string
-    unique: true,
-  },
 });
+
+PathSchema.plugin(paginate);
 
 // Export the model
 const PathModel = mongoose.model("Path", PathSchema);

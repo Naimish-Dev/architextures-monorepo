@@ -2,7 +2,9 @@ import Pattern from "../models/patterns.model.js";
 
 export async function index(req, res, next) {
   try {
-    const { page = 1, limit = 10 } = req.query;
+    console.log(req);
+    
+    const { page = 1, limit = 20 } = req.query;
 
     const options = {
       limit,

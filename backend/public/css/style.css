@@ -331,7 +331,7 @@ input, select, textarea, .input, .pseudo-select {
 } .input:hover {
     cursor: pointer;
 } .upload-input {
-    background-image: url(https://artx.nyc3.cdn.digitaloceanspaces.com/icons/upload.svg);
+    background-image: url(http://localhost:8081/icons/upload.svg);
 } 
 
 option {
