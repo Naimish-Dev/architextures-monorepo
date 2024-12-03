@@ -4,7 +4,8 @@ export async function index(req, res, next) {
   try {
     const id = req.params.id;
     const data = await ShareModel.findById(id);
-    return res.render("index", { params: data.params });
+    res.view.share({ params: data.params });
+    return res.render("index");
   } catch (error) {
     next(error);
   }

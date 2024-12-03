@@ -3002,6 +3002,8 @@ config.textureData = {
 config.textureData.params = params;
 config.textureData.sourceTable = "default";
 
-if(typeof sharedParams !== "undefined"){
-  params = JSON.parse(sharedParams);
+if(htmlEl.dataset.params !== "undefined"){
+  params = JSON.parse(htmlEl.dataset.params);
+  console.log("params",params)
 }
+htmlEl.removeAttribute("data-params")
