@@ -10,6 +10,13 @@ router.get("/", (req, res, next) => {
     next(error);
   }
 });
+router.get("/create", (req, res, next) => {
+  try {
+    return res.render("create");
+  } catch (error) {
+    next(error);
+  }
+});
 router.get("/login", (req, res, next) => {
   try {
     return res.render("login");
@@ -33,8 +40,8 @@ router.get("/forgot-password", (req, res, next) => {
 });
 router.get("/reset-password", (req, res, next) => {
   try {
-    if(!req.query.email || !req.query.code){
-      return res.redirect("/login")
+    if (!req.query.email || !req.query.code) {
+      return res.redirect("/login");
     }
     return res.render("reset-password", {
       email: req.query.email,

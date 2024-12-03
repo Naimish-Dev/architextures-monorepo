@@ -1415,60 +1415,6 @@ li {
     overflow: hidden;
 }
 
-.story-item-page {
-    padding-top: 0;
-}
-
-.story-item-page-background {
-    background-color: var(--header-bg);
-}
-
-.story-item-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    container-type: inline-size;
-}
-
-@container (min-width: 650px) {
-    .story-item-container {
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 35px;
-    }
-}
-
-@container (min-width: 1050px) {
-    .story-item-container {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 75px;
-    }
-}
-
-@container (min-width: 1750px) {
-    .story-item-container {
-        grid-template-columns: repeat(6, 1fr);
-        gap: 100px;
-    }
-}
-
-.story-item {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: var(--m-gap);
-}
-
-.story-thumb, .story-thumb-blank {
-    width: 100%;
-    aspect-ratio: 1;
-    object-fit: contain;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-} .story-thumb-blank {
-    background-color: #ccc;
-}
 
 pre, code {
     box-sizing: border-box; 
