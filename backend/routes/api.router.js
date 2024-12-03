@@ -15,6 +15,13 @@ const router = Router();
 
 router.post("/node-canvas", canvasCache);
 router.post("/library", library);
+router.post("/material-download", (req, res, next) => {
+  res.json(req.body);
+});
+
+router.post("/downloads", (req, res, next) => {
+  res.json(req.body);
+});
 router.post("/check-storage", checkStorage);
 router.post("/get-design-options/:id?", getDesignOptions);
 router.post("/material-view/:id", materialView);

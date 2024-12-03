@@ -1,0 +1,24 @@
+<svg id="Delete" xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #010101;
+        stroke-linecap: round;
+        stroke-width: 10px;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M23,38H136"/>
+  <path class="cls-1" d="M35,38l9,101"/>
+  <path class="cls-1" d="M80,121V58"/>
+  <path class="cls-1" d="M98.351,120.957l3.3-62.914"/>
+  <path id="Shape_19_copy" data-name="Shape 19 copy" class="cls-1" d="M61.649,120.957l-3.3-62.914"/>
+  <path id="Shape_17_copy" data-name="Shape 17 copy" class="cls-2" d="M124,38l-9,101H44"/>
+  <path class="cls-2" d="M56.982,36.653V21h45.466V35.783"/>
+</svg>

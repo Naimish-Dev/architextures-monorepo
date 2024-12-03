@@ -51,9 +51,9 @@ router.get("/reset-password", (req, res, next) => {
     next(error);
   }
 });
-router.get("/admin/save", (req, res, next) => {
+router.get("/admin/saved", (req, res, next) => {
   try {
-    return res.render("admin.save");
+    return res.render("admin.saved");
   } catch (error) {
     next(error);
   }
