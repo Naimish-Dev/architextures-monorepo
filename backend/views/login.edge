@@ -1,343 +1,387 @@
-<!DOCTYPE html>
-<html lang="en">
+@layout.app()
+@slot("main")
+<div id="page-body">
+    <div class="lr-page">
+        <div class="lr-left column-container ">
+            <div data-slides="leftright-page" class="fh"></div>
+        </div>
+        <div class="lr-right sect-container column-container gallery">
+            <div class="top">
+                <div class="cc">
+                    <a href="/">
+                        <img id="logo" alt="ARTX, the Architextures logo" src="http://localhost:8081/img/artx-logo.svg">
+                    </a>
+                </div>
+                <div class="cc s-gap">
+                    <a id="pro-button-header" href="/pro" class="fbutt">Get Pro</a>
+                    <a href="/login" class="fbutt">Login</a>
 
-<head>
-    <meta charset='utf-8' />
-    <title>Create - Architextures</title>
-    <meta property="og:title" content="Create - Architextures" />
-    <meta property="og:image" content="http://localhost:8081/images/arhitacture.jpg" />
-    <meta name="description"
-        content="A web app for architects and designers. Find materials &amp; create seamless textures, bump maps and CAD hatches" />
-    <meta name="viewport" content="width=device-width">
-    <meta name="theme-color" content="#eaece8">
-    <link rel="icon" type="image/png" sizes="128x128" href="http://localhost:8081/img/icon128.png">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap">
-    <link href="/css/style.css" rel='stylesheet' />
-    <link href="/vendor/flickity.min.css" rel="stylesheet">
-    <script src="/js/jquery-3.4.1.min.js"></script>
-    <script src="/js/config.js"></script>
-    <script src="/vendor/piexif.js"></script>
-    <script src="/js/components/CreateElement.js"></script>
-    <script src="/js/handler/BrandRequest.js"></script>
-    <script src="/js/textures.min.js"></script>
-    <script src="/vendor/flickity.pkgd.min.js"></script>
-    <script src="/vendor/panzoom.min.js"></script>
-    <script src="/js/handler/RegistrationForm.js"></script>
-    <script src="/js/handler/UserPlanData.js"></script>
-    <script src="/js/handler/CollectRegistrationData.js"></script>
-    <script src="/js/handler/UserRegistration.js"></script>
-    <script src="/js/handler/ImageSlides.js"></script>
-    <script src="/js/components/AbstractMenuItems.js"></script>
-    <script src="/js/components/AbstractContextMenu.js"></script>
-    <script src="/js/components/SearchSelect.js"></script>
-    <script src="/js/components/RegularSelectMenu.js"></script>
-    <script src="/js/components/CategoryMenu.js"></script>
-    <script src="/js/components/BrandMenu.js"></script>
-    <script src="/js/components/CheckboxSelectMenu.js"></script>
-</head>
-
-<body>
-    <div id="page-body">
-        <div class="lr-page">
-            <div class="lr-left column-container ">
-                <div data-slides="leftright-page" class="fh"></div>
-            </div>
-            <div class="lr-right sect-container column-container gallery">
-                <div class="top">
-                    <div class="cc">
-                        <a href="/">
-                            <img id="logo" alt="ARTX, the Architextures logo"
-                                src="http://localhost:8081/img/artx-logo.svg">
-                        </a>
-                    </div>
-                    <div class="cc s-gap">
-                        <a id="pro-button-header" href="/pro" class="fbutt">Get Pro</a>
-                        <a href="/login" class="fbutt">Login</a>
-
-                        <img id="show-main-menu" data-show="#main-menu" data-group="menus" class="menu-icon icon"
-                            src="http://localhost:8081/img/kebab.png" draggable="false">
-                        <div id="main-menu" class="nav-menu" style="display:none;right:5px;top:5px;">
-                            <div class="eh">
-                                <img class="menu-icon" data-close="#main-menu" src="http://localhost:8081/icons/x.svg"
-                                    draggable="false">
-                            </div>
-                            <div class="nav-menu-items">
-                                <a class="nav-menu-item" href="/create">
-                                    <div>Create</div>
-                                </a>
-                                <a class="nav-menu-item" href="/textures">
-                                    <div>Seamless Textures</div>
-                                </a>
-                                <a class="nav-menu-item" href="/hatches">
-                                    <div>CAD &amp; Revit Hatches</div>
-                                </a>
-                                <a class="nav-menu-item" href="/stories">
-                                    <div>Stories</div>
-                                </a>
-                                <a class="nav-menu-item" href="/manufacturers">
-                                    <div>For Manufacturers</div>
-                                </a>
-                                <a class="nav-menu-item" href="/about">
-                                    <div>About &amp; Contact</div>
-                                </a>
-                                <a class="nav-menu-item" href="/pro">
-                                    <div>Get a Pro Account</div>
-                                </a>
-                                <a class="nav-menu-item menu-link" href="/login">
-                                    <div class="fr s-gap">
-                                        <img style="height: 20px;" class="icon"
-                                            src="http://localhost:8081/icons/user2.svg" draggable="false">
-                                        Login
-                                    </div>
-                                </a>
-                            </div>
+                    <img id="show-main-menu" data-show="#main-menu" data-group="menus" class="menu-icon icon"
+                        src="http://localhost:8081/img/kebab.png" draggable="false">
+                    <div id="main-menu" class="nav-menu" style="display:none;right:5px;top:5px;">
+                        <div class="eh">
+                            <img class="menu-icon" data-close="#main-menu" src="http://localhost:8081/icons/x.svg"
+                                draggable="false">
                         </div>
-                        <div id="user-menu" class="nav-menu" style="display:none;right:35px;top:5px;">
-                            <div class="eh">
-                                <img class="menu-icon" data-close="#user-menu" src="http://localhost:8081/icons/x.svg"
-                                    draggable="false">
-                            </div>
-                            <div class="nav-menu-items">
-                                <a class="nav-menu-item" href="/admin/saved">
-                                    <div>Saved</div>
-                                </a>
-                                <a class="nav-menu-item" href="/admin/uploads">
-                                    <div>Uploads</div>
-                                </a>
-                                <a class="nav-menu-item" href="/admin/downloads">
-                                    <div>Downloads</div>
-                                </a>
-                                <a class="nav-menu-item" href="/admin/account">
-                                    <div>Manage Account</div>
-                                </a>
-                                <a class="nav-menu-item" href="/logout">
-                                    <div>Logout</div>
-                                </a>
-                            </div>
+                        <div class="nav-menu-items">
+                            <a class="nav-menu-item" href="/create">
+                                <div>Create</div>
+                            </a>
+                            <a class="nav-menu-item" href="/textures">
+                                <div>Seamless Textures</div>
+                            </a>
+                            <a class="nav-menu-item" href="/hatches">
+                                <div>CAD &amp; Revit Hatches</div>
+                            </a>
+                            <a class="nav-menu-item" href="/stories">
+                                <div>Stories</div>
+                            </a>
+                            <a class="nav-menu-item" href="/manufacturers">
+                                <div>For Manufacturers</div>
+                            </a>
+                            <a class="nav-menu-item" href="/about">
+                                <div>About &amp; Contact</div>
+                            </a>
+                            <a class="nav-menu-item" href="/pro">
+                                <div>Get a Pro Account</div>
+                            </a>
+                            <a class="nav-menu-item menu-link" href="/login">
+                                <div class="fr s-gap">
+                                    <img style="height: 20px;" class="icon" src="http://localhost:8081/icons/user2.svg"
+                                        draggable="false">
+                                    Login
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="user-menu" class="nav-menu" style="display:none;right:35px;top:5px;">
+                        <div class="eh">
+                            <img class="menu-icon" data-close="#user-menu" src="http://localhost:8081/icons/x.svg"
+                                draggable="false">
+                        </div>
+                        <div class="nav-menu-items">
+                            <a class="nav-menu-item" href="/admin/saved">
+                                <div>Saved</div>
+                            </a>
+                            <a class="nav-menu-item" href="/admin/uploads">
+                                <div>Uploads</div>
+                            </a>
+                            <a class="nav-menu-item" href="/admin/downloads">
+                                <div>Downloads</div>
+                            </a>
+                            <a class="nav-menu-item" href="/admin/account">
+                                <div>Manage Account</div>
+                            </a>
+                            <a class="nav-menu-item" href="/logout">
+                                <div>Logout</div>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <script>
+            </div>
+            <script>
 
-                    document.addEventListener("click", function (event) {
-                        const mainMenu = document.getElementById('main-menu')
-                        // close main menu
-                        if (
-                            !mainMenu.contains(event.target) &&
-                            window.getComputedStyle(mainMenu).getPropertyValue('display') !== 'none' &&
-                            !document.getElementById('show-main-menu').contains(event.target)
-                        ) {
-                            mainMenu.style.display = "none";
-                        }
-                        // close user menu
-                        const userMenu = document.getElementById("user-menu")
-                        if (
-                            !userMenu.contains(event.target) &&
-                            window.getComputedStyle(userMenu).getPropertyValue('display') !== 'none' &&
-                            !document.getElementById('show-user-menu').contains(event.target)
-                        ) {
-                            userMenu.style.display = "none";
-                        }
-                    })
-                </script>
-                <div class="lr-content">
-                    <div class="gallery-content">
-                        <div class="lr-header row column vstin">
-                            <h1 class="lr-title">Log in</h1>
-                        </div>
-                        <div class="lr-section column">
-                            <form id="login-form" method="post" class="user-form">
-                                <div class="group">
-                                    <div class="input-label">Email</div>
-                                    <input name="email" type="email" placeholder="alvar@example.com" value="" required>
+                document.addEventListener("click", function (event) {
+                    const mainMenu = document.getElementById('main-menu')
+                    // close main menu
+                    if (
+                        !mainMenu.contains(event.target) &&
+                        window.getComputedStyle(mainMenu).getPropertyValue('display') !== 'none' &&
+                        !document.getElementById('show-main-menu').contains(event.target)
+                    ) {
+                        mainMenu.style.display = "none";
+                    }
+                    // close user menu
+                    const userMenu = document.getElementById("user-menu")
+                    if (
+                        !userMenu.contains(event.target) &&
+                        window.getComputedStyle(userMenu).getPropertyValue('display') !== 'none' &&
+                        !document.getElementById('show-user-menu').contains(event.target)
+                    ) {
+                        userMenu.style.display = "none";
+                    }
+                })
+            </script>
+            <div class="lr-content">
+                <div class="gallery-content">
+                    <div class="lr-header row column vstin">
+                        <h1 class="lr-title">Log in</h1>
+                    </div>
+                    <div class="lr-section column">
+                        <form id="login-form" method="post" class="user-form">
+                            <div class="group">
+                                <div class="input-label">Email</div>
+                                <input name="email" type="email" placeholder="alvar@example.com" value="" required>
+                            </div>
+                            <div class="group">
+                                <div class="input-label">Password</div>
+                                <input name="password" type="password" placeholder="●●●●●●●●" required>
+                                <div data-login-err="general" class="hide-me black-warning">Email or password is
+                                    incorrect</div>
+                            </div>
+                            <div class="group">
+                                <input type="submit" data-login-button="active" class="form-button button user-button"
+                                    value="Log in">
+                                <div class="button disabled hide-me" data-login-button="inactive">
+                                    <div class="spinner"></div>
                                 </div>
-                                <div class="group">
-                                    <div class="input-label">Password</div>
-                                    <input name="password" type="password" placeholder="●●●●●●●●" required>
-                                    <div data-login-err="general" class="hide-me black-warning">Email or password is
-                                        incorrect</div>
+                            </div>
+                            <div class="group">
+                                <p>Don't have a Pro account? <a id="register" class="uline" href="/pro">Get one here</a>
+                                </p>
+                                <div><a id="forgot-password" class="uline" href="/forgot-password">Forgot password</a>
                                 </div>
-                                <div class="group">
-                                    <input type="submit" data-login-button="active"
-                                        class="form-button button user-button" value="Log in">
-                                    <div class="button disabled hide-me" data-login-button="inactive">
-                                        <div class="spinner"></div>
-                                    </div>
-                                </div>
-                                <div class="group">
-                                    <p>Don't have a Pro account? <a id="register" class="uline" href="/pro">Get one
-                                            here</a></p>
-                                    <div><a id="forgot-password" class="uline" href="/forgot-password">Forgot
-                                            password</a>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <script>
-                                (() => {
-                                    const loginForm = document.querySelector('#login-form');
-                                    const errorMessage = document.querySelector("[data-login-err='general']");
-                                    const loginButtonActive = document.querySelector("[data-login-button='active']");
-                                    const loginButtonInactive = document.querySelector("[data-login-button='inactive']");
+                            </div>
+                        </form>
+                    </div>
+                    <script>
+                            (() => {
+                                const loginForm = document.querySelector('#login-form');
+                                const errorMessage = document.querySelector("[data-login-err='general']");
+                                const loginButtonActive = document.querySelector("[data-login-button='active']");
+                                const loginButtonInactive = document.querySelector("[data-login-button='inactive']");
 
-                                    loginForm.addEventListener("submit", (e) => {
-                                        e.preventDefault();
+                                loginForm.addEventListener("submit", (e) => {
+                                    e.preventDefault();
 
-                                        errorMessage.classList.add('hide-me');
-                                        loginButtonActive.classList.add('hide-me');
-                                        loginButtonInactive.classList.remove('hide-me');
+                                    errorMessage.classList.add('hide-me');
+                                    loginButtonActive.classList.add('hide-me');
+                                    loginButtonInactive.classList.remove('hide-me');
 
-                                        const form = e.target;
-                                        const formData = new FormData(form);
-                                        const data = {};
-                                        for (const pair of formData.entries()) {
-                                            data[pair[0]] = pair[1];
+                                    const form = e.target;
+                                    const formData = new FormData(form);
+                                    const data = {};
+                                    for (const pair of formData.entries()) {
+                                        data[pair[0]] = pair[1];
+                                    }
+
+                                    postJson("/auth/login", data).then(response => {
+                                        if (response.statusCode == 401) {
+                                            errorMessage.classList.remove('hide-me');
+                                            loginButtonActive.classList.remove('hide-me');
+                                            loginButtonInactive.classList.add('hide-me');
+                                            return;
                                         }
 
-                                        postJson("/auth/login", data).then(response => {
-                                            if (response.statusCode == 401) {
-                                                errorMessage.classList.remove('hide-me');
-                                                loginButtonActive.classList.remove('hide-me');
-                                                loginButtonInactive.classList.add('hide-me');
-                                                return;
-                                            }
+                                        let redirectTarget = '/';
+                                        if (response.redirect) {
+                                            redirectTarget = response.redirect;
+                                        }
 
-                                            let redirectTarget = '/';
-                                            if (response.redirect) {
-                                                redirectTarget = response.redirect;
-                                            }
-
-                                            window.location.href = redirectTarget;
-                                        });
+                                        window.location.href = redirectTarget;
                                     });
-                                })();
-                        </script>
-                    </div>
+                                });
+                            })();
+                    </script>
                 </div>
-                <div id="footer-container" class="footer column-container row">
-                    <div class="column">
-                        <div class="footer-above row">
-                            <div class="footer-text">
-                                <p>Architextures (ARTX), is a library of high quality seamless textures for use in
-                                    architectural drawings and 3D models. All textures on the site are procedural
-                                    meaning the dimensions, patterns, colours and more can be edited using <a
-                                        href="/create">Architextures Create</a>, our custom-built web app for creating
-                                    seamless textures. All textures can be downloaded free of charge for educational and
-                                    personal use. Textures can be used in commercial work by users with a <a
-                                        href="/pro">Pro</a> subscription subject to the <a href="/terms">Terms of
-                                        Use</a>. By using the Architextures website you agree to the comply with these
-                                    <a href="/terms">Terms of Use.</a> Architextures uses cookies for core functions and
-                                    analytics. By using the website you agree to the use these cookies. Further details
-                                    about how we use cookies can be found <a href="/privacy">here</a>.</p>
-                            </div>
-                            <div class="footer-links-container row">
-                                <nav class="footer-nav">
-                                    <div class="inlab">Materials</div>
-                                    <ul>
-                                        <li><a href="/textures/category/brick">Brick</a></li>
-                                        <li><a href="/textures/category/concrete">Concrete</a></li>
-                                        <li><a href="/textures/category/metal">Metal</a></li>
-                                        <li><a href="/textures/category/stone">Stone</a></li>
-                                        <li><a href="/textures/category/wood">Wood</a></li>
-                                        <li><a href="/textures/category/terrazzo">Terrazzo</a></li>
-                                        <li><a href="/textures/category/fabric">Fabric</a></li>
-                                        <li><a href="/textures/category/carpet">Carpet</a></li>
-                                        <li><a href="/textures/category/wallpaper">Wallpaper</a></li>
-                                    </ul>
-                                </nav>
-                                <nav class="footer-nav">
-                                    <div class="inlab">Content</div>
-                                    <ul>
-                                        <li><a href="/create">Create</a></li>
-                                        <li><a href="/textures">Seamless Textures</a></li>
-                                        <li><a href="/textures/type/pbr">PBR Textures</a></li>
-                                        <li><a href="/hatches">CAD &amp; Revit Hatches</a></li>
-                                        <li><a href="/stories">Stories</a></li>
-                                    </ul>
-                                </nav>
-                                <nav class="footer-nav">
-                                    <div class="inlab">Documentation</div>
-                                    <ul>
-                                        <li><a href="/page/user-guide">User Guide</a></li>
-                                        <li><a href="/page/updates">Updates</a></li>
-                                        <li><a href="/page/architextures-for-sketchup-guide">SketchUp Extension</a></li>
-                                        <li><a href="/page/architextures-for-revit">Revit Add-in</a></li>
-                                    </ul>
-                                </nav>
-                                <nav class="footer-nav">
-                                    <div class="inlab">Architextures</div>
-                                    <ul>
-                                        <li><a href="/about">About</a></li>
-                                        <li><a href="/about">Contact</a></li>
-                                        <li><a
-                                                href="https://144083254.hs-sites-eu1.com/architextures-newsletter-sign-up">Newsletter
-                                                sign-up</a></li>
-                                        <li><a href="/pro">Get a Pro Account</a></li>
-                                        <li><a href="/manufacturers">For Manufacturers</a></li>
-                                    </ul>
-                                </nav>
-                                <nav class="footer-nav">
-                                    <div class="inlab">Social</div>
-                                    <ul>
-                                        <li><a href="https://www.instagram.com/_architextures/">Instagram</a></li>
-                                        <li><a href="https://www.linkedin.com/company/architexturesorg">LinkedIn</a>
-                                        </li>
-                                        <li><a
-                                                href="https://www.youtube.com/channel/UCQeRssb0C7UhZkCro4J79BQ">YouTube</a>
-                                        </li>
-                                        <li><a href="https://www.pinterest.co.uk/architextureswebsite">Pinterest</a>
-                                        </li>
-                                    </ul>
-                                </nav>
+            </div>
+            <div id="footer-container" class="footer column-container row">
+                <style>
+                    #feedback {
+                        position: fixed;
+                        bottom: -1px;
+                        right: 12px;
+                        border-radius: 8px 8px 0 0;
+                        z-index: 1000;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                        display: flex;
+                        max-width: 300px;
+                        background-color: var(--offblack);
+                        color: white;
+                        font-size: 11px;
+                        border: 1px solid rgba(255, 255, 255, 0.25);
+                    }
+
+                    #feedbackText,
+                    #feedbackTitle {
+                        color: white;
+                    }
+
+                    #feedbackText {
+                        padding: 6px 8px;
+                        padding-right: 0;
+                        font-size: 12px;
+                    }
+
+                    #feedbackTitle {
+                        margin: 2px 5px;
+                        margin-right: 2px;
+                    }
+
+                    #collapseButton {
+                        filter: invert(1);
+                        width: 12px;
+                        margin: 2px 5px;
+                        opacity: 0.6;
+                    }
+
+                    .collapsed #collapseButton {
+                        margin: 1px 5px;
+                        transform: rotate(180deg);
+                    }
+
+                    #feedbackImage {
+                        height: 100%;
+                        max-height: 50px;
+                        aspect-ratio: 1;
+                    }
+
+                    #feedback a:hover {
+                        text-decoration: underline;
+                    }
+                </style>
+                <div id="feedback" class="df sh">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdG1VCZbrlOJA1Tt01JUmHdqQ6_KbxihN3lNafL6dRCZ69jDA/viewform"
+                        target="_blank" class="none">
+                        <div id="feedbackContent" class="cc">
+                            <div id="feedbackTitle" style="font-family:var(--font-b);">Take our survey</div>
+                            <div id="feedbackText">
+                                <div id="feedback-text-body"><b>⭐️ Take our quick survey ⭐️ – and you could win a
+                                        $200 Amazon Gift Voucher just in time for the festive season!</b><br>Share
+                                    your insights on how you research, evaluate and select building materials. We
+                                    want to hear from you!</div>
                             </div>
                         </div>
-                        <div class="below-footer row outline sh cv">
-                            <div class="copyright-notice">© Architextures 2024</div>
-                            <img id="logo" alt="ARTX, the Architextures logo"
-                                src="http://localhost:8081/img/artx-logo.svg">
+                    </a>
+                    <img id="collapseButton" class="icon" src="http://localhost:8081/icons/down.svg">
+                    <script>
+                        const feedback = document.getElementById("feedback");
+                        const feedbackText = document.getElementById("feedbackText");
+                        const feedbackTitle = document.getElementById("feedbackTitle");
+                        const collapseButton = document.getElementById("collapseButton");
+
+                        function setFeedbackVisibility() {
+                            const collapsed = getArtxCookie("feedbackCollapsed");
+                            feedbackText.style.display = collapsed ? "none" : "";
+                            feedbackTitle.style.display = collapsed ? "" : "none";
+                            feedback.classList.toggle("collapsed", collapsed);
+                        }
+
+                        collapseButton.onclick = function () {
+                            const currentState = getArtxCookie("feedbackCollapsed");
+                            setArtxCookie("feedbackCollapsed", !currentState);
+                            setFeedbackVisibility();
+                        }
+
+                        setFeedbackVisibility();
+                    </script>
+                </div>
+                <div class="column">
+                    <div class="footer-above row">
+                        <div class="footer-text">
+                            <p>Architextures (ARTX), is a library of high quality seamless textures for use in
+                                architectural drawings and 3D models. All textures on the site are procedural meaning
+                                the dimensions, patterns, colours and more can be edited using <a
+                                    href="/create">Architextures Create</a>, our custom-built web app for creating
+                                seamless textures. All textures can be downloaded free of charge for educational and
+                                personal use. Textures can be used in commercial work by users with a <a
+                                    href="/pro">Pro</a> subscription subject to the <a href="/terms">Terms of Use</a>.
+                                By using the Architextures website you agree to the comply with these <a
+                                    href="/terms">Terms of Use.</a> Architextures uses cookies for core functions and
+                                analytics. By using the website you agree to the use these cookies. Further details
+                                about how we use cookies can be found <a href="/privacy">here</a>.</p>
                         </div>
+                        <div class="footer-links-container row">
+                            <nav class="footer-nav">
+                                <div class="inlab">Materials</div>
+                                <ul>
+                                    <li><a href="/textures/category/brick">Brick</a></li>
+                                    <li><a href="/textures/category/concrete">Concrete</a></li>
+                                    <li><a href="/textures/category/metal">Metal</a></li>
+                                    <li><a href="/textures/category/stone">Stone</a></li>
+                                    <li><a href="/textures/category/wood">Wood</a></li>
+                                    <li><a href="/textures/category/terrazzo">Terrazzo</a></li>
+                                    <li><a href="/textures/category/fabric">Fabric</a></li>
+                                    <li><a href="/textures/category/carpet">Carpet</a></li>
+                                    <li><a href="/textures/category/wallpaper">Wallpaper</a></li>
+                                </ul>
+                            </nav>
+                            <nav class="footer-nav">
+                                <div class="inlab">Content</div>
+                                <ul>
+                                    <li><a href="/create">Create</a></li>
+                                    <li><a href="/textures">Seamless Textures</a></li>
+                                    <li><a href="/textures/type/pbr">PBR Textures</a></li>
+                                    <li><a href="/hatches">CAD &amp; Revit Hatches</a></li>
+                                    <li><a href="/stories">Stories</a></li>
+                                </ul>
+                            </nav>
+                            <nav class="footer-nav">
+                                <div class="inlab">Documentation</div>
+                                <ul>
+                                    <li><a href="/page/user-guide">User Guide</a></li>
+                                    <li><a href="/page/updates">Updates</a></li>
+                                    <li><a href="/page/architextures-for-sketchup-guide">SketchUp Extension</a></li>
+                                    <li><a href="/page/architextures-for-revit">Revit Add-in</a></li>
+                                </ul>
+                            </nav>
+                            <nav class="footer-nav">
+                                <div class="inlab">Architextures</div>
+                                <ul>
+                                    <li><a href="/about">About</a></li>
+                                    <li><a href="/about">Contact</a></li>
+                                    <li><a href="https://144083254.hs-sites-eu1.com/architextures-newsletter-sign-up">Newsletter
+                                            sign-up</a></li>
+                                    <li><a href="/pro">Get a Pro Account</a></li>
+                                    <li><a href="/manufacturers">For Manufacturers</a></li>
+                                </ul>
+                            </nav>
+                            <nav class="footer-nav">
+                                <div class="inlab">Social</div>
+                                <ul>
+                                    <li><a href="https://www.instagram.com/_architextures/">Instagram</a></li>
+                                    <li><a href="https://www.linkedin.com/company/architexturesorg">LinkedIn</a>
+                                    </li>
+                                    <li><a href="https://www.youtube.com/channel/UCQeRssb0C7UhZkCro4J79BQ">YouTube</a>
+                                    </li>
+                                    <li><a href="https://www.pinterest.co.uk/architextureswebsite">Pinterest</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="below-footer row outline sh cv">
+                        <div class="copyright-notice">© Architextures 2024</div>
+                        <img id="logo" alt="ARTX, the Architextures logo" src="http://localhost:8081/img/artx-logo.svg">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        const sliderImages = {
-            "slides": [
-                {
-                    src: "/uploads/471bbf82-5d70-4ce2-8520-52b3a1c18b8a.jpg",
-                    text: "Southwold Beach House, Tom Groves Studio for Architecture For London",
-                    color: "#474c3c",
-                },
-                {
-                    src: "/uploads/d96f9f8f-0f53-41d9-9d82-89e18d77890b.jpg",
-                    text: "Coombe Street, Axson Office for New Works",
-                    color: "#7f503d",
-                },
-                {
-                    src: "/uploads/f017d3b3-55dc-450f-97c1-8793ec1d66b1.jpg",
-                    text: "Passivhaus Cohousing, Architecture For London",
-                    color: "#a3a594",
-                },
-                {
-                    src: "/uploads/e17e9fed-6ad4-4392-8a3b-9cb6b6dbd7bb.jpg",
-                    text: "Stockbridge Townhouse, Ossian Architects",
-                    color: "#9a887a",
-                },
-                {
-                    src: "/uploads/de5510df-4ad6-4314-b3b2-81f6340eda76.jpg",
-                    text: "Hamilton Mausoleum, Titas Grikevičius &amp; Ross Cameron",
-                    color: "#9c9a91",
-                },
-            ]
-        };
-        const imageSlides = new ImageSlides(sliderImages.slides);
-        imageSlides.createSlides();
-        document.querySelector("[data-slides='leftright-page']").appendChild(imageSlides.getSlidesElement());
-    </script>
-</body>
-
-</html>
+</div>
+<script>
+    const sliderImages = {
+        "slides": [
+            {
+                src: "/uploads/471bbf82-5d70-4ce2-8520-52b3a1c18b8a.jpg",
+                text: "Southwold Beach House, Tom Groves Studio for Architecture For London",
+                color: "#474c3c",
+            },
+            {
+                src: "/uploads/d96f9f8f-0f53-41d9-9d82-89e18d77890b.jpg",
+                text: "Coombe Street, Axson Office for New Works",
+                color: "#7f503d",
+            },
+            {
+                src: "/uploads/f017d3b3-55dc-450f-97c1-8793ec1d66b1.jpg",
+                text: "Passivhaus Cohousing, Architecture For London",
+                color: "#a3a594",
+            },
+            {
+                src: "/uploads/e17e9fed-6ad4-4392-8a3b-9cb6b6dbd7bb.jpg",
+                text: "Stockbridge Townhouse, Ossian Architects",
+                color: "#9a887a",
+            },
+            {
+                src: "/uploads/de5510df-4ad6-4314-b3b2-81f6340eda76.jpg",
+                text: "Hamilton Mausoleum, Titas Grikevičius &amp; Ross Cameron",
+                color: "#9c9a91",
+            },
+        ]
+    };
+    const imageSlides = new ImageSlides(sliderImages.slides);
+    imageSlides.createSlides();
+    document.querySelector("[data-slides='leftright-page']").appendChild(imageSlides.getSlidesElement());
+</script>
+@endslot
+@end

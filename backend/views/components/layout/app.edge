@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-config="{{ config }}" data-params="{{ params }}">
+
+<head>
+    <meta charset='utf-8' />
+    <title>Create - Architextures</title>
+    <meta property="og:title" content="Create - Architextures" />
+    <meta property="og:image" content="http://localhost:8081/images/arhitacture.jpg" />
+    <meta name="description"
+        content="A web app for architects and designers. Find materials &amp; create seamless textures, bump maps and CAD hatches" />
+    <meta name="viewport" content="width=device-width">
+    <meta name="theme-color" content="#eaece8">
+    <link rel="icon" type="image/png" sizes="128x128" href="http://localhost:8081/img/icon128.png">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap">
+
+
+    <link href="/vendor/spectrum.css" rel='stylesheet' />
+    <link href="/vendor/flickity.min.css" rel="stylesheet" />
+    <link href="/css/style.css" rel='stylesheet' />
+    <link href="/css/create.css" rel='stylesheet' />
+
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <!-- <script src="/js/jquery-init.js"></script> -->
+    <script src="/vendor/spectrum.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/vendor/piexif.js"></script>
+    <script src="/js/components/CreateElement.js"></script>
+    <script src="/js/handler/BrandRequest.js"></script>
+    <script src="/js/textures.min.js"></script>
+    <script src="/vendor/flickity.pkgd.min.js"></script>
+    <script src="/vendor/panzoom.min.js"></script>
+    <script src="/js/handler/RegistrationForm.js"></script>
+    <script src="/js/handler/UserPlanData.js"></script>
+    <script src="/js/handler/CollectRegistrationData.js"></script>
+    <script src="/js/handler/UserRegistration.js"></script>
+    <script src="/js/handler/ImageSlides.js"></script>
+    <script src="/js/components/AbstractMenuItems.js"></script>
+    <script src="/js/components/AbstractContextMenu.js"></script>
+    <script src="/js/components/SearchSelect.js"></script>
+    <script src="/js/components/RegularSelectMenu.js"></script>
+    <script src="/js/components/CategoryMenu.js"></script>
+    <script src="/js/components/BrandMenu.js"></script>
+    <script src="/js/components/CheckboxSelectMenu.js"></script>
+
+    @if ($slots.script)
+    {{{ await $slots.script() }}}
+    @endif
+</head>
+
+<body>
+    {{{ await $slots.main() }}}
+</body>
+
+</html>

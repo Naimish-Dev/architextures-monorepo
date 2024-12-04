@@ -1,7 +1,5 @@
 import express from "express";
 import "dotenv/config";
-import path from "path";
-import engine from "express-edge";
 import webRouter from "./routes/web.router.js";
 import materialsRouter from "./routes/materials.router.js";
 import patternsRouter from "./routes/patterns.router.js";
@@ -14,15 +12,14 @@ import passport from "passport";
 import { ValidationException } from "./app/exceptions/validation.exception.js";
 import { HttpException } from "./app/exceptions/http.exception.js";
 import { globalExceptionHandler } from "./app/exceptions/global.exception.js";
-import "./mongoose.js";
+import { edgeMiddleware } from "./app/middlewares/edge.middleware.js";
+import { defaultConfig } from "./app/middlewares/defaultConfig.middleware.js";
+import "./mongoose.js"
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.disable("x-powered-by");
-
-app.use(engine);
-app.set("views", path.resolve("views"));
 
 if (process.env.NODE_ENV === "production") {
   app.enable("view cache");
@@ -42,13 +39,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.static("public"));
+app.use(edgeMiddleware);
+app.use(defaultConfig);
 app.use(webRouter);
 app.use("/auth", authRouter);
 app.use("/api/materials", materialsRouter);
 app.use("/api/patterns", patternsRouter);
-app.use("/api", apiRouter);
 app.use("/api/paths", pathsRouter);
 app.use("/api/heightmaps", heightRouter);
+app.use("/api", apiRouter);
 
 app.get("/*", (req, res) => {
   return res.render("errors.404");
