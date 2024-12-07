@@ -17,6 +17,7 @@ router.get("/create", (req, res, next) => {
     next(error);
   }
 });
+
 router.get("/login", (req, res, next) => {
   try {
     return res.render("login");
@@ -58,14 +59,14 @@ router.get("/admin/saved", (req, res, next) => {
     next(error);
   }
 });
-router.get("/admin/upload", (req, res, next) => {
+router.get("/admin/uploads", (req, res, next) => {
   try {
     return res.render("admin.upload");
   } catch (error) {
     next(error);
   }
 });
-router.get("/admin/download", (req, res, next) => {
+router.get("/admin/downloads", (req, res, next) => {
   try {
     return res.render("admin.download");
   } catch (error) {
@@ -74,7 +75,7 @@ router.get("/admin/download", (req, res, next) => {
 });
 router.get("/admin/account", (req, res, next) => {
   try {
-    return res.render("admin.download");
+    return res.render("admin.account");
   } catch (error) {
     next(error);
   }

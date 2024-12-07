@@ -5,8 +5,8 @@
 <script src="/js/admin.js"></script>
 <script src="/js/chart.umd.min.js"></script>
 @endslot
-@slot('main')
 
+@slot('main')
 <body cz-shortcut-listen="true">
     <div class="admin-body fw fh sh">
         <div class="sidebar">
@@ -17,6 +17,7 @@
                     </a>
                 </div>
                 <div class="cc s-gap">
+                    <a id="pro-button-header" href="/pro" class="fbutt">Get Pro</a>
                     <img id="show-user-menu" class="menu-icon" data-show="#user-menu"
                         src="http://localhost:8081/icons/user2.svg" data-group="menus" draggable="false">
 
@@ -24,8 +25,8 @@
                         src="http://localhost:8081/img/kebab.png" draggable="false">
                     <div id="main-menu" class="nav-menu" style="display:none;right:5px;top:5px;">
                         <div class="eh">
-                            <img class="menu-icon" data-close="#main-menu" src="http://localhost:8081/icons/x.svg"
-                                draggable="false">
+                            <img class="menu-icon" data-close="#main-menu"
+                                src="http://localhost:8081/icons/x.svg" draggable="false">
                         </div>
                         <div class="nav-menu-items">
                             <a class="nav-menu-item" href="/create">
@@ -46,12 +47,15 @@
                             <a class="nav-menu-item" href="/about">
                                 <div>About &amp; Contact</div>
                             </a>
+                            <a class="nav-menu-item" href="/pro">
+                                <div>Get a Pro Account</div>
+                            </a>
                         </div>
                     </div>
                     <div id="user-menu" class="nav-menu" style="display:none;right:35px;top:5px;">
                         <div class="eh">
-                            <img class="menu-icon" data-close="#user-menu" src="http://localhost:8081/icons/x.svg"
-                                draggable="false">
+                            <img class="menu-icon" data-close="#user-menu"
+                                src="http://localhost:8081/icons/x.svg" draggable="false">
                         </div>
                         <div class="nav-menu-items">
                             <a class="nav-menu-item" href="/admin/saved">
@@ -66,7 +70,7 @@
                             <a class="nav-menu-item" href="/admin/account">
                                 <div>Manage Account</div>
                             </a>
-                            <a class="nav-menu-item" href="/logout">
+                            <a class="nav-menu-item" href="/logout?redirect=%2Fadmin%2Fsaved">
                                 <div>Logout</div>
                             </a>
                         </div>
@@ -102,9 +106,9 @@
             <div class="sv fh sidebar-content">
                 <ul class="sidebar-links">
                     <div class="sidebar-break"></div>
-                    <a class="admin-menu active" href="/admin/saved">Saved</a>
+                    <a class="admin-menu" href="/admin/saved">Saved</a>
                     <a class="admin-menu" href="/admin/uploads">Uploads</a>
-                    <a class="admin-menu" href="/admin/downloads">Downloads</a>
+                    <a class="admin-menu active" href="/admin/downloads">Downloads</a>
                     <div class="sidebar-break"></div>
                     <a class="admin-menu " href="/admin/account">Account</a>
                     <a target="_blank" class="admin-menu none" href="/account/customer-portal">Billing</a>
@@ -121,53 +125,28 @@
                 <div class="admin-header-container">
                     <div class="admin-header">
                         <div class="flex-centred">
-                            <h1 class="admin-page-heading">Textures</h1>
-                        </div>
-                        <div id="admin-search-container" class="flex-centred">
-                            <div class="pill-input-container"><input type="text"
-                                    class="search pill-input pill-box small fbutt search" placeholder="Search"
-                                    id="admin-search"></div>
+                            <h1 class="admin-page-heading">Downloads</h1>
                         </div>
                     </div>
                     <div class="admin-item-header-container">
                         <div class="admin-item-header">
-                            <div class="admin-item-value input-label thumb">img</div>
-                            <div class="admin-item-value input-label">name</div>
-                            <div class="admin-item-button-right input-label"></div>
+                            <div class="admin-item-value input-label">date</div>
                             <div class="admin-item-button-right input-label"></div>
                         </div>
                     </div>
                 </div>
                 <div class="admin-items">
                     <div style="position: relative;">
-                        <div style="position: relative; transition: opacity 145ms; opacity: 1;">
-                            <div data-item-id="86265" class="admin-item-container">
-                                <div title="86265" class="admin-item">
-                                    <div class="admin-item-value thumb flex-centred">
-                                        <div class="admin-item-thumb"
-                                            style="background-image:url('http://localhost:8081/textures/21/07/western-red-cedar-stack-60e5d53d1803f-1200.jpg');background-color:#866247;">
-                                        </div>
-                                    </div>
-                                    <div data-admin-column="name-86265" class="admin-item-value">Western Red Cedar Stack
-                                    </div>
-                                </div><a href="/create?save=86265" target="_blank"
-                                    class="admin-item-button-right flex-centred"><img
-                                        src="http://localhost:8081/icons/eye.svg" class="icon"></a>
-                                <div class="admin-item-button-right flex-centred" data-admin-materials="delete-86265">
-                                    <img src="http://localhost:8081/icons/delete.svg" class="icon">
-                                </div>
-                            </div>
-                        </div>
+                        <div style="position: relative; transition: opacity 145ms; opacity: 1;"></div>
                         <div class="flex-centred cc archive-message"
                             style="pointer-events: none; position: absolute; top: 0px; opacity: 0; width: 100%; padding: 50px; box-sizing: border-box; display: none;">
                             <div style="width:40px;" class="spinner"></div>
                         </div>
                         <div class="shadow more-button flex-centred"
-                            style="height: 62px; color: rgb(153, 153, 153); pointer-events: none;">
+                            style="display:none;height:62px;color: #999;pointer-events: none;38px;">
                             <p>End of results</p>
                         </div>
-                        <div class="archive-message flex-centred"
-                            style="display: none; transition: opacity 145ms; opacity: 1;">
+                        <div class="archive-message flex-centred" style="transition: opacity 145ms; opacity: 1;">
                             <div>
                                 <div style="text-align: center; margin-top: 20px; margin-bottom: 10px;">No results</div>
                                 <button class="button2 small" style="width:auto;">Reset filters</button>
@@ -178,7 +157,7 @@
                 <div class="admin-item-footer shadow" style="opacity: 1; transition: opacity 145ms; display: none;">More
                 </div>
             </div>
-            <div id="admin-single" class="admin-content" style="display:none;">
+            <div id="admin-single" class="admin-content" style="display: none; transition: opacity -5ms; opacity: 0;">
                 <div class="admin-header admin-header-single">
                     <div id="admin-single-heading-left">
                         <h1 class="admin-page-heading"></h1>
@@ -447,20 +426,11 @@
                     <div class="admin-section">
                         <div style="display:flex; align-items:center;">
                             <h3>Design Options</h3>
-                            <!--<select class="small" style="margin-left: 15px; width:120px;">
-                            <option>Any other pattern</option>
-                            <option>Any pattern</option>
-                            <option>Any pattern</option>
-                        </select>-->
                         </div>
                         <div class="sardine-tin admin-design-options">
                         </div>
                     </div>
-                    <!--<div class="admin-section">
-                    <div class="sardine-tin">
-                        <button id="preview-button" class="button2">Preview</button>
-                    </div>
-                </div>-->
+                    
                 </div>
                 <div id="admin-single-uploads" class="admin-single-content" style="display:none;">
                     <div class="admin-section">
@@ -478,7 +448,7 @@
                                 <div class="source-image-container admin-image-container">
                                     <div class="source-upload shadow admin-image-upload-button">
                                         <img class="source-upload-button admin-image-upload-button"
-                                            src="/img/upload.svg">
+                                            src="http://localhost:8081/img/upload.svg">
                                     </div>
                                 </div>
                             </div>
@@ -578,9 +548,8 @@
             </div>
         </div>
     </div>
-
     <script>
-        config.state = {
+        creare.state = {
             area: "materials",
             limit: 35,
             page: 1,
@@ -588,27 +557,30 @@
             owned: true,
         };
 
-        config.brands = arrayToObject([], "id");
+        creare.brands = arrayToObject([], "id");
 
-        config.state.area = 'saved';
-        config.state.area = "saved";
+        creare.state.area = 'saved';
+        creare.state.area = "saved";
 
-        config.stories = {
+        creare.stories = {
             categories: JSON.parse('\u005B\u0022Acoustic\u0022,\u0022Brick\u0022,\u0022Carpet\u0022,\u0022Concrete\u0022,\u0022Fabric\u0022,\u0022Finishes\u0022,\u0022Graphic\u0022,\u0022Insulation\u0022,\u0022Joint\u0022,\u0022Landscaping\u0022,\u0022Metal\u0022,\u0022Organic\u0022,\u0022Stone\u0022,\u0022Surfaces\u0022,\u0022Surfacing\u0022,\u0022Terrazzo\u0022,\u0022Tile\u0022,\u0022Vinyl\u0022,\u0022Wallpaper\u0022,\u0022Wood\u0022\u005D'),
             themes: JSON.parse('\u005B\u0022Materials\u0022,\u0022Patterns\u0022,\u0022Projects\u0022,\u0022Sustainability\u0022\u005D'),
         };
 
     </script>
-    <script src="/js/admin/handler/Statistics.js"></script>
-    <script src="/js/admin/handler/UserStatistics.js"></script>
-    <script src="/js/admin/handler/Brand.js"></script>
-    <script src="/js/admin/handler/CollectionAdmin.js"></script>
-    <script src="/js/admin/handler/SingleCollectionAdmin.js"></script>
-    <script src="/js/admin/handler/LoadCollections.js"></script>
-    <script src="/js/admin/handler/PositionOverrideHandler.js"></script>
-    <script src="/vendor/Sortable.min.js"></script>
-    <script src="/js/admin.js"></script>
+<script src="/js/admin/handler/Statistics.js"></script>
+<script src="/js/admin/handler/UserStatistics.js"></script>
+<script src="/js/admin/handler/Brand.js"></script>
+<script src="/js/admin/handler/CollectionAdmin.js"></script>
+<script src="/js/admin/handler/SingleCollectionAdmin.js"></script>
+<script src="/js/admin/handler/LoadCollections.js"></script>
+<script src="/js/admin/handler/PositionOverrideHandler.js"></script>
+<script src="/vendor/Sortable.min.js"></script>
+<script src="/js/admin.js"></script>
 
 </body>
+
+</html>
+
 @endslot
 @end

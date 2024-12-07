@@ -4,10 +4,11 @@
 <link rel="stylesheet" href="/css/admin.css">
 <script src="/js/admin.js"></script>
 <script src="/js/chart.umd.min.js"></script>
+
 @endslot
 @slot('main')
 
-<body cz-shortcut-listen="true">
+<body cz-shortcut-listen="true" style="pointer-events: auto;">
     <div class="admin-body fw fh sh">
         <div class="sidebar">
             <div class="top">
@@ -17,6 +18,7 @@
                     </a>
                 </div>
                 <div class="cc s-gap">
+                    <a id="pro-button-header" href="/pro" class="fbutt">Get Pro</a>
                     <img id="show-user-menu" class="menu-icon" data-show="#user-menu"
                         src="http://localhost:8081/icons/user2.svg" data-group="menus" draggable="false">
 
@@ -24,8 +26,8 @@
                         src="http://localhost:8081/img/kebab.png" draggable="false">
                     <div id="main-menu" class="nav-menu" style="display:none;right:5px;top:5px;">
                         <div class="eh">
-                            <img class="menu-icon" data-close="#main-menu" src="http://localhost:8081/icons/x.svg"
-                                draggable="false">
+                            <img class="menu-icon" data-close="#main-menu"
+                                src="http://localhost:8081/icons/x.svg" draggable="false">
                         </div>
                         <div class="nav-menu-items">
                             <a class="nav-menu-item" href="/create">
@@ -46,12 +48,15 @@
                             <a class="nav-menu-item" href="/about">
                                 <div>About &amp; Contact</div>
                             </a>
+                            <a class="nav-menu-item" href="/pro">
+                                <div>Get a Pro Account</div>
+                            </a>
                         </div>
                     </div>
                     <div id="user-menu" class="nav-menu" style="display:none;right:35px;top:5px;">
                         <div class="eh">
-                            <img class="menu-icon" data-close="#user-menu" src="http://localhost:8081/icons/x.svg"
-                                draggable="false">
+                            <img class="menu-icon" data-close="#user-menu"
+                                src="http://localhost:8081/icons/x.svg" draggable="false">
                         </div>
                         <div class="nav-menu-items">
                             <a class="nav-menu-item" href="/admin/saved">
@@ -66,7 +71,7 @@
                             <a class="nav-menu-item" href="/admin/account">
                                 <div>Manage Account</div>
                             </a>
-                            <a class="nav-menu-item" href="/logout">
+                            <a class="nav-menu-item" href="/logout?redirect=%2Fadmin%2Fsaved">
                                 <div>Logout</div>
                             </a>
                         </div>
@@ -102,8 +107,8 @@
             <div class="sv fh sidebar-content">
                 <ul class="sidebar-links">
                     <div class="sidebar-break"></div>
-                    <a class="admin-menu active" href="/admin/saved">Saved</a>
-                    <a class="admin-menu" href="/admin/uploads">Uploads</a>
+                    <a class="admin-menu" href="/admin/saved">Saved</a>
+                    <a class="admin-menu active" href="/admin/uploads">Uploads</a>
                     <a class="admin-menu" href="/admin/downloads">Downloads</a>
                     <div class="sidebar-break"></div>
                     <a class="admin-menu " href="/admin/account">Account</a>
@@ -121,12 +126,9 @@
                 <div class="admin-header-container">
                     <div class="admin-header">
                         <div class="flex-centred">
-                            <h1 class="admin-page-heading">Textures</h1>
-                        </div>
-                        <div id="admin-search-container" class="flex-centred">
-                            <div class="pill-input-container"><input type="text"
-                                    class="search pill-input pill-box small fbutt search" placeholder="Search"
-                                    id="admin-search"></div>
+                            <h1 class="admin-page-heading">Materials</h1><button id="add-button" class="fbutt"
+                                style="margin-left:20px;padding: 0 10px;">Add material<span class="tooltip-icon"
+                                    data-tooltip="You have used 0% of your available storage"></span></button>
                         </div>
                     </div>
                     <div class="admin-item-header-container">
@@ -134,26 +136,81 @@
                             <div class="admin-item-value input-label thumb">img</div>
                             <div class="admin-item-value input-label">name</div>
                             <div class="admin-item-button-right input-label"></div>
-                            <div class="admin-item-button-right input-label"></div>
                         </div>
                     </div>
                 </div>
                 <div class="admin-items">
                     <div style="position: relative;">
                         <div style="position: relative; transition: opacity 145ms; opacity: 1;">
-                            <div data-item-id="86265" class="admin-item-container">
-                                <div title="86265" class="admin-item">
+                            <div data-item-id="163934" class="admin-item-container">
+                                <div title="163934" class="admin-item">
                                     <div class="admin-item-value thumb flex-centred">
                                         <div class="admin-item-thumb"
-                                            style="background-image:url('http://localhost:8081/textures/21/07/western-red-cedar-stack-60e5d53d1803f-1200.jpg');background-color:#866247;">
+                                            style="background-image:url('http://localhost:8081/users/28370/uploads/thumb-u163934.jpg?v=6u8qya');background-color:#9c9f9d;">
                                         </div>
                                     </div>
-                                    <div data-admin-column="name-86265" class="admin-item-value">Western Red Cedar Stack
+                                    <div data-admin-column="name-163934" class="admin-item-value">Rectangle 558 (2)
                                     </div>
-                                </div><a href="/create?save=86265" target="_blank"
-                                    class="admin-item-button-right flex-centred"><img
-                                        src="http://localhost:8081/icons/eye.svg" class="icon"></a>
-                                <div class="admin-item-button-right flex-centred" data-admin-materials="delete-86265">
+                                </div>
+                                <div class="admin-item-button-right flex-centred" data-admin-materials="delete-163934">
+                                    <img src="http://localhost:8081/icons/delete.svg" class="icon">
+                                </div>
+                            </div>
+                            <div data-item-id="162202" class="admin-item-container">
+                                <div title="162202" class="admin-item">
+                                    <div class="admin-item-value thumb flex-centred">
+                                        <div class="admin-item-thumb"
+                                            style="background-image:url('http://localhost:8081/users/28370/uploads/thumb-u162202.jpg?v=13o5s6');background-color:#6d6b6e;">
+                                        </div>
+                                    </div>
+                                    <div data-admin-column="name-162202" class="admin-item-value">
+                                        pngtree-d-rendering-of-a-modern-style-office-room-with-white-and-image_3645011
+                                    </div>
+                                </div>
+                                <div class="admin-item-button-right flex-centred" data-admin-materials="delete-162202">
+                                    <img src="http://localhost:8081/icons/delete.svg" class="icon">
+                                </div>
+                            </div>
+                            <div data-item-id="162201" class="admin-item-container">
+                                <div title="162201" class="admin-item">
+                                    <div class="admin-item-value thumb flex-centred">
+                                        <div class="admin-item-thumb"
+                                            style="background-image:url('http://localhost:8081/users/28370/uploads/thumb-u162201.jpg?v=d1jg0j');background-color:#d7d4d0;">
+                                        </div>
+                                    </div>
+                                    <div data-admin-column="name-162201" class="admin-item-value">
+                                        modern-office-room-with-white-walls</div>
+                                </div>
+                                <div class="admin-item-button-right flex-centred" data-admin-materials="delete-162201">
+                                    <img src="http://localhost:8081/icons/delete.svg" class="icon">
+                                </div>
+                            </div>
+                            <div data-item-id="162200" class="admin-item-container">
+                                <div title="162200" class="admin-item">
+                                    <div class="admin-item-value thumb flex-centred">
+                                        <div class="admin-item-thumb"
+                                            style="background-image:url('http://localhost:8081/users/28370/uploads/thumb-u162200.jpg?v=r2mj6f');background-color:#d7d3cf;">
+                                        </div>
+                                    </div>
+                                    <div data-admin-column="name-162200" class="admin-item-value">
+                                        modern-office-room-with-white-walls</div>
+                                </div>
+                                <div class="admin-item-button-right flex-centred" data-admin-materials="delete-162200">
+                                    <img src="http://localhost:8081/icons/delete.svg" class="icon">
+                                </div>
+                            </div>
+                            <div data-item-id="162199" class="admin-item-container">
+                                <div title="162199" class="admin-item">
+                                    <div class="admin-item-value thumb flex-centred">
+                                        <div class="admin-item-thumb"
+                                            style="background-image:url('http://localhost:8081/users/28370/uploads/thumb-u162199.jpg?v=cfodzq');background-color:#666466;">
+                                        </div>
+                                    </div>
+                                    <div data-admin-column="name-162199" class="admin-item-value">
+                                        pngtree-d-rendering-of-a-modern-style-office-room-with-white-and-image_3645011
+                                    </div>
+                                </div>
+                                <div class="admin-item-button-right flex-centred" data-admin-materials="delete-162199">
                                     <img src="http://localhost:8081/icons/delete.svg" class="icon">
                                 </div>
                             </div>
@@ -178,12 +235,12 @@
                 <div class="admin-item-footer shadow" style="opacity: 1; transition: opacity 145ms; display: none;">More
                 </div>
             </div>
-            <div id="admin-single" class="admin-content" style="display:none;">
+            <div id="admin-single" class="admin-content" style="display: none; transition: opacity -5ms; opacity: 0;">
                 <div class="admin-header admin-header-single">
                     <div id="admin-single-heading-left">
                         <h1 class="admin-page-heading"></h1>
                         <div id="admin-material-thumbnail" class="square-button admin-single-thumbnail shadow">
-                            <img src="http://localhost:8081/img/upload.svg" style="opacity: 0.7;">
+                            <img src="http://localhost:8081/icons/upload.svg" style="opacity: 0.7;">
                         </div>
                         <h1 class="admin-single-heading"></h1>
                         <button id="save-button" class="fbutt"
@@ -403,7 +460,7 @@
                                 <div class="source-image-container admin-image-container">
                                     <div class="source-upload shadow admin-image-upload-button">
                                         <img class="source-upload-button admin-image-upload-button"
-                                            src="http://localhost:8081/img/upload.svg">
+                                            src="http://localhost:8081/icons/upload.svg">
                                     </div>
                                 </div>
                             </div>
@@ -478,7 +535,7 @@
                                 <div class="source-image-container admin-image-container">
                                     <div class="source-upload shadow admin-image-upload-button">
                                         <img class="source-upload-button admin-image-upload-button"
-                                            src="/img/upload.svg">
+                                            src="http://localhost:8081/icons/upload.svg">
                                     </div>
                                 </div>
                             </div>
@@ -578,9 +635,8 @@
             </div>
         </div>
     </div>
-
     <script>
-        config.state = {
+        configstate = {
             area: "materials",
             limit: 35,
             page: 1,
@@ -588,12 +644,12 @@
             owned: true,
         };
 
-        config.brands = arrayToObject([], "id");
+        configbrands = arrayToObject([], "id");
 
-        config.state.area = 'saved';
-        config.state.area = "saved";
+        configstate.area = 'saved';
+        configstate.area = "saved";
 
-        config.stories = {
+        configstories = {
             categories: JSON.parse('\u005B\u0022Acoustic\u0022,\u0022Brick\u0022,\u0022Carpet\u0022,\u0022Concrete\u0022,\u0022Fabric\u0022,\u0022Finishes\u0022,\u0022Graphic\u0022,\u0022Insulation\u0022,\u0022Joint\u0022,\u0022Landscaping\u0022,\u0022Metal\u0022,\u0022Organic\u0022,\u0022Stone\u0022,\u0022Surfaces\u0022,\u0022Surfacing\u0022,\u0022Terrazzo\u0022,\u0022Tile\u0022,\u0022Vinyl\u0022,\u0022Wallpaper\u0022,\u0022Wood\u0022\u005D'),
             themes: JSON.parse('\u005B\u0022Materials\u0022,\u0022Patterns\u0022,\u0022Projects\u0022,\u0022Sustainability\u0022\u005D'),
         };
