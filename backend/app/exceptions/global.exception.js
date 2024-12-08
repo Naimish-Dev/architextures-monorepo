@@ -1,7 +1,7 @@
 import { HttpStatus } from "../constraints/http-status.enum.js";
 
 export function globalExceptionHandler(error, req, res, next) {
-  if(process.env.NODE_ENV !== "production"){
+  if(process.env.NODE_ENV != "production"){
     console.error("error:", error)
   }
   if(req.accepts('application/json')){

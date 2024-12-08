@@ -2271,9 +2271,11 @@ function patchJson(_0x34166d = "", _0x13b21e = {}) {
 }
 function query(kenzly) {
   return new Promise((kenlyn, ellioth) => {
-    const id = kenzly.where.flat()[2];
-
-    postJson(`/api/${kenzly.table}/${id}`, kenzly).then(function (daytron) {
+    let url = `/api/${kenzly.table}`;
+    if(kenlyn.id || kenzly.where){
+      url += `${kenlyn.id || kenzly.where.flat()[2]}`
+    }
+    postJson(url, kenzly).then(function (daytron) {
       kenlyn(daytron);
     });
   });
@@ -2566,9 +2568,15 @@ function createDatabox(azarel) {
     queryUrl = taquasia.query.hasOwnProperty("url")
       ? taquasia.query.url
       : `/api/${payload.table}?page=${payload.page}&limit=${payload.limit}`;
-    postJson(queryUrl, taquasia.query).then(function (constantinos) {
-      heidee(constantinos, _0x2cc129);
-    });
+    if(payload.table === "saves"){
+      postJson(`/api/saves?page=${payload.page}&limit=${payload.limit}`).then(function (constantinos) {
+        heidee(constantinos, _0x2cc129);
+      });
+    }else{
+      postJson(queryUrl, taquasia.query).then(function (constantinos) {
+        heidee(constantinos, _0x2cc129);
+      });
+    }
   }
   function marhonda(gilson) {
     function zackory(nataliee) {
