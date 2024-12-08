@@ -12,8 +12,20 @@ export async function index(req, res, next) {
 
     const query = {};
 
+    if(category == "user_materials" && !req.isAuthenticated()){
+      return res.json({
+        more: false,
+        results: [],
+        status: "success",
+      });
+    }
+
     if (category) {
       query.category = { $regex: new RegExp(category, "i") };
+    }
+
+    if(category == "user_materials"){
+      query.user = req.user._id
     }
 
     if (ids) {
@@ -43,14 +55,21 @@ export async function index(req, res, next) {
 
 export async function create(req, res, next) {
   try {
+    if (!req.isAuthenticated())
+      return res.json({
+        message: "Unauthorized",
+        status: "failed",
+      });
     const body = req.body;
-    body.source_names = JSON.parse(body.source_names)
+    body.source_names = JSON.parse(body.source_names);
     body.thumbnail = body.source_names[0];
+    body.category = "user_materials";
+    body.user = req.user._id;
 
-    const materialModel = await Material.create(body)
+    const materialModel = await Material.create(body);
     res.json({
       id: materialModel.id,
-      status: "success"
+      status: "success",
     });
   } catch (error) {
     next(error);

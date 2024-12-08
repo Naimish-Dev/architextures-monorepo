@@ -8,7 +8,7 @@ const router = Router();
 router.post("/user", auth, authController.user);
 router.post("/register", authController.register);
 router.post("/login", authController.login);
-router.delete("/logout", authController.logout);
+router.get("/logout", authController.logout);
 router.post(
   "/email/verification-notification",
   auth,

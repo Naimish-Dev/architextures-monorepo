@@ -8,7 +8,7 @@ import pathsRouter from "./routes/paths.router.js";
 import heightRouter from "./routes/heightmaps.router.js";
 import authRouter from "./routes/auth.router.js";
 import session from "express-session";
-import passport from "passport";
+import passport from "../backend/app/controllers/passport.init.js";
 import { ValidationException } from "./app/exceptions/validation.exception.js";
 import { HttpException } from "./app/exceptions/http.exception.js";
 import { globalExceptionHandler } from "./app/exceptions/global.exception.js";
