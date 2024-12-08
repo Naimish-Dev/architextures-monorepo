@@ -11,6 +11,7 @@ import collections from "../app/actions/collections.action.js";
 import downloads from "../app/actions/downloads.action.js";
 import materialDownload from "../app/actions/material-download.action.js";
 import getCategoryOptions from "../app/actions/get-category-options.action.js";
+import { auth } from "../app/middlewares/auth.middleware.js";
 
 const router = Router();
 
@@ -32,8 +33,8 @@ router.post("/collections", collections);
 router.post("/downloads", downloads);
 router.post("/material-download", materialDownload);
 router.post("/share", share);
-router.post("/library", libraryController.store);
-router.post("/saves", libraryController.list);
-router.post("/saves/:id", libraryController.show);
+router.post("/library", auth, libraryController.store);
+router.post("/saves", auth, libraryController.list);
+router.post("/saves/:id", auth, libraryController.show);
 
 export default router;
