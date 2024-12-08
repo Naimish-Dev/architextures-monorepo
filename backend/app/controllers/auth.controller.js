@@ -9,7 +9,7 @@ import crypto from "crypto";
 
 const authService = new AuthService();
 
-async function register(req, res, next) {
+export async function register(req, res, next) {
   try {
     const validated = validate(req.body, {
       first_name: "required|string",
@@ -53,7 +53,7 @@ async function register(req, res, next) {
   }
 }
 
-async function login(req, res, next) {
+export async function login(req, res, next) {
   try {
     validate(req.body, {
       email: "required|email",
@@ -87,7 +87,7 @@ async function login(req, res, next) {
   }
 }
 
-async function sendEmailVerificationNotification(req, res, next) {
+export async function sendEmailVerificationNotification(req, res, next) {
   try {
     await authService.sendEmailVerificationNotification(req.user);
 
@@ -104,7 +104,7 @@ async function sendEmailVerificationNotification(req, res, next) {
   }
 }
 
-async function verifyEmail(req, res, next) {
+export async function verifyEmail(req, res, next) {
   try {
     const user = await User.findById(req.params.id);
 
@@ -134,7 +134,7 @@ async function verifyEmail(req, res, next) {
   }
 }
 
-async function forgotPassword(req, res, next) {
+export async function forgotPassword(req, res, next) {
   try {
     const validated = validate(req.body, {
       email: "required|email",
@@ -151,7 +151,7 @@ async function forgotPassword(req, res, next) {
   }
 }
 
-async function resetPassword(req, res, next) {
+export async function resetPassword(req, res, next) {
   try {
     const validated = validate(req.body, {
       token: "required|string",
@@ -170,24 +170,13 @@ async function resetPassword(req, res, next) {
   }
 }
 
-function user(req, res) {
+export function user(req, res) {
   return res.json(req.user);
 }
 
-function logout(req, res) {
+export function logout(req, res) {
   req.logout(() => {
     req.session.destroy(function () {});
   });
-  res.status(HttpStatus.NO_CONTENT).json({});
+  res.status(HttpStatus.TEMPORARY_REDIRECT).redirect(process.env.APP_URL)
 }
-
-export {
-  register,
-  login,
-  sendEmailVerificationNotification,
-  verifyEmail,
-  forgotPassword,
-  resetPassword,
-  user,
-  logout,
-};

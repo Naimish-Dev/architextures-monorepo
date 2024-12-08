@@ -11,8 +11,8 @@ export function edgeMiddleware(req, res, next) {
   res.view = edge.createRenderer();
   res.render = async function (view, options = {}, callback) {
     try {
-      const mergedOptions = { ...res.view.sharedData, ...options };
-      const html = await res.view.render(view.replace(/\./g, '/'), mergedOptions);
+      res.view.share(options)
+      const html = await res.view.render(view.replace(/\./g, '/'));
 
       if (callback) {
         return callback(null, html);

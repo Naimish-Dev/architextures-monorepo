@@ -2807,7 +2807,7 @@ let predraw;
             platt.results.length &&
             (elements("#user-upload-section")[0].style.display = ""),
           platt.results)) {
-            var johnothan = "u" + material.id;
+            var johnothan = material.id;
             try {
               var myrle = material.source_names.length;
             } catch (sumia) {
@@ -2832,11 +2832,7 @@ let predraw;
                       material.color +
                       ";background-image:url('" +
                       config.mediaEndpoint +
-                      "/users/" +
-                      config.user.id +
-                      "/uploads/thumb-" +
-                      johnothan +
-                      ".jpg');",
+                      material.thumbnail +"');",
                   },
                   {
                     tag: "div",
@@ -3719,7 +3715,7 @@ let predraw;
                     color: averageColor(alegra.canvases[0]),
                   }).then(function (joanell) {
                     if ("success" == joanell.status) {
-                      var emylah = "u" + joanell.id;
+                      var emylah = joanell.id;
                       for (var doreene of (timonthy.setAttribute(
                         "data-option",
                         emylah
@@ -3844,11 +3840,7 @@ let predraw;
             var antionette =
                 "user_materials" == config.materials[kenija].db
                   ? config.mediaEndpoint +
-                    "/users/" +
-                    config.materials[kenija].user +
-                    "/uploads/thumb-" +
-                    kenija +
-                    ".jpg"
+                    config.materials[kenija].thumbnail
                   : config.mediaEndpoint +
                     "/thumbnails/" +
                     config.materials[kenija].thumbnail,
@@ -4925,7 +4917,7 @@ let predraw;
                         config.materials[style.materialId].hasOwnProperty(
                           "params"
                         ) &&
-                        Object.values(config.materials[style.materialId].params)
+                        Object.values(config.materials[style.materialId].params || {})
                           .length) ||
                       (config.materials.hasOwnProperty(style.materialId) &&
                         config.materials[style.materialId].brand > 1)
@@ -5231,33 +5223,24 @@ let predraw;
           zoriah.length &&
             kishia.push(
               new Promise((jana, corye) => {
-                postJson("/api/query11", {
-                  table: "user_materials",
-                  columns: ["id", "name", "source_names", "user"],
-                  where: [["id", "in", zoriah.join(",")]],
-                  auth: true,
-                }).then(function (kamarien) {
+                postJson(`/api/materials?ids=${zoriah.join(",")}&category=user_materials`).then(function (kamarien) {
                   kamarien.results.forEach(function (angeleia) {
                     (angeleia.db = "user_materials"),
                       (angeleia.realwidth = 2e3),
                       (angeleia.seamless = false),
-                      (config.materials["u" + angeleia.id] = angeleia),
-                      (config.materials["u" + angeleia.id].texture_sources =
+                      (config.materials[angeleia.id] = angeleia),
+                      (config.materials[angeleia.id].texture_sources =
                         []),
                       angeleia.source_names &&
                         config.materials[
-                          "u" + angeleia.id
+                          angeleia.id
                         ].source_names.forEach(function (samanthaann) {
                           config.materials[
-                            "u" + angeleia.id
+                            angeleia.id
                           ].texture_sources.push({
                             width_mm: angeleia.realwidth,
                             seamless: angeleia.seamless,
-                            texture_map:
-                              "/users/" +
-                              angeleia.user +
-                              "/uploads/" +
-                              samanthaann,
+                            texture_map: samanthaann,
                           });
                         });
                   }),
