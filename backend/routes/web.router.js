@@ -1,5 +1,6 @@
 import { Router } from "express";
 import * as shareController from "../app/controllers/share.controller.js";
+import create from "../app/actions/create.action.js";
 
 const router = Router();
 
@@ -10,13 +11,9 @@ router.get("/", (req, res, next) => {
     next(error);
   }
 });
-router.get("/create", (req, res, next) => {
-  try {
-    return res.render("create");
-  } catch (error) {
-    next(error);
-  }
-});
+
+router.get("/create", create);
+router.get("/share/:id", shareController.index);
 
 router.get("/login", (req, res, next) => {
   try {
@@ -52,35 +49,5 @@ router.get("/reset-password", (req, res, next) => {
     next(error);
   }
 });
-router.get("/admin/saved", (req, res, next) => {
-  try {
-    return res.render("admin.saved");
-  } catch (error) {
-    next(error);
-  }
-});
-router.get("/admin/uploads", (req, res, next) => {
-  try {
-    return res.render("admin.upload");
-  } catch (error) {
-    next(error);
-  }
-});
-router.get("/admin/downloads", (req, res, next) => {
-  try {
-    return res.render("admin.download");
-  } catch (error) {
-    next(error);
-  }
-});
-router.get("/admin/account", (req, res, next) => {
-  try {
-    return res.render("admin.account");
-  } catch (error) {
-    next(error);
-  }
-});
-
-router.get("/share/:id", shareController.index);
 
 export default router;

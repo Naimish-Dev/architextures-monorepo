@@ -1375,12 +1375,13 @@ config.areas = {
           auth: true,
         },
         itemHtml: function (saved) {
+          console.log("Saved", saved)
           return createHtml({
             tag: "a",
             target: "_blank",
             style: "overflow:hidden;border-radius:var(--radius);",
             class: "df s-gap cv sh",
-            href: window.location.origin + "/create?save=" + saved.id,
+            href: window.location.origin + "/create?save=" + saved._id,
             children: [
               {
                 tag: "div",
@@ -5101,7 +5102,7 @@ function createListingItem(item) {
   }
 
   if (config.area.hasOwnProperty("showPreview")) {
-    let eyeUrl = config.area.showPreview + item.id;
+    let eyeUrl = config.area.showPreview + item._id;
     if (config.state.area === "pages") {
       eyeUrl = config.area.showPreview + item.slug;
     } else if (config.state.area === "materials") {
@@ -5244,22 +5245,15 @@ function createListingItem(item) {
 }
 
 async function pageLoad() {
-  //fadeOut("#admin-single", 0);
-  //fadeOut("#admin-list", 0);
-  //fadeIn(".admin-spinner", 100);
 
-  // Set the menu option
   document.querySelectorAll("li").forEach(function (elem) {
     elem.classList.remove("active");
   });
   document
     .querySelector("[data-area='" + config.state.area + "']")
-    .classList.add("active");
-
-  // close class based pages
+    ?.classList.add("active");
   closeAdminPages();
 
-  // If it has an id, it's a single item page
   if (config.area.navClick) {
     await config.area.navClick();
   } else if (config.areas[config.state.area].hasOwnProperty("id")) {
@@ -5675,12 +5669,7 @@ async function showSinglePage(item) {
 
       // Load the data
       if (item !== "new") {
-        let fetch = await query({
-          table: config.area.query.table,
-          id: config.state.id,
-          auth: true,
-          owned: config.state.owned,
-        });
+        let fetch = await postJson(`/api/saves/${item._id}`);
         config.pageData = fetch.results[0];
         var newItem = false;
       } else {
@@ -5848,14 +5837,15 @@ async function showSinglePage(item) {
               "?s=400&q=60" +
               ")";
           });
+          console.log("pageData", config.pageData)
           elements("#admin-texture-edit").forEach(function (elem) {
             const textureUrl = new URL(
-              "https://" + window.location.host + "/create"
+              window.location.protocol + window.location.host + "/create"
             );
             if (config.state.area == "textures")
-              textureUrl.searchParams.append("id", config.pageData.id);
+              textureUrl.searchParams.append("id", config.pageData._id);
             if (config.state.area == "saved")
-              textureUrl.searchParams.append("save", config.pageData.id);
+              textureUrl.searchParams.append("save", config.pageData._id);
             elem.href = textureUrl.href;
           });
         }

@@ -1,6 +1,5 @@
 @layout.app()
 @slot('script')
-<link href="/css/create.css" rel='stylesheet' />
 <script src="/js/config2.js"></script>
 <script src="/js/handler/CollectionUser.js"></script>
 <script src="/js/create.min.js"></script>
@@ -40,13 +39,15 @@
       <img id="app-title-image" src="http://localhost:8081/img/artx-logo.svg">
     </a>
     <div class="s-gap cc">
+      @if(config.user)
+      <img class="icon menu-toggle" src="http://localhost:8081/icons/user2.svg" data-target="user-menu-app" draggable="false">
+      @endif
       <img class="icon menu-toggle" data-target="kebab-menu" src="http://localhost:8081/img/icons/settings-b.svg">
       <img src="http://localhost:8081/icons/kebab.svg" class="icon menu-toggle" data-target="more-menu">
       <img id="back-button-in-create-header" class="icon" data-back-button
         src="http://localhost:8081/icons/arrow-left.svg">
     </div>
   </div>
-
   <div class="scrollable-area">
     <div id="view-controls" class="gbutton-container">
       <div data-view="texture" id="texture-option" data-target="texture-controls"
@@ -1690,12 +1691,14 @@
   <a class="nav-menu-item" href="/pro">
     <div>Get a Pro Account</div>
   </a>
+  @if(!config.user)
   <a class="nav-menu-item menu-link" href="/login">
     <div class="fr s-gap">
       <img style="height: 20px;" class="icon" src="http://localhost:8081/icons/user2.svg" draggable="false">
       Login
     </div>
   </a>
+  @endif
 </div>
 <div class="menu" id="user-menu-app" data-option="">
   <div class="header">
@@ -1714,7 +1717,7 @@
   <a class="nav-menu-item" href="/admin/account">
     <div>Manage Account</div>
   </a>
-  <a class="nav-menu-item" href="/logout">
+  <a class="nav-menu-item" href="/auth/logout">
     <div>Logout</div>
   </a>
 </div>

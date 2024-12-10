@@ -6,6 +6,9 @@ export class HttpException extends Error {
 
   static handler(error, req, res, next) {
     if (error instanceof HttpException) {
+      if (req.method === "GET" && req.accepts('text/plain')) {
+        return res.redirect(process.env.APP_URL + `/login`);
+      }
       if (req.method === "GET") {
         return res.send(error.message);
       }

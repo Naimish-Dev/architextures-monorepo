@@ -1,6 +1,7 @@
 import express from "express";
 import "dotenv/config";
 import webRouter from "./routes/web.router.js";
+import adminRouter from "./routes/admin.router.js";
 import materialsRouter from "./routes/materials.router.js";
 import patternsRouter from "./routes/patterns.router.js";
 import apiRouter from "./routes/api.router.js";
@@ -15,6 +16,7 @@ import { globalExceptionHandler } from "./app/exceptions/global.exception.js";
 import { edgeMiddleware } from "./app/middlewares/edge.middleware.js";
 import { defaultConfig } from "./app/middlewares/defaultConfig.middleware.js";
 import "./mongoose.js"
+import { auth } from "./app/middlewares/auth.middleware.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -42,6 +44,7 @@ app.use(express.static("public"));
 app.use(edgeMiddleware);
 app.use(defaultConfig);
 app.use(webRouter);
+app.use("/admin", auth, adminRouter);
 app.use("/auth", authRouter);
 app.use("/api/materials", materialsRouter);
 app.use("/api/patterns", patternsRouter);
