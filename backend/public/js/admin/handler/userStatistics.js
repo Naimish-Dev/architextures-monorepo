@@ -98,7 +98,7 @@ class UserStatistics {
 
   generateCountries() {
     return Object.keys(this.data.countries).map((country) => {
-      let countryName = artx.countries.find((c) => c.Iso2 === country);
+      let countryName = config.countries.find((c) => c.Iso2 === country);
       countryName = countryName ? countryName.name : country;
       return {
         tag: "li",

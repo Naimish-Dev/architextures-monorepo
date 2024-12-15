@@ -60,7 +60,7 @@ document.querySelector("[data-action='save_new']").addEventListener("click", () 
 
             const savePromise = new Promise((resolve, reject) => {
                 postJson("/api/library", jsonpost).then(response => {
-                    if (typeof parseInt(response) !== "number") {
+                    if (typeof response.id !== "string") {
                         notification.updateNotification({
                             text: "Could not save texture",
                             image: "warning"
@@ -73,9 +73,9 @@ document.querySelector("[data-action='save_new']").addEventListener("click", () 
                             duration: 2000
                         });
 
-                        SAVE_ID = parseInt(response);
+                        SAVE_ID = response.id;
                         // userHasSaved = true;
-                        resolve(parseInt(response));
+                        resolve(response.id);
                     }
                 });
             });

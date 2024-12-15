@@ -49,7 +49,7 @@ export async function store(req, res, next) {
 
     const library = await LibraryModel.create(payload);
 
-    res.send(library.id);
+    res.json({ id: library.id });
   } catch (error) {
     next(error);
   }
@@ -100,6 +100,31 @@ export async function show(req, res, next) {
     return res.json({
       more: hasNextPage,
       results: docs,
+      status: "success",
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function rename(req, res, next) {
+  try {
+    const params = req.params;
+    const libraryModel = await LibraryModel.findById(params.id);
+    libraryModel.name = req.body.name;
+    libraryModel.save();
+    return res.json({
+      status: "success",
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function destroy(req, res, next) {
+  try {
+    await LibraryModel.findByIdAndDelete(req.params.id);
+    return res.json({
       status: "success",
     });
   } catch (error) {

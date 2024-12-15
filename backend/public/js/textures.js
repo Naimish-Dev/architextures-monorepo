@@ -2572,6 +2572,11 @@ function createDatabox(azarel) {
       postJson(`/api/saves?page=${payload.page}&limit=${payload.limit}`).then(function (constantinos) {
         heidee(constantinos, _0x2cc129);
       });
+    }
+    else if(payload.table === "user_materials"){
+      postJson(`/api/materials?page=${payload.page}&limit=${payload.limit}&category=user_materials`).then(function (constantinos) {
+        heidee(constantinos, _0x2cc129);
+      });
     }else{
       postJson(queryUrl, taquasia.query).then(function (constantinos) {
         heidee(constantinos, _0x2cc129);

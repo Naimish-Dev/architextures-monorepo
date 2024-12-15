@@ -73,7 +73,7 @@ class BrandRequest {
                         {
                           tag: "img",
                           class: "beta-img",
-                          src: artx.cdn + "/icons/experimental2.svg",
+                          src: config.cdn + "/icons/experimental2.svg",
                         },
                         "Beta",
                       ],

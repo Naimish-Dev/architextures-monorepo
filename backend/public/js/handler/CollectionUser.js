@@ -79,9 +79,9 @@ class CollectionUser
                 collections.forEach(collection => {
                     saveOptions.push({
                         name: collection.name,
-                        "data-user-collection": collection.id
+                        "data-user-collection": collection._id
                     });
-                    if(inCollection && inCollection.includes(collection.id)) {
+                    if(inCollection && inCollection.includes(collection._id)) {
                         saveOptions[saveOptions.length - 1].checked = true;
                     }
                 });
@@ -344,16 +344,7 @@ class CollectionUser
                                 return;
                             }
                             // save in collection
-                            postJson("/api/query", {
-                                table: "collection_saves",
-                                action: "insert",
-                                values: {
-                                    collection: collectionId,
-                                    save: saveId,
-                                    user: this.userId
-                                },
-                                auth: true
-                            }).then(response => {
+                            postJson(`/api/collections/${collectionId}/items/${saveId}/attach`).then(response => {
                                 // show notification
                                 if(!response.status || response.status !== "success") {
                                     notification.updateNotification({
@@ -401,7 +392,7 @@ class CollectionUser
                 });
 
                 // create collection
-                postJson("/api/collections", {method: "createCollection", name: document.querySelector("[data-user-collection='new-name']").value}).then(response => {
+                postJson("/api/collections/create", { name: document.querySelector("[data-user-collection='new-name']").value}).then(response => {
                     modal.remove();
                     if(this.persistMenu) {
                         this.resetMenu();

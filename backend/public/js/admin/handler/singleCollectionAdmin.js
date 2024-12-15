@@ -9,18 +9,14 @@ class SingleCollectionAdmin {
   }
 
   checkOwner() {
-    return postJson("/app/query", {
-      table: "collections",
-      columns: ["user"],
-      where: [["id", "=", this.collectionId]],
-      auth: true,
-      owned: true,
-    }).then((response) => {
-      if (response.results.length > 0) {
-        return response.results[0].user;
+    return postJson(`/api/collections/${this.collectionId}/items`).then(
+      (response) => {
+        if (response.results.length > 0) {
+          return response.results[0].user;
+        }
+        return false;
       }
-      return false;
-    });
+    );
   }
 
   loadInitialPage() {
@@ -30,21 +26,20 @@ class SingleCollectionAdmin {
 
   init() {
     // confirm the user is the owner
-    this.checkOwner().then((ownerId) => {
-      if (ownerId !== artx.user.id) return;
+    // this.checkOwner().then((ownerId) => {
+    //   if (ownerId !== config.user.id) return;
 
-      postJson("/app/collections", {
-        method: "getCollectionItems",
-        collection: this.collectionId,
-      }).then((response) => {
-        this.collectionItems = response.results;
-        this.createItemContainer();
-        this.showTotalTextures();
-        this.attachEventListeners();
-        this.addSortable();
-      });
+      postJson(`/api/collections/${this.collectionId}/items`).then(
+        (response) => {
+          this.collectionItems = response.results;
+          this.createItemContainer();
+          this.showTotalTextures();
+          this.attachEventListeners();
+          this.addSortable();
+        }
+      );
       CollectionAdmin.hideSpinner();
-    });
+    // });
   }
 
   createContainer() {
@@ -123,20 +118,20 @@ class SingleCollectionAdmin {
     this.collectionItems.forEach((item) => {
       const itemElement = createHtml({
         tag: "div",
-        "data-id": item.id,
+        "data-id": item._id,
         style: "position: relative;",
         children: [
           {
             tag: this.isPlugin ? "div" : "a",
-            "data-admin-single-collection": "item-" + item.id,
+            "data-admin-single-collection": "item-" + item._id,
             class: "asset pr",
             target: this.isAdmin ? "_blank" : "_self",
-            href: "/create?save=" + item.id,
+            href: "/create?save=" + item._id,
             style:
               "display: inline-block; width: 100%; height: 100%; background-color: " +
               item.color +
               "; background-image: url(" +
-              artx.cdn +
+              config.cdn +
               item.imgurl +
               "?s=400&q=60);",
             children: [
@@ -155,7 +150,7 @@ class SingleCollectionAdmin {
                   {
                     tag: "div",
                     class: "cc s-gap",
-                    "data-texture-menu": "save-" + item.id,
+                    "data-texture-menu": "save-" + item._id,
                     children: [
                       {
                         tag: "div",
@@ -165,7 +160,7 @@ class SingleCollectionAdmin {
                           {
                             tag: "img",
                             class: "icon",
-                            src: artx.cdn + "/icons/kebab.svg?v=2",
+                            src: config.cdn + "/icons/kebab.svg?v=2",
                           },
                         ],
                       },
@@ -263,7 +258,7 @@ class SingleCollectionAdmin {
                 ? JSON.parse(objectItem.params)
                 : objectItem.params;
             objectItem.sourceTable = "saves";
-            artx.launchEditor({ type: "new", data: objectItem });
+            config.launchEditor({ type: "new", data: objectItem });
           }
         });
       });
@@ -495,16 +490,9 @@ class SingleCollectionAdmin {
           // handle adding/removing from collection
           if (item.querySelector("input").checked) {
             // save to collection
-            postJson("/app/query", {
-              table: "collection_saves",
-              action: "insert",
-              auth: true,
-              values: {
-                collection: collection,
-                save: this.saveId,
-                user: artx.user.id,
-              },
-            }).then((response) => {
+            postJson(
+              `/api/collections/${collection}/items/${this.saveId}/attach`
+            ).then((response) => {
               // show notification
               if (response.status !== "success") {
                 addNotification({
@@ -601,16 +589,7 @@ class SingleCollectionAdmin {
   }
 
   removeTexture(modal) {
-    postJson("/app/query", {
-      table: "collection_saves",
-      action: "delete",
-      auth: true,
-      where: [
-        ["save", "=", this.saveId],
-        ["collection", "=", this.collectionId],
-      ],
-    }).then((response) => {
-      // show notification
+    postJson(`/api/collections/${this.collectionId}/items/${this.saveId}/delete`).then((response) => {
       if (response.status !== "success") {
         addNotification({
           text: "Error removing texture",
@@ -728,10 +707,8 @@ class SingleCollectionAdmin {
     this.rearrangeSaveButton.addEventListener("click", () => {
       this.resetAfterOrdering();
       // send updated order
-      postJson("/app/collections", {
-        method: "updateCollectionItemsPositions",
-        collection: this.collectionId,
-        itemsPosition: this.sortable.toArray(),
+      postJson(`/api/collections/${this.collectionId}/items/rearrange`, {
+        positions: this.sortable.toArray(),
       }).then((response) => {
         if (response.rawResponse.status !== 200) {
           addNotification({
@@ -862,14 +839,8 @@ class SingleCollectionAdmin {
         document.querySelector(
           "[data-id='" + this.saveId + "'] .sline"
         ).innerText = name;
-        postJson("/app/query", {
-          table: "saves",
-          action: "update",
-          auth: true,
-          values: {
-            name: name,
-          },
-          where: [["id", "=", this.saveId]],
+        postJson(`/api/saves/${this.saveId}/rename`, {
+          name: name,
         }).then((response) => {
           modal.remove();
           // show notification

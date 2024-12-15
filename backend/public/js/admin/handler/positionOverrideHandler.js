@@ -69,15 +69,15 @@ class PositionOverrideHandler {
       .sort(this.sortByWeight);
 
     const ovVal =
-      artx?.positionInputs?.[region + "-overall-" + asset.id] ||
+      config?.positionInputs?.[region + "-overall-" + asset.id] ||
       (asset.override ? asset.position : "");
     const catVal =
-      artx?.positionInputs?.[region + "-category-" + asset.id] ||
+      config?.positionInputs?.[region + "-category-" + asset.id] ||
       (asset.override
         ? this.assetsInCategoryByPosition.indexOf(asset) + 1
         : "");
     const untilVal =
-      artx?.positionInputs?.[region + "-until-" + asset.id] || asset.until;
+      config?.positionInputs?.[region + "-until-" + asset.id] || asset.until;
 
     return createHtml({
       tag: "div",
@@ -196,9 +196,9 @@ class PositionOverrideHandler {
       .slice()
       .sort(this.sortByWeight);
     const ovVal =
-      artx?.positionInputs?.[region + "-overall-" + asset.id] || asset.position;
+      config?.positionInputs?.[region + "-overall-" + asset.id] || asset.position;
     const untilVal =
-      artx?.positionInputs?.[region + "-until-" + asset.id] || asset.until;
+      config?.positionInputs?.[region + "-until-" + asset.id] || asset.until;
 
     return createHtml({
       tag: "div",
@@ -278,10 +278,10 @@ class PositionOverrideHandler {
       .forEach((input) => {
         input.addEventListener("input", () => {
           if (
-            typeof artx.modified.positions !== "object" ||
-            artx.modified.positions === null
+            typeof config.modified.positions !== "object" ||
+            config.modified.positions === null
           ) {
-            artx.modified.positions = {};
+            config.modified.positions = {};
           }
 
           let positionType = "";
@@ -295,21 +295,21 @@ class PositionOverrideHandler {
           }
 
           if (
-            typeof artx.modified.positions.override !== "object" ||
-            artx.modified.positions.override === null
+            typeof config.modified.positions.override !== "object" ||
+            config.modified.positions.override === null
           ) {
-            artx.modified.positions.override = {};
+            config.modified.positions.override = {};
           }
 
           if (
-            typeof artx.modified.positions.override[region] !== "object" ||
-            artx.modified.positions.override[region] === null
+            typeof config.modified.positions.override[region] !== "object" ||
+            config.modified.positions.override[region] === null
           ) {
-            artx.modified.positions.override[region] = {};
+            config.modified.positions.override[region] = {};
           }
 
           if (Number(input.value) === 0 || input.value === "") {
-            artx.modified.positions.override[region].position = null;
+            config.modified.positions.override[region].position = null;
           } else if (positionType === "overall") {
             // handle position outside allowed range
             if (
@@ -326,7 +326,7 @@ class PositionOverrideHandler {
                   ? Number(input.max)
                   : Number(input.min);
             }
-            artx.modified.positions.override[region].position = Number(
+            config.modified.positions.override[region].position = Number(
               input.value
             );
           } else if (positionType === "category") {
@@ -344,15 +344,15 @@ class PositionOverrideHandler {
             }
             const position =
               this.assetsInCategoryByPosition[Number(input.value) - 1].position;
-            artx.modified.positions.override[region].position =
+            config.modified.positions.override[region].position =
               position <= 0 ? 1 : position;
           } else {
             // handle until date
-            artx.modified.positions.override[region].until = input.value;
+            config.modified.positions.override[region].until = input.value;
           }
 
-          artx.modified.positions = {
-            override: { ...artx.modified.positions.override },
+          config.modified.positions = {
+            override: { ...config.modified.positions.override },
             id: this.id,
             type: this.type,
             table: table,
@@ -364,8 +364,8 @@ class PositionOverrideHandler {
   }
 
   manageInputValues(input, region) {
-    if (artx.positionInputs === undefined) {
-      artx.positionInputs = {};
+    if (config.positionInputs === undefined) {
+      config.positionInputs = {};
     }
     const assetId = input.id.split("-").pop();
 
@@ -373,11 +373,11 @@ class PositionOverrideHandler {
       !input.id.startsWith("position-" + region + "-until") &&
       (input.value === null || Number(input.value) === 0 || input.value === "")
     ) {
-      artx.positionInputs["position-" + region + "-category-" + assetId] = "-";
-      artx.positionInputs["position-" + region + "-overall-" + assetId] = "-";
-      artx.positionInputs["position-" + region + "-until-" + assetId] = "-";
+      config.positionInputs["position-" + region + "-category-" + assetId] = "-";
+      config.positionInputs["position-" + region + "-overall-" + assetId] = "-";
+      config.positionInputs["position-" + region + "-until-" + assetId] = "-";
     } else {
-      artx.positionInputs[input.id] = input.value;
+      config.positionInputs[input.id] = input.value;
     }
   }
 

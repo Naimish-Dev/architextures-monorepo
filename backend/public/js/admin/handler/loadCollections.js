@@ -26,7 +26,7 @@ class LoadCollections {
 
     if (this.shouldClosePages) CollectionAdmin.showSpinner();
 
-    postJson("/app/collections", { method: "getUserCollections" }).then(
+    postJson("/api/collections").then(
       (response) => {
         if (response.rawResponse.status !== 200) {
           CollectionAdmin.hideSpinner();
@@ -40,7 +40,7 @@ class LoadCollections {
 
         const collection = new CollectionAdmin(
           response.results,
-          artx.user.id,
+          config.user.id,
           this.isAdmin,
           this.isPlugin
         );

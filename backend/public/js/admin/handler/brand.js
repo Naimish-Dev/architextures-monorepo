@@ -4,7 +4,7 @@ class Brand {
    */
   constructor(brand) {
     this.brand = brand;
-    artx.modified = {};
+    config.modified = {};
   }
 
   /**
@@ -33,7 +33,7 @@ class Brand {
         {
           tag: "img",
           style: "max-width: 70%; max-height: 70%;",
-          src: brand.logo ? artx.cdn + brand.logo : "",
+          src: brand.logo ? config.cdn + brand.logo : "",
         },
       ],
     });
@@ -42,10 +42,10 @@ class Brand {
       uploadLibrary({
         onOk: function (upload) {
           if (upload.selectedItems[0]) {
-            if (!artx.modified) artx.modified = {};
-            artx.modified.logo = upload.selectedItems[0].url;
+            if (!config.modified) config.modified = {};
+            config.modified.logo = upload.selectedItems[0].url;
             button.querySelector("img").src =
-              artx.cdn + upload.selectedItems[0].url;
+              config.cdn + upload.selectedItems[0].url;
           }
         },
       });
@@ -61,7 +61,7 @@ class Brand {
    * @returns {Text|*}
    */
   async generateMainHtml(brand, uploadButton) {
-    let countries = artx.countries;
+    let countries = config.countries;
     // set the current country to the brand's country
     let currentCountry = brand.country
       ? countries.find((c) => c.Iso2 === brand.country)
@@ -191,7 +191,7 @@ class Brand {
         brandPage.container.pageContent.innerHTML = "";
         brandPage.container.pageContent.appendChild(brandHtml);
 
-        let countries = artx.countries;
+        let countries = config.countries;
         countries = sortCountries(countries);
 
         const button = document.querySelector(

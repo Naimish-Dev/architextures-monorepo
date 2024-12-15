@@ -12,7 +12,7 @@ export async function index(req, res, next) {
 
     const query = {};
 
-    if(category == "user_materials" && !req.isAuthenticated()){
+    if (category == "user_materials" && !req.isAuthenticated()) {
       return res.json({
         more: false,
         results: [],
@@ -24,8 +24,8 @@ export async function index(req, res, next) {
       query.category = { $regex: new RegExp(category, "i") };
     }
 
-    if(category == "user_materials"){
-      query.user = req.user._id
+    if (category == "user_materials") {
+      query.user = req.user._id;
     }
 
     if (ids) {
@@ -55,11 +55,6 @@ export async function index(req, res, next) {
 
 export async function create(req, res, next) {
   try {
-    if (!req.isAuthenticated())
-      return res.json({
-        message: "Unauthorized",
-        status: "failed",
-      });
     const body = req.body;
     body.source_names = JSON.parse(body.source_names);
     body.thumbnail = body.source_names[0];
@@ -69,6 +64,22 @@ export async function create(req, res, next) {
     const materialModel = await Material.create(body);
     res.json({
       id: materialModel.id,
+      status: "success",
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+export async function update(req, res, next) {
+  try {
+    const body = req.body;
+    const source_names = JSON.parse(body.source_names);
+    console.log("req.params.id", req.params.id, source_names)
+    const materialModel = await Material.findByIdAndUpdate(req.params.id, {
+      source_names,
+    });
+
+    res.json({
       status: "success",
     });
   } catch (error) {

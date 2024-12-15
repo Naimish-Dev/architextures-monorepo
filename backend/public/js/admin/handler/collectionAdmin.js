@@ -125,15 +125,15 @@ class CollectionAdmin {
       collection.instanceIndex = index;
       const item = createHtml({
         tag: "div",
-        "data-id": collection.id,
+        "data-id": collection._id,
         style: "position: relative;",
-        "data-admin-collections": "show-collection-" + collection.id,
+        "data-admin-collections": "show-collection-" + collection._id,
         children: [
           {
             tag: "div",
             class: "collection-item asset pntr",
             "data-admin-collections": "item-" + index,
-            "data-admin-collections-id": collection.id,
+            "data-admin-collections-id": collection._id,
             "data-admin-collections-name": collection.name,
           },
           {
@@ -166,14 +166,14 @@ class CollectionAdmin {
                 children: [
                   {
                     tag: "div",
-                    "data-admin-collections": "menu-" + collection.id,
+                    "data-admin-collections": "menu-" + collection._id,
                     class: "cc",
                     style: "background:white;",
                     children: [
                       {
                         tag: "img",
                         class: "icon",
-                        src: artx.cdn + "/icons/kebab.svg?v=2",
+                        src: config.cdn + "/icons/kebab.svg?v=2",
                       },
                     ],
                   },
@@ -247,8 +247,7 @@ class CollectionAdmin {
             const name = document.querySelector(
               "[data-user-collection='new-name']"
             ).value;
-            postJson("/app/collections", {
-              method: "createCollection",
+            postJson("/api/collections/create", {
               name: name,
             }).then((response) => {
               modal.remove();
@@ -462,9 +461,7 @@ class CollectionAdmin {
                   "'] .collection-item-title"
               ).innerText = newName;
 
-              postJson("/app/collections", {
-                method: "updateCollection",
-                collection: id,
+              postJson(`/api/collections/${id}/rename`, {
                 name: newName,
               }).then((response) => {
                 // remove modal
@@ -507,7 +504,7 @@ class CollectionAdmin {
       .querySelectorAll("[data-admin-collections^='rearrange-']")
       .forEach((rearrange) => {
         rearrange.addEventListener("click", () => {
-          this.originalOrder = this.collections.map((col) => col.id);
+          this.originalOrder = this.collections.map((col) => col._id);
 
           // hide menu
           rearrange.parentNode.parentNode.style.display = "none";
@@ -690,9 +687,8 @@ class CollectionAdmin {
       this.rearrangeResetButton.remove();
       this.rearrangeCancelButton.remove();
 
-      postJson("/app/collections", {
-        method: "updateCollectionsPosition",
-        collectionsPosition: collectionOrder,
+      postJson("/api/collections/rearrange", {
+        positions: collectionOrder,
       }).then((response) => {
         if (response.rawResponse.status !== 200) {
           addNotification({
@@ -795,10 +791,7 @@ class CollectionAdmin {
               "[data-admin-collections='delete-collection-confirm']"
             )
             .addEventListener("click", () => {
-              postJson("/app/collections", {
-                method: "deleteCollection",
-                collection: id,
-              }).then((response) => {
+              postJson(`/api/collections/${id}/delete`).then((response) => {
                 modal.remove();
                 if (response.rawResponse.status !== 200) {
                   addNotification({
@@ -895,22 +888,18 @@ class CollectionAdmin {
   }
 
   generateCollectionImage(index) {
-    postJson("/app/collections", {
-      collection: this.collections[index].id,
-      method: "getCollectionItemsPositions",
-    }).then((imgUrls) => {
+    postJson(`/api/collections/${this.collections[index]._id}/positions`).then((imgUrls) => {
       const widths = ["100%", "90%", "80%", "70%", "60%"];
       const imgUrlsArray = Array.isArray(imgUrls)
-        ? imgUrls.map((img) => img.imgurl).filter((img) => img !== null)
+        ? imgUrls.map((img) => img.imgurl).filter((img) => img)
         : Array(5).fill(null);
       const imgColors = Array.isArray(imgUrls)
-        ? imgUrls.map((img) => img.color).filter((img) => img !== null)
+        ? imgUrls.map((img) => img.color).filter((img) => img)
         : Array(5).fill(null);
       const imageContainer = createHtml({
         tag: "div",
         "data-admin-collections": "image-container",
       });
-
       for (let i = 0; i < 5; i++) {
         // ensure we always create 5 elements
         let img = imgUrlsArray[4 - i]; // get the image URL in reverse order, or undefined
@@ -922,10 +911,10 @@ class CollectionAdmin {
             ? "background-color: " +
               imgColor +
               "; background-image: url( " +
-              artx.cdn +
+              config.cdn +
               img +
               ")"
-            : "background-image: url(" + artx.cdn + img + ")"
+            : "background-image: url(" + config.cdn + img + ")"
           : "background-color: " + this["colour" + (i + 1)];
 
         const style =
@@ -956,11 +945,11 @@ class CollectionAdmin {
     CollectionAdmin.showSpinner();
     CollectionAdmin.removeCollection();
     CollectionAdmin.removeMenus();
-    postJson("/app/collections", { method: "getUserCollections" }).then(
+    postJson("/api/collections").then(
       function (response) {
         const collectionAdmin = new CollectionAdmin(
           response.results,
-          artx.user.id,
+          config.user.id,
           isAdmin
         );
         collectionAdmin.addTotalTextures();

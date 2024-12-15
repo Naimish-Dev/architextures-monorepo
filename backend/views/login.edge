@@ -111,7 +111,7 @@
                         <form id="login-form" method="post" class="user-form">
                             <div class="group">
                                 <div class="input-label">Email</div>
-                                <input name="email" type="email" placeholder="alvar@example.com" value="" required>
+                                <input name="email" type="email" placeholder="alvar@example.com" value="" required autofocus>
                             </div>
                             <div class="group">
                                 <div class="input-label">Password</div>
@@ -163,9 +163,14 @@
                                             return;
                                         }
 
-                                        let redirectTarget = '/';
+                                        let redirectTarget = '/create';
+                                        const query = new URLSearchParams(window.location.search);
+                                        const redirectTo = query.get("redirectTo")
                                         if (response.redirect) {
                                             redirectTarget = response.redirect;
+                                        }
+                                        if(redirectTo){
+                                            redirectTarget = decodeURIComponent(redirectTo);
                                         }
 
                                         window.location.href = redirectTarget;

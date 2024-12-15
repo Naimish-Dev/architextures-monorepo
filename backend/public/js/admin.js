@@ -3357,6 +3357,15 @@ config.areas = {
   },
 };
 
+function uuidv4() {
+  return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, (c) =>
+    (
+      +c ^
+      (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (+c / 4)))
+    ).toString(16)
+  );
+}
+
 // if the area is analytics, change it to statistics, this keeps url to analytics for consistency
 if (config.state.area.toLowerCase() === "analytics")
   config.state.area = "statistics";
@@ -4399,7 +4408,7 @@ function sourceImageListener() {
                             class: "fbutt",
                             children: [
                               { tag: "div", text: "Delete image" },
-                              { tag: "img", src: "/img/icons/delete.svg" },
+                              { tag: "img", src: config.cdn + "/img/icons/delete.svg" },
                             ],
                           },
                         ],
@@ -4671,7 +4680,7 @@ saveButton.onclick = async function () {
       // For every canvas image
       for (const canvas of config.canvasSelections) {
         // Generate a unique filename
-        var name = canvas.imageName;
+        var name = uuidv4() + ".jpg";
         // Associate the canvas with the filename for saving later
         images[name] = canvas;
         // Pass the name to the filenames array
@@ -4764,7 +4773,9 @@ saveButton.onclick = async function () {
 
       // Send the request
       if (Object.keys(saveData.values).length > 0) {
-        response = await query(saveData);
+        response = await postJson(`/api/materials/${saveData.id}/update`, {
+          source_names: saveData.values.source_names
+        });
       }
     }
 
@@ -4949,7 +4960,7 @@ function setPageHeading() {
 function createListingItem(item) {
   let itemValues = createHtml({
     tag: "div",
-    title: item.id,
+    title: item._id,
     class:
       "admin-item" +
       (config.area.itemsUnclickable ? " unclickable" : "") +
@@ -4958,12 +4969,13 @@ function createListingItem(item) {
   });
   let itemContainer = createHtml({
     tag: "div",
-    "data-item-id": item.id,
+    "data-item-id": item._id,
     class: "admin-item-container",
   });
 
   // Add thumbnails for specific areas
   if (config.area.hasThumbnails) {
+    const url = item.imgurl ? item.imgurl : item.thumbnail;
     itemValues.appendChild(
       createHtml({
         tag: "div",
@@ -4973,9 +4985,7 @@ function createListingItem(item) {
             tag: "div",
             class: "admin-item-thumb",
             style:
-              "background-image:url('" +
-              getThumbSrc(item, config.area.query.table) +
-              "');background-color:" +
+              "background-image:url('" + config.cdn + "/" + url + "');background-color:" +
               item.color +
               ";" +
               (item.thumbnailSize
@@ -5149,7 +5159,7 @@ function createListingItem(item) {
     children: [
       {
         tag: "img",
-        src: "/img/icons/delete.svg",
+        src: config.cdn +"/img/icons/delete.svg",
         class: "icon",
       },
     ],
@@ -5211,14 +5221,8 @@ function createListingItem(item) {
             );
           });
         } else {
-          var url = config.area.deleteUrl ? config.area.deleteUrl : "/app/query";
-          var response = await postJson(url, {
-            table: config.area.query.table,
-            action: "delete",
-            id: item.id,
-            auth: true,
-            owned: config.state.owned,
-          });
+          var url = `/api/${config.area.query.table}/${item._id}/delete`;
+          var response = await postJson(url);
           if (response.hasOwnProperty("error")) {
             removeLoadingScreen(
               "Couldn't delete this item: " + response.error,
@@ -5419,8 +5423,14 @@ async function pageLoad() {
     //setPageHeading();
     //fadeIn("#admin-list", 100);
     //fadeOut(".admin-spinner", 100);
+    function calculatePercentage(used, limit) {
+      if (limit === 0) {
+        throw new Error("Limit cannot be zero."); // Avoid division by zero
+      }
+      return (used / limit) * 100;
+    }
     if (config.state.area === "uploads") {
-      await postJson("/app/check-storage", { user: config.user.id }).then(
+      await postJson("/api/check-storage").then(
         (response) => {
           if (response.rawResponse.status !== 200) {
             storageMessage =
@@ -5624,26 +5634,7 @@ async function showSinglePage(item) {
         thumbElement.style.display = "";
         // Set the thumbnail
         if (config.state.id !== "new") {
-          thumbElement.style.backgroundImage = "none";
-          thumbElement.style.backgroundImage =
-            config.state.area == "materials"
-              ? "url('" +
-                config.mediaEndpoint +
-                "/materials/" +
-                config.state.id +
-                "/thumb/" +
-                item.thumbnail +
-                "?v=" +
-                generateUid() +
-                "')"
-              : "url('" +
-                config.mediaEndpoint +
-                "/users/" +
-                config.user.id +
-                "/uploads/thumb-u" +
-                config.state.id +
-                ".jpg?v=" +
-                generateUid();
+          thumbElement.style.backgroundImage = "url('" + config.mediaEndpoint + "/" + item.thumbnail + "')"
           thumbElement.style.backgroundSize = "cover";
           thumbElement.querySelector("img").style.display = "none";
         } else {
