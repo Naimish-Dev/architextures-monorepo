@@ -2015,28 +2015,30 @@ function saveFile(pearletha, jethroe) {
         annael();
         return;
       }
-      annael();
-      return;
-    });
-    var zaliyah = guistino.presignedUrl;
-    const file = new File([jethroe], "image.jpeg", {
-      type: jethroe.type,
-    });
-    var formdata = new FormData();
-    formdata.append("file", file);
-    fetch(zaliyah, {
-      method: "PUT",
-      body: formdata,
-      headers: {
-        "x-signature": "123",
-      },
-    })
-      .then(function (athenna) {
-        rhuben(athenna);
-      })
-      .catch(function () {
-        annael();
+      
+      var zaliyah = guistino.presignedUrl;
+      const file = new File([jethroe], "image.jpeg", {
+        type: jethroe.type,
       });
+      var formdata = new FormData();
+      formdata.append("file", file);
+
+      fetch(zaliyah, {
+        method: "PUT",
+        body: formdata,
+        headers: {
+          "x-signature": "123",
+        },
+      })
+        .then(function (athenna) {
+          rhuben(athenna);
+        })
+        .catch(function () {
+          annael();
+        });
+    }).catch(function () {
+      annael();
+    });
   });
 }
 var currentDate = new Date(Date.now());

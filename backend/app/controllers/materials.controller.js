@@ -39,7 +39,7 @@ export async function index(req, res, next) {
     const options = {
       limit,
       page,
-    };
+    };  
 
     const { docs, hasNextPage } = await Material.paginate(query, options);
 
@@ -74,10 +74,10 @@ export async function update(req, res, next) {
   try {
     const body = req.body;
     const source_names = JSON.parse(body.source_names);
-    console.log("req.params.id", req.params.id, source_names)
-    const materialModel = await Material.findByIdAndUpdate(req.params.id, {
-      source_names,
-    });
+
+    const materialModel = await Material.findOne({id: req.params.id});
+    materialModel.source_names = source_names;
+    materialModel.save()
 
     res.json({
       status: "success",

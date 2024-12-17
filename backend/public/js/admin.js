@@ -1375,7 +1375,6 @@ config.areas = {
           auth: true,
         },
         itemHtml: function (saved) {
-          console.log("Saved", saved)
           return createHtml({
             tag: "a",
             target: "_blank",
@@ -3559,7 +3558,6 @@ function createSinglePage(
 
       // show loading screen here, to not hide potential error message above
       createLoadingScreen("Saving");
-
       let queryObject = item.id
         ? {
             table: table,
@@ -4680,7 +4678,7 @@ saveButton.onclick = async function () {
       // For every canvas image
       for (const canvas of config.canvasSelections) {
         // Generate a unique filename
-        var name = uuidv4() + ".jpg";
+        var name = "/uploads/materials/" + uuidv4() + ".jpg";
         // Associate the canvas with the filename for saving later
         images[name] = canvas;
         // Pass the name to the filenames array
@@ -4770,7 +4768,6 @@ saveButton.onclick = async function () {
       ) {
         saveData.values.thumbnail = thumbFile;
       }
-
       // Send the request
       if (Object.keys(saveData.values).length > 0) {
         response = await postJson(`/api/materials/${saveData.id}/update`, {
@@ -4838,14 +4835,14 @@ saveButton.onclick = async function () {
             saveImages.push({
               image: dataUrl,
               resizeData: { format: "jpg", quality: 60 },
-              location: "users/" + config.user.id + "/uploads/" + name,
+              location: name,
             });
           } else {
             // Save the original at 95 quality
             saveImages.push({
               image: dataUrl,
               resizeData: { format: "jpg", quality: 95 },
-              location: "materials/" + targetId + "/original/" + name,
+              location: "/materials/" + targetId + "/original/" + name,
             });
             // For every size
             for (const size of config.materialSizes) {
@@ -4859,7 +4856,7 @@ saveButton.onclick = async function () {
               saveImages.push({
                 image: dataUrl,
                 resizeData: resizeData,
-                location: "materials/" + targetId + "/" + size + "/" + name,
+                location: "/materials/" + targetId + "/" + size + "/" + name,
               });
             }
           }
@@ -5634,7 +5631,7 @@ async function showSinglePage(item) {
         thumbElement.style.display = "";
         // Set the thumbnail
         if (config.state.id !== "new") {
-          thumbElement.style.backgroundImage = "url('" + config.mediaEndpoint + "/" + item.thumbnail + "')"
+          thumbElement.style.backgroundImage = "url('" + config.mediaEndpoint + item.thumbnail + "')"
           thumbElement.style.backgroundSize = "cover";
           thumbElement.querySelector("img").style.display = "none";
         } else {
@@ -5660,7 +5657,7 @@ async function showSinglePage(item) {
 
       // Load the data
       if (item !== "new") {
-        let fetch = await postJson(`/api/saves/${item._id}`);
+        let fetch = await postJson(`/api/materials?ids=${item.id}&category=user_materials`);
         config.pageData = fetch.results[0];
         var newItem = false;
       } else {
@@ -5828,7 +5825,6 @@ async function showSinglePage(item) {
               "?s=400&q=60" +
               ")";
           });
-          console.log("pageData", config.pageData)
           elements("#admin-texture-edit").forEach(function (elem) {
             const textureUrl = new URL(
               window.location.protocol + window.location.host + "/create"
@@ -5852,11 +5848,7 @@ async function showSinglePage(item) {
             for (const filename of config.pageData.source_names) {
               var imgSrc =
                 config.state.area == "uploads"
-                  ? config.mediaEndpoint +
-                    "/users/" +
-                    config.pageData.user +
-                    "/uploads/" +
-                    filename
+                  ? config.mediaEndpoint + filename
                   : config.mediaEndpoint +
                     "/materials/" +
                     config.pageData.id +

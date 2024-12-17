@@ -5070,7 +5070,6 @@ let predraw;
                 table: "paths",
                 where: [["id", "in", config.pathsUsed.join(",")]],
               }).then(function (andrean) {
-                console.log(andrean);
 
                 andrean.results.forEach(function (lamiracle) {
                   config.paths[lamiracle.id] = lamiracle;

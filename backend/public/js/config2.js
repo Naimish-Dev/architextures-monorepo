@@ -3004,6 +3004,5 @@ config.textureData.sourceTable = "default";
 
 if(htmlEl.dataset.params !== "undefined"){
   params = JSON.parse(htmlEl.dataset.params);
-  console.log("params",params)
 }
 htmlEl.removeAttribute("data-params")
