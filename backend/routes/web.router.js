@@ -6,7 +6,7 @@ const router = Router();
 
 router.get("/", (req, res, next) => {
   try {
-    return res.render("index");
+    return res.render("index2");
   } catch (error) {
     next(error);
   }
